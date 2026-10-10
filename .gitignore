@@ -20,6 +20,7 @@ _targets/
 
 # --- Données : volumineuses et téléchargeables, donc hors git ------------------
 data/raw/
+data/*.md
 data/cache/
 data/*.duckdb
 data/*.duckdb.wal
