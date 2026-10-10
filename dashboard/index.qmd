@@ -1,0 +1,283 @@
+---
+title: "Tableau de bord — Anthropic Economic Index"
+format:
+  dashboard:
+    orientation: rows
+    scrolling: true
+    nav-buttons:
+      - icon: github
+        href: https://github.com/albanpjy/aei-analyse
+        aria-label: Dépôt GitHub
+    theme:
+      light: [cosmo, ../theme/clair.scss]
+      dark: [cosmo, ../theme/sombre.scss]
+execute:
+  echo: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+# Données R : cibles {targets} (mêmes calculs que le site et le rapport).
+suppressPackageStartupMessages({ library(targets); library(dplyr); library(ggplot2) })
+tar_source("R")
+theme_set(theme_aei())
+options(reactable.language = langue_reactable())
+tar_load(c(t1_usage_pays, t2_global, t2_pays, t3_exposition, t4_typologie))
+# Dépendance explicite : les Parquet lus par DuckDB-WASM doivent être à jour.
+fichiers_publies <- tar_read(donnees_publiees)
+pays8 <- names(pays_comparaison())
+iso <- requete(tar_read(base_duckdb), "iso_pays")
+der <- t1_usage_pays |> filter(release == max(release)) |> filter(date_start == max(date_start))
+fr <- der |> filter(geo_id == "FRA")
+auto_glob <- t2_global |> filter(source == "claude_ai") |> slice_max(release, n = 1) |>
+  slice_max(date_start, n = 1, with_ties = FALSE)
+# Palette transmise au JavaScript : un pays garde sa couleur partout.
+ojs_define(palette = as.list(palette_pays()), noms_pays = as.list(pays_comparaison()),
+           mode_donnees = mode_execution())
+```
+
+# Vue d'ensemble
+
+## Row {height=22%}
+
+```{r}
+#| content: valuebox
+#| title: "Indice d'usage par habitant — France"
+list(icon = "person-workspace", color = "primary", value = nombre_fr(fr$aui, 2))
+```
+
+```{r}
+#| content: valuebox
+#| title: "Rang mondial de la France (indice par habitant)"
+list(icon = "trophy", color = "secondary", value = paste0(fr$rang_aui, if (fr$rang_aui == 1) "er" else "e", " / ", fr$n_pays_aui))
+```
+
+```{r}
+#| content: valuebox
+#| title: "Part d'automatisation (Claude.ai, monde)"
+list(icon = "robot", color = "warning", value = pct_fr(auto_glob$automatisation_pct))
+```
+
+```{r}
+#| content: valuebox
+#| title: "Pays dans la dernière version"
+list(icon = "globe", color = "info", value = nrow(der))
+```
+
+## Row {height=78%}
+
+### Column {width=60%}
+
+```{r}
+#| title: "Indice d'usage par habitant dans le monde (dernière version)"
+# Carte choroplèthe (echarts4r) : noms de pays attendus par la carte « world »
+carte <- der |>
+  mutate(iso2 = countrycode::countrycode(geo_id, "iso3c", "iso2c", warn = FALSE)) |>
+  filter(!is.na(iso2)) |>
+  echarts4r::e_country_names(iso2, pays, type = "iso2c") |>
+  mutate(aui = round(aui, 2))
+carte |>
+  echarts4r::e_charts(pays) |>
+  echarts4r::e_map(aui, map = "world", name = "Indice par habitant") |>
+  echarts4r::e_visual_map(aui, inRange = list(color = rampe_sequentielle()),
+                          text = c("élevé", "faible"), calculable = TRUE) |>
+  echarts4r::e_tooltip(formatter = htmlwidgets::JS(
+    "function(p){ return p.name + ' : ' + (isNaN(p.value) ? 'non publié' : p.value.toLocaleString('fr-FR')); }"))
+```
+
+### Column {width=40%}
+
+```{r}
+#| title: "Classement (indice par habitant)"
+reactable::reactable(
+  der |> transmute(Pays = nom_pays(geo_id, iso), Indice = round(aui, 2), `Part de l'usage (%)` = round(usage_pct, 2)) |>
+    arrange(desc(Indice)),
+  searchable = TRUE, compact = TRUE, defaultPageSize = 12, highlight = TRUE,
+  columns = list(`Part de l'usage (%)` = reactable::colDef(format = reactable::colFormat(locales = "fr-FR")),
+                 Indice = reactable::colDef(
+    cell = reactable::JS("function(cell){ const w = Math.min(100, cell.value * 25);
+      return '<div style=\"display:flex;align-items:center;gap:6px\"><div style=\"background:#2a78d6;height:9px;width:' + w + 'px;border-radius:2px\"></div>' + cell.value.toLocaleString('fr-FR') + '</div>'; }"),
+    html = TRUE))
+)
+```
+
+# Pays (interactif)
+
+## {.sidebar}
+
+```{ojs}
+//| echo: false
+// Liste SQL des pays choisis. Les codes viennent de la liste proposée (valeurs
+// sûres) ; on évite de lier un tableau JS comme paramètre, mal pris en charge
+// par certaines versions de DuckDB-WASM.
+liste_sql = (codes) => codes.map(c => `'${String(c).replace(/'/g, "''")}'`).join(", ") || "''"
+// DuckDB-WASM : une base DuckDB complète, exécutée DANS le navigateur, qui lit
+// les fichiers Parquet publiés avec le site. Aucun serveur.
+db = DuckDBClient.of({
+  usage: FileAttachment("../donnees_publiees/usage_pays.parquet"),
+  automatisation: FileAttachment("../donnees_publiees/automatisation.parquet"),
+  soc: FileAttachment("../donnees_publiees/soc_pays.parquet"),
+  taches: FileAttachment("../donnees_publiees/taches.parquet"),
+  pays: FileAttachment("../donnees_publiees/pays.parquet")
+})
+versions = (await db.query("SELECT DISTINCT release FROM usage ORDER BY release")).map(d => d.release)
+liste_pays = (await db.query(`SELECT DISTINCT u.geo_id, coalesce(p.country_name, u.geo_id) AS nom
+  FROM usage u LEFT JOIN pays p ON p.iso_alpha_3 = u.geo_id ORDER BY nom`))
+viewof version = Inputs.select(versions, {label: "Version de l'index", value: versions[versions.length - 1]})
+viewof choix_pays = Inputs.select(new Map(liste_pays.map(d => [d.nom, d.geo_id])), {
+  label: "Pays (Ctrl/Cmd pour plusieurs)", multiple: true, size: 10,
+  value: ["FRA", "DEU", "GBR", "ESP", "ITA", "BEL", "NLD", "USA"]
+})
+```
+
+::: {.callout-note appearance="minimal"}
+Filtres calculés dans votre navigateur par **DuckDB-WASM** sur les fichiers Parquet du
+site. Données d'**usage** de Claude, pas d'emploi.
+:::
+
+## Row
+
+```{ojs}
+//| title: "Indice d'usage par habitant (version choisie)"
+aui = db.query(`SELECT u.geo_id, coalesce(p.country_name, u.geo_id) AS nom, avg(u.aui) AS aui,
+  any_value(u.origine_aui) AS origine
+  FROM usage u LEFT JOIN pays p ON p.iso_alpha_3 = u.geo_id
+  WHERE u.release = ? AND u.geo_id IN (${liste_sql(choix_pays)})
+  GROUP BY ALL ORDER BY aui DESC`, [version])
+Plot.plot({
+  marginLeft: 130, height: Math.max(220, 26 * aui.length), x: {label: "Indice (1 = proportionnel à la population 15–64 ans)", grid: true},
+  y: {label: null},
+  marks: [
+    Plot.barX(aui, {y: "nom", x: "aui", sort: {y: "-x"}, rx: 2,
+      fill: d => palette[d.geo_id] ?? "#c3c2b7", tip: true,
+      title: d => `${d.nom}\nIndice : ${d.aui.toLocaleString("fr-FR", {maximumFractionDigits: 2})} (${d.origine})`}),
+    Plot.ruleX([1], {stroke: "#898781", strokeDasharray: "4,3"})
+  ]
+})
+```
+
+```{ojs}
+//| title: "Part d'automatisation (Claude.ai), toutes versions"
+auto = db.query(`SELECT a.release, a.geo_id, coalesce(p.country_name, a.geo_id) AS nom,
+  avg(a.automatisation_pct) AS auto
+  FROM automatisation a LEFT JOIN pays p ON p.iso_alpha_3 = a.geo_id
+  WHERE a.source = 'claude_ai' AND a.geo_level = 'country'
+    AND a.geo_id IN (${liste_sql(choix_pays)})
+  GROUP BY ALL ORDER BY a.release`)
+Plot.plot({
+  height: 320, x: {type: "point", label: "Version"}, y: {label: "Automatisation (%)", grid: true},
+  color: {legend: true, domain: [...new Set(auto.map(d => d.nom))],
+          range: [...new Set(auto.map(d => d.geo_id))].map(g => palette[g] ?? "#898781")},
+  marks: [
+    Plot.line(auto, {x: "release", y: "auto", stroke: "nom", strokeWidth: 2}),
+    Plot.dot(auto, {x: "release", y: "auto", fill: "nom", r: 4, tip: true,
+      title: d => `${d.nom} — ${d.release}\n${d.auto.toLocaleString("fr-FR", {maximumFractionDigits: 1})} %`})
+  ]
+})
+```
+
+## Row
+
+```{ojs}
+//| title: "Tâches les plus fréquentes (premier pays sélectionné, version choisie)"
+taches = db.query(`SELECT tache, part_pct FROM taches
+  WHERE release = ? AND geo_id = ? ORDER BY part_pct DESC LIMIT 15`, [version, choix_pays[0] ?? "FRA"])
+Inputs.table(taches, {
+  columns: ["tache", "part_pct"],
+  header: {tache: "Tâche O*NET", part_pct: "Part (%)"},
+  format: {part_pct: d => d.toLocaleString("fr-FR", {maximumFractionDigits: 2})},
+  width: {tache: 520}, rows: 15
+})
+```
+
+# Automatisation
+
+## Row
+
+```{r}
+#| title: "Automatisation mondiale par version et par source (survol pour le détail)"
+p <- t2_global |>
+  filter(date_start == max(date_start) | is.na(date_start), .by = c(release, source)) |>
+  mutate(Source = c(claude_ai = "Claude.ai", `1p_api` = "API")[source]) |>
+  ggplot(aes(release, automatisation_pct, colour = Source, group = Source,
+             text = paste0(Source, " — ", release, "<br>", pct_fr(automatisation_pct)))) +
+  geom_line(linewidth = 0.8) + geom_point(size = 2.5) +
+  scale_colour_manual(values = c(`Claude.ai` = "#2a78d6", API = "#1baf7a"), name = NULL) +
+  labs(x = NULL, y = "Automatisation (%)")
+plotly::ggplotly(p, tooltip = "text") |> plotly::config(displaylogo = FALSE, locale = "fr")
+```
+
+## Row
+
+```{r}
+#| title: "Pays : automatisation et usage (sélection liée entre tableau et graphique — crosstalk)"
+# crosstalk : un même objet partagé alimente le graphique et le tableau ;
+# sélectionner des pays dans l'un les met en évidence dans l'autre, sans serveur.
+dern <- t2_pays |> filter(release == max(release)) |>
+  left_join(t1_usage_pays |> filter(release == max(release), date_start == max(date_start)) |>
+              select(geo_id, aui), by = "geo_id") |>
+  filter(!is.na(aui)) |>
+  mutate(Pays = nom_pays(geo_id, iso), auto = round(automatisation_pct, 1), aui = round(aui, 2))
+partage <- crosstalk::SharedData$new(dern, key = ~geo_id)
+crosstalk::bscols(
+  widths = c(7, 5),
+  plotly::plot_ly(partage, x = ~aui, y = ~auto, text = ~Pays, type = "scatter", mode = "markers",
+                  marker = list(color = "#2a78d6", size = 9), hoverinfo = "text") |>
+    plotly::layout(xaxis = list(title = "Indice d'usage par habitant", type = "log"),
+                   yaxis = list(title = "Automatisation (%)")) |>
+    plotly::highlight(on = "plotly_selected", off = "plotly_deselect", color = "#eb6834") |>
+    plotly::config(displaylogo = FALSE),
+  reactable::reactable(partage, selection = "multiple", onClick = "select", compact = TRUE,
+                       searchable = TRUE, defaultPageSize = 10,
+                       columns = list(geo_id = reactable::colDef(show = FALSE),
+                                      release = reactable::colDef(show = FALSE),
+                                      date_start = reactable::colDef(show = FALSE),
+                                      automatisation_pct = reactable::colDef(show = FALSE),
+                                      augmentation_pct = reactable::colDef(show = FALSE),
+                                      effectif_classable = reactable::colDef(show = FALSE),
+                                      ic_bas = reactable::colDef(show = FALSE),
+                                      ic_haut = reactable::colDef(show = FALSE),
+                                      auto = reactable::colDef(name = "Automatisation (%)"),
+                                      aui = reactable::colDef(name = "Indice"))))
+```
+
+# Métiers
+
+## Row
+
+```{r}
+#| title: "Exposition observée de tous les métiers (job_exposure) — métiers du chiffre en évidence"
+expo <- t3_exposition$toutes |>
+  mutate(cible = occ_code %in% metiers_cibles()$soc6) |>
+  arrange(desc(observed_exposure))
+reactable::reactable(
+  expo |> transmute(Code = occ_code, Métier = title, Exposition = round(observed_exposure, 3),
+                    `Rang centile` = round(100 * centile), cible),
+  searchable = TRUE, filterable = TRUE, compact = TRUE, defaultPageSize = 15,
+  rowStyle = reactable::JS("function(r){ if (r.row.cible) return {fontWeight: 600, background: 'rgba(42,120,214,.10)'} }"),
+  columns = list(cible = reactable::colDef(show = FALSE),
+                 Exposition = reactable::colDef(cell = reactable::JS(
+                   "function(c){ return '<div style=\"display:flex;align-items:center;gap:6px\"><div style=\"background:#2a78d6;height:9px;width:' + Math.round(c.value*120) + 'px;border-radius:2px\"></div>' + c.value.toLocaleString('fr-FR') + '</div>' }"),
+                   html = TRUE))
+)
+```
+
+# Typologie
+
+## Row
+
+```{r}
+#| title: "Pays sur le premier plan factoriel (ACP sur les parts CLR des familles de tâches), par classe HCPC"
+ind <- tibble::as_tibble(t4_typologie$acp$ind$coord[, 1:2], rownames = "geo_id") |>
+  left_join(t4_typologie$croise |> select(geo_id, classe_hcpc, pib_hab_ppa), by = "geo_id") |>
+  mutate(Pays = nom_pays(geo_id, iso))
+ind |>
+  echarts4r::group_by(classe_hcpc) |>
+  echarts4r::e_charts(Dim.1) |>
+  echarts4r::e_scatter(Dim.2, symbol_size = 11, bind = Pays) |>
+  echarts4r::e_color(unname(palette_pays())) |>
+  echarts4r::e_tooltip(formatter = htmlwidgets::JS("function(p){ return p.name + ' — classe ' + p.seriesName; }")) |>
+  echarts4r::e_x_axis(name = "Axe 1") |> echarts4r::e_y_axis(name = "Axe 2") |>
+  echarts4r::e_legend(top = 0)
+```

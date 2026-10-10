@@ -1,0 +1,248 @@
+---
+title: "La couche de données"
+subtitle: "De Hugging Face à DuckDB : ingestion, harmonisation, Parquet, SQL"
+description: "Architecture des données du projet et démonstration des techniques DuckDB utilisées."
+---
+
+{{< include analyses/_setup.qmd >}}
+
+```{r}
+#| label: connexion
+library(DBI)
+base <- tar_read(base_duckdb)
+con <- connexion_duckdb(base)   # lecture seule : plusieurs rendus en parallèle possibles
+resume <- tar_read(harmonise_resume)
+```
+
+## Architecture
+
+```{mermaid}
+%%| fig-cap: "Chaîne de traitement (pipeline {targets})"
+flowchart LR
+  HF[(Hugging Face<br/>Anthropic/EconomicIndex)] -->|aei_files / téléchargement| RAW[data/raw<br/>CSV bruts]
+  RAW -->|harmoniser_fichier<br/>wide / long / monthly| PQ[(data/parquet/usage<br/>release=AAAA-MM-JJ<br/>zstd)]
+  REF[Référentiels<br/>O*NET, SOC, ISO,<br/>population] --> PQ
+  WB[Banque mondiale<br/>PIB/hab.] --> PQR[(data/parquet/<br/>referentiels)]
+  PQ --> DB[(data/aei.duckdb<br/>VUES uniquement)]
+  PQR --> DB
+  DB -->|sql/*.sql| T[Tables d'analyse<br/>cibles targets]
+  T --> SITE[Site Quarto]
+  T --> DASH[Tableau de bord<br/>DuckDB-WASM]
+  T --> PDF[Rapport PDF]
+```
+
+La base DuckDB ne **copie aucune donnée** : elle ne contient que des vues qui lisent les
+fichiers Parquet à la demande. Elle pèse quelques kilo-octets et se reconstruit en quelques
+millisecondes.
+
+```{r}
+#| label: tbl-vues
+#| tbl-cap: "Vues définies dans la base DuckDB"
+dbGetQuery(con, "
+  SELECT view_name AS vue,
+         regexp_replace(sql, '\\s+', ' ', 'g')[1:90] || '…' AS definition
+  FROM duckdb_views()
+  WHERE NOT internal
+  ORDER BY view_name") |>
+  gt::gt() |> gt::tab_options(table.font.size = gt::px(12))
+```
+
+## Le volume harmonisé
+
+```{r}
+#| label: volume
+vol <- dbGetQuery(con, "
+  SELECT release, schema, count(*) AS lignes, count(DISTINCT geo_id) AS geographies,
+         count(DISTINCT facet) AS facettes, count(DISTINCT variable) AS variables
+  FROM usage GROUP BY ALL ORDER BY release")
+```
+
+```{r}
+#| label: tbl-volume
+#| tbl-cap: "Table harmonisée : lignes et diversité par version"
+vol |> gt::gt() |> gt::fmt_integer(columns = c(lignes, geographies), sep_mark = " ")
+```
+
+Au total, `r nombre_fr(sum(vol$lignes), 0)` lignes harmonisées, réparties entre
+`r nrow(vol)` versions et trois époques de schéma. Le détail des combinaisons facette ×
+variable observées est dans le [dictionnaire de données](https://github.com/albanpjy/aei-analyse/blob/main/docs/dictionnaire_donnees.md).
+
+## Techniques SQL de DuckDB
+
+Chaque exemple ci-dessous s'exécute sur la vraie base ; les requêtes complètes du projet
+sont dans le dossier `sql/`.
+
+### CTE et fonctions fenêtres (`rank`, `lag`)
+
+```{r}
+#| label: cte-fenetres
+#| echo: true
+#| code-fold: false
+requete_fenetres <- "
+WITH aui AS (                                                   -- <1>
+  SELECT release, date_start, geo_id, coalesce(aui_publie, aui_calcule) AS aui
+  FROM usage_pays
+  WHERE geo_id IN ('FRA', 'DEU', 'GBR', 'ESP', 'ITA', 'BEL', 'NLD', 'USA')
+)
+SELECT
+  release, geo_id, round(aui, 2) AS aui,
+  rank() OVER (PARTITION BY release, date_start ORDER BY aui DESC) AS rang,   -- <2>
+  round(aui - lag(aui) OVER (PARTITION BY geo_id ORDER BY release, date_start), 2) AS evolution  -- <3>
+FROM aui
+WHERE geo_id = 'FRA'
+ORDER BY release, date_start"
+dbGetQuery(con, requete_fenetres)
+```
+1. Une CTE (`WITH`) nomme un résultat intermédiaire : la requête se lit de haut en bas.
+2. `rank()` classe les pays **à l'intérieur** de chaque version (`PARTITION BY`), sans regrouper les lignes.
+3. `lag()` va chercher la valeur de la ligne précédente du même pays : l'évolution d'une version à l'autre, sans auto-jointure.
+
+### `QUALIFY` : filtrer sur une fonction fenêtre
+
+```{r}
+#| label: qualify
+#| echo: true
+#| code-fold: false
+dbGetQuery(con, "
+SELECT release, geo_id, tache, round(part_pct, 2) AS part
+FROM parts_taches
+WHERE geo_id IN ('FRA', 'DEU') AND est_classee AND release = (SELECT max(release) FROM parts_taches)
+QUALIFY row_number() OVER (PARTITION BY geo_id ORDER BY part_pct DESC) <= 3   -- <1>
+ORDER BY geo_id, part DESC")
+```
+1. `QUALIFY` est aux fonctions fenêtres ce que `HAVING` est aux agrégats : « les 3 premières tâches par pays », sans sous-requête.
+
+### `PIVOT` et `UNPIVOT`
+
+```{r}
+#| label: pivot
+#| echo: true
+#| code-fold: false
+large <- dbGetQuery(con, "
+PIVOT (SELECT release, mode, part_pct FROM collaboration
+       WHERE geo_level = 'global' AND source = 'claude_ai'
+       QUALIFY date_start IS NOT DISTINCT FROM max(date_start) OVER (PARTITION BY release))
+ON mode IN ('directive', 'feedback loop', 'task iteration', 'learning', 'validation')   -- <1>
+USING round(sum(part_pct), 1)
+ORDER BY release")
+large
+```
+1. Une colonne par mode de collaboration ; lister les valeurs (`IN (...)`) fixe l'ordre et le nombre de colonnes.
+
+```{r}
+#| label: unpivot
+#| echo: true
+#| code-fold: false
+duckdb::duckdb_register(con, "large", large)   # <1>
+dbGetQuery(con, "
+UNPIVOT large ON COLUMNS(* EXCLUDE (release)) INTO NAME mode VALUE part   -- <2>
+ORDER BY release, mode LIMIT 6")
+```
+1. On enregistre le data frame R comme une table virtuelle DuckDB (aucune copie).
+2. `UNPIVOT` fait l'inverse ; `COLUMNS(* EXCLUDE ...)` sélectionne les colonnes par motif.
+
+### `GROUP BY ALL` et `FILTER`
+
+```{r}
+#| label: group-by-all
+#| echo: true
+#| code-fold: false
+dbGetQuery(con, "
+SELECT release, source,
+       count(*) AS modes,
+       round(sum(part_pct) FILTER (WHERE mode IN ('directive', 'feedback loop')), 1) AS part_automatisation_brute  -- <1>
+FROM collaboration
+WHERE geo_level = 'global'
+GROUP BY ALL                                                                         -- <2>
+ORDER BY ALL")
+```
+1. `FILTER (WHERE ...)` restreint un agrégat, plus lisible qu'un `CASE WHEN` imbriqué.
+2. `GROUP BY ALL` regroupe sur toutes les colonnes non agrégées du `SELECT` : plus d'oubli possible.
+
+### `COPY ... TO` : exporter en Parquet
+
+```{r}
+#| label: copy
+#| echo: true
+#| code-fold: false
+sortie <- file.path(tempdir(), "automatisation.parquet")
+dbExecute(con, sprintf("
+COPY (SELECT * FROM automatisation WHERE geo_level = 'country')
+TO '%s' (FORMAT parquet, COMPRESSION zstd)", sortie))                  # <1>
+dbGetQuery(con, sprintf("SELECT count(*) AS lignes, count(DISTINCT geo_id) AS pays
+                         FROM read_parquet('%s')", sortie))            # <2>
+```
+1. Le résultat d'une requête est écrit directement en Parquet compressé, sans passer par R.
+2. Et relu aussitôt avec `read_parquet()`. C'est ainsi que sont produits les fichiers lus par le [tableau de bord](dashboard/index.qmd).
+
+### `EXPLAIN ANALYZE` : lire un plan d'exécution
+
+```{r}
+#| label: explain
+#| echo: true
+#| code-fold: false
+plan <- dbGetQuery(con, "
+EXPLAIN ANALYZE
+SELECT geo_id, avg(value) FROM usage
+WHERE release = '2026-06-26' AND facet = 'overall' AND variable = 'usage_pct'
+GROUP BY geo_id")
+cat(plan$explain_value)
+```
+
+À lire de bas en haut :
+
+- **`READ_PARQUET` / `TABLE_SCAN`** : grâce au partitionnement *hive*, le filtre
+  `release = '2026-06-26'` est appliqué aux **noms de dossiers** (*partition pruning*) :
+  les fichiers des autres versions ne sont même pas ouverts ; les autres filtres sont
+  « poussés » dans la lecture (*filter pushdown*), qui exploite aussi les statistiques
+  min/max stockées dans chaque groupe de lignes Parquet ;
+- seules les colonnes utiles sont lues (*projection pushdown*) : Parquet est un format
+  **colonnaire** ;
+- **`HASH_GROUP_BY`** : l'agrégation se fait par table de hachage, en parallèle ;
+- les durées et cardinalités réelles (`ANALYZE`) permettent de repérer l'étape coûteuse.
+
+## Le même calcul en SQL et en dplyr (dbplyr)
+
+```{r}
+#| label: dbplyr
+#| echo: true
+#| code-fold: false
+# 1. En SQL
+en_sql <- dbGetQuery(con, "
+  SELECT release, round(avg(automatisation_pct), 2) AS moyenne
+  FROM automatisation
+  WHERE geo_level = 'country' AND source = 'claude_ai'
+  GROUP BY release ORDER BY release")
+
+# 2. En dplyr : dbplyr TRADUIT le code en SQL, exécuté par DuckDB
+auto_tbl <- tbl(con, "automatisation")                       # <1>
+requete_dplyr <- auto_tbl |>
+  filter(geo_level == "country", source == "claude_ai") |>
+  group_by(release) |>
+  summarise(moyenne = round(mean(automatisation_pct, na.rm = TRUE), 2)) |>
+  arrange(release)
+show_query(requete_dplyr)                                     # <2>
+en_dplyr <- collect(requete_dplyr)                            # <3>
+all.equal(as.data.frame(en_sql), as.data.frame(en_dplyr), check.attributes = FALSE)
+```
+1. `tbl()` ne lit rien : c'est une référence paresseuse à la vue.
+2. `show_query()` affiche le SQL généré.
+3. `collect()` exécute la requête et rapatrie le résultat dans R.
+
+## Dictionnaire des combinaisons observées
+
+```{r}
+#| label: tbl-dictionnaire
+#| tbl-cap: "Combinaisons version × source × niveau × facette × variable réellement présentes"
+reactable::reactable(
+  resume |> select(release, schema, source, geo_level, facet, variable, n_lignes, n_geo, n_items),
+  filterable = TRUE, searchable = TRUE, defaultPageSize = 15, compact = TRUE, striped = TRUE,
+  columns = list(n_lignes = reactable::colDef(name = "lignes", format = reactable::colFormat(separators = TRUE, locales = "fr-FR")))
+)
+```
+
+```{r}
+#| label: fermeture
+#| include: false
+dbDisconnect(con, shutdown = TRUE)
+```

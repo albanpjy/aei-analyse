@@ -1,0 +1,17 @@
+path,size_bytes
+release_2025_03_27/cluster_level_data/README.md,2917
+release_2025_03_27/cluster_level_data/cluster_level_dataset.tsv,947989
+release_2025_03_27/cluster_level_data/cluster_level_example_analysis.ipynb,280733
+release_2025_03_27/README.md,3205
+release_2025_03_27/SOC_Structure.csv,77176
+release_2025_03_27/automation_augmentation_by_occupation.png,672136
+release_2025_03_27/automation_augmentation_comparison.png,149993
+release_2025_03_27/automation_vs_augmentation_by_task.csv,561368
+release_2025_03_27/automation_vs_augmentation_v1.csv,197
+release_2025_03_27/automation_vs_augmentation_v2.csv,198
+release_2025_03_27/normalized_automation_by_category.png,854296
+release_2025_03_27/onet_task_statements.csv,3592256
+release_2025_03_27/task_pct_v1.csv,461306
+release_2025_03_27/task_pct_v2.csv,435372
+release_2025_03_27/task_thinking_fractions.csv,372332
+release_2025_03_27/v2_report_replication.ipynb,1897331

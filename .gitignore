@@ -1,0 +1,75 @@
+# --- R ---------------------------------------------------------------------
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+.Renviron
+*.rds.tmp
+
+# --- renv : on versionne renv.lock, activate.R et settings.json -------------
+renv/library/
+renv/local/
+renv/cellar/
+renv/lock/
+renv/python/
+renv/sandbox/
+renv/staging/
+
+# --- {targets} : le magasin est régénérable par tar_make() ---------------------
+_targets/
+
+# --- Données : volumineuses et téléchargeables, donc hors git ------------------
+data/raw/
+data/*.md
+data/resultats_FIXTURES/
+data/cache/
+data/*.duckdb
+data/*.duckdb.wal
+*.duckdb.tmp/
+# Les Parquet sont régénérés par le pipeline (publiés via GitHub Pages, pas git)
+data/parquet/
+# Parquet publiés avec le site : régénérés par le pipeline
+donnees_publiees/
+
+# --- Quarto ----------------------------------------------------------------
+/.quarto/
+**/.quarto/
+_site/
+_site_fixtures/
+_book/
+*_files/
+*_cache/
+# _freeze/ (sorties gelées) est versionné UNIQUEMENT par la CI, à partir des
+# données réelles (git add -f) : on l'ignore localement pour ne jamais commiter
+# un rendu fait sur les données fictives.
+_freeze/
+
+# --- LaTeX : fichiers intermédiaires ------------------------------------------
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+*.tex.tmp
+
+# --- Système et éditeurs -------------------------------------------------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
+
+# --- Secrets ---------------------------------------------------------------
+.env
+
+**/*.quarto_ipynb

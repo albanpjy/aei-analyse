@@ -1,0 +1,76 @@
+release,schema,source,date_start,mode,part_pct,effectif,libelle_fr,famille
+2025-02-10,wide,claude_ai,,directive,22.563272409918948,,Directive,automatisation
+2025-02-10,wide,claude_ai,,feedback loop,12.036303266190515,,Boucle de rétroaction,automatisation
+2025-02-10,wide,claude_ai,,learning,18.917648061953294,,Apprentissage,augmentation
+2025-02-10,wide,claude_ai,,none,2.9013020624347967,,Aucun,hors champ
+2025-02-10,wide,claude_ai,,task iteration,25.47648663831153,,Itération sur la tâche,augmentation
+2025-02-10,wide,claude_ai,,validation,2.314220367546746,,Validation,augmentation
+2025-03-27,wide,claude_ai,,directive,29.420541308119624,,Directive,automatisation
+2025-03-27,wide,claude_ai,,feedback loop,12.245083676255144,,Boucle de rétroaction,automatisation
+2025-03-27,wide,claude_ai,,learning,27.080406206093095,,Apprentissage,augmentation
+2025-03-27,wide,claude_ai,,none,3.2389485842287633,,Aucun,hors champ
+2025-03-27,wide,claude_ai,,task iteration,24.038560578408678,,Itération sur la tâche,augmentation
+2025-03-27,wide,claude_ai,,validation,3.972959594393916,,Validation,augmentation
+2025-09-15,long,1p_api,2025-08-04,directive,66.29576620885462,626255,Directive,automatisation
+2025-09-15,long,1p_api,2025-08-04,feedback loop,11.076518200622884,104633,Boucle de rétroaction,automatisation
+2025-09-15,long,1p_api,2025-08-04,learning,3.7788020384528256,35696,Apprentissage,augmentation
+2025-09-15,long,1p_api,2025-08-04,none,10.21163662694069,96463,Aucun,hors champ
+2025-09-15,long,1p_api,2025-08-04,not_classified,0.0014820492082681408,14,Non classé,hors champ
+2025-09-15,long,1p_api,2025-08-04,task iteration,5.498508423332535,51941,Itération sur la tâche,augmentation
+2025-09-15,long,1p_api,2025-08-04,validation,3.1372864525881874,29636,Validation,augmentation
+2025-09-15,long,claude_ai,2025-08-04,directive,38.779816152303695,374029,Directive,automatisation
+2025-09-15,long,claude_ai,2025-08-04,feedback loop,10.318156463389093,99518,Boucle de rétroaction,automatisation
+2025-09-15,long,claude_ai,2025-08-04,learning,20.338125483414103,196160,Apprentissage,augmentation
+2025-09-15,long,claude_ai,2025-08-04,none,3.860884567451949,37238,Aucun,hors champ
+2025-09-15,long,claude_ai,2025-08-04,not_classified,1.03681308541e-4,1,Non classé,hors champ
+2025-09-15,long,claude_ai,2025-08-04,task iteration,22.22325903530763,214342,Itération sur la tâche,augmentation
+2025-09-15,long,claude_ai,2025-08-04,validation,4.4796546168249876,43206,Validation,augmentation
+2026-01-15,long,1p_api,2025-11-13,directive,63.58415892540079,617736,Directive,automatisation
+2026-01-15,long,1p_api,2025-11-13,feedback loop,11.024111577159621,107102,Boucle de rétroaction,automatisation
+2026-01-15,long,1p_api,2025-11-13,learning,4.191245721932014,40719,Apprentissage,augmentation
+2026-01-15,long,1p_api,2025-11-13,none,11.04130104732251,107269,Aucun,hors champ
+2026-01-15,long,1p_api,2025-11-13,not_classified,1.0293095905921104e-4,1,Non classé,hors champ
+2026-01-15,long,1p_api,2025-11-13,task iteration,5.849154679498726,56826,Itération sur la tâche,augmentation
+2026-01-15,long,1p_api,2025-11-13,validation,4.309925117727285,41872,Validation,augmentation
+2026-01-15,long,claude_ai,2025-11-13,directive,31.726665833229156,317227,Directive,automatisation
+2026-01-15,long,claude_ai,2025-11-13,feedback loop,13.628703587948493,136270,Boucle de rétroaction,automatisation
+2026-01-15,long,claude_ai,2025-11-13,learning,19.71576447055882,197133,Apprentissage,augmentation
+2026-01-15,long,claude_ai,2025-11-13,none,2.9611701462682833,29608,Aucun,hors champ
+2026-01-15,long,claude_ai,2025-11-13,task iteration,27.19599949993749,271926,Itération sur la tâche,augmentation
+2026-01-15,long,claude_ai,2025-11-13,validation,4.771696462057757,47711,Validation,augmentation
+2026-03-24,long,1p_api,2026-02-05,directive,58.218199999999996,582182,Directive,automatisation
+2026-03-24,long,1p_api,2026-02-05,feedback loop,9.411,94110,Boucle de rétroaction,automatisation
+2026-03-24,long,1p_api,2026-02-05,learning,4.4286,44286,Apprentissage,augmentation
+2026-03-24,long,1p_api,2026-02-05,none,15.1944,151944,Aucun,hors champ
+2026-03-24,long,1p_api,2026-02-05,task iteration,9.2985,92985,Itération sur la tâche,augmentation
+2026-03-24,long,1p_api,2026-02-05,validation,3.4493000000000005,34493,Validation,augmentation
+2026-03-24,long,claude_ai,2026-02-05,directive,32.636199999999995,326362,Directive,automatisation
+2026-03-24,long,claude_ai,2026-02-05,feedback loop,11.5207,115207,Boucle de rétroaction,automatisation
+2026-03-24,long,claude_ai,2026-02-05,learning,22.3525,223525,Apprentissage,augmentation
+2026-03-24,long,claude_ai,2026-02-05,none,3.049,30490,Aucun,hors champ
+2026-03-24,long,claude_ai,2026-02-05,task iteration,25.585,255850,Itération sur la tâche,augmentation
+2026-03-24,long,claude_ai,2026-02-05,validation,4.8566,48566,Validation,augmentation
+2026-06-26,monthly,1p_api,2026-04-01,directive,80.88,,Directive,automatisation
+2026-06-26,monthly,1p_api,2026-04-01,feedback loop,7.41,,Boucle de rétroaction,automatisation
+2026-06-26,monthly,1p_api,2026-04-01,learning,1.47,,Apprentissage,augmentation
+2026-06-26,monthly,1p_api,2026-04-01,none,5.73,,Aucun,hors champ
+2026-06-26,monthly,1p_api,2026-04-01,task iteration,2.9,,Itération sur la tâche,augmentation
+2026-06-26,monthly,1p_api,2026-04-01,validation,1.6,,Validation,augmentation
+2026-06-26,monthly,1p_api,2026-05-01,directive,82.75,,Directive,automatisation
+2026-06-26,monthly,1p_api,2026-05-01,feedback loop,6.28,,Boucle de rétroaction,automatisation
+2026-06-26,monthly,1p_api,2026-05-01,learning,1.38,,Apprentissage,augmentation
+2026-06-26,monthly,1p_api,2026-05-01,none,5.51,,Aucun,hors champ
+2026-06-26,monthly,1p_api,2026-05-01,task iteration,2.68,,Itération sur la tâche,augmentation
+2026-06-26,monthly,1p_api,2026-05-01,validation,1.41,,Validation,augmentation
+2026-06-26,monthly,claude_ai,2026-04-01,directive,31.72,,Directive,automatisation
+2026-06-26,monthly,claude_ai,2026-04-01,feedback loop,16,,Boucle de rétroaction,automatisation
+2026-06-26,monthly,claude_ai,2026-04-01,learning,16.75,,Apprentissage,augmentation
+2026-06-26,monthly,claude_ai,2026-04-01,none,2.58,,Aucun,hors champ
+2026-06-26,monthly,claude_ai,2026-04-01,task iteration,29.88,,Itération sur la tâche,augmentation
+2026-06-26,monthly,claude_ai,2026-04-01,validation,3.08,,Validation,augmentation
+2026-06-26,monthly,claude_ai,2026-05-01,directive,31.38,,Directive,automatisation
+2026-06-26,monthly,claude_ai,2026-05-01,feedback loop,15.97,,Boucle de rétroaction,automatisation
+2026-06-26,monthly,claude_ai,2026-05-01,learning,16.55,,Apprentissage,augmentation
+2026-06-26,monthly,claude_ai,2026-05-01,none,2.61,,Aucun,hors champ
+2026-06-26,monthly,claude_ai,2026-05-01,task iteration,30.41,,Itération sur la tâche,augmentation
+2026-06-26,monthly,claude_ai,2026-05-01,validation,3.08,,Validation,augmentation

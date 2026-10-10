@@ -1,0 +1,255 @@
+---
+title: "La France face à Claude"
+subtitle: "Sujet 1 — profil d'usage, comparaison européenne, évolution et concentration"
+description: "Comment la France utilise Claude par rapport à ses voisins européens et aux États-Unis."
+---
+
+{{< include _setup.qmd >}}
+
+```{r}
+#| label: donnees-s1
+tar_load(c(t1_usage_pays, t1_top_taches, t1_soc_pays, t1_concentration, t1_comparaison))
+iso <- requete(tar_read(base_duckdb), "iso_pays")
+pays8 <- names(pays_comparaison())
+
+# Dernière période de chaque version (le schéma mensuel en publie deux)
+usage_derniere <- t1_usage_pays |>
+  filter(date_start == max(date_start), .by = release)
+derniere <- max(usage_derniere$release)
+fr <- usage_derniere |> filter(geo_id == "FRA", release == derniere)
+fr_prec <- usage_derniere |>
+  filter(geo_id == "FRA", release < derniere, !is.na(aui)) |>
+  slice_max(release, n = 1)
+voisins <- usage_derniere |> filter(release == derniere, geo_id %in% pays8)
+rang_europe <- voisins |>
+  filter(geo_id != "USA") |>
+  mutate(r = rank(-aui)) |>
+  filter(geo_id == "FRA") |>
+  pull(r)
+```
+
+## L'essentiel
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-4}
+[`r nombre_fr(fr$aui, 2)`]{.chiffre-cle}
+
+indice d'usage par habitant de la France (version `r derniere`) : 1 = usage proportionnel à
+la population en âge de travailler.
+:::
+::: {.g-col-12 .g-col-md-4}
+[`r ordinal_fr(fr$rang_aui)` / `r fr$n_pays_aui`]{.chiffre-cle}
+
+rang mondial de la France sur cet indice ; `r ordinal_fr(rang_europe)` des
+`r sum(voisins$geo_id != "USA")` pays européens comparés.
+:::
+::: {.g-col-12 .g-col-md-4}
+[`r pct_fr(fr$usage_pct, 2)`]{.chiffre-cle}
+
+de l'usage mondial de Claude.ai provient de France.
+:::
+:::
+
+L'**indice d'usage par habitant** (*Anthropic AI Usage Index*) rapporte la part d'un pays
+dans l'usage mondial à sa part dans la population mondiale des 15–64 ans
+[@handa2025economic]. En version `r derniere`, la France est
+`r if (fr$aui >= 1) "**au-dessus**" else "**en dessous**"` de l'usage « proportionnel »
+(`r nombre_fr(fr$aui, 2)`)`r if (nrow(fr_prec) == 1) paste0(", contre ", nombre_fr(fr_prec$aui, 2), " en version ", fr_prec$release) else ""`.
+
+## Comparaison avec sept pays de référence
+
+```{r}
+#| label: fig-aui-barres
+#| fig-cap: "Indice d'usage par habitant, dernière version : la France et ses voisins"
+#| fig-alt: "Diagramme en barres horizontales classées de l'indice d'usage par habitant pour huit pays ; la France est mise en évidence en bleu, les autres pays en gris, chaque barre porte sa valeur."
+d <- voisins |>
+  mutate(nom = nom_pays(geo_id), nom = forcats::fct_reorder(nom, aui),
+         france = geo_id == "FRA")
+ggplot(d, aes(aui, nom, fill = france)) +
+  geom_col(width = 0.65) +
+  geom_vline(xintercept = 1, linetype = "dashed", colour = palette_interface()[["discret"]]) +
+  geom_text(aes(label = nombre_fr(aui, 2)), hjust = -0.15, size = 3.4,
+            colour = palette_interface()[["texte_2"]]) +
+  scale_fill_manual(values = c(`TRUE` = palette_pays()[["FRA"]],
+                               `FALSE` = palette_interface()[["contexte"]]), guide = "none") +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.12))) +
+  labs(x = "Indice d'usage par habitant (1 = proportionnel à la population 15–64 ans)",
+       y = NULL, caption = source_aei(paste("Version", derniere, "— pointillé : usage proportionnel."))) +
+  theme(panel.grid.major.y = element_blank())
+```
+
+```{r}
+#| label: fig-aui-pente
+#| fig-cap: "Évolution de l'indice d'usage par habitant d'une version à l'autre (slopegraph)"
+#| fig-alt: "Graphique de pente reliant, pour huit pays, l'indice d'usage par habitant des versions de l'index disposant de données géographiques ; chaque pays a une couleur fixe et une étiquette à droite."
+evol <- usage_derniere |> filter(geo_id %in% pays8, !is.na(aui))
+p <- ggplot(evol, aes(release, aui, group = geo_id, colour = geo_id)) +
+  geom_line(linewidth = 0.8) +
+  geom_point(size = 2.5) +
+  # ggrepel : étiquettes directes sans chevauchement, alignées à droite
+  ggrepel::geom_text_repel(data = filter(evol, release == max(release)),
+            aes(label = nom_pays(geo_id)), nudge_x = 0.35, hjust = 0, direction = "y",
+            size = 3.2, colour = palette_interface()[["texte_2"]],
+            segment.colour = palette_interface()[["axe"]], show.legend = FALSE) +
+  geom_hline(yintercept = 1, linetype = "dashed", colour = palette_interface()[["discret"]]) +
+  scale_colour_pays(name = NULL) +
+  # Échelle logarithmique : l'indice est un RAPPORT (2 et 0,5 sont symétriques
+  # autour de 1).
+  scale_y_log10(labels = \(x) nombre_fr(x, 2)) +
+  scale_x_discrete(expand = expansion(add = c(0.2, 1.1))) +
+  labs(x = "Version de l'index", y = "Indice d'usage par habitant (échelle log)",
+       caption = source_aei("Indice recalculé par le projet pour toutes les versions (méthode homogène).")) +
+  theme(legend.position = "none")
+p
+```
+
+```{r}
+#| label: controle-aui
+ctrl <- t1_usage_pays |>
+  filter(!is.na(aui_publie), !is.na(aui_calcule), aui_calcule > 0) |>
+  summarise(r = cor(aui_publie, aui_calcule), rapport = median(aui_publie / aui_calcule),
+            .by = release)
+c25 <- filter(ctrl, release == "2025-09-15"); c26 <- filter(ctrl, release == max(release))
+```
+
+::: {.callout-note collapse="true"}
+## Indice publié ou recalculé ?
+
+Les fichiers de 2026-01-15 et 2026-03-24 ne contiennent pas l'indice par habitant (fichiers
+« bruts » seulement). Le projet le **recalcule pour toutes les versions**, avec la même
+définition et la population 2024 publiée par Anthropic (vue `usage_pays`,
+`sql/vue_04_usage_pays.sql`) : la méthode est ainsi homogène d'une version à l'autre.
+Contrôles : en version `r c26$release`, l'indice recalculé reproduit l'indice publié
+(rapport médian publié / recalculé de `r nombre_fr(c26$rapport, 3)`, corrélation
+`r nombre_fr(c26$r, 3)`) ; en version 2025-09-15, la corrélation est de
+`r nombre_fr(c25$r, 3)` mais l'indice publié vaut `r nombre_fr(c25$rapport, 3)` fois
+l'indice recalculé, pour tous les pays : Anthropic y a utilisé un autre dénominateur
+(périmètre de pays ou de population). Le classement des pays n'en est pas affecté, mais les
+niveaux publiés de cette version ne sont pas directement comparables aux autres.
+:::
+
+## Ce que les Français demandent à Claude
+
+```{r}
+#| label: fig-top-taches
+#| fig-cap: "Les tâches O*NET les plus fréquentes en France et leur poids moyen chez les sept autres pays"
+#| fig-alt: "Graphique en haltères : pour les quinze tâches les plus fréquentes en France, un point bleu indique la part en France et un point gris la part moyenne dans les sept autres pays, reliés par un segment."
+tt <- t1_top_taches |>
+  mutate(libelle = stringr::str_trunc(tache, 70),
+         libelle = forcats::fct_reorder(libelle, part_fra))
+ggplot(tt, aes(y = libelle)) +
+  geom_segment(aes(x = part_autres, xend = part_fra, yend = libelle),
+               colour = palette_interface()[["axe"]], linewidth = 0.8) +
+  geom_point(aes(x = part_autres, colour = "Moyenne des 7 autres pays"), size = 2.8) +
+  geom_point(aes(x = part_fra, colour = "France"), size = 3.2) +
+  scale_colour_manual(values = c("France" = palette_pays()[["FRA"]],
+                                 "Moyenne des 7 autres pays" = palette_interface()[["discret"]]),
+                      name = NULL) +
+  labs(x = "Part des conversations de la géographie (%)", y = NULL,
+       caption = source_aei(paste("Version", derniere, ", dernière période publiée."))) +
+  theme(panel.grid.major.y = element_blank(), axis.text.y = element_text(size = 8))
+```
+
+La tâche la plus fréquente en France est « `r t1_top_taches$tache[1]` »
+(`r pct_fr(t1_top_taches$part_fra[1], 2)` des conversations françaises). Parmi les
+`r nrow(t1_top_taches)` premières tâches, `r sum(t1_top_taches$indice_specialisation > 1, na.rm = TRUE)`
+pèsent davantage en France que chez ses voisins (indice de spécialisation > 1).
+
+## Par grand groupe de métiers
+
+Pour comparer les pays sur toutes les versions, les parts par grand groupe de la
+nomenclature SOC sont **dérivées** des parts de tâches (chaque tâche est rattachée à
+son métier O\*NET ; voir [Méthodologie](../methodologie.qmd)).
+
+```{r}
+#| label: fig-heatmap-soc
+#| fig-cap: "Parts d'usage par grand groupe de métiers (dérivées des tâches), dernière version"
+#| fig-alt: "Carte de chaleur croisant huit pays en colonnes et les grands groupes de métiers SOC en lignes ; l'intensité du bleu indique la part des conversations, la valeur est écrite dans chaque case."
+h <- t1_soc_pays |>
+  filter(release == derniere, geo_id %in% pays8) |>
+  mutate(pays = factor(nom_pays(geo_id), levels = nom_pays(pays8)),
+         groupe = forcats::fct_reorder(libelle_fr, part_derivee, .fun = mean))
+ggplot(h, aes(pays, groupe, fill = part_derivee)) +
+  geom_tile(colour = palette_interface()[["surface"]], linewidth = 0.6) +
+  geom_text(aes(label = nombre_fr(part_derivee, 1),
+                colour = part_derivee > quantile(part_derivee, 0.75, na.rm = TRUE)),
+            size = 2.6, show.legend = FALSE) +
+  scale_fill_gradientn(colours = rampe_sequentielle(), name = "Part (%)") +
+  scale_colour_manual(values = c(`TRUE` = "#ffffff", `FALSE` = palette_interface()[["texte"]])) +
+  scale_x_discrete(position = "top", labels = \(x) stringr::str_wrap(x, 9)) +
+  labs(x = NULL, y = NULL, caption = source_aei(paste("Version", derniere))) +
+  theme(panel.grid = element_blank(), legend.position = "right")
+```
+
+```{r}
+#| label: controle-soc
+ctrl <- t1_soc_pays |> filter(!is.na(part_publiee))
+cor_ctrl <- if (nrow(ctrl) > 2) cor(ctrl$part_derivee, ctrl$part_publiee) else NA
+```
+
+Contrôle : là où Anthropic publie aussi des parts par grand groupe
+(`r paste(unique(ctrl$release), collapse = " et ")`), la corrélation entre parts dérivées
+et publiées vaut `r nombre_fr(cor_ctrl, 3)` sur `r nrow(ctrl)` couples (pays × groupe).
+
+## Évolution entre deux versions avec `aei_compare()`
+
+```{r}
+#| label: tbl-compare
+#| tbl-cap: "Tâches dont la part a le plus varié en France entre les versions 2026-01-15 et 2026-03-24"
+t1_comparaison |>
+  slice_max(abs(delta), n = 12) |>
+  transmute(Tâche = stringr::str_trunc(tache, 80),
+            `Part 2026-01-15 (%)` = value_a, `Part 2026-03-24 (%)` = value_b,
+            `Écart (points)` = delta) |>
+  gt::gt() |>
+  gt::fmt_number(columns = -1, decimals = 2, dec_mark = ",", sep_mark = " ") |>
+  gt::data_color(columns = `Écart (points)`, method = "numeric",
+                 palette = unname(palette_divergente()), domain = c(-1, 1) * max(abs(t1_comparaison$delta))) |>
+  gt::tab_source_note(paste0("Calcul : ", unique(t1_comparaison$methode),
+                             ". Parts de la dernière période de chaque version."))
+```
+
+`aei_compare()` joint deux versions sur des clés communes et calcule écart et variation.
+Pour le schéma long, ses clés par défaut (`cluster_name`, `facet`, `variable`) ignorent la
+géographie : il faut les **passer explicitement** (voir `s1_comparer()` dans
+`R/analyses.R`), sans quoi chaque tâche serait jointe pour tous les pays à la fois.
+
+## Concentration de l'usage
+
+La concentration mesure si l'usage est réparti sur de nombreuses tâches ou focalisé sur
+quelques-unes. `aei_concentration()` calcule trois indicateurs sur les parts $s_i$ des
+$n$ tâches (renormalisées à 100 %) :
+
+$$
+\text{HHI} = \sum_{i=1}^{n} s_i^2, \qquad
+\text{CR}_{10} = \sum_{i=1}^{10} s_{(i)}, \qquad
+H = -\sum_{i=1}^{n} p_i \log_2 p_i, \quad H_{\text{norm}} = \frac{H}{\log_2 n}
+$$
+
+```{r}
+#| label: tbl-concentration
+#| tbl-cap: "Indicateurs de concentration de l'usage sur les tâches, dernière version"
+conc <- t1_concentration |> filter(release == derniere) |>
+  mutate(Pays = nom_pays(geo_id)) |>
+  arrange(desc(entropy_normalised))
+conc |>
+  select(Pays, `Tâches` = n, HHI = hhi, `CR10 (%)` = cr_10,
+         `Entropie (bits)` = entropy_bits, `Entropie normalisée` = entropy_normalised) |>
+  gt::gt() |>
+  gt::fmt_number(columns = c(HHI, `CR10 (%)`, `Entropie (bits)`), decimals = 1,
+                 dec_mark = ",", sep_mark = " ") |>
+  gt::fmt_number(columns = `Entropie normalisée`, decimals = 3, dec_mark = ",") |>
+  gt::tab_style(gt::cell_text(weight = "bold"), gt::cells_body(rows = Pays == "France"))
+```
+
+En version `r derniere`, les dix premières tâches concentrent
+`r pct_fr(conc$cr_10[conc$geo_id == "FRA"])` de l'usage français, contre
+`r pct_fr(conc$cr_10[conc$geo_id == "GLOBAL"])` au niveau mondial. Le nombre de tâches
+publiées varie selon la taille de l'échantillon d'un pays (seuils de confidentialité) :
+l'**entropie normalisée** neutralise cet effet et doit être préférée pour comparer.
+
+::: {.callout-tip}
+## Pour aller plus loin
+Le [tableau de bord](../dashboard/index.qmd) permet de refaire ces comparaisons pour
+n'importe quel pays et n'importe quelle version.
+:::

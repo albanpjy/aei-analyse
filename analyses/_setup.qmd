@@ -1,0 +1,27 @@
+```{r}
+#| label: setup
+#| include: false
+# Chargement commun à toutes les pages (inclus via {{< include >}}).
+# Les fonctions du projet sont dans R/ ; les résultats viennent des cibles
+# {targets} (tar_read) : texte et figures reposent sur le MÊME calcul.
+suppressPackageStartupMessages({
+  library(targets)
+  library(dplyr)
+  library(tidyr)
+  library(ggplot2)
+})
+tar_source("R")
+knitr::opts_chunk$set(dev = if (requireNamespace("ragg", quietly = TRUE)) "ragg_png" else "png",
+                      fig.align = "left")
+theme_set(theme_aei())
+options(reactable.language = langue_reactable())
+mode_donnees <- mode_execution()
+```
+
+::: {.callout-warning appearance="minimal"}
+**Données d'usage, pas d'emploi.** L'Anthropic Economic Index décrit des conversations
+avec Claude (échantillonnées et anonymisées), classées par tâche O\*NET. Un résultat
+du type « tel métier pèse X % » signifie « X % des conversations portent sur des tâches
+de ce métier », et non « X % des emplois ».
+`r if (mode_donnees != "reel") "**⚠ Rendu sur DONNÉES FICTIVES (mode fixtures) : aucun chiffre de cette page n'a de valeur.**" else ""`
+:::

@@ -1,0 +1,9 @@
+linters: linters_with_defaults(
+    line_length_linter(100),         # 80 est trop court pour du code commenté en français
+    object_name_linter(styles = c("snake_case", "symbols")),
+    object_usage_linter = NULL,      # faux positifs avec tidy evaluation et {targets}
+    indentation_linter = NULL,       # laissé au formateur (styler)
+    commented_code_linter = NULL     # les en-têtes montrent des exemples d'appel en commentaire
+  )
+exclusions: list("renv", "_targets", "tools")
+encoding: "UTF-8"

@@ -1,0 +1,103 @@
+---
+title: "L'usage de Claude vu par l'Anthropic Economic Index"
+subtitle: "Une analyse reproductible en R, DuckDB et Quarto"
+description: "Ce que les données publiées par Anthropic disent de l'usage de Claude en France et dans le monde."
+toc: false
+---
+
+{{< include analyses/_setup.qmd >}}
+
+```{r}
+#| label: chiffres-accueil
+tar_load(c(t1_usage_pays, t2_global, harmonise_resume))
+der <- t1_usage_pays |> filter(release == max(release)) |> filter(date_start == max(date_start))
+fr <- der |> filter(geo_id == "FRA")
+auto <- t2_global |> filter(source == "claude_ai") |> slice_max(release, n = 1) |>
+  slice_max(date_start, n = 1, with_ties = FALSE)
+versions <- aei_versions_epinglees()
+```
+
+L'[Anthropic Economic Index](https://www.anthropic.com/economic-index) (AEI) mesure **à
+quoi sert Claude** : des millions de conversations, anonymisées par le système Clio
+[@tamkin2024clio], sont rattachées aux tâches de la base O\*NET du ministère américain du
+Travail [@handa2025economic]. Ce site exploite les **`r nrow(versions)` versions**
+publiées entre le `r format(as.Date(min(versions$release)), "%d/%m/%Y")` et le
+`r format(as.Date(max(versions$release)), "%d/%m/%Y")`, soit
+`r nombre_fr(sum(harmonise_resume$n_lignes), 0)` lignes harmonisées.
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-4}
+[`r nombre_fr(fr$aui, 2)`]{.chiffre-cle}
+
+**Indice d'usage par habitant de la France** (1 = usage proportionnel à la population
+en âge de travailler), version `r fr$release`.
+:::
+::: {.g-col-12 .g-col-md-4}
+[`r ordinal_fr(fr$rang_aui)`]{.chiffre-cle}
+
+**Rang de la France** sur `r fr$n_pays_aui` pays pour cet indice.
+:::
+::: {.g-col-12 .g-col-md-4}
+[`r pct_fr(auto$automatisation_pct, 0)`]{.chiffre-cle}
+
+des conversations classables sur Claude.ai relèvent de l'**automatisation** (Claude
+exécute) plutôt que de l'augmentation (Claude accompagne).
+:::
+:::
+
+::: {.rappel-usage}
+**À garder en tête.** Ce sont des données d'**usage de Claude**, pas des données d'emploi :
+elles disent sur quelles tâches porte l'usage d'un assistant d'IA, pas combien d'emplois
+sont transformés ou menacés. Elles ne couvrent qu'un produit, Claude, dont la clientèle
+n'est pas représentative de la population active.
+:::
+
+## Quatre questions
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-6}
+### [La France face à Claude](analyses/01_france.qmd)
+Profil d'usage par tâche et par métier, comparaison avec sept pays, indice par habitant,
+évolution entre versions, concentration.
+:::
+::: {.g-col-12 .g-col-md-6}
+### [Automatisation ou augmentation ?](analyses/02_automatisation.qmd)
+Comment les utilisateurs collaborent avec Claude, par version, source, métier et pays.
+:::
+::: {.g-col-12 .g-col-md-6}
+### [Les métiers du chiffre](analyses/03_metiers_finances.qmd)
+Finance, budget, comptabilité, finances publiques : exposition, tâches concernées, part d'automatisation,
+correspondance avec la fonction publique française.
+:::
+::: {.g-col-12 .g-col-md-6}
+### [Une typologie des pays](analyses/04_typologie.qmd)
+Données compositionnelles, transformation CLR, ACP, classification hiérarchique et mélanges
+gaussiens.
+:::
+:::
+
+Et aussi : un [tableau de bord interactif](dashboard/index.qmd) (calculs dans le
+navigateur), le [rapport académique en PDF](rapport/rapport.pdf), la
+[couche de données](donnees.qmd), la [méthodologie](methodologie.qmd) et la
+[synthèse des techniques](techniques.qmd) employées.
+
+## Reproduire
+
+```bash
+git clone https://github.com/albanpjy/aei-analyse && cd aei-analyse
+Rscript -e 'renv::restore()'         # versions exactes des packages
+Rscript -e 'targets::tar_make()'     # téléchargement, analyses, site, PDF
+```
+
+## Citer les données
+
+```{r}
+#| label: citation
+#| echo: false
+#| results: asis
+cat("```\n", paste(aieconindex::aei_cite(format = "text"), collapse = "\n\n"), "\n```\n", sep = "")
+```
+
+Données publiées par Anthropic sous licence **CC-BY 4.0** ; package R
+**aieconindex** sous licence MIT [@coverdale2026aieconindex]. Ce site n'est ni produit ni
+approuvé par Anthropic.

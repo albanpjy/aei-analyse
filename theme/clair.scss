@@ -1,0 +1,28 @@
+/*-- scss:defaults --*/
+// Thème clair : encres et surfaces de la charte graphique du projet
+// (mêmes valeurs que palette_interface() dans R/config.R).
+$primary:        #2a78d6;
+$body-bg:        #f9f9f7;
+$body-color:     #0b0b0b;
+$text-muted:     #52514e;
+$link-color:     #1c5cab;   // bleu plus foncé : contraste AA sur fond clair
+$border-color:   #e1e0d9;
+$font-family-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+$font-family-monospace: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+$navbar-bg:      #0d366b;
+$navbar-fg:      #f0efec;
+$code-block-bg:  #f0efec;
+$callout-color-note: #2a78d6;
+
+/*-- scss:rules --*/
+// Chiffres tabulaires dans les tableaux (colonnes alignées)
+table { font-variant-numeric: tabular-nums; }
+.figure-caption, figcaption { color: $text-muted; }
+// Encadré « rappel » utilisé sur toutes les pages
+.rappel-usage {
+  border-left: 4px solid #eb6834;
+  background: rgba(235, 104, 52, 0.06);
+  padding: .6rem 1rem;
+  margin: 1rem 0;
+}
+.chiffre-cle { font-size: 2rem; font-weight: 700; line-height: 1.1; }

@@ -1,0 +1,109 @@
+# =============================================================================
+# Projet Quarto « website » : site, dashboard et rapport PDF dans un même projet
+# =============================================================================
+project:
+  type: website
+  output-dir: _site
+  # Le code de toutes les pages s'exécute depuis la RACINE du projet : les
+  # chemins relatifs (data/, sql/, _targets/) sont donc les mêmes partout.
+  execute-dir: project
+  render:
+    - index.qmd
+    - donnees.qmd
+    - analyses/01_france.qmd
+    - analyses/02_automatisation.qmd
+    - analyses/03_metiers_finances.qmd
+    - analyses/04_typologie.qmd
+    - methodologie.qmd
+    - techniques.qmd
+    - dashboard/index.qmd
+    - rapport/rapport.qmd
+  resources:
+    - "donnees_publiees/*.parquet"
+
+lang: fr
+
+website:
+  title: "L'usage de Claude vu par l'AEI"
+  description: "Analyse reproductible de l'Anthropic Economic Index (R, DuckDB, Quarto)"
+  site-url: https://albanpjy.github.io/aei-analyse/
+  repo-url: https://github.com/albanpjy/aei-analyse
+  repo-actions: [source, issue]
+  page-navigation: true
+  back-to-top-navigation: true
+  search: true
+  reader-mode: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: Accueil
+      - text: Analyses
+        menu:
+          - href: analyses/01_france.qmd
+          - href: analyses/02_automatisation.qmd
+          - href: analyses/03_metiers_finances.qmd
+          - href: analyses/04_typologie.qmd
+      - href: dashboard/index.qmd
+        text: Tableau de bord
+      - href: rapport/rapport.pdf
+        text: Rapport (PDF)
+    right:
+      - href: donnees.qmd
+        text: Données
+      - href: methodologie.qmd
+        text: Méthodologie
+      - href: techniques.qmd
+        text: Techniques
+      - icon: github
+        href: https://github.com/albanpjy/aei-analyse
+        aria-label: Dépôt GitHub
+  page-footer:
+    left: >
+      Données : Anthropic Economic Index (CC-BY 4.0), via le package R
+      [aieconindex](https://cran.r-project.org/package=aieconindex).
+      **Données d'usage de Claude, pas d'emploi.**
+    right: "Construit avec [Quarto](https://quarto.org) et [targets](https://docs.ropensci.org/targets/)"
+
+bibliography: references.bib
+link-citations: true
+
+execute:
+  # Gel des résultats : un rendu GLOBAL (`quarto render`) réutilise les sorties
+  # enregistrées dans _freeze/ tant que la source d'une page n'a pas changé.
+  # Le pipeline {targets} rend chaque page INDIVIDUELLEMENT, ce qui force
+  # l'exécution : les chiffres suivent donc toujours les données.
+  freeze: auto
+  echo: true
+  warning: false
+  message: false
+
+format:
+  html:
+    theme:
+      light: [cosmo, theme/clair.scss]
+      dark: [cosmo, theme/sombre.scss]
+    respect-user-color-scheme: true
+    toc: true
+    toc-depth: 3
+    toc-title: "Sur cette page"
+    number-sections: false
+    code-fold: true
+    code-summary: "Voir le code"
+    code-tools: true
+    code-copy: true
+    code-annotations: hover
+    code-link: true
+    df-print: paged
+    fig-width: 8
+    fig-height: 5
+    fig-dpi: 150
+    fig-align: left
+    smooth-scroll: true
+    anchor-sections: true
+    citations-hover: true
+    footnotes-hover: true
+    crossref:
+      fig-title: Figure
+      tbl-title: Tableau
+      fig-prefix: figure
+      tbl-prefix: tableau

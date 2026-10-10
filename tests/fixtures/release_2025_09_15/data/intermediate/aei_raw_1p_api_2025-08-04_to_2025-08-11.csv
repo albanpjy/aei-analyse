@@ -1,0 +1,107 @@
+"geo_id","geography","date_start","date_end","platform_and_product","facet","level","variable","cluster_name","value"
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 11-9999.",0.276472916100183
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 11-9999.",0.727678461328214
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 11-9999.",0.0387598119977621
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 13-9999.",1.39194225601347
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 13-9999.",0.257115226213213
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 13-9999.",0.0457642097806246
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 15-9999.",2.86544566996351
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 15-9999.",0.581971915229567
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 15-9999.",1.8361955631253
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 17-9999.",0.459988920835191
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 17-9999.",0.950420614309844
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 17-9999.",0.340466592958007
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 19-9999.",2.14926306929411
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 19-9999.",0.505360657899261
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 19-9999.",1.35237034099448
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 21-9999.",1.02600651970557
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 21-9999.",0.558034622134174
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 21-9999.",5.01808569829386
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 23-9999.",4.87751587112862
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 23-9999.",0.313919207964007
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 23-9999.",0.845331326370455
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 25-9999.",0.42044292834406
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 25-9999.",0.781306491605697
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 25-9999.",2.26875291262919
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 27-9999.",0.791405970588826
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 27-9999.",0.832492590939074
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 27-9999.",2.05513060422154
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 29-9999.",0.40898829120806
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 29-9999.",1.65983844421945
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 29-9999.",1.14687648075751
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 31-9999.",0.530107019759412
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 31-9999.",1.57234353148993
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 31-9999.",0.095437614169799
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 33-9999.",1.32712225277533
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 33-9999.",0.823029485459351
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 33-9999.",1.33192634828906
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 35-9999.",0.435258995151575
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 35-9999.",0.623416218475591
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 35-9999.",0.581946419641852
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 37-9999.",0.689993497758884
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 37-9999.",0.403037168814312
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 37-9999.",2.10500650582397
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 39-9999.",1.99696798194444
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 39-9999.",0.164751191772186
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 39-9999.",1.83950766834617
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 41-9999.",0.0279020040095053
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 41-9999.",5.4522078282401
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 41-9999.",0.224738878374321
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 43-9999.",0.0974869375269348
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 43-9999.",0.291894845740047
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 43-9999.",0.848481530275569
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 45-9999.",0.215102227165183
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 45-9999.",2.74440770867453
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 45-9999.",1.09110144326822
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 47-9999.",0.253115204198136
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 47-9999.",0.126370690954276
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 47-9999.",2.30212366685241
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 49-9999.",0.0960467586140647
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 49-9999.",0.400350051726362
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 49-9999.",0.26339930672579
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 51-9999.",0.923707472120937
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 51-9999.",0.99983972088085
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 51-9999.",2.98984856026983
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 53-9999.",0.0346289013143523
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 53-9999.",0.383292015860518
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 53-9999.",1.3533535885254
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 13-2031.",0.375310252391648
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 13-2031.",0.630139181044614
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 13-2031.",1.48283704325721
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 13-2011.",4.40747410789476
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 13-2011.",1.48160774350491
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 13-2011.",1.11487994173784
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 11-3031.",0.473501866097469
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 11-3031.",0.570424080205103
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 11-3031.",0.546556557227081
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 13-2051.",0.350247035549264
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 13-2051.",0.462494413333329
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 13-2051.",0.524720805922966
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 13-1111.",0.492851463564899
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 13-1111.",0.996640644068295
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 13-1111.",0.0502090128467947
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 43-3031.",0.540728391978995
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 43-3031.",0.384044743647371
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 43-3051.",2.30880340961745
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 43-3051.",0.690876606475474
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 43-3051.",1.27941904733124
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 13-2061.",2.72360209011442
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 13-2061.",0.42366991227088
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 13-2061.",0.494691192565735
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 1 of occupation 13-2081.",0.0565697930184306
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 2 of occupation 13-2081.",4.67815879950699
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","onet_task",0,"onet_task_pct","fictitious task 3 of occupation 13-2081.",0.0369464376848033
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","collaboration",0,"collaboration_pct","directive",1.42738845353677
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","collaboration",0,"collaboration_pct","feedback loop",6.11500289119537
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","collaboration",0,"collaboration_pct","task iteration",21.3017619810667
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","collaboration",0,"collaboration_pct","learning",15.3818789250033
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","collaboration",0,"collaboration_pct","validation",3.27998994271884
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","collaboration",0,"collaboration_pct","none",28.4387843200743
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","collaboration",0,"collaboration_pct","not_classified",24.0551934864047
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","collaboration",0,"collaboration_count","directive",90374
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","collaboration",0,"collaboration_count","feedback loop",47011
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","collaboration",0,"collaboration_count","task iteration",234519
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","collaboration",0,"collaboration_count","learning",352777
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","collaboration",0,"collaboration_count","validation",177935
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","collaboration",0,"collaboration_count","none",38513
+"GLOBAL","global","2025-08-04","2025-08-11","1P API","collaboration",0,"collaboration_count","not_classified",58871

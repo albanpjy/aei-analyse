@@ -1,0 +1,224 @@
+---
+title: "Automatisation ou augmentation ?"
+subtitle: "Sujet 2 — comment les utilisateurs collaborent avec Claude, d'une version à l'autre"
+description: "Évolution de la part des conversations où Claude exécute (automatisation) plutôt qu'il n'accompagne (augmentation)."
+---
+
+{{< include _setup.qmd >}}
+
+```{r}
+#| label: donnees-s2
+tar_load(c(t2_global, t2_modes, t2_pays, t2_soc))
+pays8 <- names(pays_comparaison())
+palette_sources <- c(claude_ai = "#2a78d6", `1p_api` = "#1baf7a")
+libelle_source <- c(claude_ai = "Claude.ai", `1p_api` = "API (first-party)")
+
+# Dernière période de chaque version
+glob <- t2_global |> filter(date_start == max(date_start) | is.na(date_start), .by = c(release, source))
+c_ai <- glob |> filter(source == "claude_ai") |> arrange(release)
+premiere <- c_ai |> slice_head(n = 1)
+derniere <- c_ai |> slice_tail(n = 1)
+api_der <- glob |> filter(source == "1p_api") |> slice_max(release, n = 1)
+```
+
+## Définitions
+
+Anthropic classe chaque conversation selon le **mode de collaboration** observé
+[@handa2025economic] :
+
+| Famille | Mode | Ce que fait l'utilisateur |
+|---|---|---|
+| **Automatisation** | *Directive* | délègue la tâche entière en une consigne |
+| | *Feedback loop* | délègue, puis relaie les retours de l'environnement (erreurs…) |
+| **Augmentation** | *Task iteration* | construit le résultat avec Claude par allers-retours |
+| | *Learning* | cherche à comprendre, à apprendre |
+| | *Validation* | fait vérifier ou améliorer son propre travail |
+
+La **part d'automatisation** est calculée sur les conversations **classables** (hors
+*none* et *not_classified*), comme dans la documentation d'Anthropic :
+
+$$
+\text{automatisation} = \frac{p_{\text{directive}} + p_{\text{feedback loop}}}
+{p_{\text{directive}} + p_{\text{feedback loop}} + p_{\text{task iteration}} + p_{\text{learning}} + p_{\text{validation}}}
+$$
+
+## Évolution mondiale
+
+```{r}
+#| label: fig-auto-evolution
+#| fig-cap: "Part d'automatisation parmi les conversations classables, par version et par source"
+#| fig-alt: "Graphique en points reliés : en abscisse les versions de l'index, en ordonnée la part d'automatisation en pourcentage ; une série bleue pour Claude.ai et une série aqua pour l'API, avec des barres d'intervalle de confiance quand l'effectif est publié."
+ggplot(glob, aes(release, automatisation_pct, colour = source, group = source)) +
+  geom_line(linewidth = 0.8) +
+  geom_errorbar(aes(ymin = ic_bas, ymax = ic_haut), width = 0.15, na.rm = TRUE) +
+  geom_point(size = 2.8) +
+  scale_colour_manual(values = palette_sources, labels = libelle_source, name = NULL) +
+  scale_y_continuous(limits = c(0, 100), labels = \(x) paste0(x, " %")) +
+  labs(x = "Version de l'index", y = "Automatisation (% des conversations classables)",
+       caption = source_aei("Barres : IC à 95 % de Wilson (aléa d'échantillonnage seul), quand l'effectif est publié.")) +
+  theme(legend.position = "top")
+```
+
+Sur Claude.ai, la part d'automatisation passe de `r pct_fr(premiere$automatisation_pct)`
+(version `r premiere$release`) à `r pct_fr(derniere$automatisation_pct)` (version
+`r derniere$release`), soit
+`r nombre_fr(derniere$automatisation_pct - premiere$automatisation_pct)` points.
+Sur l'API, elle atteint `r pct_fr(api_der$automatisation_pct)` en version
+`r api_der$release` : `r if (api_der$automatisation_pct > derniere$automatisation_pct) "l'usage par API, intégré dans des chaînes logicielles, est nettement plus tourné vers la délégation que l'usage conversationnel" else "contrairement à l'intuition, l'API n'est pas plus tournée vers la délégation que l'usage conversationnel dans cette version"`.
+
+::: {.callout-important}
+## Ce ne sont pas des séries temporelles homogènes
+Chaque version change au moins un élément : modèle (Claude 3.5 Sonnet → … → tous
+modèles), périmètre produit (Free/Pro → Free/Pro/Max → Cowork inclus), fenêtre
+d'observation (une semaine → mois civils), classifieurs, seuils de publication. Les
+écarts entre versions mêlent donc **évolution des usages** et **ruptures de méthode** ;
+seules les comparaisons de sens et d'ordre de grandeur sont robustes.
+:::
+
+## Les six modes en détail
+
+```{r}
+#| label: fig-modes
+#| fig-cap: "Répartition des modes de collaboration sur Claude.ai, par version"
+#| fig-alt: "Barres horizontales empilées à 100 % : une barre par version, segments orange pour les modes d'automatisation, bleus pour l'augmentation et gris pour les conversations hors champ."
+couleurs_modes <- c(directive = "#eb6834", `feedback loop` = "#f4a07c",
+                    `task iteration` = "#1c5cab", learning = "#3987e5",
+                    validation = "#86b6ef", none = "#c3c2b7", not_classified = "#e1e0d9")
+m <- t2_modes |>
+  filter(source == "claude_ai") |>
+  filter(date_start == max(date_start) | is.na(date_start), .by = release) |>
+  mutate(mode = factor(mode, levels = names(couleurs_modes)),
+         part = 100 * part_pct / sum(part_pct), .by = release)
+ggplot(m, aes(part, forcats::fct_rev(release), fill = mode)) +
+  # reverse = TRUE : segments dans le même ordre que la légende
+  geom_col(width = 0.7, colour = palette_interface()[["surface"]], linewidth = 0.4,
+           position = position_stack(reverse = TRUE)) +
+  scale_fill_manual(values = couleurs_modes, name = NULL,
+                    labels = setNames(modes_collaboration()$libelle_fr, modes_collaboration()$mode)) +
+  scale_x_continuous(labels = \(x) paste0(x, " %"), expand = c(0, 0)) +
+  labs(x = "Part des conversations (renormalisée à 100 %)", y = NULL, caption = source_aei()) +
+  guides(fill = guide_legend(nrow = 2)) +
+  theme(panel.grid.major.y = element_blank())
+```
+
+```{r}
+#| label: tbl-modes
+#| tbl-cap: "Parts des modes (Claude.ai, % de toutes les conversations publiées)"
+m |>
+  select(release, libelle_fr, part_pct) |>
+  pivot_wider(names_from = release, values_from = part_pct) |>
+  rename(Mode = libelle_fr) |>
+  gt::gt() |>
+  gt::fmt_number(columns = -1, decimals = 1, dec_mark = ",") |>
+  gt::sub_missing(missing_text = "—")
+```
+
+## Par grand groupe de métiers
+
+```{r}
+#| label: fig-auto-soc
+#| fig-cap: "Part d'automatisation par grand groupe de métiers (Claude.ai, mondial) : première et dernière version disponibles"
+#| fig-alt: "Graphique en haltères : pour chaque grand groupe de métiers, un point gris pour la première version disponible et un point orange pour la dernière, reliés par un segment ; les groupes sont classés selon la dernière valeur."
+soc <- t2_soc |> filter(source == "claude_ai", !is.na(libelle_fr)) |>
+  filter(date_start == max(date_start) | is.na(date_start), .by = release)
+v_min <- min(soc$release); v_max <- max(soc$release)
+ds <- soc |> filter(release %in% c(v_min, v_max)) |>
+  select(release, libelle_fr, automatisation_pct, methode) |>
+  pivot_wider(id_cols = libelle_fr, names_from = release, values_from = automatisation_pct) |>
+  rename(debut = all_of(v_min), fin = all_of(v_max)) |>
+  filter(!is.na(debut), !is.na(fin)) |>
+  mutate(libelle_fr = forcats::fct_reorder(libelle_fr, fin))
+ggplot(ds, aes(y = libelle_fr)) +
+  geom_segment(aes(x = debut, xend = fin, yend = libelle_fr), colour = palette_interface()[["axe"]]) +
+  geom_point(aes(x = debut, colour = v_min), size = 2.6) +
+  geom_point(aes(x = fin, colour = v_max), size = 3) +
+  scale_colour_manual(values = setNames(c(palette_interface()[["discret"]],
+                                          palette_collaboration()[["automatisation"]]),
+                                        c(v_min, v_max)), name = "Version") +
+  scale_x_continuous(labels = \(x) paste0(x, " %")) +
+  labs(x = "Automatisation (% des conversations classables)", y = NULL,
+       caption = source_aei(paste0(v_min, " : calcul par tâche (", unique(soc$methode[soc$release == v_min]),
+                                   ") ; ", v_max, " : ", unique(soc$methode[soc$release == v_max]), "."))) +
+  theme(panel.grid.major.y = element_blank())
+```
+
+```{r}
+#| label: soc-chiffres
+top_auto <- ds |> slice_max(fin, n = 1)
+bas_auto <- ds |> slice_min(fin, n = 1)
+```
+
+En version `r v_max`, le groupe le plus tourné vers l'automatisation est
+« `r top_auto$libelle_fr` » (`r pct_fr(top_auto$fin)`), le moins tourné
+« `r bas_auto$libelle_fr` » (`r pct_fr(bas_auto$fin)`). Le groupe
+« Gestion, finance et affaires » (SOC 13), qui inclut la plupart des métiers du chiffre étudiés au
+[sujet 3](03_metiers_finances.qmd), se situe à
+`r pct_fr(ds$fin[ds$libelle_fr == "Gestion, finance et affaires"])`.
+
+::: {.callout-note collapse="true"}
+## Deux méthodes selon la version
+Pour les schémas *wide* et *long*, la part par groupe est **calculée** : pour chaque
+tâche, Anthropic publie la répartition des modes (facette `onet_task::collaboration`) ;
+on la pondère par le poids de la tâche dans l'usage, puis on agrège par grand groupe
+(`sql/s2_soc.sql`). Pour le schéma mensuel, Anthropic **publie** directement les parts
+`collaboration_bucket_*` par grand groupe. Les deux approches ne sont pas strictement
+identiques (traitement des conversations non classées, tâches sous les seuils).
+:::
+
+## Par pays
+
+```{r}
+#| label: fig-auto-pays
+#| fig-cap: "Part d'automatisation sur Claude.ai dans les huit pays de comparaison, par version"
+#| fig-alt: "Petits multiples : un panneau par pays, chacun montrant la part d'automatisation par version avec un intervalle de confiance ; la France est en bleu."
+pp <- t2_pays |> filter(geo_id %in% pays8) |>
+  mutate(pays = factor(nom_pays(geo_id), levels = nom_pays(pays8)))
+ggplot(pp, aes(release, automatisation_pct, colour = geo_id, group = geo_id)) +
+  geom_line(linewidth = 0.7) +
+  geom_errorbar(aes(ymin = ic_bas, ymax = ic_haut), width = 0.2, na.rm = TRUE) +
+  geom_point(size = 2) +
+  facet_wrap(~pays, nrow = 2) +
+  scale_colour_pays(guide = "none") +
+  scale_y_continuous(labels = \(x) paste0(x, " %")) +
+  labs(x = NULL, y = "Automatisation (%)", caption = source_aei()) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 7))
+```
+
+```{r}
+#| label: pays-chiffres
+pp_der <- pp |> filter(release == max(release))
+fr_auto <- pp_der |> filter(geo_id == "FRA")
+```
+
+En version `r max(pp$release)`, la part d'automatisation de la France
+(`r pct_fr(fr_auto$automatisation_pct)`) est
+`r ecart <- fr_auto$automatisation_pct - median(pp_der$automatisation_pct); if (abs(ecart) < 1) "proche de la médiane" else if (ecart > 0) "supérieure à la médiane" else "inférieure à la médiane"`
+des huit pays (`r pct_fr(median(pp_der$automatisation_pct))`). L'écart entre le
+pays le plus « délégateur » (`r nom_pays(pp_der$geo_id[which.max(pp_der$automatisation_pct)])`)
+et le moins délégateur (`r nom_pays(pp_der$geo_id[which.min(pp_der$automatisation_pct)])`) est de
+`r nombre_fr(diff(range(pp_der$automatisation_pct)))` points.
+
+## Incertitude
+
+Quand Anthropic publie les **effectifs** (`collaboration_count`, schéma long), on calcule
+un intervalle de confiance de Wilson [@wilson1927] :
+
+$$
+\frac{\hat p + \frac{z^2}{2n}}{1 + \frac{z^2}{n}} \;\pm\;
+\frac{z}{1 + \frac{z^2}{n}} \sqrt{\frac{\hat p (1-\hat p)}{n} + \frac{z^2}{4n^2}}
+$$
+
+Avec des centaines de milliers de conversations, ces intervalles sont **très étroits** :
+l'incertitude dominante n'est pas l'échantillonnage mais la **classification**
+automatique (le mode est attribué par un modèle) et les **ruptures de méthode**. Le
+schéma mensuel ne publie plus d'effectifs : aucun intervalle n'est alors calculable.
+
+```{r}
+#| label: tbl-controle-mensuel
+#| tbl-cap: "Schéma mensuel : part d'automatisation recalculée à partir des six modes et part publiée par Anthropic"
+t2_global |> filter(!is.na(automatisation_publiee)) |>
+  transmute(Version = release, Source = libelle_source[source], Mois = format(date_start, "%Y-%m"),
+            `Recalculée (%)` = automatisation_pct, `Publiée (%)` = automatisation_publiee) |>
+  gt::gt() |>
+  gt::fmt_number(columns = 4:5, decimals = 1, dec_mark = ",")
+```

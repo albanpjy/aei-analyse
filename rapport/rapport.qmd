@@ -1,0 +1,430 @@
+---
+title: "L'usage de Claude vu par l'Anthropic Economic Index"
+subtitle: "Profil français, automatisation, métiers financiers et typologie des pays"
+author:
+  - name: "albanpjy"
+    affiliation: "Projet aei-analyse (https://github.com/albanpjy/aei-analyse)"
+date: today
+date-format: "D MMMM YYYY"
+lang: fr
+otherlangs: [en-US]
+abstract: |
+  Cet article exploite les six versions publiées de l'Anthropic Economic Index, qui rattache
+  des millions de conversations avec l'assistant d'intelligence artificielle Claude aux tâches
+  de la base O*NET. Après harmonisation de trois schémas de données successifs, il examine
+  quatre questions : la place de la France dans l'usage mondial de Claude, l'équilibre entre
+  automatisation et augmentation, l'exposition des métiers du pilotage budgétaire et
+  financier, et la typologie des pays selon la composition de leur usage. Les résultats
+  portent sur l'**usage** d'un produit, non sur l'emploi : ils décrivent sur quelles tâches
+  porte la demande adressée à un assistant d'IA.
+keywords: [intelligence artificielle, Anthropic Economic Index, O*NET, données compositionnelles, ACP, mélanges gaussiens, R]
+format:
+  pdf:
+    documentclass: scrartcl
+    classoption: [titlepage, abstract=true, DIV=12, parskip=half]
+    papersize: a4
+    fontsize: 11pt
+    pdf-engine: xelatex
+    cite-method: biblatex
+    biblatexoptions: [style=authoryear, backend=biber, maxcitenames=2, maxbibnames=10]
+    toc: true
+    toc-depth: 2
+    lof: true
+    lot: true
+    number-sections: true
+    colorlinks: true
+    linkcolor: accent
+    citecolor: accent
+    urlcolor: accent
+    fig-pos: "H"
+    tbl-pos: "H"
+    fig-format: pdf
+    fig-width: 6.3
+    fig-height: 3.8
+    include-in-header: preambule.tex
+    keep-tex: false
+bibliography: ../references.bib
+biblio-title: "Références"
+execute:
+  echo: false
+  warning: false
+  message: false
+crossref:
+  fig-title: Figure
+  tbl-title: Tableau
+  fig-prefix: figure
+  tbl-prefix: tableau
+  eq-prefix: équation
+  lof-title: Liste des figures
+  lot-title: Liste des tableaux
+---
+
+```{r}
+#| label: setup
+#| include: false
+suppressPackageStartupMessages({
+  library(targets); library(dplyr); library(tidyr); library(ggplot2); library(kableExtra)
+})
+tar_source("R")
+theme_set(theme_aei(base_size = 9))
+tar_load(c(t1_usage_pays, t1_soc_pays, t1_concentration, t1_top_taches, t2_global, t2_pays,
+           t2_soc, t3_exposition, t3_taches, t3_automatisation, t4_typologie, t4_matrice,
+           harmonise_resume))
+mode_donnees <- mode_execution()
+versions <- aei_versions_epinglees()
+pays8 <- names(pays_comparaison())
+der_rel <- derniere_version()
+up <- t1_usage_pays |> filter(date_start == max(date_start), .by = release)
+fr <- up |> filter(release == der_rel, geo_id == "FRA")
+ctrl_aui <- with(filter(t1_usage_pays, release == "2025-09-15"),
+                 cor(aui_publie, aui_calcule, use = "complete.obs"))
+glob <- t2_global |> filter(date_start == max(date_start) | is.na(date_start), .by = c(release, source))
+c_ai <- glob |> filter(source == "claude_ai") |> arrange(release)
+api <- glob |> filter(source == "1p_api") |> arrange(release)
+ty <- t4_typologie
+tab <- function(d, ...) {
+  knitr::kable(d, format = "latex", booktabs = TRUE, linesep = "",
+               format.args = list(decimal.mark = ",", big.mark = " "), ...) |>
+    kable_styling(latex_options = c("HOLD_position"), font_size = 9)
+}
+```
+
+```{=latex}
+\begin{otherlanguage}{english}
+\begin{center}\textbf{\color{accent}\sffamily Abstract}\end{center}
+\noindent This paper uses the six published releases of the Anthropic Economic Index, which
+maps millions of conversations with the AI assistant Claude to O*NET tasks. After harmonising
+three successive data schemas, it studies four questions: France's position in global Claude
+usage, the balance between automation and augmentation, the exposure of budget and finance
+occupations, and a typology of countries based on the composition of their usage. Results
+describe \emph{usage} of one product, not employment.
+
+\medskip\noindent\textbf{Keywords:} artificial intelligence; Anthropic Economic Index; O*NET;
+compositional data; PCA; Gaussian mixture models; R.
+\end{otherlanguage}
+\clearpage
+```
+
+`r if (mode_donnees != "reel") "\\begin{rappel}\\textbf{Document produit sur DONNÉES FICTIVES (mode fixtures) : aucun chiffre n'a de valeur.}\\end{rappel}" else ""`
+
+**Mots-clés :** intelligence artificielle ; Anthropic Economic Index ; O\*NET ; données
+compositionnelles ; ACP ; mélanges gaussiens ; R.
+
+# Introduction
+
+Mesurer la diffusion de l'intelligence artificielle générative dans le travail se heurte à
+un problème d'observation : les enquêtes déclaratives sont lentes et imprécises sur les
+usages, et les indicateurs d'« exposition » reposent sur des jugements *a priori* sur ce que
+l'IA pourrait faire [@felten2021occupational; @eloundou2024gpts]. L'Anthropic Economic Index
+(AEI) adopte une démarche différente, fondée sur l'**usage observé** : des conversations
+réelles avec Claude, anonymisées par le système Clio [@tamkin2024clio], sont classées par
+tâche de la base O\*NET [@handa2025economic]. Cette approche prolonge la lecture du travail
+« par tâches » [@autor2003skill] et s'inscrit dans les travaux sur les effets de
+l'automatisation sur l'emploi [@acemoglu2020robots], sans pouvoir s'y substituer : elle
+mesure une demande adressée à un produit, non des emplois.
+
+L'article poursuit quatre objectifs : (i) situer la France dans l'usage mondial de Claude ;
+(ii) décrire l'évolution de la part d'automatisation ; (iii) mesurer l'exposition des
+métiers du chiffre (finance, budget, comptabilité, finances publiques) ; (iv) construire une typologie des pays. La
+section 2 présente les données et les méthodes, la section 3 les résultats, la section 4 les
+discute ; les limites et la conclusion suivent.
+
+# Données et méthodes
+
+## L'Anthropic Economic Index
+
+Le projet exploite `r nrow(versions)` versions épinglées (@tbl-versions),
+accessibles par le package R aieconindex [@coverdale2026aieconindex; @aei]. Elles relèvent de
+trois **schémas** successifs : tables séparées par mesure (*wide*), table longue
+géographie × facette × variable (*long*), agrégats mensuels hiérarchisés (*monthly*). Une
+couche d'harmonisation ramène tous les fichiers à un même format long ; les codes pays
+publiés en ISO-2 dans les fichiers bruts sont convertis en ISO-3. Au total,
+`r nombre_fr(sum(harmonise_resume$n_lignes), 0)` lignes sont stockées en Parquet et
+interrogées par DuckDB [@raasveldt2019duckdb] ; le pipeline est orchestré par
+\texttt{targets} [@landau2021targets].
+
+```{r}
+#| label: tbl-versions
+#| tbl-cap: "Versions de l'Anthropic Economic Index utilisées"
+versions |>
+  transmute(Version = release, `Schéma` = schema_attendu,
+            `Géographie` = if_else(geo_disponible, "oui", "non")) |>
+  tab()
+```
+
+## Indicateurs
+
+L'**indice d'usage par habitant** d'un pays $g$ rapporte sa part de l'usage mondial à sa part
+de la population mondiale de 15 à 64 ans :
+
+$$
+\text{IUH}_g = \frac{u_g / \sum_h u_h}{P_g / \sum_h P_h}.
+$$ {#eq-iuh}
+
+La **concentration** de l'usage sur les $n$ tâches d'une géographie, de parts $\tilde s_i$
+renormalisées à 100, est mesurée par l'indice de Herfindahl-Hirschman [@hirschman1964] et
+l'entropie de Shannon [@shannon1948] :
+
+$$
+\text{HHI} = \sum_{i=1}^{n} \tilde s_i^{\,2}, \qquad
+H = -\sum_{i=1}^{n} p_i \log_2 p_i, \qquad H_{\text{norm}} = \frac{H}{\log_2 n}.
+$$ {#eq-concentration}
+
+La **part d'automatisation** est la part des modes *directive* et *feedback loop* parmi les
+conversations classables ; un intervalle de Wilson [@wilson1927] est calculé lorsque les
+effectifs sont publiés.
+
+## Typologie : données compositionnelles
+
+Les parts d'un pays entre familles de tâches somment à 100 : ce sont des données
+**compositionnelles** [@aitchison1986], dont les corrélations brutes sont biaisées par la
+contrainte de somme. Après remplacement multiplicatif des zéros [@martinfernandez2003], on
+applique la transformation log-ratio centrée :
+
+$$
+\operatorname{clr}(x)_j = \ln \frac{x_j}{g(x)}, \qquad g(x) = \Big(\prod_{k=1}^{D} x_k\Big)^{1/D}.
+$$ {#eq-clr}
+
+Une ACP non normée [@le2008factominer] est réalisée sur les coordonnées CLR : les axes
+$u_k$ sont les vecteurs propres de la matrice de covariance $\Sigma$, $\Sigma u_k = \lambda_k
+u_k$, la part d'inertie de l'axe $k$ valant $\lambda_k / \sum_j \lambda_j$. Deux
+classifications sont comparées : HCPC (Ward [@ward1963] puis consolidation) et un mélange
+gaussien [@scrucca2016mclust] dont le nombre de composantes et la structure de covariance
+maximisent le critère
+
+$$
+\text{BIC} = 2 \ln \hat L - p \ln n
+$$ {#eq-bic}
+
+[@schwarz1978]. L'accord entre partitions est mesuré par l'indice de Rand ajusté
+[@hubert1985comparing].
+
+# Résultats
+
+## La France face à Claude
+
+En version `r der_rel`, l'indice d'usage par habitant de la France vaut
+`r nombre_fr(fr$aui, 2)` (@eq-iuh), ce qui la place au `r ordinal_fr(fr$rang_aui)` rang sur
+`r fr$n_pays_aui` pays (@fig-aui). L'indice n'étant pas publié dans toutes les versions, il est
+recalculé pour toutes (méthode homogène) ; il reproduit l'indice publié
+en 2026-06-26, alors qu'en 2025-09-15 l'indice publié ne diffère du recalcul que par un facteur
+d'échelle constant (corrélation de `r nombre_fr(ctrl_aui, 3)`).
+
+```{r}
+#| label: fig-aui
+#| fig-cap: "Indice d'usage par habitant des huit pays de comparaison, par version (échelle logarithmique)"
+evol <- up |> filter(geo_id %in% pays8, !is.na(aui))
+ggplot(evol, aes(release, aui, group = geo_id, colour = geo_id)) +
+  geom_hline(yintercept = 1, linetype = "dashed", colour = palette_interface()[["discret"]]) +
+  geom_line(linewidth = 0.6) + geom_point(size = 1.6) +
+  scale_colour_pays(name = NULL) + scale_y_log10(labels = \(x) nombre_fr(x, 1)) +
+  labs(x = NULL, y = "Indice (log)", caption = source_aei()) +
+  guides(colour = guide_legend(nrow = 1)) + theme(legend.text = element_text(size = 7))
+```
+
+```{r}
+#| label: conc
+conc <- t1_concentration |> filter(release == der_rel) |> mutate(Pays = nom_pays(geo_id)) |>
+  arrange(desc(entropy_normalised))
+```
+
+Le @tbl-conc rapporte la concentration de l'usage (@eq-concentration). En France,
+les dix premières tâches concentrent `r pct_fr(conc$cr_10[conc$geo_id == "FRA"])` de
+l'usage, contre `r pct_fr(conc$cr_10[conc$geo_id == "GLOBAL"])` au niveau mondial.
+
+```{r}
+#| label: tbl-conc
+#| tbl-cap: "Concentration de l'usage sur les tâches, dernière version"
+conc |> transmute(Pays, `Tâches` = n, HHI = round(hhi, 1), `CR10 (%)` = round(cr_10, 1),
+                  `H norm.` = round(entropy_normalised, 3)) |>
+  tab()
+```
+
+## Automatisation ou augmentation
+
+Sur Claude.ai, la part d'automatisation passe de
+`r pct_fr(first(c_ai$automatisation_pct))` (version `r first(c_ai$release)`) à
+`r pct_fr(last(c_ai$automatisation_pct))` (version `r last(c_ai$release)`) ; sur l'API, elle
+atteint `r pct_fr(last(api$automatisation_pct))` en dernière version (@fig-auto).
+Les intervalles de confiance, calculables pour le schéma long, sont étroits (moins d'un point) :
+l'incertitude dominante tient aux changements de méthode entre versions.
+
+```{r}
+#| label: fig-auto
+#| fig-cap: "Part d'automatisation parmi les conversations classables, par version et par source"
+ggplot(glob, aes(release, automatisation_pct, colour = source, group = source)) +
+  geom_line(linewidth = 0.6) + geom_point(size = 1.8) +
+  geom_errorbar(aes(ymin = ic_bas, ymax = ic_haut), width = 0.15, na.rm = TRUE) +
+  scale_colour_manual(values = c(claude_ai = "#2a78d6", `1p_api` = "#1baf7a"),
+                      labels = c(claude_ai = "Claude.ai", `1p_api` = "API"), name = NULL) +
+  scale_y_continuous(limits = c(0, 100)) +
+  labs(x = NULL, y = "Automatisation (%)", caption = source_aei())
+```
+
+```{r}
+#| label: auto-soc
+soc_der <- t2_soc |> filter(source == "claude_ai", !is.na(libelle_fr)) |>
+  filter(release == max(release)) |> filter(date_start == max(date_start))
+gfin <- soc_der |> filter(soc_majeur == "13")
+```
+
+Par grand groupe de métiers, en dernière version, la part d'automatisation va de
+`r pct_fr(min(soc_der$automatisation_pct))` à `r pct_fr(max(soc_der$automatisation_pct))` ; le
+groupe « Gestion, finance et affaires » se situe à `r pct_fr(gfin$automatisation_pct[1])`.
+
+## Les métiers du chiffre
+
+```{r}
+#| label: expo
+ex <- t3_exposition$cibles
+med_all <- with(t3_exposition$toutes, median(observed_exposure[observed_exposure > 0]))
+```
+
+Le @tbl-expo situe les `r nrow(ex)` métiers du chiffre retenus (budget, pilotage et analyse ; comptabilité et paie ; finances publiques et contrôle) dans la distribution de l'exposition
+observée publiée par Anthropic, très asymétrique :
+`r pct_fr(100 * mean(t3_exposition$toutes$observed_exposure == 0), 0)` des
+`r nrow(t3_exposition$toutes)` métiers ont une exposition nulle. La médiane des métiers ciblés
+(`r nombre_fr(median(ex$observed_exposure, na.rm = TRUE), 3)`) est
+`r if (median(ex$observed_exposure, na.rm = TRUE) > med_all) "supérieure" else "inférieure ou égale"`
+à celle des seuls métiers exposés (`r nombre_fr(med_all, 3)`).
+
+```{r}
+#| label: tbl-expo
+#| tbl-cap: "Exposition observée des métiers du chiffre"
+ex |> arrange(desc(observed_exposure)) |>
+  transmute(SOC = soc6, `Métier` = intitule_soc, Exposition = round(observed_exposure, 3),
+            Centile = round(100 * centile)) |>
+  tab()
+```
+
+```{r}
+#| label: auto-metiers
+au_der <- t3_automatisation |> filter(!is.na(automatisation_pct)) |>
+  filter(release == max(release)) |> arrange(desc(automatisation_pct))
+```
+
+Agrégée sur leurs tâches pondérées par l'usage (Claude.ai, version `r au_der$release[1]`), la
+part d'automatisation de ces métiers va de `r pct_fr(min(au_der$automatisation_pct))`
+(« `r au_der$intitule_soc[nrow(au_der)]` ») à `r pct_fr(max(au_der$automatisation_pct))`
+(« `r au_der$intitule_soc[1]` ») : elle décrit la manière dont Claude est sollicité sur ces
+tâches, non l'automatisation des emplois.
+
+## Typologie des pays
+
+La matrice compte `r nrow(t4_matrice$parts)` pays et `r ncol(t4_matrice$parts)` familles de
+tâches. Les deux premiers axes de l'ACP résument `r pct_fr(sum(ty$acp$eig[1:2, 2]))` de
+l'inertie ; `r ty$k` axes sont retenus (80 %). HCPC retient
+`r nlevels(ty$croise$classe_hcpc)` classes ; le mélange gaussien retenu par BIC (@eq-bic) est
+le modèle `r ty$mclust$modelName` à `r ty$mclust$G` composantes. L'indice de Rand ajusté entre
+les deux partitions vaut `r nombre_fr(ty$ari, 2)` (@fig-acp).
+
+```{r}
+#| label: fig-acp
+#| fig-cap: "Pays sur le premier plan factoriel (ACP sur coordonnées CLR), colorés par classe HCPC"
+ind <- tibble::as_tibble(ty$acp$ind$coord[, 1:2], rownames = "geo_id") |>
+  left_join(select(ty$croise, geo_id, classe_hcpc), by = "geo_id")
+ggplot(ind, aes(Dim.1, Dim.2, colour = classe_hcpc)) +
+  geom_hline(yintercept = 0, colour = palette_interface()[["axe"]]) +
+  geom_vline(xintercept = 0, colour = palette_interface()[["axe"]]) +
+  geom_point(size = 1.8) +
+  ggrepel::geom_text_repel(aes(label = geo_id), size = 2.2, colour = palette_interface()[["texte_2"]],
+                           max.overlaps = 40, seed = 3) +
+  scale_colour_manual(values = unname(palette_pays()), name = "Classe") +
+  labs(x = sprintf("Axe 1 (%s %%)", nombre_fr(ty$acp$eig[1, 2])),
+       y = sprintf("Axe 2 (%s %%)", nombre_fr(ty$acp$eig[2, 2])), caption = source_aei())
+```
+
+`r if (!is.null(ty$test_pib)) paste0("Le croisement avec le PIB par habitant (Banque mondiale) donne un test de Kruskal-Wallis de p-valeur ", pvaleur_fr(ty$test_pib$p.value), ".") else ""`
+
+# Discussion
+
+Trois enseignements se dégagent. D'abord, l'usage de Claude rapporté à la population est
+très inégal entre pays, et la France occupe une position que les différentes versions
+permettent de suivre, sous réserve des changements de périmètre. Ensuite, l'équilibre entre
+automatisation et augmentation varie fortement selon la source (conversationnelle ou API),
+le métier et la version : il n'y a pas de tendance univoque que l'on puisse séparer avec
+certitude des ruptures de méthode. Enfin, les métiers du chiffre
+sont bien visibles dans l'index, mais par une minorité de leurs tâches
+(`r pct_fr(100 * mean(t3_taches$penetration[!is.na(t3_taches$penetration)] > 0), 0)` des tâches
+retrouvées ont une pénétration non nulle) ; la transposition au cas français repose sur une correspondance de nomenclatures qui reste une
+hypothèse de travail pour son dernier maillon, le passage SOC → ISCO-08 reposant sur la
+table officielle (@tbl-correspondance, en annexe).
+
+# Limites
+
+Les données décrivent l'usage d'un seul produit, par une clientèle non représentative de la
+population active ; tâches et modes sont attribués par un classifieur dont l'erreur n'est pas
+publiée ; la taxonomie O\*NET décrit le marché du travail américain ; les versions successives
+diffèrent par le modèle, le produit, la fenêtre d'observation, les seuils de publication et
+le format ; enfin, les cellules sous les seuils de confidentialité ne sont pas publiées, ce
+qui pénalise les petits pays et les tâches rares.
+
+# Conclusion
+
+L'Anthropic Economic Index offre une observation directe et répétée de l'usage d'un
+assistant d'IA, rare en économie du travail. Exploité avec prudence (harmonisation des
+schémas, indicateurs robustes au nombre de catégories, méthodes adaptées aux données
+compositionnelles), il permet de situer la France, de décrire la nature de la collaboration
+humain–IA et d'identifier les tâches des métiers financiers les plus concernées. Il ne permet
+pas, seul, de conclure sur l'emploi. L'ensemble du traitement est reproductible
+(\url{https://github.com/albanpjy/aei-analyse}).
+
+\appendix
+
+# Dictionnaire de données (synthèse)
+
+```{r}
+#| label: tbl-dico
+#| tbl-cap: "Table harmonisée : lignes, facettes et variables par version et source"
+harmonise_resume |>
+  summarise(Lignes = sum(n_lignes), Facettes = n_distinct(facet), Variables = n_distinct(variable),
+            .by = c(release, schema, source)) |>
+  rename(Version = release, `Schéma` = schema, Source = source) |>
+  tab()
+```
+
+\FloatBarrier
+
+# Correspondance SOC, ISCO-08 et fonction publique
+
+\begin{rappel}
+Codes ISCO-08 : correspondance SOC 2010 $\rightarrow$ ISCO-08 du Bureau of Labor Statistics
+(version de l'IBS), via le package R iscoCrosswalks [@iscocrosswalks2022]. Rapprochement avec la
+fonction publique française : hypothèse de travail argumentée, et non nomenclature officielle.
+\end{rappel}
+
+```{r}
+#| label: tbl-correspondance
+#| tbl-cap: "Correspondance SOC → ISCO-08 (officielle) → fonction publique (hypothèse)"
+metiers_cibles() |>
+  transmute(SOC = soc6, `Intitulé SOC` = intitule_soc, `ISCO-08` = isco08,
+            `Fonction publique (rapprochement)` = fonction_publique) |>
+  knitr::kable(format = "latex", booktabs = TRUE, longtable = TRUE) |>
+  kable_styling(font_size = 8, latex_options = c("repeat_header")) |>
+  column_spec(2, width = "4.2cm") |> column_spec(4, width = "6cm")
+```
+
+\FloatBarrier
+
+# Détails statistiques
+
+```{r}
+#| label: tbl-vp
+#| tbl-cap: "Valeurs propres de l'ACP sur coordonnées CLR"
+tibble::as_tibble(ty$acp$eig[1:min(10, nrow(ty$acp$eig)), ], rownames = "Axe") |>
+  transmute(Axe, `Valeur propre` = round(eigenvalue, 3),
+            `Inertie (%)` = round(`percentage of variance`, 1),
+            `Cumul (%)` = round(`cumulative percentage of variance`, 1)) |>
+  tab()
+```
+
+```{r}
+#| label: tbl-bic
+#| tbl-cap: "Critère BIC (mclust, à maximiser) par nombre de composantes et modèle de covariance"
+bic <- as.data.frame(unclass(ty$bic)[, , drop = FALSE])
+bic |> tibble::rownames_to_column("G") |>
+  select(G, any_of(c("EII", "VII", "EEI", "VEI", "EVI", "VVI", "EEE", "VVV"))) |>
+  mutate(across(-G, \(x) round(x, 1))) |>
+  tab()
+```
+

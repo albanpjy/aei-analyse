@@ -1,0 +1,83 @@
+# =============================================================================
+# Génération de renv.lock sur la plateforme d'exécution de la CI
+#
+# POURQUOI : le poste de développement n'a pas accès à CRAN (voir
+# docs/diagnostic_env.md). Le lockfile de référence est donc produit ici, avec
+# un INSTANTANÉ DATÉ de Posit Package Manager : les versions sont figées ET des
+# binaires Linux existent pour chacune, ce qui rend `renv::restore()` à la fois
+# reproductible et rapide.
+#
+# Déclenchement : manuel, ou quand la liste des dépendances (DESCRIPTION)
+# change. Le lockfile est recommité sur la branche.
+# =============================================================================
+name: Lockfile renv
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [developpement]
+    paths:
+      - DESCRIPTION
+      - .github/workflows/renv-lock.yml
+
+permissions:
+  contents: write
+
+env:
+  # Instantané daté de CRAN (Posit Package Manager) : à changer volontairement
+  # pour mettre à jour les packages.
+  SNAPSHOT_CRAN: https://packagemanager.posit.co/cran/2026-10-01
+  SNAPSHOT_BINAIRES: https://packagemanager.posit.co/cran/__linux__/noble/2026-10-01
+  RENV_ACTIVATE_PROJECT: "FALSE"
+  LANG: C.UTF-8
+
+jobs:
+  lockfile:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.5"
+          use-public-rspm: false
+
+      - name: Bibliothèques système
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libcurl4-openssl-dev libssl-dev libxml2-dev \
+            libglpk-dev libgmp-dev libuv1-dev libfontconfig1-dev libfreetype6-dev \
+            libharfbuzz-dev libfribidi-dev libpng-dev libjpeg-dev libtiff5-dev cmake
+
+      - name: Installer les dépendances et écrire renv.lock
+        run: |
+          Rscript -e '
+            options(repos = c(CRAN = Sys.getenv("SNAPSHOT_BINAIRES")),
+                    HTTPUserAgent = sprintf("R/%s R (%s)", getRversion(),
+                      paste(getRversion(), R.version$platform, R.version$arch, R.version$os)),
+                    Ncpus = 4)
+            install.packages(c("renv", "pak"))
+            # pak installe DESCRIPTION (Imports + Suggests) avec les binaires.
+            pak::local_install_deps(".", dependencies = TRUE, ask = FALSE)
+            pak::pkg_install(c("renv", "lintr", "styler"), ask = FALSE)
+            # Le lockfile enregistre l URL NEUTRE de l instantané : la CI la
+            # remplace par l URL des binaires Linux (RENV_CONFIG_REPOS_OVERRIDE).
+            options(repos = c(CRAN = Sys.getenv("SNAPSHOT_CRAN")))
+            renv::settings$snapshot.type("explicit")
+            # library = .libPaths() : inclut les packages « recommandés » de la
+            # bibliothèque système (boot, mgcv, codetools...).
+            # force = TRUE : les dépendances de COMPILATION (LinkingTo : cpp11,
+            # RcppEigen...) ne sont pas installées quand on utilise des binaires ;
+            # elles ne sont pas nécessaires à la restauration.
+            renv::snapshot(library = .libPaths(), prompt = FALSE, force = TRUE)
+          '
+
+      - name: Versionner renv.lock
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add renv.lock renv/settings.json renv/activate.R .Rprofile
+          git commit -m "renv : lockfile généré en CI (instantané Posit $(basename $SNAPSHOT_CRAN)) [skip ci]" || echo "Lockfile inchangé"
+          git pull --rebase --autostash origin ${GITHUB_REF_NAME}
+          git push origin HEAD:${GITHUB_REF_NAME}

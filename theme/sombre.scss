@@ -1,0 +1,27 @@
+/*-- scss:defaults --*/
+// Thème sombre : mêmes rôles, pas recalculés pour le fond sombre (pas une
+// simple inversion des couleurs).
+$primary:        #3987e5;
+$body-bg:        #0d0d0d;
+$body-color:     #f0efec;
+$text-muted:     #c3c2b7;
+$link-color:     #86b6ef;
+$border-color:   #2c2c2a;
+$font-family-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+$navbar-bg:      #1a1a19;
+$navbar-fg:      #f0efec;
+$code-block-bg:  #1a1a19;
+$input-bg:       #1a1a19;
+
+/*-- scss:rules --*/
+table { font-variant-numeric: tabular-nums; }
+.rappel-usage {
+  border-left: 4px solid #d95926;
+  background: rgba(217, 89, 38, 0.12);
+  padding: .6rem 1rem;
+  margin: 1rem 0;
+}
+.chiffre-cle { font-size: 2rem; font-weight: 700; line-height: 1.1; }
+// Les figures ggplot ont un fond clair : on les présente sur une carte claire
+// plutôt que de les inverser (les couleurs de série restent fidèles).
+.cell-output-display img { background: #fcfcfb; border-radius: 6px; padding: 4px; }

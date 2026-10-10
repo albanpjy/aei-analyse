@@ -1,0 +1,241 @@
+release,schema,source,date_start,soc_majeur,automatisation_pct,poids_usage,methode,libelle_en,libelle_fr
+2025-03-27,wide,claude_ai,,11,35.58993036100216,3.113689304832607,calculé (tâches),Management,Direction et encadrement
+2025-03-27,wide,claude_ai,,13,34.9407646742057,4.401593614040566,calculé (tâches),Business and Financial Operations,"Gestion, finance et affaires"
+2025-03-27,wide,claude_ai,,15,49.531669922413286,39.5054209170573,calculé (tâches),Computer and Mathematical,Informatique et mathématiques
+2025-03-27,wide,claude_ai,,17,35.84225884807877,3.7490910360750833,calculé (tâches),Architecture and Engineering,Architecture et ingénierie
+2025-03-27,wide,claude_ai,,19,32.48073593808345,6.778714016326429,calculé (tâches),"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2025-03-27,wide,claude_ai,,21,27.877542738294526,2.216331359974364,calculé (tâches),Community and Social Service,Action sociale
+2025-03-27,wide,claude_ai,,23,38.29580430908797,0.6981048358934961,calculé (tâches),Legal,Droit
+2025-03-27,wide,claude_ai,,25,36.512021064915245,10.955634343841021,calculé (tâches),Educational Instruction and Library,Enseignement et documentation
+2025-03-27,wide,claude_ai,,27,49.33250199579281,9.40895776244921,calculé (tâches),"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2025-03-27,wide,claude_ai,,29,26.861970084476482,3.1686379714801016,calculé (tâches),Healthcare Practitioners and Technical,Professions de santé
+2025-03-27,wide,claude_ai,,31,32.80810354530107,0.2461905681384008,calculé (tâches),Healthcare Support,Aide aux soins
+2025-03-27,wide,claude_ai,,33,55.402250053067284,0.5999161904448892,calculé (tâches),Protective Service,Sécurité et protection
+2025-03-27,wide,claude_ai,,35,40.02968827313211,0.5005977593268942,calculé (tâches),Food Preparation and Serving Related,Restauration
+2025-03-27,wide,claude_ai,,37,31.061806656101417,0.1656676622474929,calculé (tâches),Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
+2025-03-27,wide,claude_ai,,39,39.70655662540119,0.6774605704801384,calculé (tâches),Personal Care and Service,Services à la personne
+2025-03-27,wide,claude_ai,,41,30.994035785288283,1.9768167980641635,calculé (tâches),Sales and Related,Vente
+2025-03-27,wide,claude_ai,,43,43.539035686914794,6.956501197572809,calculé (tâches),Office and Administrative Support,Soutien administratif
+2025-03-27,wide,claude_ai,,45,37.43169398907104,0.09459387286419155,calculé (tâches),"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2025-03-27,wide,claude_ai,,47,28.14245810055866,0.22883295194508013,calculé (tâches),Construction and Extraction,Construction et extraction
+2025-03-27,wide,claude_ai,,49,35.7914640734738,0.506965642190716,calculé (tâches),"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2025-03-27,wide,claude_ai,,51,54.878584770904304,2.059393859717595,calculé (tâches),Production,Production industrielle
+2025-03-27,wide,claude_ai,,53,29.870129870129873,0.20921576441298395,calculé (tâches),Transportation and Material Moving,Transport et manutention
+2025-09-15,long,1p_api,2025-08-04,11,91.63248564397047,2.964998232127015,calculé (tâches),Management,Direction et encadrement
+2025-09-15,long,1p_api,2025-08-04,13,94.10442729792496,3.3206371117825033,calculé (tâches),Business and Financial Operations,"Gestion, finance et affaires"
+2025-09-15,long,1p_api,2025-08-04,15,86.41463130384226,43.90052062271474,calculé (tâches),Computer and Mathematical,Informatique et mathématiques
+2025-09-15,long,1p_api,2025-08-04,17,90.38373835429019,1.9678966969357579,calculé (tâches),Architecture and Engineering,Architecture et ingénierie
+2025-09-15,long,1p_api,2025-08-04,19,90.09239302958916,7.1110838225860045,calculé (tâches),"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2025-09-15,long,1p_api,2025-08-04,21,70.52631578947368,0.3859679580961173,calculé (tâches),Community and Social Service,Action sociale
+2025-09-15,long,1p_api,2025-08-04,23,83.65276211950395,0.21733193032674952,calculé (tâches),Legal,Droit
+2025-09-15,long,1p_api,2025-08-04,25,72.50289687137894,3.605402281085453,calculé (tâches),Educational Instruction and Library,Enseignement et documentation
+2025-09-15,long,1p_api,2025-08-04,27,84.58334729061288,5.197176061094303,calculé (tâches),"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2025-09-15,long,1p_api,2025-08-04,29,83.69153988569589,1.6330065061960242,calculé (tâches),Healthcare Practitioners and Technical,Professions de santé
+2025-09-15,long,1p_api,2025-08-04,31,94.45764053840061,0.16831844579616742,calculé (tâches),Healthcare Support,Aide aux soins
+2025-09-15,long,1p_api,2025-08-04,33,95.26564965807472,0.27068570182440255,calculé (tâches),Protective Service,Sécurité et protection
+2025-09-15,long,1p_api,2025-08-04,35,95.40078843626807,0.10998922338504276,calculé (tâches),Food Preparation and Serving Related,Restauration
+2025-09-15,long,1p_api,2025-08-04,37,100,0.06573946845246538,calculé (tâches),Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
+2025-09-15,long,1p_api,2025-08-04,39,89.01267767960047,0.39814193373546275,calculé (tâches),Personal Care and Service,Services à la personne
+2025-09-15,long,1p_api,2025-08-04,41,91.54177494571218,3.5744909690272886,calculé (tâches),Sales and Related,Vente
+2025-09-15,long,1p_api,2025-08-04,43,92.09350602464009,9.736163482730952,calculé (tâches),Office and Administrative Support,Soutien administratif
+2025-09-15,long,1p_api,2025-08-04,45,83.57142857142857,0.09400426406729351,calculé (tâches),"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2025-09-15,long,1p_api,2025-08-04,47,85.3932584269663,0.26952123458933475,calculé (tâches),Construction and Extraction,Construction et extraction
+2025-09-15,long,1p_api,2025-08-04,49,92.15380618342428,0.513106608033977,calculé (tâches),"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2025-09-15,long,1p_api,2025-08-04,51,86.87381491222703,2.031677743220154,calculé (tâches),Production,Production industrielle
+2025-09-15,long,1p_api,2025-08-04,53,93.53338968723584,0.3024438991444342,calculé (tâches),Transportation and Material Moving,Transport et manutention
+2025-09-15,long,claude_ai,2025-08-04,11,42.40677190574238,2.6298245504896767,calculé (tâches),Management,Direction et encadrement
+2025-09-15,long,claude_ai,2025-08-04,13,43.000878383773845,2.9997076187099028,calculé (tâches),Business and Financial Operations,"Gestion, finance et affaires"
+2025-09-15,long,claude_ai,2025-08-04,15,58.11070451716763,35.85688454256842,calculé (tâches),Computer and Mathematical,Informatique et mathématiques
+2025-09-15,long,claude_ai,2025-08-04,17,43.111424762800915,2.360616032862817,calculé (tâches),Architecture and Engineering,Architecture et ingénierie
+2025-09-15,long,claude_ai,2025-08-04,19,42.615873618293094,7.1737615786101205,calculé (tâches),"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2025-09-15,long,claude_ai,2025-08-04,21,33.75975217989904,1.9846676080929453,calculé (tâches),Community and Social Service,Action sociale
+2025-09-15,long,claude_ai,2025-08-04,23,44.83453720813033,0.6678113083129587,calculé (tâches),Legal,Droit
+2025-09-15,long,claude_ai,2025-08-04,25,38.53170052783151,12.355442335566618,calculé (tâches),Educational Instruction and Library,Enseignement et documentation
+2025-09-15,long,claude_ai,2025-08-04,27,49.7349967384214,8.23182933227163,calculé (tâches),"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2025-09-15,long,claude_ai,2025-08-04,29,32.782820016862566,2.5399846966388475,calculé (tâches),Healthcare Practitioners and Technical,Professions de santé
+2025-09-15,long,claude_ai,2025-08-04,31,44.141829393627916,0.2505977227437379,calculé (tâches),Healthcare Support,Aide aux soins
+2025-09-15,long,claude_ai,2025-08-04,33,50.82063305978891,0.23546025169674298,calculé (tâches),Protective Service,Sécurité et protection
+2025-09-15,long,claude_ai,2025-08-04,35,56.20759837177744,0.3572857892324875,calculé (tâches),Food Preparation and Serving Related,Restauration
+2025-09-15,long,claude_ai,2025-08-04,37,51.375245579567796,0.1384145469023132,calculé (tâches),Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
+2025-09-15,long,claude_ai,2025-08-04,39,50.91236765037172,0.6171629890906505,calculé (tâches),Personal Care and Service,Services à la personne
+2025-09-15,long,claude_ai,2025-08-04,41,48.01460015485012,2.417018664709158,calculé (tâches),Sales and Related,Vente
+2025-09-15,long,claude_ai,2025-08-04,43,62.657794572688196,8.169879750418346,calculé (tâches),Office and Administrative Support,Soutien administratif
+2025-09-15,long,claude_ai,2025-08-04,45,49.59298685034439,0.3502354602516966,calculé (tâches),"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2025-09-15,long,claude_ai,2025-08-04,47,54.43143812709025,0.20725893577357501,calculé (tâches),Construction and Extraction,Construction et extraction
+2025-09-15,long,claude_ai,2025-08-04,49,62.632850241545924,0.5275304978569052,calculé (tâches),"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2025-09-15,long,claude_ai,2025-08-04,51,62.640213123948385,1.6174284132405152,calculé (tâches),Production,Production industrielle
+2025-09-15,long,claude_ai,2025-08-04,53,63.884007029876926,0.18393064135183654,calculé (tâches),Transportation and Material Moving,Transport et manutention
+2026-01-15,long,1p_api,2025-11-13,11,91.00929505634615,2.964823344741515,calculé (tâches),Management,Direction et encadrement
+2026-01-15,long,1p_api,2025-11-13,13,94.10608280009252,3.1149996140089042,calculé (tâches),Business and Financial Operations,"Gestion, finance et affaires"
+2026-01-15,long,1p_api,2025-11-13,15,83.71478321085289,45.67031213813337,calculé (tâches),Computer and Mathematical,Informatique et mathématiques
+2026-01-15,long,1p_api,2025-11-13,17,87.63414149443561,1.2917320707135689,calculé (tâches),Architecture and Engineering,Architecture et ingénierie
+2026-01-15,long,1p_api,2025-11-13,19,86.6069599320982,4.075963047785699,calculé (tâches),"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2026-01-15,long,1p_api,2025-11-13,21,66.52388797364087,0.46473328015233784,calculé (tâches),Community and Social Service,Action sociale
+2026-01-15,long,1p_api,2025-11-13,23,89.6184560780834,0.14400041172383624,calculé (tâches),Legal,Droit
+2026-01-15,long,1p_api,2025-11-13,25,67.15967021209643,3.5994956383006107,calculé (tâches),Educational Instruction and Library,Enseignement et documentation
+2026-01-15,long,1p_api,2025-11-13,27,80.19651846909687,5.57607884511464,calculé (tâches),"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2026-01-15,long,1p_api,2025-11-13,29,86.80156657963447,1.0179871850955973,calculé (tâches),Healthcare Practitioners and Technical,Professions de santé
+2026-01-15,long,1p_api,2025-11-13,31,88.44065166795966,0.16654229175780344,calculé (tâches),Healthcare Support,Aide aux soins
+2026-01-15,long,1p_api,2025-11-13,33,90.5696689761355,0.5405933969789763,calculé (tâches),Protective Service,Sécurité et protection
+2026-01-15,long,1p_api,2025-11-13,35,94.79830148619959,0.12362008183011246,calculé (tâches),Food Preparation and Serving Related,Restauration
+2026-01-15,long,1p_api,2025-11-13,37,100,0.07658063354005301,calculé (tâches),Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
+2026-01-15,long,1p_api,2025-11-13,39,88.68393047179852,0.4029747047168112,calculé (tâches),Personal Care and Service,Services à la personne
+2026-01-15,long,1p_api,2025-11-13,41,92.42026740841419,3.7804482643267026,calculé (tâches),Sales and Related,Vente
+2026-01-15,long,1p_api,2025-11-13,43,90.33364606543918,13.365276240961373,calculé (tâches),Office and Administrative Support,Soutien administratif
+2026-01-15,long,1p_api,2025-11-13,45,80.59701492537313,0.10076940891896759,calculé (tâches),"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2026-01-15,long,1p_api,2025-11-13,47,96.4699683877766,0.23272689843287614,calculé (tâches),Construction and Extraction,Construction et extraction
+2026-01-15,long,1p_api,2025-11-13,49,78.54994988306048,0.3734335194668176,calculé (tâches),"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2026-01-15,long,1p_api,2025-11-13,51,85.98733869004138,0.9724917011914258,calculé (tâches),Production,Production industrielle
+2026-01-15,long,1p_api,2025-11-13,53,95.1716114019779,0.22346311211754716,calculé (tâches),Transportation and Material Moving,Transport et manutention
+2026-01-15,long,claude_ai,2025-11-13,11,38.120383980256605,3.2426053256657084,calculé (tâches),Management,Direction et encadrement
+2026-01-15,long,claude_ai,2025-11-13,13,37.384788310228544,3.1769971246405797,calculé (tâches),Business and Financial Operations,"Gestion, finance et affaires"
+2026-01-15,long,claude_ai,2025-11-13,15,58.24076527353843,33.68381047630954,calculé (tâches),Computer and Mathematical,Informatique et mathématiques
+2026-01-15,long,claude_ai,2025-11-13,17,40.52958659821669,1.9389923740467554,calculé (tâches),Architecture and Engineering,Architecture et ingénierie
+2026-01-15,long,claude_ai,2025-11-13,19,36.3872155287818,5.457882235279411,calculé (tâches),"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2026-01-15,long,claude_ai,2025-11-13,21,28.29396931724125,2.8081510188773597,calculé (tâches),Community and Social Service,Action sociale
+2026-01-15,long,claude_ai,2025-11-13,23,41.618497109826585,0.5524690586323291,calculé (tâches),Legal,Droit
+2026-01-15,long,claude_ai,2025-11-13,25,36.050887670784604,15.182947868483556,calculé (tâches),Educational Instruction and Library,Enseignement et documentation
+2026-01-15,long,claude_ai,2025-11-13,27,43.19458802230352,9.896387048381047,calculé (tâches),"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2026-01-15,long,claude_ai,2025-11-13,29,27.570681642137878,2.5765220652581577,calculé (tâches),Healthcare Practitioners and Technical,Professions de santé
+2026-01-15,long,claude_ai,2025-11-13,31,38.095238095238095,0.29673709213651706,calculé (tâches),Healthcare Support,Aide aux soins
+2026-01-15,long,claude_ai,2025-11-13,33,38.5121249486231,0.3357419677459683,calculé (tâches),Protective Service,Sécurité et protection
+2026-01-15,long,claude_ai,2025-11-13,35,47.04801889267909,0.4593574196774597,calculé (tâches),Food Preparation and Serving Related,Restauration
+2026-01-15,long,claude_ai,2025-11-13,37,49.3601462522852,0.15371921490186274,calculé (tâches),Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
+2026-01-15,long,claude_ai,2025-11-13,39,45.292854952468566,0.8743592949118639,calculé (tâches),Personal Care and Service,Services à la personne
+2026-01-15,long,claude_ai,2025-11-13,41,42.575696406943884,2.999374921865233,calculé (tâches),Sales and Related,Vente
+2026-01-15,long,claude_ai,2025-11-13,43,54.332124891099674,7.804775596949617,calculé (tâches),Office and Administrative Support,Soutien administratif
+2026-01-15,long,claude_ai,2025-11-13,45,42.71053425897978,0.35094386798349786,calculé (tâches),"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2026-01-15,long,claude_ai,2025-11-13,47,45.03990877993158,0.1998249781222653,calculé (tâches),Construction and Extraction,Construction et extraction
+2026-01-15,long,claude_ai,2025-11-13,49,63.785912882298426,0.549868733591699,calculé (tâches),"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2026-01-15,long,claude_ai,2025-11-13,51,61.83676536900647,0.7904988123515438,calculé (tâches),Production,Production industrielle
+2026-01-15,long,claude_ai,2025-11-13,53,48.4736355226642,0.18242280285035628,calculé (tâches),Transportation and Material Moving,Transport et manutention
+2026-03-24,long,1p_api,2026-02-05,11,86.67433421245711,3.09965,calculé (tâches),Management,Direction et encadrement
+2026-03-24,long,1p_api,2026-02-05,13,89.46515397082656,3.184,calculé (tâches),Business and Financial Operations,"Gestion, finance et affaires"
+2026-03-24,long,1p_api,2026-02-05,15,79.53868689351758,46.595699999999994,calculé (tâches),Computer and Mathematical,Informatique et mathématiques
+2026-03-24,long,1p_api,2026-02-05,17,81.20829504135534,1.66195,calculé (tâches),Architecture and Engineering,Architecture et ingénierie
+2026-03-24,long,1p_api,2026-02-05,19,84.80307045599926,3.9819000000000004,calculé (tâches),"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2026-03-24,long,1p_api,2026-02-05,21,69.71944534021284,0.44970000000000004,calculé (tâches),Community and Social Service,Action sociale
+2026-03-24,long,1p_api,2026-02-05,23,88.95071542130367,0.16260000000000002,calculé (tâches),Legal,Droit
+2026-03-24,long,1p_api,2026-02-05,25,60.51445891701481,2.7976,calculé (tâches),Educational Instruction and Library,Enseignement et documentation
+2026-03-24,long,1p_api,2026-02-05,27,76.27098118051686,4.728599999999998,calculé (tâches),"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2026-03-24,long,1p_api,2026-02-05,29,82.33036536690204,0.8988,calculé (tâches),Healthcare Practitioners and Technical,Professions de santé
+2026-03-24,long,1p_api,2026-02-05,31,82.48248248248248,0.1376,calculé (tâches),Healthcare Support,Aide aux soins
+2026-03-24,long,1p_api,2026-02-05,33,85.59657218193804,0.48490000000000005,calculé (tâches),Protective Service,Sécurité et protection
+2026-03-24,long,1p_api,2026-02-05,35,91.58620689655173,0.09090000000000001,calculé (tâches),Food Preparation and Serving Related,Restauration
+2026-03-24,long,1p_api,2026-02-05,37,100,0.09670000000000001,calculé (tâches),Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
+2026-03-24,long,1p_api,2026-02-05,39,88.60278598564796,0.3298,calculé (tâches),Personal Care and Service,Services à la personne
+2026-03-24,long,1p_api,2026-02-05,41,92.06249804302222,3.7204000000000006,calculé (tâches),Sales and Related,Vente
+2026-03-24,long,1p_api,2026-02-05,43,88.71804356415666,15.858699999999997,calculé (tâches),Office and Administrative Support,Soutien administratif
+2026-03-24,long,1p_api,2026-02-05,45,87.45136186770429,0.11,calculé (tâches),"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2026-03-24,long,1p_api,2026-02-05,47,93.02103250478011,0.277,calculé (tâches),Construction and Extraction,Construction et extraction
+2026-03-24,long,1p_api,2026-02-05,49,82.92079207920794,0.3499,calculé (tâches),"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2026-03-24,long,1p_api,2026-02-05,51,73.06808562099408,1.0995000000000001,calculé (tâches),Production,Production industrielle
+2026-03-24,long,1p_api,2026-02-05,53,94.54545454545456,0.1717,calculé (tâches),Transportation and Material Moving,Transport et manutention
+2026-03-24,long,claude_ai,2026-02-05,11,38.39720640882681,3.974850000000001,calculé (tâches),Management,Direction et encadrement
+2026-03-24,long,claude_ai,2026-02-05,13,39.39393939393939,4.439699999999999,calculé (tâches),Business and Financial Operations,"Gestion, finance et affaires"
+2026-03-24,long,claude_ai,2026-02-05,15,54.78962601715871,29.9633,calculé (tâches),Computer and Mathematical,Informatique et mathématiques
+2026-03-24,long,claude_ai,2026-02-05,17,38.5073722480307,1.9228999999999998,calculé (tâches),Architecture and Engineering,Architecture et ingénierie
+2026-03-24,long,claude_ai,2026-02-05,19,36.6943767158792,5.87125,calculé (tâches),"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2026-03-24,long,claude_ai,2026-02-05,21,28.646161036906534,2.99775,calculé (tâches),Community and Social Service,Action sociale
+2026-03-24,long,claude_ai,2026-02-05,23,40.73016520497655,0.5549999999999999,calculé (tâches),Legal,Droit
+2026-03-24,long,claude_ai,2026-02-05,25,35.14522614320323,12.533,calculé (tâches),Educational Instruction and Library,Enseignement et documentation
+2026-03-24,long,claude_ai,2026-02-05,27,41.29078522768017,9.698900000000002,calculé (tâches),"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2026-03-24,long,claude_ai,2026-02-05,29,27.43579816750548,2.8208,calculé (tâches),Healthcare Practitioners and Technical,Professions de santé
+2026-03-24,long,claude_ai,2026-02-05,31,37.12770297837617,0.2998,calculé (tâches),Healthcare Support,Aide aux soins
+2026-03-24,long,claude_ai,2026-02-05,33,40.87242306543173,0.4152,calculé (tâches),Protective Service,Sécurité et protection
+2026-03-24,long,claude_ai,2026-02-05,35,54.49983813531888,0.6909000000000001,calculé (tâches),Food Preparation and Serving Related,Restauration
+2026-03-24,long,claude_ai,2026-02-05,37,55.769230769230774,0.1932,calculé (tâches),Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
+2026-03-24,long,claude_ai,2026-02-05,39,50.79251579072816,1.085,calculé (tâches),Personal Care and Service,Services à la personne
+2026-03-24,long,claude_ai,2026-02-05,41,50.28761731759006,4.5917,calculé (tâches),Sales and Related,Vente
+2026-03-24,long,claude_ai,2026-02-05,43,55.8070829333965,8.77355,calculé (tâches),Office and Administrative Support,Soutien administratif
+2026-03-24,long,claude_ai,2026-02-05,45,41.338395823445666,0.438,calculé (tâches),"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2026-03-24,long,claude_ai,2026-02-05,47,52.722772277227726,0.2271,calculé (tâches),Construction and Extraction,Construction et extraction
+2026-03-24,long,claude_ai,2026-02-05,49,62.0093552979459,0.6131,calculé (tâches),"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2026-03-24,long,claude_ai,2026-02-05,51,61.18006492266564,0.6374,calculé (tâches),Production,Production industrielle
+2026-03-24,long,claude_ai,2026-02-05,53,49.33051444679352,0.22899999999999998,calculé (tâches),Transportation and Material Moving,Transport et manutention
+2026-06-26,monthly,1p_api,2026-04-01,11,95.15,,publié (groupe SOC),Management,Direction et encadrement
+2026-06-26,monthly,1p_api,2026-04-01,13,94.43,,publié (groupe SOC),Business and Financial Operations,"Gestion, finance et affaires"
+2026-06-26,monthly,1p_api,2026-04-01,15,94,,publié (groupe SOC),Computer and Mathematical,Informatique et mathématiques
+2026-06-26,monthly,1p_api,2026-04-01,17,90.6,,publié (groupe SOC),Architecture and Engineering,Architecture et ingénierie
+2026-06-26,monthly,1p_api,2026-04-01,19,92.32,,publié (groupe SOC),"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2026-06-26,monthly,1p_api,2026-04-01,21,84.58,,publié (groupe SOC),Community and Social Service,Action sociale
+2026-06-26,monthly,1p_api,2026-04-01,23,87.14,,publié (groupe SOC),Legal,Droit
+2026-06-26,monthly,1p_api,2026-04-01,25,91.27,,publié (groupe SOC),Educational Instruction and Library,Enseignement et documentation
+2026-06-26,monthly,1p_api,2026-04-01,27,94.74,,publié (groupe SOC),"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2026-06-26,monthly,1p_api,2026-04-01,29,92.72,,publié (groupe SOC),Healthcare Practitioners and Technical,Professions de santé
+2026-06-26,monthly,1p_api,2026-04-01,31,91.34,,publié (groupe SOC),Healthcare Support,Aide aux soins
+2026-06-26,monthly,1p_api,2026-04-01,33,97.54,,publié (groupe SOC),Protective Service,Sécurité et protection
+2026-06-26,monthly,1p_api,2026-04-01,35,90.64,,publié (groupe SOC),Food Preparation and Serving Related,Restauration
+2026-06-26,monthly,1p_api,2026-04-01,39,94.65,,publié (groupe SOC),Personal Care and Service,Services à la personne
+2026-06-26,monthly,1p_api,2026-04-01,41,90.69,,publié (groupe SOC),Sales and Related,Vente
+2026-06-26,monthly,1p_api,2026-04-01,43,93.84,,publié (groupe SOC),Office and Administrative Support,Soutien administratif
+2026-06-26,monthly,1p_api,2026-04-01,47,95.24,,publié (groupe SOC),Construction and Extraction,Construction et extraction
+2026-06-26,monthly,1p_api,2026-04-01,49,96.42,,publié (groupe SOC),"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2026-06-26,monthly,1p_api,2026-04-01,51,94.1,,publié (groupe SOC),Production,Production industrielle
+2026-06-26,monthly,1p_api,2026-04-01,53,95.36,,publié (groupe SOC),Transportation and Material Moving,Transport et manutention
+2026-06-26,monthly,1p_api,2026-05-01,11,95.58,,publié (groupe SOC),Management,Direction et encadrement
+2026-06-26,monthly,1p_api,2026-05-01,13,94.92,,publié (groupe SOC),Business and Financial Operations,"Gestion, finance et affaires"
+2026-06-26,monthly,1p_api,2026-05-01,15,94.58,,publié (groupe SOC),Computer and Mathematical,Informatique et mathématiques
+2026-06-26,monthly,1p_api,2026-05-01,17,91.99,,publié (groupe SOC),Architecture and Engineering,Architecture et ingénierie
+2026-06-26,monthly,1p_api,2026-05-01,19,93.23,,publié (groupe SOC),"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2026-06-26,monthly,1p_api,2026-05-01,21,89.41,,publié (groupe SOC),Community and Social Service,Action sociale
+2026-06-26,monthly,1p_api,2026-05-01,23,84.7,,publié (groupe SOC),Legal,Droit
+2026-06-26,monthly,1p_api,2026-05-01,25,92.28,,publié (groupe SOC),Educational Instruction and Library,Enseignement et documentation
+2026-06-26,monthly,1p_api,2026-05-01,27,94.83,,publié (groupe SOC),"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2026-06-26,monthly,1p_api,2026-05-01,29,90.32,,publié (groupe SOC),Healthcare Practitioners and Technical,Professions de santé
+2026-06-26,monthly,1p_api,2026-05-01,31,93.08,,publié (groupe SOC),Healthcare Support,Aide aux soins
+2026-06-26,monthly,1p_api,2026-05-01,33,97.36,,publié (groupe SOC),Protective Service,Sécurité et protection
+2026-06-26,monthly,1p_api,2026-05-01,35,90.86,,publié (groupe SOC),Food Preparation and Serving Related,Restauration
+2026-06-26,monthly,1p_api,2026-05-01,37,91.33,,publié (groupe SOC),Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
+2026-06-26,monthly,1p_api,2026-05-01,39,95.23,,publié (groupe SOC),Personal Care and Service,Services à la personne
+2026-06-26,monthly,1p_api,2026-05-01,41,90.78,,publié (groupe SOC),Sales and Related,Vente
+2026-06-26,monthly,1p_api,2026-05-01,43,94.41,,publié (groupe SOC),Office and Administrative Support,Soutien administratif
+2026-06-26,monthly,1p_api,2026-05-01,45,99,,publié (groupe SOC),"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2026-06-26,monthly,1p_api,2026-05-01,47,96.29,,publié (groupe SOC),Construction and Extraction,Construction et extraction
+2026-06-26,monthly,1p_api,2026-05-01,49,96.41,,publié (groupe SOC),"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2026-06-26,monthly,1p_api,2026-05-01,51,94.11,,publié (groupe SOC),Production,Production industrielle
+2026-06-26,monthly,1p_api,2026-05-01,53,95.66,,publié (groupe SOC),Transportation and Material Moving,Transport et manutention
+2026-06-26,monthly,claude_ai,2026-04-01,11,43.95,,publié (groupe SOC),Management,Direction et encadrement
+2026-06-26,monthly,claude_ai,2026-04-01,13,43,,publié (groupe SOC),Business and Financial Operations,"Gestion, finance et affaires"
+2026-06-26,monthly,claude_ai,2026-04-01,15,63.88,,publié (groupe SOC),Computer and Mathematical,Informatique et mathématiques
+2026-06-26,monthly,claude_ai,2026-04-01,17,44.35,,publié (groupe SOC),Architecture and Engineering,Architecture et ingénierie
+2026-06-26,monthly,claude_ai,2026-04-01,19,40.5,,publié (groupe SOC),"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2026-06-26,monthly,claude_ai,2026-04-01,21,39.84,,publié (groupe SOC),Community and Social Service,Action sociale
+2026-06-26,monthly,claude_ai,2026-04-01,23,35.33,,publié (groupe SOC),Legal,Droit
+2026-06-26,monthly,claude_ai,2026-04-01,25,43.07,,publié (groupe SOC),Educational Instruction and Library,Enseignement et documentation
+2026-06-26,monthly,claude_ai,2026-04-01,27,36.15,,publié (groupe SOC),"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2026-06-26,monthly,claude_ai,2026-04-01,29,41.51,,publié (groupe SOC),Healthcare Practitioners and Technical,Professions de santé
+2026-06-26,monthly,claude_ai,2026-04-01,31,37.94,,publié (groupe SOC),Healthcare Support,Aide aux soins
+2026-06-26,monthly,claude_ai,2026-04-01,33,77.2,,publié (groupe SOC),Protective Service,Sécurité et protection
+2026-06-26,monthly,claude_ai,2026-04-01,35,47.87,,publié (groupe SOC),Food Preparation and Serving Related,Restauration
+2026-06-26,monthly,claude_ai,2026-04-01,37,47.3,,publié (groupe SOC),Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
+2026-06-26,monthly,claude_ai,2026-04-01,39,56.68,,publié (groupe SOC),Personal Care and Service,Services à la personne
+2026-06-26,monthly,claude_ai,2026-04-01,41,43.2,,publié (groupe SOC),Sales and Related,Vente
+2026-06-26,monthly,claude_ai,2026-04-01,43,57.14,,publié (groupe SOC),Office and Administrative Support,Soutien administratif
+2026-06-26,monthly,claude_ai,2026-04-01,45,67.62,,publié (groupe SOC),"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2026-06-26,monthly,claude_ai,2026-04-01,47,67.35,,publié (groupe SOC),Construction and Extraction,Construction et extraction
+2026-06-26,monthly,claude_ai,2026-04-01,49,68,,publié (groupe SOC),"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2026-06-26,monthly,claude_ai,2026-04-01,51,64.77,,publié (groupe SOC),Production,Production industrielle
+2026-06-26,monthly,claude_ai,2026-04-01,53,50.85000000000001,,publié (groupe SOC),Transportation and Material Moving,Transport et manutention
+2026-06-26,monthly,claude_ai,2026-05-01,11,43.9,,publié (groupe SOC),Management,Direction et encadrement
+2026-06-26,monthly,claude_ai,2026-05-01,13,42.61,,publié (groupe SOC),Business and Financial Operations,"Gestion, finance et affaires"
+2026-06-26,monthly,claude_ai,2026-05-01,15,63.9,,publié (groupe SOC),Computer and Mathematical,Informatique et mathématiques
+2026-06-26,monthly,claude_ai,2026-05-01,17,44.89,,publié (groupe SOC),Architecture and Engineering,Architecture et ingénierie
+2026-06-26,monthly,claude_ai,2026-05-01,19,40.46,,publié (groupe SOC),"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2026-06-26,monthly,claude_ai,2026-05-01,21,40.01,,publié (groupe SOC),Community and Social Service,Action sociale
+2026-06-26,monthly,claude_ai,2026-05-01,23,34.57,,publié (groupe SOC),Legal,Droit
+2026-06-26,monthly,claude_ai,2026-05-01,25,42.77,,publié (groupe SOC),Educational Instruction and Library,Enseignement et documentation
+2026-06-26,monthly,claude_ai,2026-05-01,27,35.85,,publié (groupe SOC),"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2026-06-26,monthly,claude_ai,2026-05-01,29,41.62,,publié (groupe SOC),Healthcare Practitioners and Technical,Professions de santé
+2026-06-26,monthly,claude_ai,2026-05-01,31,39.08,,publié (groupe SOC),Healthcare Support,Aide aux soins
+2026-06-26,monthly,claude_ai,2026-05-01,33,73.58,,publié (groupe SOC),Protective Service,Sécurité et protection
+2026-06-26,monthly,claude_ai,2026-05-01,35,49.13,,publié (groupe SOC),Food Preparation and Serving Related,Restauration
+2026-06-26,monthly,claude_ai,2026-05-01,37,47.06,,publié (groupe SOC),Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
+2026-06-26,monthly,claude_ai,2026-05-01,39,55.87,,publié (groupe SOC),Personal Care and Service,Services à la personne
+2026-06-26,monthly,claude_ai,2026-05-01,41,43.79,,publié (groupe SOC),Sales and Related,Vente
+2026-06-26,monthly,claude_ai,2026-05-01,43,56.02,,publié (groupe SOC),Office and Administrative Support,Soutien administratif
+2026-06-26,monthly,claude_ai,2026-05-01,45,65.07,,publié (groupe SOC),"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2026-06-26,monthly,claude_ai,2026-05-01,47,66.21,,publié (groupe SOC),Construction and Extraction,Construction et extraction
+2026-06-26,monthly,claude_ai,2026-05-01,49,69.44,,publié (groupe SOC),"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2026-06-26,monthly,claude_ai,2026-05-01,51,63.72,,publié (groupe SOC),Production,Production industrielle
+2026-06-26,monthly,claude_ai,2026-05-01,53,51.739999999999995,,publié (groupe SOC),Transportation and Material Moving,Transport et manutention

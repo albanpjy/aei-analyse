@@ -1,0 +1,94 @@
+"O*NET-SOC Code","Title","Task ID","Task","Task Type","Incumbents Responding","Date","Domain Source","soc_major_group"
+"11-9999.00","Generic occupation 11",10001,"Fictitious task 1 of occupation 11-9999.","Core",20,"07/2014","Incumbent",11
+"11-9999.00","Generic occupation 11",10002,"Fictitious task 2 of occupation 11-9999.","Core",20,"07/2014","Incumbent",11
+"11-9999.00","Generic occupation 11",10003,"Fictitious task 3 of occupation 11-9999.","Core",20,"07/2014","Incumbent",11
+"13-9999.00","Generic occupation 13",10004,"Fictitious task 1 of occupation 13-9999.","Core",20,"07/2014","Incumbent",13
+"13-9999.00","Generic occupation 13",10005,"Fictitious task 2 of occupation 13-9999.","Core",20,"07/2014","Incumbent",13
+"13-9999.00","Generic occupation 13",10006,"Fictitious task 3 of occupation 13-9999.","Core",20,"07/2014","Incumbent",13
+"15-9999.00","Generic occupation 15",10007,"Fictitious task 1 of occupation 15-9999.","Core",20,"07/2014","Incumbent",15
+"15-9999.00","Generic occupation 15",10008,"Fictitious task 2 of occupation 15-9999.","Core",20,"07/2014","Incumbent",15
+"15-9999.00","Generic occupation 15",10009,"Fictitious task 3 of occupation 15-9999.","Core",20,"07/2014","Incumbent",15
+"17-9999.00","Generic occupation 17",10010,"Fictitious task 1 of occupation 17-9999.","Core",20,"07/2014","Incumbent",17
+"17-9999.00","Generic occupation 17",10011,"Fictitious task 2 of occupation 17-9999.","Core",20,"07/2014","Incumbent",17
+"17-9999.00","Generic occupation 17",10012,"Fictitious task 3 of occupation 17-9999.","Core",20,"07/2014","Incumbent",17
+"19-9999.00","Generic occupation 19",10013,"Fictitious task 1 of occupation 19-9999.","Core",20,"07/2014","Incumbent",19
+"19-9999.00","Generic occupation 19",10014,"Fictitious task 2 of occupation 19-9999.","Core",20,"07/2014","Incumbent",19
+"19-9999.00","Generic occupation 19",10015,"Fictitious task 3 of occupation 19-9999.","Core",20,"07/2014","Incumbent",19
+"21-9999.00","Generic occupation 21",10016,"Fictitious task 1 of occupation 21-9999.","Core",20,"07/2014","Incumbent",21
+"21-9999.00","Generic occupation 21",10017,"Fictitious task 2 of occupation 21-9999.","Core",20,"07/2014","Incumbent",21
+"21-9999.00","Generic occupation 21",10018,"Fictitious task 3 of occupation 21-9999.","Core",20,"07/2014","Incumbent",21
+"23-9999.00","Generic occupation 23",10019,"Fictitious task 1 of occupation 23-9999.","Core",20,"07/2014","Incumbent",23
+"23-9999.00","Generic occupation 23",10020,"Fictitious task 2 of occupation 23-9999.","Core",20,"07/2014","Incumbent",23
+"23-9999.00","Generic occupation 23",10021,"Fictitious task 3 of occupation 23-9999.","Core",20,"07/2014","Incumbent",23
+"25-9999.00","Generic occupation 25",10022,"Fictitious task 1 of occupation 25-9999.","Core",20,"07/2014","Incumbent",25
+"25-9999.00","Generic occupation 25",10023,"Fictitious task 2 of occupation 25-9999.","Core",20,"07/2014","Incumbent",25
+"25-9999.00","Generic occupation 25",10024,"Fictitious task 3 of occupation 25-9999.","Core",20,"07/2014","Incumbent",25
+"27-9999.00","Generic occupation 27",10025,"Fictitious task 1 of occupation 27-9999.","Core",20,"07/2014","Incumbent",27
+"27-9999.00","Generic occupation 27",10026,"Fictitious task 2 of occupation 27-9999.","Core",20,"07/2014","Incumbent",27
+"27-9999.00","Generic occupation 27",10027,"Fictitious task 3 of occupation 27-9999.","Core",20,"07/2014","Incumbent",27
+"29-9999.00","Generic occupation 29",10028,"Fictitious task 1 of occupation 29-9999.","Core",20,"07/2014","Incumbent",29
+"29-9999.00","Generic occupation 29",10029,"Fictitious task 2 of occupation 29-9999.","Core",20,"07/2014","Incumbent",29
+"29-9999.00","Generic occupation 29",10030,"Fictitious task 3 of occupation 29-9999.","Core",20,"07/2014","Incumbent",29
+"31-9999.00","Generic occupation 31",10031,"Fictitious task 1 of occupation 31-9999.","Core",20,"07/2014","Incumbent",31
+"31-9999.00","Generic occupation 31",10032,"Fictitious task 2 of occupation 31-9999.","Core",20,"07/2014","Incumbent",31
+"31-9999.00","Generic occupation 31",10033,"Fictitious task 3 of occupation 31-9999.","Core",20,"07/2014","Incumbent",31
+"33-9999.00","Generic occupation 33",10034,"Fictitious task 1 of occupation 33-9999.","Core",20,"07/2014","Incumbent",33
+"33-9999.00","Generic occupation 33",10035,"Fictitious task 2 of occupation 33-9999.","Core",20,"07/2014","Incumbent",33
+"33-9999.00","Generic occupation 33",10036,"Fictitious task 3 of occupation 33-9999.","Core",20,"07/2014","Incumbent",33
+"35-9999.00","Generic occupation 35",10037,"Fictitious task 1 of occupation 35-9999.","Core",20,"07/2014","Incumbent",35
+"35-9999.00","Generic occupation 35",10038,"Fictitious task 2 of occupation 35-9999.","Core",20,"07/2014","Incumbent",35
+"35-9999.00","Generic occupation 35",10039,"Fictitious task 3 of occupation 35-9999.","Core",20,"07/2014","Incumbent",35
+"37-9999.00","Generic occupation 37",10040,"Fictitious task 1 of occupation 37-9999.","Core",20,"07/2014","Incumbent",37
+"37-9999.00","Generic occupation 37",10041,"Fictitious task 2 of occupation 37-9999.","Core",20,"07/2014","Incumbent",37
+"37-9999.00","Generic occupation 37",10042,"Fictitious task 3 of occupation 37-9999.","Core",20,"07/2014","Incumbent",37
+"39-9999.00","Generic occupation 39",10043,"Fictitious task 1 of occupation 39-9999.","Core",20,"07/2014","Incumbent",39
+"39-9999.00","Generic occupation 39",10044,"Fictitious task 2 of occupation 39-9999.","Core",20,"07/2014","Incumbent",39
+"39-9999.00","Generic occupation 39",10045,"Fictitious task 3 of occupation 39-9999.","Core",20,"07/2014","Incumbent",39
+"41-9999.00","Generic occupation 41",10046,"Fictitious task 1 of occupation 41-9999.","Core",20,"07/2014","Incumbent",41
+"41-9999.00","Generic occupation 41",10047,"Fictitious task 2 of occupation 41-9999.","Core",20,"07/2014","Incumbent",41
+"41-9999.00","Generic occupation 41",10048,"Fictitious task 3 of occupation 41-9999.","Core",20,"07/2014","Incumbent",41
+"43-9999.00","Generic occupation 43",10049,"Fictitious task 1 of occupation 43-9999.","Core",20,"07/2014","Incumbent",43
+"43-9999.00","Generic occupation 43",10050,"Fictitious task 2 of occupation 43-9999.","Core",20,"07/2014","Incumbent",43
+"43-9999.00","Generic occupation 43",10051,"Fictitious task 3 of occupation 43-9999.","Core",20,"07/2014","Incumbent",43
+"45-9999.00","Generic occupation 45",10052,"Fictitious task 1 of occupation 45-9999.","Core",20,"07/2014","Incumbent",45
+"45-9999.00","Generic occupation 45",10053,"Fictitious task 2 of occupation 45-9999.","Core",20,"07/2014","Incumbent",45
+"45-9999.00","Generic occupation 45",10054,"Fictitious task 3 of occupation 45-9999.","Core",20,"07/2014","Incumbent",45
+"47-9999.00","Generic occupation 47",10055,"Fictitious task 1 of occupation 47-9999.","Core",20,"07/2014","Incumbent",47
+"47-9999.00","Generic occupation 47",10056,"Fictitious task 2 of occupation 47-9999.","Core",20,"07/2014","Incumbent",47
+"47-9999.00","Generic occupation 47",10057,"Fictitious task 3 of occupation 47-9999.","Core",20,"07/2014","Incumbent",47
+"49-9999.00","Generic occupation 49",10058,"Fictitious task 1 of occupation 49-9999.","Core",20,"07/2014","Incumbent",49
+"49-9999.00","Generic occupation 49",10059,"Fictitious task 2 of occupation 49-9999.","Core",20,"07/2014","Incumbent",49
+"49-9999.00","Generic occupation 49",10060,"Fictitious task 3 of occupation 49-9999.","Core",20,"07/2014","Incumbent",49
+"51-9999.00","Generic occupation 51",10061,"Fictitious task 1 of occupation 51-9999.","Core",20,"07/2014","Incumbent",51
+"51-9999.00","Generic occupation 51",10062,"Fictitious task 2 of occupation 51-9999.","Core",20,"07/2014","Incumbent",51
+"51-9999.00","Generic occupation 51",10063,"Fictitious task 3 of occupation 51-9999.","Core",20,"07/2014","Incumbent",51
+"53-9999.00","Generic occupation 53",10064,"Fictitious task 1 of occupation 53-9999.","Core",20,"07/2014","Incumbent",53
+"53-9999.00","Generic occupation 53",10065,"Fictitious task 2 of occupation 53-9999.","Core",20,"07/2014","Incumbent",53
+"53-9999.00","Generic occupation 53",10066,"Fictitious task 3 of occupation 53-9999.","Core",20,"07/2014","Incumbent",53
+"13-2031.00","Budget Analysts",10067,"Fictitious task 1 of occupation 13-2031.","Core",20,"07/2014","Incumbent",13
+"13-2031.00","Budget Analysts",10068,"Fictitious task 2 of occupation 13-2031.","Core",20,"07/2014","Incumbent",13
+"13-2031.00","Budget Analysts",10069,"Fictitious task 3 of occupation 13-2031.","Core",20,"07/2014","Incumbent",13
+"13-2011.00","Accountants and Auditors",10070,"Fictitious task 1 of occupation 13-2011.","Core",20,"07/2014","Incumbent",13
+"13-2011.00","Accountants and Auditors",10071,"Fictitious task 2 of occupation 13-2011.","Core",20,"07/2014","Incumbent",13
+"13-2011.00","Accountants and Auditors",10072,"Fictitious task 3 of occupation 13-2011.","Core",20,"07/2014","Incumbent",13
+"11-3031.00","Financial Managers",10073,"Fictitious task 1 of occupation 11-3031.","Core",20,"07/2014","Incumbent",11
+"11-3031.00","Financial Managers",10074,"Fictitious task 2 of occupation 11-3031.","Core",20,"07/2014","Incumbent",11
+"11-3031.00","Financial Managers",10075,"Fictitious task 3 of occupation 11-3031.","Core",20,"07/2014","Incumbent",11
+"13-2051.00","Financial and Investment Analysts",10076,"Fictitious task 1 of occupation 13-2051.","Core",20,"07/2014","Incumbent",13
+"13-2051.00","Financial and Investment Analysts",10077,"Fictitious task 2 of occupation 13-2051.","Core",20,"07/2014","Incumbent",13
+"13-2051.00","Financial and Investment Analysts",10078,"Fictitious task 3 of occupation 13-2051.","Core",20,"07/2014","Incumbent",13
+"13-1111.00","Management Analysts",10079,"Fictitious task 1 of occupation 13-1111.","Core",20,"07/2014","Incumbent",13
+"13-1111.00","Management Analysts",10080,"Fictitious task 2 of occupation 13-1111.","Core",20,"07/2014","Incumbent",13
+"13-1111.00","Management Analysts",10081,"Fictitious task 3 of occupation 13-1111.","Core",20,"07/2014","Incumbent",13
+"43-3031.00","Bookkeeping, Accounting, and Auditing Clerks",10082,"Fictitious task 1 of occupation 13-2011.","Core",20,"07/2014","Incumbent",43
+"43-3031.00","Bookkeeping, Accounting, and Auditing Clerks",10083,"Fictitious task 2 of occupation 43-3031.","Core",20,"07/2014","Incumbent",43
+"43-3031.00","Bookkeeping, Accounting, and Auditing Clerks",10084,"Fictitious task 3 of occupation 43-3031.","Core",20,"07/2014","Incumbent",43
+"43-3051.00","Payroll and Timekeeping Clerks",10085,"Fictitious task 1 of occupation 43-3051.","Core",20,"07/2014","Incumbent",43
+"43-3051.00","Payroll and Timekeeping Clerks",10086,"Fictitious task 2 of occupation 43-3051.","Core",20,"07/2014","Incumbent",43
+"43-3051.00","Payroll and Timekeeping Clerks",10087,"Fictitious task 3 of occupation 43-3051.","Core",20,"07/2014","Incumbent",43
+"13-2061.00","Financial Examiners",10088,"Fictitious task 1 of occupation 13-2061.","Core",20,"07/2014","Incumbent",13
+"13-2061.00","Financial Examiners",10089,"Fictitious task 2 of occupation 13-2061.","Core",20,"07/2014","Incumbent",13
+"13-2061.00","Financial Examiners",10090,"Fictitious task 3 of occupation 13-2061.","Core",20,"07/2014","Incumbent",13
+"13-2081.00","Tax Examiners and Collectors, and Revenue Agents",10091,"Fictitious task 1 of occupation 13-2081.","Core",20,"07/2014","Incumbent",13
+"13-2081.00","Tax Examiners and Collectors, and Revenue Agents",10092,"Fictitious task 2 of occupation 13-2081.","Core",20,"07/2014","Incumbent",13
+"13-2081.00","Tax Examiners and Collectors, and Revenue Agents",10093,"Fictitious task 3 of occupation 13-2081.","Core",20,"07/2014","Incumbent",13
