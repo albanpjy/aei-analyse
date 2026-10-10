@@ -46,8 +46,8 @@ ecrire_parquet <- function(donnees, dossier) {
 #' @param ... Paramètres `glue` à substituer (`{param}` dans le fichier).
 #' @return La requête (chaîne de caractères).
 #' @export
-sql_nommee <- function(nom, ..., dossier = chemins()$sql) {
-  chemin <- file.path(dossier, paste0(nom, ".sql"))
+sql_nommee <- function(.nom, ..., dossier = chemins()$sql) {
+  chemin <- file.path(dossier, paste0(.nom, ".sql"))
   if (!file.exists(chemin)) cli::cli_abort("Requête SQL introuvable : {.path {chemin}}")
   requete <- paste(readLines(chemin, encoding = "UTF-8"), collapse = "\n")
   params <- list(...)
@@ -93,10 +93,14 @@ construire_duckdb <- function(parquet, fichiers_sql, chemin = chemins()$duckdb) 
   # transforme le dossier `release=2025-09-15` en colonne `release`.
   # union_by_name = true : les partitions dont le schéma diffère légèrement
   # (colonne absente d'une version) sont alignées par nom de colonne.
+  # hive_types_autocast = false : sinon DuckDB devine le type de la
+  # partition et `release=2025-09-15` devient une DATE ; on garde du texte,
+  # comme dans le reste du projet.
   DBI::dbExecute(con, glue::glue("
     CREATE VIEW usage AS
     SELECT * FROM read_parquet('{racine}/usage/*/*.parquet',
                                hive_partitioning = true,
+                               hive_types_autocast = false,
                                union_by_name = true)"))
   for (t in c("job_exposure", "task_penetration")) {
     f <- file.path(racine, "marche_travail", paste0(t, ".parquet"))

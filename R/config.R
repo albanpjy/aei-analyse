@@ -88,33 +88,54 @@ mode_execution <- function() {
 # -----------------------------------------------------------------------------
 # Palette graphique commune (site, dashboard, rapport)
 # -----------------------------------------------------------------------------
-# Base : palette Okabe & Ito (2008), conçue pour rester distinguable par les
-# personnes daltoniennes. On fixe une couleur par pays pour qu'un pays garde la
-# même couleur sur TOUTES les sorties. La France est en bleu soutenu (couleur
-# d'accent) ; les « tons neutres » servent au contexte.
+# Palette catégorielle à 8 couleurs VALIDÉE par calcul (séparation pour les
+# daltonismes deutéranopie/protanopie/tritanopie, plancher en vision normale,
+# bande de luminosité) — voir docs/SYNTHESE_TECHNIQUES.md. Une couleur suit
+# toujours la même entité (un pays garde sa couleur partout), jamais son rang.
+# L'ORDRE des emplacements fait partie de la validation : ne pas le permuter.
+# Trois couleurs (aqua, jaune, magenta) ont un contraste < 3:1 sur fond clair :
+# règle de compensation = étiquettes directes ou tableau associé.
 
-#' Couleurs fixes par pays (ISO-3)
+#' Couleurs fixes par pays (ISO-3), mode clair
 #' @export
 palette_pays <- function() {
-  c(FRA = "#0072B2", DEU = "#E69F00", GBR = "#CC79A7", ESP = "#D55E00",
-    ITA = "#009E73", BEL = "#56B4E9", NLD = "#F0E442", USA = "#4D4D4D")
+  c(FRA = "#2a78d6", DEU = "#eb6834", GBR = "#1baf7a", ESP = "#eda100",
+    ITA = "#e87ba4", BEL = "#008300", NLD = "#6250d6", USA = "#e34948")
 }
 
-#' Couleurs des modes de collaboration (sujet 2)
+#' Les mêmes teintes, pas ajustés pour le fond sombre
+#' @export
+palette_pays_sombre <- function() {
+  c(FRA = "#3987e5", DEU = "#d95926", GBR = "#199e70", ESP = "#c98500",
+    ITA = "#d55181", BEL = "#008300", NLD = "#9085e9", USA = "#e66767")
+}
+
+#' Couleurs des familles de collaboration (sujet 2)
 #'
-#' Deux familles contrastées (orange = automatisation, bleu = augmentation),
-#' avec des nuances pour les sous-catégories.
+#' Paire opposée chaud/froid : orange = automatisation, bleu = augmentation.
 #' @export
 palette_collaboration <- function() {
-  c(automatisation = "#D55E00", augmentation = "#0072B2",
-    autre = "#999999")
+  c(automatisation = "#eb6834", augmentation = "#2a78d6", `hors champ` = "#898781")
 }
 
-#' Couleurs d'interface (accent, neutres) partagées avec le thème Quarto
+#' Rampe séquentielle (une seule teinte, clair -> foncé) pour les heatmaps
+#' @export
+rampe_sequentielle <- function() {
+  c("#cde2fb", "#9ec5f4", "#6da7ec", "#3987e5", "#256abf", "#184f95", "#0d366b")
+}
+
+#' Paire divergente bleu <-> rouge, milieu gris neutre
+#' @export
+palette_divergente <- function() {
+  c(bas = "#2a78d6", milieu = "#f0efec", haut = "#e34948")
+}
+
+#' Encres et surfaces (partagées avec le thème Quarto, _brand / SCSS)
 #' @export
 palette_interface <- function() {
-  c(accent = "#0072B2", texte = "#1F2933", grille = "#D9DEE3",
-    neutre = "#9AA5B1", fond = "#FFFFFF")
+  c(accent = "#2a78d6", texte = "#0b0b0b", texte_2 = "#52514e", discret = "#898781",
+    grille = "#e1e0d9", axe = "#c3c2b7", surface = "#fcfcfb", fond = "#f9f9f7",
+    contexte = "#c3c2b7")
 }
 
 # -----------------------------------------------------------------------------
@@ -214,3 +235,7 @@ modes_collaboration <- function() {
     "not_classified", "Non classé", "hors champ"
   )
 }
+
+#' Dernière version épinglée (référence des analyses « en coupe »)
+#' @export
+derniere_version <- function() utils::tail(aei_versions_epinglees()$release, 1)

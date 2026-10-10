@@ -38,8 +38,10 @@ library(tarchetypes)
 tar_source("R")
 
 tar_option_set(
+  # mclust doit être ATTACHÉ : Mclust() appelle mclustBIC() par son nom, sans
+  # préfixe de package (piège connu).
   packages = c("dplyr", "tidyr", "purrr", "stringr", "tibble", "arrow",
-               "duckdb", "DBI", "aieconindex"),
+               "duckdb", "DBI", "aieconindex", "mclust"),
   # qs serait plus rapide, mais rds évite une dépendance de plus.
   format = "rds",
   # En cas d'erreur, on garde les autres branches calculées (utile quand une

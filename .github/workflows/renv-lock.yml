@@ -65,7 +65,12 @@ jobs:
             # remplace par l URL des binaires Linux (RENV_CONFIG_REPOS_OVERRIDE).
             options(repos = c(CRAN = Sys.getenv("SNAPSHOT_CRAN")))
             renv::settings$snapshot.type("explicit")
-            renv::snapshot(library = .libPaths()[1], prompt = FALSE)
+            # library = .libPaths() : inclut les packages « recommandés » de la
+            # bibliothèque système (boot, mgcv, codetools...).
+            # force = TRUE : les dépendances de COMPILATION (LinkingTo : cpp11,
+            # RcppEigen...) ne sont pas installées quand on utilise des binaires ;
+            # elles ne sont pas nécessaires à la restauration.
+            renv::snapshot(library = .libPaths(), prompt = FALSE, force = TRUE)
           '
 
       - name: Versionner renv.lock
