@@ -26,7 +26,7 @@ jobs:
           python-version: "3.12"
 
       - name: Installer duckdb (Python)
-        run: pip install duckdb pandas
+        run: pip install duckdb pandas xlrd openpyxl
 
       - name: Inspecter les données
         run: python tools/explorer_schema.py

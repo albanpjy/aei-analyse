@@ -9,7 +9,7 @@ Description: Projet d'analyse reproductible (et non un package publiable) de
     automatisation/augmentation, exposition des métiers, typologie des pays),
     site web, dashboard et rapport académique Quarto. Ce fichier sert à
     déclarer les dépendances pour renv et pour GitHub Actions.
-License: à préciser par l'auteur (le code n'a pas encore de licence)
+License: MIT + file LICENSE
 Encoding: UTF-8
 Language: fr
 Depends:

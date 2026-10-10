@@ -158,3 +158,41 @@ for ind in ["NY.GDP.PCAP.PP.KD", "SP.POP.TOTL", "SP.POP.1564.TO"]:
         res.append(f"{ind}: ÉCHEC {e}")
 (SORTIE / "test_banque_mondiale.txt").write_text("\n".join(res), encoding="utf-8")
 print("Terminé.")
+
+# -----------------------------------------------------------------------------
+# Tables de passage officielles du Bureau of Labor Statistics (domaine public)
+#   - SOC 2010 -> ISCO-08 : https://www.bls.gov/soc/ISCO_SOC_Crosswalk.xls
+#   - SOC 2010 -> SOC 2018 : https://www.bls.gov/soc/2018/soc_2010_to_2018_crosswalk.xlsx
+# L'AEI utilise les codes SOC 2018 ; la table ISCO-08 du BLS est en SOC 2010 :
+# on chaîne donc SOC 2018 -> SOC 2010 -> ISCO-08. Utilisé pour vérifier la
+# correspondance du sujet 3 (R/analyses.R, metiers_cibles()).
+# -----------------------------------------------------------------------------
+import io
+import pandas as pd
+
+ENTETES = {"User-Agent": "Mozilla/5.0 (aei-analyse; https://github.com/albanpjy/aei-analyse)"}
+
+
+def lire_excel(url, **kw):
+    req = urllib.request.Request(url, headers=ENTETES)
+    with urllib.request.urlopen(req) as r:
+        return pd.read_excel(io.BytesIO(r.read()), **kw)
+
+
+rapport_cw = []
+try:
+    for nom, url in [("isco_soc2010", "https://www.bls.gov/soc/ISCO_SOC_Crosswalk.xls"),
+                     ("soc2010_soc2018", "https://www.bls.gov/soc/2018/soc_2010_to_2018_crosswalk.xlsx")]:
+        brut = lire_excel(url, header=None, dtype=str)
+        # La ligne d'en-tête n'est pas la première : on la repère par son contenu.
+        ligne = next(i for i, r in brut.iterrows()
+                     if any("SOC" in str(v) for v in r.values) and r.notna().sum() >= 3)
+        df = brut.iloc[ligne + 1:].copy()
+        df.columns = [str(c).strip() for c in brut.iloc[ligne].values]
+        df = df.dropna(how="all")
+        df.to_csv(SORTIE / f"crosswalk_{nom}.csv", index=False)
+        rapport_cw.append(f"{nom}: {len(df)} lignes, colonnes {list(df.columns)}")
+except Exception as e:  # noqa: BLE001
+    rapport_cw.append(f"ÉCHEC tables de passage BLS : {e}")
+(SORTIE / "crosswalk_rapport.txt").write_text("\n".join(rapport_cw), encoding="utf-8")
+print("\n".join(rapport_cw))

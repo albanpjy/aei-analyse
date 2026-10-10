@@ -145,7 +145,6 @@ l'index. Un job séparé exécute `lintr`.
 1. *Settings → Pages* : choisir la source **« GitHub Actions »** ;
 2. fusionner la branche `developpement` dans `main` (le déploiement Pages n'a lieu que
    depuis `main`) ;
-3. facultatif : choisir une licence pour le code (fichier `LICENSE`).
 
 Autres workflows : `renv-lock.yml` (régénère `renv.lock` en CI quand `DESCRIPTION`
 change, depuis un instantané daté de Posit Package Manager) et `explorer.yml`
@@ -172,7 +171,7 @@ change, depuis un instantané daté de Posit Package Manager) et `explorer.yml`
 
 ## Licences et citation
 
-- **Code** de ce dépôt : licence à préciser par l'auteur.
+- **Code** de ce dépôt : licence [MIT](LICENSE).
 - **Package {aieconindex}** : MIT.
 - **Données Anthropic Economic Index** : CC-BY-4.0. Toute réutilisation doit créditer
   Anthropic.
