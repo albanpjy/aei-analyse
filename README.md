@@ -24,7 +24,7 @@ Quatre questions d'analyse, chacune traitée dans un document Quarto dédié :
 |---|-------|-----------------------|----------|
 | 1 | **La France face à Claude** | Profil d'usage français par tâche et par grand groupe de métiers ; comparaison avec DEU, GBR, ESP, ITA, BEL, NLD et USA ; évolution entre versions | Indice d'usage par habitant, `aei_compare()`, concentration (HHI, ratio top-N, entropie de Shannon) |
 | 2 | **Automatisation vs augmentation** | Évolution de la part automatisation (directive, feedback loop) vs augmentation (task iteration, learning, validation) ; Claude.ai vs API first-party | Séries par version, ventilations par famille de métiers et par pays, incertitudes, discussion des ruptures méthodologiques |
-| 3 | **Exposition des métiers budgétaires et financiers** | Exposition et pénétration des tâches pour les métiers proches du pilotage budgétaire et financier (codes SOC à vérifier dans les données) | `aei_labor_market()`, table de correspondance SOC → ISCO-08 → fonction publique française (**hypothèse de travail**, non officielle) |
+| 3 | **Les métiers du chiffre** | Exposition, pénétration et automatisation des tâches pour neuf métiers de la finance, du budget et de la comptabilité, en trois familles (codes SOC vérifiés dans les données) | `aei_labor_market()`, table de correspondance SOC → ISCO-08 → fonction publique française (**hypothèse de travail**, non officielle) |
 | 4 | **Typologie des pays** | Familles de pays selon leur profil d'usage par famille de tâches | Transformation CLR (données compositionnelles), ACP et HCPC (FactoMineR), mélange gaussien (Mclust, BIC), indice de Rand ajusté |
 
 ## Livrables

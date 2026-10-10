@@ -151,7 +151,7 @@ bas_auto <- ds |> slice_min(fin, n = 1)
 En version `r v_max`, le groupe le plus tourné vers l'automatisation est
 « `r top_auto$libelle_fr` » (`r pct_fr(top_auto$fin)`), le moins tourné
 « `r bas_auto$libelle_fr` » (`r pct_fr(bas_auto$fin)`). Le groupe
-« Gestion, finance et affaires » (SOC 13), qui inclut les métiers budgétaires étudiés au
+« Gestion, finance et affaires » (SOC 13), qui inclut la plupart des métiers du chiffre étudiés au
 [sujet 3](03_metiers_finances.qmd), se situe à
 `r pct_fr(ds$fin[ds$libelle_fr == "Gestion, finance et affaires"])`.
 

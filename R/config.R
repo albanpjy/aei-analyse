@@ -103,6 +103,15 @@ palette_pays <- function() {
     ITA = "#e87ba4", BEL = "#008300", NLD = "#6250d6", USA = "#e34948")
 }
 
+#' Couleurs des trois familles de métiers du chiffre (sujet 3), reprises des
+#' trois premières teintes validées de `palette_pays()`
+#' @export
+palette_familles <- function() {
+  p <- unname(palette_pays())
+  c(`Budget et pilotage` = p[1], `Comptabilité et paie` = p[2],
+    `Analyse, contrôle et fiscalité` = p[3])
+}
+
 #' Les mêmes teintes, pas ajustés pour le fond sombre
 #' @export
 palette_pays_sombre <- function() {
@@ -185,7 +194,8 @@ motif_referentiels <- function() {
 #' Libellés anglais tels qu'ils figurent dans les données (facette
 #' `soc_occupation`), et traduction française PROPOSÉE par le projet (ce n'est
 #' pas une nomenclature officielle française). Le groupe 55 (métiers militaires)
-#' existe dans la SOC mais n'a pas de tâches dans O*NET (voir sujet 3).
+#' existe dans la SOC mais n'a pas de tâches dans O*NET : il n'apparaît pas
+#' dans les données d'usage.
 #' @export
 groupes_soc <- function() {
   tibble::tribble(

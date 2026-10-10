@@ -59,15 +59,16 @@ majeurs <- data.frame(
             "Transportation and Material Moving")
 )
 # Métiers : 1 métier « générique » par grand groupe + les métiers budgétaires
-# et financiers étudiés au sujet 3 (codes SOC réels, tâches fictives).
+# du chiffre étudiés au sujet 3 (codes SOC réels, tâches fictives).
 metiers <- rbind(
   data.frame(soc6 = paste0(majeurs$code, "-9999"), titre = paste("Generic occupation", majeurs$code)),
   data.frame(
-    soc6 = c("13-2031", "13-2011", "11-3031", "13-2051", "13-1111", "43-3031", "13-1023", "11-3061"),
+    soc6 = c("13-2031", "13-2011", "11-3031", "13-2051", "13-1111", "43-3031", "43-3051",
+             "13-2061", "13-2081"),
     titre = c("Budget Analysts", "Accountants and Auditors", "Financial Managers",
               "Financial and Investment Analysts", "Management Analysts",
-              "Bookkeeping, Accounting, and Auditing Clerks", "Purchasing Agents",
-              "Purchasing Managers")
+              "Bookkeeping, Accounting, and Auditing Clerks", "Payroll and Timekeeping Clerks",
+              "Financial Examiners", "Tax Examiners and Collectors, and Revenue Agents")
   )
 )
 taches <- do.call(rbind, lapply(seq_len(nrow(metiers)), \(i) data.frame(
@@ -255,9 +256,8 @@ for (r in c("release_2025_09_15", "release_2026_01_15", "release_2026_03_24", "r
 }
 
 # --- Tables « labor market impacts » -----------------------------------------------
-ecrire(data.frame(occ_code = c(metiers$soc6, "55-1011", "55-3011"),
-                  title = c(metiers$titre, "Air Crew Officers", "Air Crew Members"),
-                  observed_exposure = round(c(stats::runif(nrow(metiers), 0, 0.8), 0, 0), 4)),
+ecrire(data.frame(occ_code = metiers$soc6, title = metiers$titre,
+                  observed_exposure = round(stats::runif(nrow(metiers), 0, 0.8), 4)),
        "labor_market_impacts/job_exposure.csv")
 ecrire(data.frame(task = taches$tache,
                   penetration = round(ifelse(stats::runif(nrow(taches)) < 0.5, 0,

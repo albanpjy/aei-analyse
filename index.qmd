@@ -65,9 +65,9 @@ Profil d'usage par tâche et par métier, comparaison avec sept pays, indice par
 Comment les utilisateurs collaborent avec Claude, par version, source, métier et pays.
 :::
 ::: {.g-col-12 .g-col-md-6}
-### [Les métiers budgétaires et financiers](analyses/03_metiers_finances.qmd)
-Exposition des métiers du pilotage budgétaire, tâches concernées, correspondance avec la
-fonction publique française.
+### [Les métiers du chiffre](analyses/03_metiers_finances.qmd)
+Finance, budget, comptabilité : exposition, tâches concernées, part d'automatisation,
+correspondance avec la fonction publique française.
 :::
 ::: {.g-col-12 .g-col-md-6}
 ### [Une typologie des pays](analyses/04_typologie.qmd)

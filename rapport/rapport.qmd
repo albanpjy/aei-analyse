@@ -68,7 +68,7 @@ suppressPackageStartupMessages({
 tar_source("R")
 theme_set(theme_aei(base_size = 9))
 tar_load(c(t1_usage_pays, t1_soc_pays, t1_concentration, t1_top_taches, t2_global, t2_pays,
-           t2_soc, t3_exposition, t3_taches, t3_militaire, t4_typologie, t4_matrice,
+           t2_soc, t3_exposition, t3_taches, t3_automatisation, t4_typologie, t4_matrice,
            harmonise_resume))
 mode_donnees <- mode_execution()
 versions <- aei_versions_epinglees()
@@ -125,7 +125,7 @@ mesure une demande adressée à un produit, non des emplois.
 
 L'article poursuit quatre objectifs : (i) situer la France dans l'usage mondial de Claude ;
 (ii) décrire l'évolution de la part d'automatisation ; (iii) mesurer l'exposition des
-métiers du pilotage budgétaire et financier ; (iv) construire une typologie des pays. La
+métiers du chiffre (finance, budget, comptabilité) ; (iv) construire une typologie des pays. La
 section 2 présente les données et les méthodes, la section 3 les résultats, la section 4 les
 discute ; les limites et la conclusion suivent.
 
@@ -272,7 +272,7 @@ Par grand groupe de métiers, en dernière version, la part d'automatisation va 
 `r pct_fr(min(soc_der$automatisation_pct))` à `r pct_fr(max(soc_der$automatisation_pct))` ; le
 groupe « Gestion, finance et affaires » se situe à `r pct_fr(gfin$automatisation_pct[1])`.
 
-## Les métiers budgétaires et financiers
+## Les métiers du chiffre
 
 ```{r}
 #| label: expo
@@ -280,7 +280,7 @@ ex <- t3_exposition$cibles
 med_all <- with(t3_exposition$toutes, median(observed_exposure[observed_exposure > 0]))
 ```
 
-Le @tbl-expo situe les huit métiers retenus dans la distribution de l'exposition
+Le @tbl-expo situe les `r nrow(ex)` métiers du chiffre retenus (budget et pilotage, comptabilité et paie, analyse, contrôle et fiscalité) dans la distribution de l'exposition
 observée publiée par Anthropic, très asymétrique :
 `r pct_fr(100 * mean(t3_exposition$toutes$observed_exposure == 0), 0)` des
 `r nrow(t3_exposition$toutes)` métiers ont une exposition nulle. La médiane des métiers ciblés
@@ -290,16 +290,24 @@ observée publiée par Anthropic, très asymétrique :
 
 ```{r}
 #| label: tbl-expo
-#| tbl-cap: "Exposition observée des métiers budgétaires et financiers"
+#| tbl-cap: "Exposition observée des métiers du chiffre"
 ex |> arrange(desc(observed_exposure)) |>
   transmute(SOC = soc6, `Métier` = intitule_soc, Exposition = round(observed_exposure, 3),
             Centile = round(100 * centile)) |>
   tab()
 ```
 
-Les métiers spécifiquement militaires (grand groupe SOC 55) ne disposent d'aucune tâche
-O\*NET dans le référentiel publié (`r t3_militaire$n[2]` tâche), ce qui les rend invisibles dans
-l'index : seules les fonctions de soutien, décrites par des métiers civils, sont observables.
+```{r}
+#| label: auto-metiers
+au_der <- t3_automatisation |> filter(!is.na(automatisation_pct)) |>
+  filter(release == max(release)) |> arrange(desc(automatisation_pct))
+```
+
+Agrégée sur leurs tâches pondérées par l'usage (Claude.ai, version `r au_der$release[1]`), la
+part d'automatisation de ces métiers va de `r pct_fr(min(au_der$automatisation_pct))`
+(« `r au_der$intitule_soc[nrow(au_der)]` ») à `r pct_fr(max(au_der$automatisation_pct))`
+(« `r au_der$intitule_soc[1]` ») : elle décrit la manière dont Claude est sollicité sur ces
+tâches, non l'automatisation des emplois.
 
 ## Typologie des pays
 
@@ -335,7 +343,7 @@ très inégal entre pays, et la France occupe une position que les différentes 
 permettent de suivre, sous réserve des changements de périmètre. Ensuite, l'équilibre entre
 automatisation et augmentation varie fortement selon la source (conversationnelle ou API),
 le métier et la version : il n'y a pas de tendance univoque que l'on puisse séparer avec
-certitude des ruptures de méthode. Enfin, les métiers du pilotage budgétaire et financier
+certitude des ruptures de méthode. Enfin, les métiers du chiffre
 sont bien visibles dans l'index, mais par une minorité de leurs tâches
 (`r pct_fr(100 * mean(t3_taches$penetration[!is.na(t3_taches$penetration)] > 0), 0)` des tâches
 retrouvées ont une pénétration non nulle) ; la transposition au cas français repose sur une correspondance de nomenclatures qui reste une

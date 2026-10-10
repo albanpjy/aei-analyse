@@ -1,15 +1,16 @@
 ---
-title: "Les métiers budgétaires et financiers face à Claude"
-subtitle: "Sujet 3 — exposition des métiers, pénétration des tâches et correspondances avec la fonction publique"
-description: "Où se situent les métiers du pilotage budgétaire et financier dans les mesures d'exposition publiées par Anthropic."
+title: "Les métiers du chiffre face à Claude"
+subtitle: "Sujet 3 — finance, budget et comptabilité : exposition, tâches, automatisation et correspondances avec la fonction publique"
+description: "Où se situent les métiers de la finance, du budget et de la comptabilité dans les mesures d'usage publiées par Anthropic."
 ---
 
 {{< include _setup.qmd >}}
 
 ```{r}
 #| label: donnees-s3
-tar_load(c(t3_exposition, t3_taches, t3_usage, t3_militaire))
+tar_load(c(t3_exposition, t3_taches, t3_usage, t3_automatisation, t2_global))
 cibles <- metiers_cibles()
+familles <- unique(cibles$famille)
 expo <- t3_exposition$cibles
 toutes <- t3_exposition$toutes
 n_onet <- t3_taches |> count(soc6, name = "n_taches")
@@ -34,22 +35,23 @@ d'un métier apparaissent souvent dans les conversations, pas que ce métier per
 
 ## Les métiers retenus
 
-Huit métiers proches du pilotage budgétaire et financier ont été retenus. **Vérification
-des codes** : `r presents_expo` sur `r nrow(cibles)` figurent dans `job_exposure`,
+`r nrow(cibles)` métiers « du chiffre » ont été retenus, répartis en `r length(familles)`
+familles : `r paste0("**", familles, "** (", as.vector(table(cibles$famille)[familles]), ")", collapse = ", ")`.
+**Vérification des codes** : `r presents_expo` sur `r nrow(cibles)` figurent dans `job_exposure`,
 `r presents_onet` sur `r nrow(cibles)` ont des tâches dans le référentiel O\*NET publié avec
 l'index`r if (length(t3_exposition$codes_absents)) paste0(" ; absents de job_exposure : ", paste(t3_exposition$codes_absents, collapse = ", ")) else ""`.
 
 ```{r}
 #| label: fig-exposition
 #| fig-cap: "Exposition observée des métiers ciblés, replacée dans la distribution de tous les métiers"
-#| fig-alt: "Nuage de points horizontal : chaque point gris est un métier de la nomenclature SOC positionné selon son exposition observée ; les huit métiers budgétaires et financiers sont en bleu et étiquetés."
+#| fig-alt: "Nuage de points horizontal : chaque point gris est un métier de la nomenclature SOC positionné selon son exposition observée ; les métiers du chiffre sont colorés selon leur famille (budget et pilotage, comptabilité et paie, analyse, contrôle et fiscalité) et étiquetés."
 set.seed(1)
 fond <- toutes |> mutate(y = runif(n(), -0.4, 0.4))
 cib <- expo |> filter(!is.na(observed_exposure)) |>
   mutate(y = 0, libelle = paste0(intitule_soc, " (", soc6, ")"))
 ggplot(fond, aes(observed_exposure, y)) +
   geom_point(colour = palette_interface()[["contexte"]], alpha = 0.5, size = 1.4) +
-  geom_point(data = cib, colour = palette_pays()[["FRA"]], size = 3.4) +
+  geom_point(data = cib, aes(colour = famille), size = 3.4) +
   ggrepel::geom_label_repel(data = cib, aes(label = stringr::str_wrap(libelle, 28)),
                             size = 2.7, min.segment.length = 0, box.padding = 0.6,
                             colour = palette_interface()[["texte"]], seed = 2,
@@ -57,6 +59,7 @@ ggplot(fond, aes(observed_exposure, y)) +
   geom_vline(xintercept = median(toutes$observed_exposure[toutes$observed_exposure > 0]), linetype = "dashed",
              colour = palette_interface()[["discret"]]) +
   scale_y_continuous(limits = c(-1.7, 1.7), breaks = NULL) +
+  scale_colour_manual(values = palette_familles(), name = NULL) +
   labs(x = "Exposition observée (0 à 1)", y = NULL,
        caption = source_aei(paste0("Table job_exposure (", nrow(toutes),
                                    " métiers). Pointillé : médiane des métiers à exposition non nulle.")))
@@ -67,9 +70,9 @@ ggplot(fond, aes(observed_exposure, y)) +
 #| tbl-cap: "Exposition observée et rang centile des métiers ciblés"
 expo |>
   arrange(desc(observed_exposure)) |>
-  transmute(`Code SOC` = soc6, Métier = intitule_soc, Exposition = observed_exposure,
+  transmute(Famille = famille, `Code SOC` = soc6, Métier = intitule_soc, Exposition = observed_exposure,
             `Rang centile` = 100 * centile, `Médiane du grand groupe` = mediane_groupe) |>
-  gt::gt() |>
+  gt::gt(groupname_col = "Famille") |>
   gt::fmt_number(columns = c(Exposition, `Médiane du grand groupe`), decimals = 3, dec_mark = ",") |>
   gt::fmt_number(columns = `Rang centile`, decimals = 0) |>
   gt::sub_missing(missing_text = "absent") |>
@@ -140,17 +143,63 @@ une fraction des tâches. La plus pénétrée est « `r top_tache$tache` »
 ```{r}
 #| label: fig-usage-metiers
 #| fig-cap: "Part de l'usage mondial de Claude.ai portant sur les tâches de chaque métier ciblé"
-#| fig-alt: "Petits multiples : un panneau par métier ciblé montrant, par version de l'index, la part des conversations mondiales portant sur ses tâches."
-u <- t3_usage |> filter(source == "claude_ai")
-ggplot(u, aes(release, part_usage_pct, group = soc6)) +
-  geom_line(colour = palette_pays()[["FRA"]], linewidth = 0.8) +
-  geom_point(colour = palette_pays()[["FRA"]], size = 2) +
-  facet_wrap(~ stringr::str_wrap(metier, 30), ncol = 4) +
+#| fig-alt: "Petits multiples : un panneau par métier ciblé, coloré selon sa famille, montrant par version de l'index la part des conversations mondiales portant sur ses tâches."
+u <- t3_usage |> filter(source == "claude_ai") |>
+  left_join(select(cibles, soc6, famille), by = "soc6")
+ggplot(u, aes(release, part_usage_pct, group = soc6, colour = famille)) +
+  geom_line(linewidth = 0.8) +
+  geom_point(size = 2) +
+  facet_wrap(~ stringr::str_wrap(metier, 30), ncol = 3) +
+  scale_colour_manual(values = palette_familles(), name = NULL) +
   labs(x = NULL, y = "Part de l'usage mondial (%)",
        caption = source_aei("Une tâche partagée par plusieurs métiers compte pour chacun d'eux.")) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 7),
         strip.text = element_text(size = 8))
 ```
+
+## Automatisation ou augmentation ?
+
+Pour chaque tâche, Anthropic publie la répartition des conversations entre modes de
+collaboration (voir le [sujet 2](02_automatisation.qmd)). La part d'automatisation d'un
+métier agrège celle de ses tâches, chacune pondérée par son poids dans l'usage mondial de
+Claude.ai ; seules les versions qui publient cette facette par tâche sont mobilisables.
+
+```{r}
+#| label: chiffres-auto
+ref <- t2_global |> filter(source == "claude_ai") |>
+  slice_max(date_start, n = 1, with_ties = FALSE, by = release) |>
+  select(release, auto_global = automatisation_pct)
+au <- t3_automatisation |> filter(!is.na(automatisation_pct)) |>
+  left_join(ref, by = "release")
+v_auto <- max(au$release)
+au_der <- au |> filter(release == v_auto) |> arrange(desc(automatisation_pct))
+n_au_dessus <- sum(au_der$automatisation_pct > au_der$auto_global)
+```
+
+```{r}
+#| label: fig-automatisation-metiers
+#| fig-cap: "Part d'automatisation des tâches de chaque métier du chiffre (Claude.ai, mondial), par version"
+#| fig-alt: "Petits multiples : un panneau par métier, coloré selon sa famille ; en abscisse les versions de l'index, en ordonnée la part d'automatisation en pourcentage ; une ligne grise pointillée donne la part d'automatisation de l'ensemble de Claude.ai."
+ggplot(au, aes(release, automatisation_pct, group = soc6, colour = famille)) +
+  geom_line(aes(y = auto_global), colour = palette_interface()[["discret"]],
+            linetype = "dashed") +
+  geom_line(linewidth = 0.8) +
+  geom_point(size = 2) +
+  facet_wrap(~ stringr::str_wrap(intitule_soc, 30), ncol = 3) +
+  scale_colour_manual(values = palette_familles(), name = NULL) +
+  labs(x = NULL, y = "Part d'automatisation (%)",
+       caption = source_aei("Pointillé : ensemble des conversations Claude.ai classables.")) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 7),
+        strip.text = element_text(size = 8))
+```
+
+En version `r v_auto`, `r if (n_au_dessus == 0) paste("aucun des", nrow(au_der), "métiers observés n'a") else paste(n_au_dessus, "des", nrow(au_der), "métiers observés ont")` une part
+d'automatisation supérieure à celle de l'ensemble de Claude.ai
+(`r pct_fr(au_der$auto_global[1])`). La plus élevée concerne
+« `r au_der$intitule_soc[1]` » (`r pct_fr(au_der$automatisation_pct[1])`), la plus faible
+« `r au_der$intitule_soc[nrow(au_der)]` » (`r pct_fr(au_der$automatisation_pct[nrow(au_der)])`).
+Ces parts décrivent la **manière dont Claude est sollicité** sur ces tâches (déléguer
+l'exécution ou itérer avec l'utilisateur), non le degré d'automatisation des emplois.
 
 ## De la nomenclature américaine à la fonction publique française
 
@@ -161,13 +210,13 @@ Le tableau combine deux niveaux de preuve, à ne pas confondre :
   par l'Institute for Structural Research (IBS) et reprise par le package R
   `iscoCrosswalks` [@iscocrosswalks2022] (table embarquée dans `references_externes/`, le package
 ayant été retiré de CRAN). La
-  correspondance est « un vers plusieurs » : tous les codes associés sont donnés. Les huit
-  codes SOC retenus sont identiques en SOC 2010 et SOC 2018.
+  correspondance est « un vers plusieurs » : tous les codes associés sont donnés. Les
+  `r nrow(cibles)` codes SOC retenus sont identiques en SOC 2010 et SOC 2018.
 
 ::: {.callout-warning}
 ## ISCO-08 → fonction publique : hypothèse de travail
 Le rapprochement avec des emplois de la fonction publique française (contrôle de gestion,
-finances, achats) est un **jugement argumenté**, fondé sur la proximité des activités, et non
+budget, comptabilité publique, paie, contrôle financier, fiscalité) est un **jugement argumenté**, fondé sur la proximité des activités, et non
 une nomenclature officielle (RIME, répertoires ministériels).
 :::
 
@@ -175,33 +224,11 @@ une nomenclature officielle (RIME, répertoires ministériels).
 #| label: tbl-correspondance
 #| tbl-cap: "Correspondance SOC → ISCO-08 (table officielle BLS) → emplois de la fonction publique (hypothèse)"
 cibles |>
-  transmute(SOC = soc6, `Intitulé SOC` = intitule_soc, `ISCO-08 (officiel)` = isco08,
+  transmute(Famille = famille, SOC = soc6, `Intitulé SOC` = intitule_soc,
+            `ISCO-08 (officiel)` = isco08,
             `Intitulé ISCO-08 (OIT)` = intitule_isco,
             `Fonction publique (rapprochement, hypothèse)` = fonction_publique,
             `Activités communes` = argument) |>
-  gt::gt() |>
+  gt::gt(groupname_col = "Famille") |>
   gt::tab_options(table.font.size = gt::px(13))
 ```
-
-## Le cas des métiers militaires
-
-La nomenclature SOC comporte un grand groupe **55 — *Military Specific Occupations***. Sa
-couverture est très faible dans les sources de l'index :
-
-```{r}
-#| label: tbl-militaire
-#| tbl-cap: "Couverture des métiers militaires (SOC 55-xxxx)"
-t3_militaire |> rename(Source = source, Effectif = n) |> gt::gt()
-```
-
-O\*NET ne décrit pas les tâches des métiers spécifiquement militaires
-(`r t3_militaire$n[2]` tâche dans le référentiel publié avec l'index) : aucune conversation ne
-peut donc leur être rattachée par la méthode d'Anthropic, et
-`r t3_militaire$n[3]` métier(s) 55-xxxx figure(nt) dans `job_exposure`. La table de passage
-officielle rattache pourtant ces métiers à des groupes ISCO-08 bien identifiés
-(`r cw <- table_soc_isco(); paste(sort(unique(cw$isco08[startsWith(cw$soc10, "55")])), collapse = ", ")` :
-officiers, sous-officiers et autres rangs des forces armées) : c'est bien l'absence de
-description des **tâches** dans O\*NET qui les rend invisibles. Pour un ministère des
-Armées, l'index renseigne surtout sur les **fonctions de soutien** (finances, achats,
-ressources humaines, informatique), décrites par des métiers civils, et non sur les métiers
-opérationnels.

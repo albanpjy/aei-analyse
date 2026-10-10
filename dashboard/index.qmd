@@ -247,7 +247,7 @@ crosstalk::bscols(
 ## Row
 
 ```{r}
-#| title: "Exposition observée de tous les métiers (job_exposure) — métiers budgétaires et financiers en évidence"
+#| title: "Exposition observée de tous les métiers (job_exposure) — métiers du chiffre en évidence"
 expo <- t3_exposition$toutes |>
   mutate(cible = occ_code %in% metiers_cibles()$soc6) |>
   arrange(desc(observed_exposure))

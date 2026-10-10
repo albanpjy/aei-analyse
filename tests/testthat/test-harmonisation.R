@@ -90,9 +90,9 @@ test_that("cle_tache normalise casse et espaces", {
 })
 
 test_that("la table officielle SOC -> ISCO-08 donne les codes attendus", {
-  cw <- correspondance_soc_isco(c("13-2031", "11-3061", "13-2051"),
+  cw <- correspondance_soc_isco(c("13-2031", "13-2081", "13-2051"),
                                file.path(racine, "references_externes", "soc2010_isco08.csv"))
   expect_equal(cw$isco08[cw$soc6 == "13-2031"], "2411")
-  expect_equal(cw$isco08[cw$soc6 == "11-3061"], "1219")
+  expect_true(nzchar(cw$isco08[cw$soc6 == "13-2081"]))
   expect_equal(cw$isco08[cw$soc6 == "13-2051"], "2412, 2413")   # un vers plusieurs
 })

@@ -27,11 +27,11 @@ cibles_analyses <- function() {
     targets::tar_target(t2_modes, s2_modes(base_duckdb)),
     targets::tar_target(t2_pays, s2_pays(base_duckdb)),
     targets::tar_target(t2_soc, s2_soc(base_duckdb)),
-    # Sujet 3 — Métiers budgétaires et financiers
+    # Sujet 3 — Métiers du chiffre (finance, budget, comptabilité)
     targets::tar_target(t3_exposition, s3_exposition(base_duckdb)),
     targets::tar_target(t3_taches, s3_taches(base_duckdb)),
     targets::tar_target(t3_usage, s3_usage(base_duckdb)),
-    targets::tar_target(t3_militaire, s3_militaire(base_duckdb)),
+    targets::tar_target(t3_automatisation, s3_automatisation(base_duckdb)),
     # Sujet 4 — Typologie des pays
     targets::tar_target(t4_matrice, s4_matrice(base_duckdb, release = derniere_version())),
     targets::tar_target(t4_typologie, s4_typologie(t4_matrice, banque_mondiale)),
@@ -46,7 +46,7 @@ cibles_analyses <- function() {
         s1_comparaison_france = t1_comparaison, s2_global = t2_global,
         s2_modes = t2_modes, s2_pays = t2_pays, s2_soc = t2_soc,
         s3_exposition_cibles = t3_exposition$cibles, s3_taches = t3_taches,
-        s3_usage = t3_usage, s3_militaire = t3_militaire,
+        s3_usage = t3_usage, s3_automatisation = t3_automatisation,
         s4_typologie_pays = t4_typologie$croise,
         s4_valeurs_propres = tibble::as_tibble(t4_typologie$acp$eig, rownames = "axe"),
         s4_couverture = t4_matrice$couverture,
