@@ -1,0 +1,7 @@
+# Profil Quarto « fixtures » : activé automatiquement quand AEI_MODE=fixtures
+# (voir R/cibles_rendus.R). Les rendus sur données FICTIVES vont dans un dossier
+# séparé et n'écrivent JAMAIS dans _freeze/ (réservé aux données réelles).
+project:
+  output-dir: _site_fixtures
+execute:
+  freeze: false

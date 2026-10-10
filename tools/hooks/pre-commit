@@ -1,0 +1,14 @@
+#!/bin/sh
+# -----------------------------------------------------------------------------
+# Garde-fou local : les sorties calculées sur les DONNÉES RÉELLES (_freeze/,
+# docs/resultats/, docs/dictionnaire_donnees.md) ne sont versionnées que par la
+# CI. Un rendu local sur données fictives ne doit jamais les écraser.
+# Installation : cp tools/hooks/pre-commit .git/hooks/ && chmod +x .git/hooks/pre-commit
+# Après un rendu local : git checkout -- _freeze docs/resultats
+# -----------------------------------------------------------------------------
+if [ -z "$GITHUB_ACTIONS" ] && git diff --cached --name-only | \
+   grep -qE '^(_freeze/|docs/resultats/|docs/dictionnaire_donnees\.md$)'; then
+  echo "Refus : _freeze/, docs/resultats/ et le dictionnaire généré ne sont commités que par la CI."
+  echo "Annuler : git restore --staged _freeze docs/resultats docs/dictionnaire_donnees.md"
+  exit 1
+fi

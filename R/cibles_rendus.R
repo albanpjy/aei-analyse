@@ -23,6 +23,11 @@ cibles_rendus <- function() {
   docs <- documents_quarto()
   noms <- paste0("rendu_", gsub("[^a-z0-9]+", "_", tolower(tools::file_path_sans_ext(docs))))
   purrr::map2(noms, docs, \(nom, doc) {
-    tarchetypes::tar_quarto_raw(nom, path = doc, quiet = TRUE)
+    # Profil « fixtures » en mode données fictives : sorties séparées, pas de gel
+    # (_quarto-fixtures.yml).
+    tarchetypes::tar_quarto_raw(
+      nom, path = doc, quiet = TRUE,
+      profile = if (mode_execution() == "fixtures") "fixtures" else NULL
+    )
   })
 }

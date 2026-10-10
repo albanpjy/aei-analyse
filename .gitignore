@@ -35,6 +35,7 @@ donnees_publiees/
 /.quarto/
 **/.quarto/
 _site/
+_site_fixtures/
 _book/
 *_files/
 *_cache/
