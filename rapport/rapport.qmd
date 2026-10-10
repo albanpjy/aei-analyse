@@ -85,7 +85,7 @@ ty <- t4_typologie
 tab <- function(d, ...) {
   knitr::kable(d, format = "latex", booktabs = TRUE, linesep = "",
                format.args = list(decimal.mark = ",", big.mark = " "), ...) |>
-    kable_styling(latex_options = c("hold_position"), font_size = 9)
+    kable_styling(latex_options = c("HOLD_position"), font_size = 9)
 }
 ```
 
@@ -374,6 +374,8 @@ harmonise_resume |>
   tab()
 ```
 
+\FloatBarrier
+
 # Correspondance SOC, ISCO-08 et fonction publique
 
 \begin{rappel}
@@ -392,6 +394,8 @@ metiers_cibles() |>
   kable_styling(font_size = 8, latex_options = c("repeat_header")) |>
   column_spec(2, width = "4.2cm") |> column_spec(4, width = "6cm")
 ```
+
+\FloatBarrier
 
 # Détails statistiques
 
