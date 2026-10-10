@@ -16,18 +16,6 @@ soc6,metier,task_id,tache,type_tache,penetration
 11-3031,Treasurers and Controllers,8874,Perform tax planning work.,Supplemental,0
 11-3031,Treasurers and Controllers,8865,"Coordinate and direct the financial planning, budgeting, procurement, or investment activities of all or part of an organization.",Core,0
 11-3031,Treasurers and Controllers,8871,Lead staff training and development in budgeting and financial management areas.,Core,0
-11-3031,Treasurers and Controllers,8868,"Advise management on short-term and long-term financial objectives, policies, and actions.",Core,0
-11-3031,Treasurers and Controllers,8872,Receive cash and checks and make deposits.,Supplemental,0
-11-3031,Treasurers and Controllers,8869,Provide direction and assistance to other organizational units regarding accounting and budgeting policies and procedures and efficient control and utilization of financial resources.,Core,0
-11-3031,"Financial Managers, Branch or Department",8886,Prepare operational or risk reports for management analysis.,Core,0
-11-3031,"Financial Managers, Branch or Department",8883,"Prepare financial or regulatory reports required by laws, regulations, or boards of directors.",Supplemental,0
-11-3031,Treasurers and Controllers,8860,Conduct or coordinate audits of company accounts and financial transactions to ensure compliance with state and federal requirements and statutes.,Core,0
-11-3031,"Financial Managers, Branch or Department",20463,Oversee training programs.,Core,0
-11-3031,Treasurers and Controllers,20168,"Monitor financial activities and details, such as cash flow and reserve levels, to ensure that all legal and regulatory requirements are met.",Core,0
-11-3031,Treasurers and Controllers,8875,"Determine depreciation rates to apply to capitalized items and advise management on actions regarding the purchase, lease, or disposal of such items.",Supplemental,0
-11-3031,Treasurers and Controllers,8863,"Monitor and evaluate the performance of accounting and other financial staff, recommending and implementing personnel actions, such as promotions and dismissals.",Core,0
-11-3031,"Financial Managers, Branch or Department",8891,Evaluate data pertaining to costs to plan budgets.,Core,0
-11-3031,"Financial Managers, Branch or Department",8887,"Evaluate financial reporting systems, accounting or collection procedures, or investment activities and make recommendations for changes to procedures, operating systems, budgets, or other financial control functions.",Supplemental,0
 11-3031,Treasurers and Controllers,8858,"Delegate authority for the receipt, disbursement, banking, protection, and custody of funds, securities, and financial instruments.",Core,0
 11-3031,Treasurers and Controllers,8857,"Supervise employees performing financial reporting, accounting, billing, collections, payroll, and budgeting duties.",Core,0
 11-3031,"Financial Managers, Branch or Department",8885,Review collection reports to determine the status of collections and the amounts of outstanding balances.,Supplemental,0
@@ -40,6 +28,18 @@ soc6,metier,task_id,tache,type_tache,penetration
 11-3031,"Financial Managers, Branch or Department",8879,Oversee the flow of cash or financial instruments.,Supplemental,0
 11-3031,Treasurers and Controllers,8870,Evaluate needs for procurement of funds and investment of surpluses and make appropriate recommendations.,Core,0
 11-3031,"Financial Managers, Branch or Department",8890,Communicate with stockholders or other investors to provide information or to raise capital.,Supplemental,0
+11-3031,Treasurers and Controllers,8868,"Advise management on short-term and long-term financial objectives, policies, and actions.",Core,0
+11-3031,Treasurers and Controllers,8872,Receive cash and checks and make deposits.,Supplemental,0
+11-3031,Treasurers and Controllers,8869,Provide direction and assistance to other organizational units regarding accounting and budgeting policies and procedures and efficient control and utilization of financial resources.,Core,0
+11-3031,"Financial Managers, Branch or Department",8886,Prepare operational or risk reports for management analysis.,Core,0
+11-3031,"Financial Managers, Branch or Department",8883,"Prepare financial or regulatory reports required by laws, regulations, or boards of directors.",Supplemental,0
+11-3031,Treasurers and Controllers,8860,Conduct or coordinate audits of company accounts and financial transactions to ensure compliance with state and federal requirements and statutes.,Core,0
+11-3031,"Financial Managers, Branch or Department",20463,Oversee training programs.,Core,0
+11-3031,Treasurers and Controllers,20168,"Monitor financial activities and details, such as cash flow and reserve levels, to ensure that all legal and regulatory requirements are met.",Core,0
+11-3031,Treasurers and Controllers,8875,"Determine depreciation rates to apply to capitalized items and advise management on actions regarding the purchase, lease, or disposal of such items.",Supplemental,0
+11-3031,Treasurers and Controllers,8863,"Monitor and evaluate the performance of accounting and other financial staff, recommending and implementing personnel actions, such as promotions and dismissals.",Core,0
+11-3031,"Financial Managers, Branch or Department",8891,Evaluate data pertaining to costs to plan budgets.,Core,0
+11-3031,"Financial Managers, Branch or Department",8887,"Evaluate financial reporting systems, accounting or collection procedures, or investment activities and make recommendations for changes to procedures, operating systems, budgets, or other financial control functions.",Supplemental,0
 11-3031,Treasurers and Controllers,8864,"Develop and maintain relationships with banking, insurance, and nonorganizational accounting personnel to facilitate financial activities.",Core,
 11-3031,Treasurers and Controllers,8866,"Develop internal control policies, guidelines, and procedures for activities such as budget administration, cash and credit management, and accounting.",Core,
 13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1157,"Write and review product specifications, maintaining a working technical knowledge of the goods or services to be purchased.",Core,1
@@ -47,9 +47,6 @@ soc6,metier,task_id,tache,type_tache,penetration
 13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1152,"Review catalogs, industry periodicals, directories, trade journals, and Internet sites and consult with other department personnel to locate necessary goods and services.",Core,1
 13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1158,"Monitor changes affecting supply and demand, tracking market conditions, price trends, or futures markets.",Core,0.9645
 13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1150,Evaluate and monitor contract performance to ensure compliance with contractual obligations and to determine need for changes.,Core,0
-13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1155,Arrange the payment of duty and freight charges.,Core,0
-13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1159,Formulate policies and procedures for bid proposals and procurement of goods and services.,Core,0
-13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1156,"Hire, train, or supervise purchasing clerks, buyers, and expediters.",Core,0
 13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1153,Study sales records and inventory levels of current stock to develop strategic purchasing programs that facilitate employee access to supplies.,Core,0
 13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1160,"Attend meetings, trade shows, conferences, conventions, and seminars to network with people in other purchasing departments.",Supplemental,0
 13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1143,"Prepare purchase orders, solicit bid proposals, and review requisitions for goods and services.",Core,0
@@ -58,6 +55,9 @@ soc6,metier,task_id,tache,type_tache,penetration
 13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1145,"Analyze price proposals, financial reports, and other data and information to determine reasonable prices.",Core,0
 13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1154,"Interview vendors and visit suppliers' plants and distribution centers to examine and learn about products, services, and prices.",Core,0
 13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1149,"Confer with staff, users, and vendors to discuss defective or unacceptable goods or services and determine corrective action.",Core,0
+13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1155,Arrange the payment of duty and freight charges.,Core,0
+13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1159,Formulate policies and procedures for bid proposals and procurement of goods and services.,Core,0
+13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1156,"Hire, train, or supervise purchasing clerks, buyers, and expediters.",Core,0
 13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1144,"Research and evaluate suppliers based on price, quality, selection, service, support, availability, reliability, production and distribution capabilities, and the supplier's reputation and history.",Core,
 13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1151,"Maintain and review computerized or manual records of items purchased, costs, deliveries, product performance, and inventories.",Core,
 13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1148,Monitor shipments to ensure that goods come in on time and resolve problems related to undelivered goods.,Core,
@@ -92,26 +92,6 @@ soc6,metier,task_id,tache,type_tache,penetration
 13-1041,Environmental Compliance Inspectors,10843,"Learn and observe proper safety precautions, rules, regulations, and practices so that unsafe conditions can be recognized and proper safety protocols implemented.",Core,0
 13-1041,Environmental Compliance Inspectors,10832,Interview individuals to determine the nature of suspected violations and to obtain evidence of violations.,Core,0
 13-1041,Regulatory Affairs Specialists,18066,"Write or update standard operating procedures, work instructions, or policies.",Core,0
-13-1041,Coroners,8931,Witness and certify deaths that are the result of a judicial order.,Supplemental,0
-13-1041,Government Property Inspectors and Investigators,12896,Testify in court or at administrative proceedings concerning investigation findings.,Supplemental,0
-13-1041,Regulatory Affairs Specialists,18067,Coordinate recall or market withdrawal activities as necessary.,Supplemental,0
-13-1041,Government Property Inspectors and Investigators,12900,"Submit samples of products to government laboratories for testing, as required.",Supplemental,0
-13-1041,Coroners,8912,"Perform medicolegal examinations and autopsies, conducting preliminary examinations of the body to identify victims, locate signs of trauma, and identify factors that would indicate time of death.",Core,0
-13-1041,Environmental Compliance Inspectors,10847,"Perform laboratory tests on samples collected, such as analyzing the content of contaminated wastewater.",Supplemental,0
-13-1041,Government Property Inspectors and Investigators,12899,Recommend legal or administrative action to protect government property.,Supplemental,0
-13-1041,Coroners,8913,"Inquire into the cause, manner, and circumstances of human deaths and establish the identities of deceased persons.",Core,0
-13-1041,Regulatory Affairs Specialists,18048,"Coordinate, prepare, or review regulatory submissions for domestic or international projects.",Core,0
-13-1041,Government Property Inspectors and Investigators,12894,Inspect manufactured or processed products to ensure compliance with contract specifications or legal requirements.,Supplemental,0
-13-1041,Equal Opportunity Representatives and Officers,10865,Investigate employment practices or alleged violations of laws to document and correct discriminatory factors.,Core,0
-13-1041,Coroners,8930,"Collect wills, burial instructions, and other documentation needed for investigations and for handling of the remains.",Core,0
-13-1041,Coroners,8922,"Testify at inquests, hearings, and court trials.",Core,0
-13-1041,Equal Opportunity Representatives and Officers,20721,Meet with persons involved in equal opportunity complaints to arbitrate and settle disputes.,Core,0
-13-1041,Licensing Examiners and Inspectors,20718,Collect fees for licenses.,Supplemental,0
-13-1041,Environmental Compliance Inspectors,10838,"Determine sampling locations and methods, and collect water or wastewater samples for analysis, preserving samples with appropriate containers and preservation methods.",Core,0
-13-1041,Equal Opportunity Representatives and Officers,20723,Monitor the implementation and impact of guidelines for nondiscriminatory employment practices.,Core,0
-13-1041,Environmental Compliance Inspectors,10834,"Monitor follow-up actions in cases where violations were found, and review compliance monitoring reports.",Core,0
-13-1041,Government Property Inspectors and Investigators,12892,Monitor investigations of suspected offenders to ensure that they are conducted in accordance with constitutional requirements.,Supplemental,0
-13-1041,Environmental Compliance Inspectors,10833,"Prepare written, oral, tabular, and graphic reports summarizing requirements and regulations, including enforcement and chain of custody documentation.",Core,0
 13-1041,Licensing Examiners and Inspectors,10859,Warn violators of infractions or penalties.,Core,0
 13-1041,Licensing Examiners and Inspectors,10856,"Administer oral, written, road, or flight tests to license applicants.",Supplemental,0
 13-1041,Equal Opportunity Representatives and Officers,10876,Verify that all job descriptions are submitted for review and approval and that descriptions meet regulatory standards.,Supplemental,0
@@ -171,6 +151,26 @@ soc6,metier,task_id,tache,type_tache,penetration
 13-1041,Environmental Compliance Inspectors,10837,"Inform individuals and groups of pollution control regulations and inspection findings, and explain how problems can be corrected.",Core,0
 13-1041,Equal Opportunity Representatives and Officers,10873,Review company contracts to determine actions required to meet governmental equal opportunity provisions.,Supplemental,0
 13-1041,Coroners,8924,"Locate and document information regarding the next of kin, including their relationship to the deceased and the status of notification attempts.",Core,0
+13-1041,Coroners,8931,Witness and certify deaths that are the result of a judicial order.,Supplemental,0
+13-1041,Government Property Inspectors and Investigators,12896,Testify in court or at administrative proceedings concerning investigation findings.,Supplemental,0
+13-1041,Regulatory Affairs Specialists,18067,Coordinate recall or market withdrawal activities as necessary.,Supplemental,0
+13-1041,Government Property Inspectors and Investigators,12900,"Submit samples of products to government laboratories for testing, as required.",Supplemental,0
+13-1041,Coroners,8912,"Perform medicolegal examinations and autopsies, conducting preliminary examinations of the body to identify victims, locate signs of trauma, and identify factors that would indicate time of death.",Core,0
+13-1041,Environmental Compliance Inspectors,10847,"Perform laboratory tests on samples collected, such as analyzing the content of contaminated wastewater.",Supplemental,0
+13-1041,Government Property Inspectors and Investigators,12899,Recommend legal or administrative action to protect government property.,Supplemental,0
+13-1041,Coroners,8913,"Inquire into the cause, manner, and circumstances of human deaths and establish the identities of deceased persons.",Core,0
+13-1041,Regulatory Affairs Specialists,18048,"Coordinate, prepare, or review regulatory submissions for domestic or international projects.",Core,0
+13-1041,Government Property Inspectors and Investigators,12894,Inspect manufactured or processed products to ensure compliance with contract specifications or legal requirements.,Supplemental,0
+13-1041,Equal Opportunity Representatives and Officers,10865,Investigate employment practices or alleged violations of laws to document and correct discriminatory factors.,Core,0
+13-1041,Coroners,8930,"Collect wills, burial instructions, and other documentation needed for investigations and for handling of the remains.",Core,0
+13-1041,Coroners,8922,"Testify at inquests, hearings, and court trials.",Core,0
+13-1041,Equal Opportunity Representatives and Officers,20721,Meet with persons involved in equal opportunity complaints to arbitrate and settle disputes.,Core,0
+13-1041,Licensing Examiners and Inspectors,20718,Collect fees for licenses.,Supplemental,0
+13-1041,Environmental Compliance Inspectors,10838,"Determine sampling locations and methods, and collect water or wastewater samples for analysis, preserving samples with appropriate containers and preservation methods.",Core,0
+13-1041,Equal Opportunity Representatives and Officers,20723,Monitor the implementation and impact of guidelines for nondiscriminatory employment practices.,Core,0
+13-1041,Environmental Compliance Inspectors,10834,"Monitor follow-up actions in cases where violations were found, and review compliance monitoring reports.",Core,0
+13-1041,Government Property Inspectors and Investigators,12892,Monitor investigations of suspected offenders to ensure that they are conducted in accordance with constitutional requirements.,Supplemental,0
+13-1041,Environmental Compliance Inspectors,10833,"Prepare written, oral, tabular, and graphic reports summarizing requirements and regulations, including enforcement and chain of custody documentation.",Core,0
 13-1041,Environmental Compliance Inspectors,10851,"Maintain and repair materials, worksites, and equipment.",Supplemental,
 13-1041,Regulatory Affairs Specialists,18050,"Provide technical review of data or reports that will be incorporated into regulatory submissions to assure scientific rigor, accuracy, and clarity of presentation.",Core,
 13-1041,Regulatory Affairs Specialists,18057,"Identify relevant guidance documents, international standards, or consensus standards and provide interpretive assistance.",Core,
@@ -184,14 +184,14 @@ soc6,metier,task_id,tache,type_tache,penetration
 13-1041,Government Property Inspectors and Investigators,12890,"Prepare correspondence, reports of inspections or investigations or recommendations for action.",Core,
 13-1111,Management Analysts,7276,Gather and organize information on problems or procedures.,Core,1
 13-1111,Management Analysts,7282,"Document findings of study and prepare recommendations for implementation of new systems, procedures, or organizational changes.",Core,0.7393
-13-1111,Management Analysts,7284,"Design, evaluate, recommend, and approve changes of forms and reports.",Core,0
-13-1111,Management Analysts,7286,Recommend purchase of storage equipment and design area layout to locate equipment in space available.,Supplemental,0
-13-1111,Management Analysts,7279,"Develop and implement records management program for filing, protection, and retrieval of records, and assure compliance with program.",Core,0
 13-1111,Management Analysts,7277,Analyze data gathered and develop solutions or alternative methods of proceeding.,Core,0
 13-1111,Management Analysts,7278,Confer with personnel concerned to ensure successful functioning of newly implemented systems or procedures.,Core,0
 13-1111,Management Analysts,7283,"Prepare manuals and train workers in use of new forms, reports, procedures or equipment, according to organizational policy.",Core,0
 13-1111,Management Analysts,7281,"Interview personnel and conduct on-site observation to ascertain unit functions, work performed, and methods, equipment, and personnel used.",Core,0
 13-1111,Management Analysts,7285,"Plan study of work problems and procedures, such as organizational change, communications, information flow, integrated production methods, inventory control, or cost analysis.",Core,0
+13-1111,Management Analysts,7284,"Design, evaluate, recommend, and approve changes of forms and reports.",Core,0
+13-1111,Management Analysts,7286,Recommend purchase of storage equipment and design area layout to locate equipment in space available.,Supplemental,0
+13-1111,Management Analysts,7279,"Develop and implement records management program for filing, protection, and retrieval of records, and assure compliance with program.",Core,0
 13-1111,Management Analysts,7280,"Review forms and reports and confer with management and users about format, distribution, and purpose, and to identify problems and improvements.",Core,
 13-2011,Auditors,1242,Examine records and interview workers to ensure recording of transactions and compliance with laws and regulations.,Core,0.954
 13-2011,Accountants,116,Establish tables of accounts and assign entries to proper accounts.,Core,0.9373
@@ -201,10 +201,6 @@ soc6,metier,task_id,tache,type_tache,penetration
 13-2011,Accountants,114,"Analyze business operations, trends, costs, revenues, financial commitments, and obligations to project future revenues and expenses or to provide advice.",Supplemental,0.8571
 13-2011,Auditors,1232,Prepare detailed reports on audit findings.,Core,0.7793
 13-2011,Auditors,1247,"Evaluate taxpayer finances to determine tax liability, using knowledge of interest and discount rates, annuities, valuation of stocks and bonds, and amortization valuation of depletable assets.",Supplemental,0
-13-2011,Auditors,1231,"Report to management about asset utilization and audit results, and recommend changes in operations and financial activities.",Core,0
-13-2011,Auditors,1234,"Inspect account books and accounting systems for efficiency, effectiveness, and use of accepted accounting procedures to record transactions.",Core,0
-13-2011,Auditors,1236,"Supervise auditing of establishments, and determine scope of investigation required.",Core,0
-13-2011,Accountants,115,Report to management regarding the finances of establishment.,Core,0
 13-2011,Auditors,1249,"Audit payroll and personnel records to determine unemployment insurance premiums, workers' compensation coverage, liabilities, and compliance with tax laws.",Supplemental,0
 13-2011,Auditors,1245,Conduct pre-implementation audits to determine if systems and programs under development will work as planned.,Supplemental,0
 13-2011,Auditors,1239,"Inspect cash on hand, notes receivable and payable, negotiable securities, and canceled checks to confirm records are accurate.",Core,0
@@ -216,6 +212,10 @@ soc6,metier,task_id,tache,type_tache,penetration
 13-2011,Auditors,1238,Confer with company officials about financial and regulatory matters.,Core,0
 13-2011,Auditors,1246,"Review taxpayer accounts, and conduct audits on-site, by correspondence, or by summoning taxpayer to office.",Supplemental,0
 13-2011,Accountants,113,"Compute taxes owed and prepare tax returns, ensuring compliance with payment, reporting, or other tax requirements.",Supplemental,0
+13-2011,Auditors,1231,"Report to management about asset utilization and audit results, and recommend changes in operations and financial activities.",Core,0
+13-2011,Auditors,1234,"Inspect account books and accounting systems for efficiency, effectiveness, and use of accepted accounting procedures to record transactions.",Core,0
+13-2011,Auditors,1236,"Supervise auditing of establishments, and determine scope of investigation required.",Core,0
+13-2011,Accountants,115,Report to management regarding the finances of establishment.,Core,0
 13-2011,Auditors,1243,"Direct activities of personnel engaged in filing, recording, compiling and transmitting financial records.",Supplemental,
 13-2011,Accountants,122,"Advise management about issues such as resource utilization, tax strategies, and the assumptions underlying budget forecasts.",Supplemental,
 13-2011,Accountants,119,Prepare forms and manuals for accounting and bookkeeping personnel and direct their work activities.,Supplemental,
@@ -234,7 +234,6 @@ soc6,metier,task_id,tache,type_tache,penetration
 13-2031,Budget Analysts,3400,Seek new ways to improve efficiency and increase profits.,Core,0
 13-2031,Budget Analysts,3402,"Examine budget estimates for completeness, accuracy, and conformance with procedures and regulations.",Core,0
 13-2031,Budget Analysts,3403,"Perform cost-benefit analyses to compare operating programs, review financial requests, or explore alternative financing methods.",Core,0
-13-2031,Budget Analysts,3397,"Match appropriations for specific programs with appropriations for broader programs, including items for emergency funds.",Supplemental,0
 13-2031,Budget Analysts,3395,Direct the preparation of regular and special budget reports.,Core,0
 13-2031,Budget Analysts,3401,Review operating budgets to analyze trends affecting budget needs.,Core,0
 13-2031,Budget Analysts,3399,Summarize budgets and submit recommendations for the approval or disapproval of funds requests.,Core,0
@@ -242,17 +241,18 @@ soc6,metier,task_id,tache,type_tache,penetration
 13-2031,Budget Analysts,3404,Interpret budget directives and establish policies for carrying out directives.,Core,0
 13-2031,Budget Analysts,3406,"Testify before examining and fund-granting authorities, clarifying and promoting the proposed budgets.",Supplemental,0
 13-2031,Budget Analysts,3405,Compile and analyze accounting records and other data to determine the financial resources required to implement a program.,Core,0
-13-2051,Financial Analysts,7310,Evaluate and compare the relative quality of various securities in a given industry.,Supplemental,1
+13-2031,Budget Analysts,3397,"Match appropriations for specific programs with appropriations for broader programs, including items for emergency funds.",Supplemental,0
 13-2051,Financial Analysts,7307,"Recommend investments and investment timing to companies, investment firm staff, or the public.",Supplemental,1
+13-2051,Financial Analysts,7310,Evaluate and compare the relative quality of various securities in a given industry.,Supplemental,1
 13-2051,Financial Analysts,7306,"Monitor fundamental economic, industrial, and corporate developments by analyzing information from financial publications and services, investment banking firms, government agencies, trade publications, company sources, or personal interviews.",Core,0.9723
 13-2051,Financial Analysts,7305,"Interpret data on price, yield, stability, future investment-risk trends, economic influences, and other factors affecting investment programs.",Core,0.9565
 13-2051,Financial Analysts,7303,"Inform investment decisions by analyzing financial information to forecast business, industry, or economic conditions.",Core,0.9561
 13-2051,Financial Analysts,7311,"Present oral or written reports on general economic trends, individual corporations, and entire industries.",Supplemental,0.9069
 13-2051,Financial Analysts,7302,"Draw charts and graphs, using computer spreadsheets, to illustrate technical reports.",Core,0.8626
 13-2051,Financial Analysts,19564,Conduct financial analyses related to investments in green construction or green retrofitting projects.,,0
-13-2051,Financial Analysts,7308,Determine the prices at which securities should be syndicated and offered to the public.,Supplemental,0
 13-2051,Financial Analysts,7309,"Prepare plans of action for investment, using financial analyses.",Supplemental,0
 13-2051,Financial Analysts,7304,"Monitor developments in the fields of industrial technology, business, finance, and economic theory.",Core,0
+13-2051,Financial Analysts,7308,Determine the prices at which securities should be syndicated and offered to the public.,Supplemental,0
 13-2051,Financial Analysts,19569,"Research and recommend environmentally-related financial products, such as energy futures, water rights, carbon credits, government environmental funds, and cleantech industry funds and company stocks.",,
 13-2051,Financial Analysts,19565,"Determine the financial viability of alternative energy generation or fuel production systems, based on power source or feedstock quality, financing costs, potential revenue, and total project costs.",,
 13-2051,Financial Analysts,19568,"Identify potential financial investments that are environmentally sound, considering issues such as carbon emissions and biodiversity.",,
@@ -266,14 +266,14 @@ soc6,metier,task_id,tache,type_tache,penetration
 13-2061,Financial Examiners,7326,"Review applications for mergers, acquisitions, establishment of new institutions, acceptance in Federal Reserve System, or registration of securities sales to determine their public interest value and conformance to regulations, and recommend acceptance or rejection.",Core,0
 13-2061,Financial Examiners,7329,"Confer with officials of real estate, securities, or financial institution industries to exchange views and discuss issues or pending cases.",Core,0
 13-2061,Financial Examiners,7317,"Recommend actions to ensure compliance with laws and regulations, or to protect solvency of institutions.",Core,0
-13-2061,Financial Examiners,20190,Provide regulatory compliance training to employees.,Core,0
-13-2061,Financial Examiners,7316,"Plan, supervise, and review work of assigned subordinates.",Core,0
 13-2061,Financial Examiners,7328,Evaluate data processing applications for institutions under examination to develop recommendations for coordinating existing systems with examination procedures.,Core,0
 13-2061,Financial Examiners,7322,Train other examiners in the financial examination process.,Core,0
 13-2061,Financial Examiners,7327,"Resolve problems concerning the overall financial integrity of banking institutions including loan investment portfolios, capital, earnings, and specific or large troubled accounts.",Core,0
 13-2061,Financial Examiners,7321,Review audit reports of internal and external auditors to monitor adequacy of scope of reports or to discover specific weaknesses in internal routines.,Core,0
 13-2061,Financial Examiners,7314,Investigate activities of institutions to enforce laws and regulations and to ensure legality of transactions and operations or financial solvency.,Core,0
 13-2061,Financial Examiners,7323,Establish guidelines for procedures and policies that comply with new and revised regulations and direct their implementation.,Core,0
+13-2061,Financial Examiners,20190,Provide regulatory compliance training to employees.,Core,0
+13-2061,Financial Examiners,7316,"Plan, supervise, and review work of assigned subordinates.",Core,0
 13-2061,Financial Examiners,7324,"Direct and participate in formal and informal meetings with bank directors, trustees, senior management, counsels, outside accountants and consultants to gather information and discuss findings.",Core,
 13-2061,Financial Examiners,7319,"Prepare reports, exhibits and other supporting schedules that detail an institution's safety and soundness, compliance with laws and regulations, and recommended solutions to questionable financial conditions.",Core,
 13-2061,Financial Examiners,7318,"Examine the minutes of meetings of directors, stockholders and committees to investigate the specific authority extended at various levels of management.",Core,
@@ -287,18 +287,18 @@ soc6,metier,task_id,tache,type_tache,penetration
 13-2081,"Tax Examiners and Collectors, and Revenue Agents",5312,Participate in informal appeals hearings on contested cases from other agents.,Supplemental,0
 13-2081,"Tax Examiners and Collectors, and Revenue Agents",5292,Contact taxpayers by mail or telephone to address discrepancies and to request supporting documentation.,Core,0
 13-2081,"Tax Examiners and Collectors, and Revenue Agents",20016,Answer questions from taxpayers and assist them in completing tax forms.,Core,0
-13-2081,"Tax Examiners and Collectors, and Revenue Agents",5294,"Notify taxpayers of any overpayment or underpayment, and either issue a refund or request further payment.",Core,0
-13-2081,"Tax Examiners and Collectors, and Revenue Agents",5293,Send notices to taxpayers when accounts are delinquent.,Core,0
-13-2081,"Tax Examiners and Collectors, and Revenue Agents",5309,Request that the state or federal revenue service prepare a return on a taxpayer's behalf in cases where taxes have not been filed.,Supplemental,0
-13-2081,"Tax Examiners and Collectors, and Revenue Agents",5301,Impose payment deadlines on delinquent taxpayers and monitor payments to ensure that deadlines are met.,Core,0
-13-2081,"Tax Examiners and Collectors, and Revenue Agents",5305,"Determine appropriate methods of debt settlement, such as offers of compromise, wage garnishment, or seizure and sale of property.",Supplemental,0
-13-2081,"Tax Examiners and Collectors, and Revenue Agents",5298,Enter tax return information into computers for processing.,Supplemental,0
 13-2081,"Tax Examiners and Collectors, and Revenue Agents",5290,"Maintain records for each case, including contacts, telephone numbers, and actions taken.",Core,0
 13-2081,"Tax Examiners and Collectors, and Revenue Agents",5302,"Check tax forms to verify that names and taxpayer identification numbers are correct, that computations have been performed correctly, or that amounts match those on supporting documentation.",Core,0
 13-2081,"Tax Examiners and Collectors, and Revenue Agents",5288,Collect taxes from individuals or businesses according to prescribed laws and regulations.,Core,0
 13-2081,"Tax Examiners and Collectors, and Revenue Agents",5297,Review selected tax returns to determine the nature and extent of audits to be performed on them.,Supplemental,0
 13-2081,"Tax Examiners and Collectors, and Revenue Agents",5296,Review filed tax returns to determine whether claimed tax credits and deductions are allowed by law.,Supplemental,0
 13-2081,"Tax Examiners and Collectors, and Revenue Agents",5291,"Confer with taxpayers or their representatives to discuss the issues, laws, and regulations involved in returns, and to resolve problems with returns.",Supplemental,0
+13-2081,"Tax Examiners and Collectors, and Revenue Agents",5294,"Notify taxpayers of any overpayment or underpayment, and either issue a refund or request further payment.",Core,0
+13-2081,"Tax Examiners and Collectors, and Revenue Agents",5293,Send notices to taxpayers when accounts are delinquent.,Core,0
+13-2081,"Tax Examiners and Collectors, and Revenue Agents",5309,Request that the state or federal revenue service prepare a return on a taxpayer's behalf in cases where taxes have not been filed.,Supplemental,0
+13-2081,"Tax Examiners and Collectors, and Revenue Agents",5301,Impose payment deadlines on delinquent taxpayers and monitor payments to ensure that deadlines are met.,Core,0
+13-2081,"Tax Examiners and Collectors, and Revenue Agents",5305,"Determine appropriate methods of debt settlement, such as offers of compromise, wage garnishment, or seizure and sale of property.",Supplemental,0
+13-2081,"Tax Examiners and Collectors, and Revenue Agents",5298,Enter tax return information into computers for processing.,Supplemental,0
 13-2081,"Tax Examiners and Collectors, and Revenue Agents",5306,"Secure a taxpayer's agreement to discharge a tax assessment, or submit contested determinations to other administrative or judicial conferees for appeals hearings.",Supplemental,
 13-2081,"Tax Examiners and Collectors, and Revenue Agents",5308,"Direct service of legal documents, such as subpoenas, warrants, notices of assessment and garnishments.",Supplemental,
 13-2081,"Tax Examiners and Collectors, and Revenue Agents",5307,"Prepare briefs, and assist in searching and seizing records to prepare charges and documentation for court cases.",Supplemental,
@@ -308,8 +308,6 @@ soc6,metier,task_id,tache,type_tache,penetration
 43-3011,Bill and Account Collectors,2477,Advise customers of necessary actions and strategies for debt repayment.,Core,0.8554
 43-3011,Bill and Account Collectors,2484,"Notify credit departments, order merchandise repossession or service disconnection, and turn over account records to attorneys when customers fail to respond to collection attempts.",Supplemental,0
 43-3011,Bill and Account Collectors,2479,"Sort and file correspondence and perform miscellaneous clerical duties, such as answering correspondence and writing reports.",Core,0
-43-3011,Bill and Account Collectors,2480,"Perform various administrative functions for assigned accounts, such as recording address changes and purging the records of deceased customers.",Core,0
-43-3011,Bill and Account Collectors,2478,"Persuade customers to pay amounts due on credit accounts, damage claims, or nonpayable checks, or to return merchandise.",Core,0
 43-3011,Bill and Account Collectors,2473,"Locate and monitor overdue accounts, using computers and a variety of automated systems.",Core,0
 43-3011,Bill and Account Collectors,18560,Contact insurance companies to check on status of claims payments and write appeal letters for denial on claims.,Supplemental,0
 43-3011,Bill and Account Collectors,2482,Negotiate credit extensions when necessary.,Supplemental,0
@@ -318,6 +316,8 @@ soc6,metier,task_id,tache,type_tache,penetration
 43-3011,Bill and Account Collectors,2481,"Arrange for debt repayment or establish repayment schedules, based on customers' financial situations.",Core,0
 43-3011,Bill and Account Collectors,18559,Answer customer questions regarding problems with their accounts.,Core,0
 43-3011,Bill and Account Collectors,2472,Receive payments and post amounts paid to customer accounts.,Supplemental,0
+43-3011,Bill and Account Collectors,2480,"Perform various administrative functions for assigned accounts, such as recording address changes and purging the records of deceased customers.",Core,0
+43-3011,Bill and Account Collectors,2478,"Persuade customers to pay amounts due on credit accounts, damage claims, or nonpayable checks, or to return merchandise.",Core,0
 43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2487,"Operate computers programmed with accounting software to record, store, and analyze information.",Core,1
 43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2490,"Classify, record, and summarize numerical and financial data to compile and keep financial records, using journals and ledgers or computers.",Core,0.9664
 43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2492,"Compile statistical, financial, accounting, or auditing reports and tables pertaining to such matters as cash receipts, expenditures, accounts payable and receivable, and profits and losses.",Core,0.9318
@@ -330,11 +330,6 @@ soc6,metier,task_id,tache,type_tache,penetration
 43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2489,"Debit, credit, and total accounts on computer spreadsheets and databases, using specialized accounting software.",Core,0
 43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2495,"Operate 10-key calculators, typewriters, and copy machines to perform calculations and produce documents.",Core,0
 43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2509,"Match order forms with invoices, and record the necessary information.",Core,0
-43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2500,"Receive, record, and bank cash, checks, and vouchers.",Core,0
-43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2514,Prepare purchase orders and expense reports.,Supplemental,0
-43-3031,"Bookkeeping, Accounting, and Auditing Clerks",18561,Prepare and process payroll information.,Supplemental,0
-43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2505,Monitor status of loans and accounts to ensure that payments are up to date.,Supplemental,0
-43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2494,Access computerized financial information to answer general questions as well as those related to specific accounts.,Core,0
 43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2498,"Perform general office duties, such as filing, answering telephones, and handling routine correspondence.",Core,0
 43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2491,"Calculate, prepare, and issue bills, invoices, account statements, and other financial statements according to established procedures.",Supplemental,0
 43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2486,"Check figures, postings, and documents for correct entry, mathematical accuracy, and proper codes.",Core,0
@@ -348,15 +343,16 @@ soc6,metier,task_id,tache,type_tache,penetration
 43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2508,"Calculate costs of materials, overhead, and other expenses, based on estimates, quotations and price lists.",Supplemental,0
 43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2506,Transfer details from separate journals to general ledgers or data processing sheets.,Supplemental,0
 43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2488,"Comply with federal, state, and company policies, procedures, and regulations.",Core,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2500,"Receive, record, and bank cash, checks, and vouchers.",Core,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2514,Prepare purchase orders and expense reports.,Supplemental,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",18561,Prepare and process payroll information.,Supplemental,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2505,Monitor status of loans and accounts to ensure that payments are up to date.,Supplemental,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2494,Access computerized financial information to answer general questions as well as those related to specific accounts.,Core,0
 43-3051,Payroll and Timekeeping Clerks,2523,"Provide information to employees and managers on payroll matters, tax issues, benefit plans, and collective agreement provisions.",Core,0.8598
 43-3051,Payroll and Timekeeping Clerks,18562,Process paperwork for new employees and enter employee information into the payroll system.,Core,0
 43-3051,Payroll and Timekeeping Clerks,2524,Complete time sheets showing employees' arrival and departure times.,Supplemental,0
 43-3051,Payroll and Timekeeping Clerks,2530,"Coordinate special programs, such as United Way campaigns, that involve payroll deductions.",Supplemental,0
 43-3051,Payroll and Timekeeping Clerks,2519,"Verify attendance, hours worked, and pay adjustments, and post information onto designated records.",Core,0
-43-3051,Payroll and Timekeeping Clerks,2520,"Record employee information, such as exemptions, transfers, and resignations, to maintain and update payroll records.",Core,0
-43-3051,Payroll and Timekeeping Clerks,2517,"Compile employee time, production, and payroll data from time sheets and other records.",Core,0
-43-3051,Payroll and Timekeeping Clerks,2518,"Review time sheets, work charts, wage computation, and other information to detect and reconcile payroll discrepancies.",Core,0
-43-3051,Payroll and Timekeeping Clerks,2529,"Compile statistical reports, statements, and summaries related to pay and benefits accounts, and submit them to appropriate departments.",Core,0
 43-3051,Payroll and Timekeeping Clerks,2528,"Prepare and balance period-end reports, and reconcile issued payrolls to bank statements.",Supplemental,0
 43-3051,Payroll and Timekeeping Clerks,2522,Keep informed about changes in tax and deduction laws that apply to the payroll process.,Core,0
 43-3051,Payroll and Timekeeping Clerks,2521,Issue and record adjustments to pay related to previous errors or retroactive increases.,Core,0
@@ -366,4 +362,8 @@ soc6,metier,task_id,tache,type_tache,penetration
 43-3051,Payroll and Timekeeping Clerks,2516,"Compute wages and deductions, and enter data into computers.",Core,0
 43-3051,Payroll and Timekeeping Clerks,18564,Conduct verifications of employment.,Core,0
 43-3051,Payroll and Timekeeping Clerks,18563,"Keep track of leave time, such as vacation, personal, and sick leave, for employees.",Core,0
+43-3051,Payroll and Timekeeping Clerks,2520,"Record employee information, such as exemptions, transfers, and resignations, to maintain and update payroll records.",Core,0
+43-3051,Payroll and Timekeeping Clerks,2517,"Compile employee time, production, and payroll data from time sheets and other records.",Core,0
+43-3051,Payroll and Timekeeping Clerks,2518,"Review time sheets, work charts, wage computation, and other information to detect and reconcile payroll discrepancies.",Core,0
+43-3051,Payroll and Timekeeping Clerks,2529,"Compile statistical reports, statements, and summaries related to pay and benefits accounts, and submit them to appropriate departments.",Core,0
 43-3051,Payroll and Timekeeping Clerks,2527,"Complete, verify, and process forms and documentation for administration of benefits such as pension plans, and unemployment and medical insurance.",Supplemental,
