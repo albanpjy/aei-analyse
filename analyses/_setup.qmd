@@ -14,6 +14,7 @@ tar_source("R")
 knitr::opts_chunk$set(dev = if (requireNamespace("ragg", quietly = TRUE)) "ragg_png" else "png",
                       fig.align = "left")
 theme_set(theme_aei())
+options(reactable.language = langue_reactable())
 mode_donnees <- mode_execution()
 ```
 

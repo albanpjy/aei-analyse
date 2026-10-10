@@ -28,6 +28,8 @@ data/*.duckdb.wal
 *.duckdb.tmp/
 # Les Parquet sont régénérés par le pipeline (publiés via GitHub Pages, pas git)
 data/parquet/
+# Parquet publiés avec le site : régénérés par le pipeline
+donnees_publiees/
 
 # --- Quarto ----------------------------------------------------------------
 /.quarto/

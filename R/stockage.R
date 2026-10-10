@@ -127,3 +127,18 @@ resumer_table_harmonisee <- function(base) {
   on.exit(DBI::dbDisconnect(con, shutdown = TRUE), add = TRUE)
   DBI::dbGetQuery(con, sql_nommee("resume_harmonise")) |> tibble::as_tibble()
 }
+
+#' Publier les Parquet lus par le tableau de bord (DuckDB-WASM)
+#'
+#' @param base Chemin de la base DuckDB.
+#' @param dossier Dossier publié avec le site (ressource Quarto).
+#' @return Chemins des fichiers écrits.
+#' @export
+publier_donnees <- function(base, dossier = "donnees_publiees") {
+  dir.create(dossier, showWarnings = FALSE)
+  unlink(list.files(dossier, "\\.parquet$", full.names = TRUE))
+  con <- connexion_duckdb(base)
+  on.exit(DBI::dbDisconnect(con, shutdown = TRUE), add = TRUE)
+  DBI::dbExecute(con, sql_nommee("publication", sortie = dossier))
+  list.files(dossier, "\\.parquet$", full.names = TRUE)
+}

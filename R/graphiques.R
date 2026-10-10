@@ -91,3 +91,18 @@ nom_pays <- function(iso3, noms = NULL) {
   }
   ifelse(is.na(out), iso3, out)
 }
+
+#' Textes français des tableaux reactable
+#'
+#' À activer une fois par document : options(reactable.language = langue_reactable())
+#' @export
+langue_reactable <- function() {
+  reactable::reactableLang(
+    searchPlaceholder = "Rechercher…", searchLabel = "Rechercher",
+    noData = "Aucune ligne", pageNext = "Suivant", pagePrevious = "Précédent",
+    pageNumbers = "{page} sur {pages}", pageInfo = "{rowStart}–{rowEnd} sur {rows} lignes",
+    pageSizeOptions = "Afficher {rows}", filterPlaceholder = "Filtrer…",
+    groupExpandLabel = "Déplier le groupe", selectAllRowsLabel = "Tout sélectionner",
+    selectRowLabel = "Sélectionner la ligne"
+  )
+}

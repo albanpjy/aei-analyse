@@ -18,6 +18,7 @@ Imports:
     aieconindex,
     arrow,
     cli,
+    countrycode,
     crosstalk,
     DBI,
     dbplyr,

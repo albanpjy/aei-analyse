@@ -35,6 +35,8 @@ cibles_analyses <- function() {
     # Sujet 4 — Typologie des pays
     targets::tar_target(t4_matrice, s4_matrice(base_duckdb, release = derniere_version())),
     targets::tar_target(t4_typologie, s4_typologie(t4_matrice, banque_mondiale)),
+    # Parquet publiés avec le site pour le tableau de bord (DuckDB-WASM)
+    targets::tar_target(donnees_publiees, publier_donnees(base_duckdb), format = "file"),
     # Export CSV des tables (sans les objets statistiques volumineux)
     targets::tar_target(
       resultats_csv,
