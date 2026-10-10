@@ -73,6 +73,7 @@ aei-analyse/
 ├── dashboard/            # Dashboard Quarto
 ├── tests/                # testthat + fixtures (jeu de données fictif)
 ├── docs/                 # Diagnostic, dictionnaire de données, synthèse des techniques
+├── tools/                # Scripts d'installation de l'environnement de développement local
 └── .github/workflows/    # CI/CD : pipeline, rendus, lintr, GitHub Pages
 ```
 
@@ -124,7 +125,7 @@ l'index. Un job séparé exécute `lintr`.
 
 ## Feuille de route
 
-- [ ] Phase 0 — Diagnostic de l'environnement (`docs/diagnostic_env.md`)
+- [x] Phase 0 — Diagnostic de l'environnement (`docs/diagnostic_env.md`)
 - [ ] Phase 1 — Architecture (renv, {targets}, arborescence)
 - [ ] Phase 2 — Ingestion, Parquet, DuckDB, harmonisation, tests
 - [ ] Phase 3 — Les quatre analyses
