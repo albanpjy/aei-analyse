@@ -1,0 +1,58 @@
+Type: Project
+Package: aeianalyse
+Title: L'usage de Claude vu par l'Anthropic Economic Index
+Version: 0.1.0
+Authors@R: person("albanpjy", role = c("aut", "cre"), comment = "compte GitHub")
+Description: Projet d'analyse reproductible (et non un package publiable) de
+    l'Anthropic Economic Index : ingestion multi-versions, harmonisation des
+    schémas, stockage Parquet + DuckDB, analyses statistiques (concentration,
+    automatisation/augmentation, exposition des métiers, typologie des pays),
+    site web, dashboard et rapport académique Quarto. Ce fichier sert à
+    déclarer les dépendances pour renv et pour GitHub Actions.
+License: à préciser par l'auteur (le code n'a pas encore de licence)
+Encoding: UTF-8
+Language: fr
+Depends:
+    R (>= 4.3)
+Imports:
+    aieconindex,
+    arrow,
+    cli,
+    crosstalk,
+    DBI,
+    dbplyr,
+    dplyr,
+    duckdb,
+    echarts4r,
+    factoextra,
+    FactoMineR,
+    forcats,
+    fs,
+    ggplot2,
+    glue,
+    gt,
+    htmlwidgets,
+    jsonlite,
+    kableExtra,
+    knitr,
+    mclust,
+    plotly,
+    purrr,
+    quarto,
+    reactable,
+    readr,
+    rlang,
+    rmarkdown,
+    scales,
+    stringr,
+    tarchetypes,
+    targets,
+    tibble,
+    tidyr,
+    visNetwork
+Suggests:
+    lintr,
+    roxygen2,
+    testthat (>= 3.0.0),
+    withr
+Config/testthat/edition: 3

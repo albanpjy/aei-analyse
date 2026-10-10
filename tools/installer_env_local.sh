@@ -51,3 +51,13 @@ ARROW_HOME="$H" LIBARROW_BINARY=false LIBARROW_BUILD=false \
 Rscript "$ICI/installer_depuis_miroir_cran.R" \
   aieconindex duckdb targets tarchetypes gt reactable echarts4r leaflet quarto visNetwork
 Rscript "$ICI/installer_depuis_miroir_cran.R" 'knitr>=1.50' 'rmarkdown>=2.30'
+
+# 5. Dans ce conteneur, les packages sont installés au niveau système : on
+#    désactive l'activation automatique de renv (sinon renv isole le projet
+#    dans une bibliothèque vide). En CI, renv fonctionne normalement.
+grep -q RENV_ACTIVATE_PROJECT ~/.Renviron 2>/dev/null || \
+  echo "RENV_ACTIVATE_PROJECT=FALSE" >> ~/.Renviron
+
+# 6. Locale UTF-8 : la locale par défaut du conteneur est "C", ce qui fausse le
+#    traitement des caractères accentués (lintr, stringr, rendus Quarto).
+grep -q "LANG=C.UTF-8" ~/.bashrc || echo 'export LANG=C.UTF-8 LC_ALL=C.UTF-8' >> ~/.bashrc

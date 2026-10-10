@@ -60,9 +60,12 @@ sont documentés dans [`docs/dictionnaire_donnees.md`](docs/dictionnaire_donnees
 ```
 aei-analyse/
 ├── _targets.R            # Pipeline {targets} : téléchargement → harmonisation → Parquet → DuckDB → analyses → rendus
-├── DESCRIPTION           # Dépendances du projet
+├── DESCRIPTION           # Dépendances du projet (lues par renv et la CI)
 ├── renv.lock             # Versions figées des packages (renv)
-├── R/                    # Fonctions R (documentées roxygen)
+├── .Rprofile, renv/      # Activation de renv à l'ouverture du projet
+├── aei-analyse.Rproj     # Projet RStudio
+├── .lintr                # Règles de style (lintr)
+├── R/                    # Fonctions R (documentées roxygen) ; R/config.R = paramètres
 ├── sql/                  # Requêtes DuckDB nommées
 ├── data/
 │   ├── raw/              # Fichiers téléchargés (ignorés par git)
@@ -110,7 +113,18 @@ quarto render rapport/ --to pdf   # rapport académique
 ```
 
 > Le premier lancement télécharge plusieurs centaines de Mo depuis Hugging Face. Les
-> fichiers sont mis en cache localement par {aieconindex}.
+> fichiers sont mis en cache dans `data/raw/` (cache d'{aieconindex} redirigé).
+
+Sans accès à Hugging Face, le pipeline peut tourner sur le **jeu fictif** de
+`tests/fixtures/` (résultats sans valeur analytique, pour le développement) :
+
+```r
+Sys.setenv(AEI_MODE = "fixtures")
+targets::tar_make()
+```
+
+Les paramètres du projet (versions épinglées, pays comparés, chemins, palette) sont
+regroupés dans [`R/config.R`](R/config.R).
 
 ## Intégration continue
 
@@ -126,7 +140,7 @@ l'index. Un job séparé exécute `lintr`.
 ## Feuille de route
 
 - [x] Phase 0 — Diagnostic de l'environnement (`docs/diagnostic_env.md`)
-- [ ] Phase 1 — Architecture (renv, {targets}, arborescence)
+- [x] Phase 1 — Architecture (renv, {targets}, arborescence)
 - [ ] Phase 2 — Ingestion, Parquet, DuckDB, harmonisation, tests
 - [ ] Phase 3 — Les quatre analyses
 - [ ] Phase 4 — Site web Quarto
