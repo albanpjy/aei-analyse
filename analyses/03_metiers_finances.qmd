@@ -1,0 +1,193 @@
+---
+title: "Les métiers budgétaires et financiers face à Claude"
+subtitle: "Sujet 3 — exposition des métiers, pénétration des tâches et correspondances avec la fonction publique"
+description: "Où se situent les métiers du pilotage budgétaire et financier dans les mesures d'exposition publiées par Anthropic."
+---
+
+{{< include _setup.qmd >}}
+
+```{r}
+#| label: donnees-s3
+tar_load(c(t3_exposition, t3_taches, t3_usage, t3_militaire))
+cibles <- metiers_cibles()
+expo <- t3_exposition$cibles
+toutes <- t3_exposition$toutes
+n_onet <- t3_taches |> count(soc6, name = "n_taches")
+presents_expo <- sum(!is.na(expo$observed_exposure))
+presents_onet <- sum(cibles$soc6 %in% n_onet$soc6)
+```
+
+## Les tables « labor market impacts »
+
+Anthropic publie, à côté des versions datées de l'index, deux tables issues de ses
+travaux sur le marché du travail ([labor-market-impacts](https://www.anthropic.com/research/labor-market-impacts)) :
+
+- `job_exposure` : une mesure d'**exposition observée** par métier (code SOC à 6 chiffres),
+  entre 0 et 1 ;
+- `task_penetration` : une mesure de **pénétration** par énoncé de tâche O\*NET, entre 0 et 1.
+
+Ces tables ne sont **pas datées** par Anthropic (le dossier peut être mis à jour en place) :
+le pipeline enregistre la date de leur import. Comme le reste de l'index, elles sont
+construites à partir de l'**usage** de Claude : une exposition élevée signale que les tâches
+d'un métier apparaissent souvent dans les conversations, pas que ce métier perd des emplois
+[@felten2021occupational; @eloundou2024gpts].
+
+## Les métiers retenus
+
+Huit métiers proches du pilotage budgétaire et financier ont été retenus. **Vérification
+des codes** : `r presents_expo` sur `r nrow(cibles)` figurent dans `job_exposure`,
+`r presents_onet` sur `r nrow(cibles)` ont des tâches dans le référentiel O\*NET publié avec
+l'index`r if (length(t3_exposition$codes_absents)) paste0(" ; absents de job_exposure : ", paste(t3_exposition$codes_absents, collapse = ", ")) else ""`.
+
+```{r}
+#| label: fig-exposition
+#| fig-cap: "Exposition observée des métiers ciblés, replacée dans la distribution de tous les métiers"
+#| fig-alt: "Nuage de points horizontal : chaque point gris est un métier de la nomenclature SOC positionné selon son exposition observée ; les huit métiers budgétaires et financiers sont en bleu et étiquetés."
+set.seed(1)
+fond <- toutes |> mutate(y = runif(n(), -0.4, 0.4))
+cib <- expo |> filter(!is.na(observed_exposure)) |>
+  mutate(y = 0, libelle = paste0(intitule_soc, " (", soc6, ")"))
+ggplot(fond, aes(observed_exposure, y)) +
+  geom_point(colour = palette_interface()[["contexte"]], alpha = 0.5, size = 1.4) +
+  geom_point(data = cib, colour = palette_pays()[["FRA"]], size = 3.4) +
+  ggrepel::geom_label_repel(data = cib, aes(label = stringr::str_wrap(libelle, 28)),
+                            size = 2.7, min.segment.length = 0, box.padding = 0.6,
+                            colour = palette_interface()[["texte"]], seed = 2,
+                            ylim = c(-1.6, 1.6)) +
+  geom_vline(xintercept = unique(toutes$mediane_ensemble), linetype = "dashed",
+             colour = palette_interface()[["discret"]]) +
+  scale_y_continuous(limits = c(-1.7, 1.7), breaks = NULL) +
+  labs(x = "Exposition observée (0 à 1)", y = NULL,
+       caption = source_aei(paste0("Table job_exposure (", nrow(toutes),
+                                   " métiers). Pointillé : médiane de l'ensemble des métiers.")))
+```
+
+```{r}
+#| label: tbl-exposition
+#| tbl-cap: "Exposition observée et rang centile des métiers ciblés"
+expo |>
+  arrange(desc(observed_exposure)) |>
+  transmute(`Code SOC` = soc6, Métier = intitule_soc, Exposition = observed_exposure,
+            `Rang centile` = 100 * centile, `Médiane du grand groupe` = mediane_groupe) |>
+  gt::gt() |>
+  gt::fmt_number(columns = c(Exposition, `Médiane du grand groupe`), decimals = 3, dec_mark = ",") |>
+  gt::fmt_number(columns = `Rang centile`, decimals = 0) |>
+  gt::sub_missing(missing_text = "absent") |>
+  gt::data_color(columns = Exposition, palette = rampe_sequentielle(), na_color = "#ffffff")
+```
+
+```{r}
+#| label: chiffres-expo
+med_cibles <- median(expo$observed_exposure, na.rm = TRUE)
+plus_expose <- expo |> slice_max(observed_exposure, n = 1)
+```
+
+La médiane des métiers ciblés (`r nombre_fr(med_cibles, 3)`) est
+`r if (med_cibles > unique(toutes$mediane_ensemble)) "**supérieure**" else "**inférieure ou égale**"`
+à la médiane de l'ensemble des métiers (`r nombre_fr(unique(toutes$mediane_ensemble), 3)`).
+Le plus exposé est « `r plus_expose$intitule_soc` » (`r nombre_fr(plus_expose$observed_exposure, 3)`,
+`r nombre_fr(100 * plus_expose$centile, 0)`^e^ centile).
+
+## Quelles tâches ?
+
+```{r}
+#| label: tbl-taches
+#| tbl-cap: "Tâches des métiers ciblés : les plus et les moins pénétrées (table task_penetration)"
+extremes <- t3_taches |>
+  filter(!is.na(penetration)) |>
+  group_by(soc6, metier) |>
+  arrange(desc(penetration), .by_group = TRUE) |>
+  filter(row_number() <= 3 | row_number() > n() - 2) |>
+  ungroup()
+reactable::reactable(
+  extremes |> transmute(Métier = metier, Tâche = tache, Pénétration = penetration),
+  groupBy = "Métier", searchable = TRUE, defaultPageSize = 30, compact = TRUE,
+  columns = list(
+    Tâche = reactable::colDef(minWidth = 360),
+    Pénétration = reactable::colDef(
+      format = reactable::colFormat(digits = 3, locales = "fr-FR"),
+      # Barre intégrée : longueur proportionnelle à la pénétration
+      cell = function(v) {
+        htmltools::div(
+          style = "display:flex;align-items:center;gap:6px",
+          htmltools::div(style = sprintf("background:%s;height:10px;width:%spx;border-radius:2px",
+                                         palette_pays()[["FRA"]], round(80 * v))),
+          formatC(v, format = "f", digits = 3, decimal.mark = ",")
+        )
+      }
+    )
+  )
+)
+```
+
+```{r}
+#| label: chiffres-taches
+pen <- t3_taches |> filter(!is.na(penetration))
+part_nulle <- mean(pen$penetration == 0)
+top_tache <- pen |> slice_max(penetration, n = 1, with_ties = FALSE)
+```
+
+Sur les `r nrow(pen)` tâches des métiers ciblés retrouvées dans `task_penetration`,
+`r pct_fr(100 * part_nulle, 0)` ont une pénétration nulle : l'usage observé se concentre sur
+une fraction des tâches. La plus pénétrée est « `r top_tache$tache` »
+(`r top_tache$metier`, `r nombre_fr(top_tache$penetration, 3)`).
+
+## Empreinte dans l'usage, version par version
+
+```{r}
+#| label: fig-usage-metiers
+#| fig-cap: "Part de l'usage mondial de Claude.ai portant sur les tâches de chaque métier ciblé"
+#| fig-alt: "Petits multiples : un panneau par métier ciblé montrant, par version de l'index, la part des conversations mondiales portant sur ses tâches."
+u <- t3_usage |> filter(source == "claude_ai")
+ggplot(u, aes(release, part_usage_pct, group = soc6)) +
+  geom_line(colour = palette_pays()[["FRA"]], linewidth = 0.8) +
+  geom_point(colour = palette_pays()[["FRA"]], size = 2) +
+  facet_wrap(~ stringr::str_wrap(metier, 30), ncol = 4) +
+  labs(x = NULL, y = "Part de l'usage mondial (%)",
+       caption = source_aei("Une tâche partagée par plusieurs métiers compte pour chacun d'eux.")) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 7),
+        strip.text = element_text(size = 8))
+```
+
+## De la nomenclature américaine à la fonction publique française
+
+::: {.callout-warning}
+## Hypothèse de travail, pas une correspondance officielle
+Le tableau ci-dessous propose un rapprochement **argumenté** entre les codes SOC (États-Unis),
+la classification internationale ISCO-08 (OIT) et des emplois de la fonction publique
+française (contrôle de gestion, finances, achats). Les codes ISCO-08 suivent la logique de
+la table de passage SOC → ISCO-08 du *Bureau of Labor Statistics*, **à vérifier sur cette
+table** avant toute réutilisation ; le rapprochement avec les emplois publics français est
+un jugement d'expert, fondé sur la proximité des activités, et non une nomenclature
+officielle (RIME, répertoires ministériels).
+:::
+
+```{r}
+#| label: tbl-correspondance
+#| tbl-cap: "Correspondance proposée SOC → ISCO-08 → emplois de la fonction publique (hypothèse)"
+cibles |>
+  transmute(SOC = soc6, `Intitulé SOC` = intitule_soc, `ISCO-08` = isco08,
+            `Intitulé ISCO-08` = intitule_isco, `Fonction publique (rapprochement)` = fonction_publique,
+            `Activités communes` = argument) |>
+  gt::gt() |>
+  gt::tab_options(table.font.size = gt::px(13))
+```
+
+## Le cas des métiers militaires
+
+La nomenclature SOC comporte un grand groupe **55 — *Military Specific Occupations***. Sa
+couverture est très faible dans les sources de l'index :
+
+```{r}
+#| label: tbl-militaire
+#| tbl-cap: "Couverture des métiers militaires (SOC 55-xxxx)"
+t3_militaire |> rename(Source = source, Effectif = n) |> gt::gt()
+```
+
+O\*NET ne décrit pas les tâches des métiers spécifiquement militaires
+(`r t3_militaire$n[2]` tâche dans le référentiel publié avec l'index) : aucune conversation ne
+peut donc leur être rattachée par la méthode d'Anthropic, et
+`r t3_militaire$n[3]` métier(s) 55-xxxx figure(nt) dans `job_exposure`. Pour un ministère des
+Armées, l'index renseigne surtout sur les **fonctions de soutien** (finances, achats,
+ressources humaines, informatique), décrites par des métiers civils, et non sur les métiers
+opérationnels.

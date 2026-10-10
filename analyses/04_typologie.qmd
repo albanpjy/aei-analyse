@@ -1,0 +1,255 @@
+---
+title: "Une typologie des pays"
+subtitle: "Sujet 4 — données compositionnelles, ACP, classification hiérarchique et mélanges gaussiens"
+description: "Regrouper les pays selon la répartition de leur usage de Claude entre familles de tâches."
+---
+
+{{< include _setup.qmd >}}
+
+```{r}
+#| label: donnees-s4
+tar_load(c(t4_matrice, t4_typologie))
+ty <- t4_typologie
+acp <- ty$acp
+iso <- requete(tar_read(base_duckdb), "iso_pays")
+n_pays <- nrow(t4_matrice$parts)
+n_fam <- ncol(t4_matrice$parts)
+inertie <- acp$eig[, 2]
+classe_fr <- ty$croise$classe_hcpc[ty$croise$geo_id == "FRA"]
+```
+
+## Données : une matrice de compositions
+
+Chaque ligne décrit un pays par la répartition de son usage de Claude.ai entre les
+`r n_fam` **activités de travail généralisées** (GWA, *Generalized Work Activities*) d'O\*NET,
+le niveau le plus agrégé de la hiérarchie des tâches publiée dans la version
+`r derniere_version()` (moyenne des deux mois publiés). `r n_pays` pays ont au moins 90 % des
+familles publiées ; `r ty$n_zeros` cellules sont nulles ou non publiées (sous le seuil de
+confidentialité).
+
+```{r}
+#| label: tbl-gwa
+#| tbl-cap: "Les familles de tâches (GWA) et leur code O*NET"
+ty$libelles |> arrange(gwa_code) |>
+  rename(Code = gwa_code, `Famille de tâches (intitulé O*NET)` = gwa) |>
+  gt::gt() |> gt::tab_options(table.font.size = gt::px(12))
+```
+
+## Pourquoi une transformation CLR ?
+
+Les parts d'un pays somment à 100 % : ce sont des **données compositionnelles**
+[@aitchison1986]. Leur traitement direct pose deux problèmes : la contrainte de somme
+induit des corrélations **négatives artificielles** (si une part augmente, d'autres baissent
+mécaniquement), et la distance euclidienne entre compositions n'a pas de sens (passer de
+1 % à 2 % est un doublement, passer de 50 % à 51 % ne l'est pas).
+
+La transformation **log-ratio centrée** (CLR) projette chaque composition
+$x = (x_1, \dots, x_D)$ dans un espace euclidien :
+
+$$
+\operatorname{clr}(x) = \left( \ln\frac{x_1}{g(x)}, \dots, \ln\frac{x_D}{g(x)} \right),
+\qquad g(x) = \left( \prod_{j=1}^{D} x_j \right)^{1/D}
+$$
+
+Le logarithme d'un zéro n'existant pas, les zéros sont d'abord remplacés par une petite
+valeur $\delta$ (65 % de la plus petite part observée), les autres parts étant réduites
+proportionnellement : c'est le **remplacement multiplicatif**
+[@martinfernandez2003], qui préserve les rapports entre parts non nulles.
+
+## Analyse en composantes principales
+
+L'ACP est réalisée avec FactoMineR [@le2008factominer] sur les coordonnées CLR, **sans
+réduire** les variables : elles partagent déjà une même unité (le log-ratio), et la
+réduction donnerait un poids excessif aux familles rares. L'ACP cherche les axes
+$u_k$ maximisant la variance projetée, solutions de
+
+$$
+\Sigma\, u_k = \lambda_k u_k, \qquad \text{part d'inertie de l'axe } k = \frac{\lambda_k}{\sum_j \lambda_j}
+$$
+
+où $\Sigma$ est la matrice de covariance des coordonnées CLR.
+
+::: {.panel-tabset}
+
+### Éboulis
+
+```{r}
+#| label: fig-eboulis
+#| fig-cap: "Éboulis des valeurs propres : part d'inertie expliquée par chaque axe"
+#| fig-alt: "Diagramme en barres décroissantes de la part de variance expliquée par chacun des dix premiers axes de l'ACP."
+factoextra::fviz_eig(acp, addlabels = TRUE, ncp = 10, barfill = palette_pays()[["FRA"]],
+                     barcolor = palette_pays()[["FRA"]], linecolor = palette_interface()[["texte_2"]],
+                     main = NULL, xlab = "Axe", ylab = "Part d'inertie (%)") +
+  theme_aei()
+```
+
+Les deux premiers axes résument `r pct_fr(sum(inertie[1:2]))` de l'inertie ; il en faut
+`r ty$k` pour dépasser 80 %, seuil retenu pour la classification.
+
+### Cercle des corrélations
+
+```{r}
+#| label: fig-cercle
+#| fig-cap: "Cercle des corrélations (axes 1 et 2) : familles de tâches les mieux représentées"
+#| fig-alt: "Cercle des corrélations de l'ACP : chaque flèche est une famille de tâches, sa direction et sa longueur indiquent sa corrélation avec les deux premiers axes ; seules les familles les mieux représentées sont affichées."
+factoextra::fviz_pca_var(acp, select.var = list(cos2 = 15), repel = TRUE,
+                         col.var = "cos2", gradient.cols = rampe_sequentielle()[3:7],
+                         title = NULL) +
+  theme_aei() + labs(colour = "cos²")
+```
+
+### Contributions
+
+```{r}
+#| label: fig-contrib
+#| fig-cap: "Contributions des familles de tâches à la construction des axes 1 et 2"
+#| fig-alt: "Deux diagrammes en barres classées montrant, pour l'axe 1 puis l'axe 2, la contribution en pourcentage des familles de tâches les plus contributrices, avec la ligne de contribution moyenne en pointillé."
+p1 <- factoextra::fviz_contrib(acp, choice = "var", axes = 1, top = 12,
+                               fill = palette_pays()[["FRA"]], color = NA) + theme_aei() +
+  labs(title = "Axe 1", x = NULL)
+p2 <- factoextra::fviz_contrib(acp, choice = "var", axes = 2, top = 12,
+                               fill = palette_pays()[["DEU"]], color = NA) + theme_aei() +
+  labs(title = "Axe 2", x = NULL)
+gridExtra::grid.arrange(p1, p2, ncol = 2)
+```
+
+### Qualité de représentation (cos²)
+
+```{r}
+#| label: fig-cos2
+#| fig-cap: "Qualité de représentation des pays sur le plan 1-2 (cos²)"
+#| fig-alt: "Diagramme en barres classées du cos² des pays sur le premier plan factoriel : plus la barre est longue, mieux le pays est représenté par les deux premiers axes."
+factoextra::fviz_cos2(acp, choice = "ind", axes = 1:2, top = 30,
+                      fill = palette_pays()[["FRA"]], color = NA) +
+  theme_aei() + labs(title = NULL, x = NULL)
+```
+
+### Individus
+
+```{r}
+#| label: fig-individus
+#| fig-cap: "Pays sur le premier plan factoriel, colorés par classe (HCPC)"
+#| fig-alt: "Nuage de points des pays dans le plan des deux premiers axes de l'ACP ; chaque point est étiqueté par le code du pays et coloré selon sa classe issue de la classification hiérarchique ; la France est entourée."
+ind <- tibble::as_tibble(acp$ind$coord[, 1:2], rownames = "geo_id") |>
+  left_join(select(ty$croise, geo_id, classe_hcpc), by = "geo_id")
+couleurs_classes <- unname(palette_pays())[seq_len(nlevels(ind$classe_hcpc))]
+ggplot(ind, aes(Dim.1, Dim.2, colour = classe_hcpc)) +
+  geom_hline(yintercept = 0, colour = palette_interface()[["axe"]]) +
+  geom_vline(xintercept = 0, colour = palette_interface()[["axe"]]) +
+  geom_point(size = 2.6) +
+  geom_point(data = filter(ind, geo_id == "FRA"), shape = 21, size = 6, stroke = 1.2,
+             colour = palette_interface()[["texte"]]) +
+  ggrepel::geom_text_repel(aes(label = geo_id), size = 2.8, colour = palette_interface()[["texte_2"]],
+                           max.overlaps = 30, seed = 3) +
+  scale_colour_manual(values = couleurs_classes, name = "Classe HCPC") +
+  labs(x = sprintf("Axe 1 (%s %%)", nombre_fr(inertie[1])),
+       y = sprintf("Axe 2 (%s %%)", nombre_fr(inertie[2])), caption = source_aei())
+```
+
+:::
+
+## Deux méthodes de classification
+
+**HCPC** (*Hierarchical Clustering on Principal Components*) : classification ascendante
+hiérarchique selon le critère de Ward [@ward1963] sur les `r ty$k` premiers axes, coupure de
+l'arbre choisie au plus grand gain relatif d'inertie, puis consolidation par *k-means*. Elle
+retient **`r nlevels(ty$croise$classe_hcpc)` classes**.
+
+**Mclust** [@scrucca2016mclust] : on suppose que les pays sont tirés d'un **mélange de lois
+normales** ; le nombre de groupes $G$ et la forme des matrices de covariance (volume, forme,
+orientation) sont choisis par le **critère d'information bayésien** [@schwarz1978] :
+
+$$
+\text{BIC} = 2 \ln \hat L - p \ln n
+$$
+
+(convention de mclust : le meilleur modèle **maximise** le BIC ; $\hat L$ est la
+vraisemblance maximisée, $p$ le nombre de paramètres, $n$ le nombre de pays). Le modèle retenu
+est **`r ty$mclust$modelName`** à **`r ty$mclust$G` composantes**.
+
+```{r}
+#| label: fig-bic
+#| fig-cap: "Critère BIC des modèles de mélange gaussien selon le nombre de composantes"
+#| fig-alt: "Courbes du critère BIC en fonction du nombre de composantes pour chaque famille de modèles de covariance de mclust ; le maximum désigne le modèle retenu."
+factoextra::fviz_mclust(ty$mclust, "BIC", palette = unname(c(palette_pays(), "#898781", "#52514e",
+                                                              "#86b6ef", "#f4a07c", "#0d366b", "#184f95", "#c98500"))) +
+  theme_aei() + labs(title = NULL)
+```
+
+```{r}
+#| label: tbl-croisement
+#| tbl-cap: "Croisement des deux partitions (effectifs de pays)"
+table(HCPC = ty$croise$classe_hcpc, Mclust = ty$croise$classe_mclust) |>
+  as.data.frame.matrix() |>
+  tibble::rownames_to_column("Classe HCPC") |>
+  gt::gt() |> gt::tab_spanner("Composante Mclust", columns = -1)
+```
+
+L'**indice de Rand ajusté** [@hubert1985comparing] mesure l'accord entre les deux partitions
+(1 = identiques ; 0 = accord attendu par hasard) : il vaut ici **`r nombre_fr(ty$ari, 2)`**,
+soit un accord `r if (ty$ari > 0.65) "fort" else if (ty$ari > 0.35) "modéré" else "faible"`.
+`r if (ty$ari <= 0.35) "La structure en groupes est donc fragile : les deux méthodes, aux hypothèses différentes, ne découpent pas les pays de la même façon." else ""`
+
+## Portrait des classes
+
+```{r}
+#| label: tbl-portrait
+#| tbl-cap: "Familles de tâches qui caractérisent chaque classe (test de la valeur, HCPC)"
+desc <- ty$hcpc$desc.var$quanti
+portrait <- purrr::imap(desc, \(d, cl) {
+  if (is.null(d)) return(NULL)
+  tibble::as_tibble(d, rownames = "gwa_code") |>
+    filter(abs(v.test) >= 2) |>
+    slice_max(abs(v.test), n = 4) |>
+    mutate(classe = cl)
+}) |> purrr::list_rbind() |>
+  left_join(ty$libelles, by = "gwa_code")
+membres <- ty$croise |> summarise(Pays = paste(sort(geo_id), collapse = ", "), .by = classe_hcpc)
+portrait |>
+  transmute(Classe = classe, `Famille de tâches` = gwa, `Valeur-test` = v.test,
+            Sens = if_else(v.test > 0, "sur-représentée", "sous-représentée")) |>
+  gt::gt(groupname_col = "Classe") |>
+  gt::fmt_number(columns = `Valeur-test`, decimals = 1, dec_mark = ",")
+```
+
+```{r}
+#| label: tbl-membres
+#| tbl-cap: "Composition des classes HCPC"
+membres |> arrange(classe_hcpc) |> rename(Classe = classe_hcpc) |> gt::gt()
+```
+
+La France appartient à la **classe `r classe_fr`**, avec
+`r paste(nom_pays(setdiff(ty$croise$geo_id[ty$croise$classe_hcpc == classe_fr & ty$croise$geo_id %in% names(pays_comparaison())], "FRA")), collapse = ", ")`
+parmi les pays de comparaison.
+
+## Croisement avec le niveau de vie
+
+Le PIB par habitant en parité de pouvoir d'achat provient de la **Banque mondiale**
+(*World Development Indicators*, indicateur `NY.GDP.PCAP.PP.KD`, licence CC-BY 4.0),
+dernière année disponible entre 2022 et 2025. Il est joint aux résultats avec
+`aei_link()`, qui conserve la provenance des données AEI.
+
+```{r}
+#| label: fig-pib
+#| fig-cap: "PIB par habitant (PPA) selon la classe HCPC"
+#| fig-alt: "Boîtes à moustaches du PIB par habitant en parité de pouvoir d'achat pour chaque classe de pays, avec les pays superposés en points ; la France est mise en évidence."
+d <- ty$croise |> filter(!is.na(pib_hab_ppa))
+ggplot(d, aes(classe_hcpc, pib_hab_ppa)) +
+  geom_boxplot(outlier.shape = NA, fill = palette_interface()[["fond"]],
+               colour = palette_interface()[["texte_2"]], width = 0.5) +
+  geom_jitter(aes(colour = geo_id == "FRA"), width = 0.12, size = 2.2, show.legend = FALSE) +
+  scale_colour_manual(values = c(`TRUE` = palette_pays()[["FRA"]], `FALSE` = palette_interface()[["discret"]])) +
+  scale_y_continuous(labels = \(x) paste(nombre_fr(x / 1000, 0), "k$")) +
+  labs(x = "Classe HCPC", y = "PIB par habitant (PPA, $ internationaux 2021)",
+       caption = paste("Sources : Anthropic Economic Index ; Banque mondiale, WDI (CC-BY 4.0)."))
+```
+
+`r if (!is.null(ty$test_pib)) paste0("Le test de Kruskal-Wallis donne une p-valeur de ", nombre_fr(ty$test_pib$p.value, 3), " : ", if (ty$test_pib$p.value < 0.05) "les classes diffèrent significativement par leur niveau de vie — la typologie de l'usage recoupe en partie le niveau de développement." else "on ne peut pas conclure que les classes diffèrent par leur niveau de vie — la typologie de l'usage n'est pas un simple reflet du niveau de développement.") else "Trop peu de pays disposent d'un PIB pour tester l'écart entre classes."`
+
+::: {.callout-note}
+## Limites propres à ce sujet
+La typologie décrit la **composition** de l'usage (sur quoi porte-t-il ?), pas son
+**intensité** (combien ?), mesurée par l'indice par habitant du [sujet 1](01_france.qmd).
+Elle repose sur une seule version (deux mois), et les pays à petit échantillon ont des
+parts plus bruitées et plus de cellules non publiées.
+:::
