@@ -1,0 +1,79 @@
+release,source,date_start,soc6,metier,part_usage_pct,n_taches_observees
+2025-02-10,claude_ai,,11-3031,Treasurers and Controllers,0.2560227228309729,20
+2025-02-10,claude_ai,,11-3061,Purchasing Managers,0.03387578012012873,5
+2025-02-10,claude_ai,,13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",0.0667092285442535,7
+2025-02-10,claude_ai,,13-1111,Management Analysts,0.21459003791481543,8
+2025-02-10,claude_ai,,13-2011,Accountants,0.5582989146721214,16
+2025-02-10,claude_ai,,13-2031,Budget Analysts,0.029185287488110907,5
+2025-02-10,claude_ai,,13-2051,Financial Analysts,0.291852874881109,10
+2025-02-10,claude_ai,,43-3031,"Bookkeeping, Accounting, and Auditing Clerks",0.13367904001250797,10
+2025-03-27,claude_ai,,11-3031,Treasurers and Controllers,0.22513547157253844,19
+2025-03-27,claude_ai,,11-3061,Purchasing Managers,0.030812336437847407,4
+2025-03-27,claude_ai,,13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",0.03625584920853378,7
+2025-03-27,claude_ai,,13-1111,Management Analysts,0.03656397257291226,5
+2025-03-27,claude_ai,,13-2011,Accountants,0.3061719164040771,13
+2025-03-27,claude_ai,,13-2031,Budget Analysts,0.025471531455287195,6
+2025-03-27,claude_ai,,13-2051,Financial Analysts,0.23211960116511715,8
+2025-03-27,claude_ai,,43-3031,"Bookkeeping, Accounting, and Auditing Clerks",0.11328669030315232,12
+2025-09-15,1p_api,2025-08-04,11-3031,"Financial Managers, Branch or Department",0.19700668404192928,13
+2025-09-15,1p_api,2025-08-04,11-3061,Purchasing Managers,0.04848418124191489,4
+2025-09-15,1p_api,2025-08-04,13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",0.045308361509911736,5
+2025-09-15,1p_api,2025-08-04,13-1111,Management Analysts,0.022548320097222428,3
+2025-09-15,1p_api,2025-08-04,13-2011,Accountants,0.15910856857335826,13
+2025-09-15,1p_api,2025-08-04,13-2031,Budget Analysts,0.002011352496935334,1
+2025-09-15,1p_api,2025-08-04,13-2051,Financial Analysts,0.17350561802510595,7
+2025-09-15,1p_api,2025-08-04,43-3031,"Bookkeeping, Accounting, and Auditing Clerks",0.09453356735596073,7
+2025-09-15,claude_ai,2025-08-04,11-3031,Treasurers and Controllers,0.10803592349978278,14
+2025-09-15,claude_ai,2025-08-04,11-3061,Purchasing Managers,0.0296528542427425,5
+2025-09-15,claude_ai,2025-08-04,13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",0.0276829093804625,4
+2025-09-15,claude_ai,2025-08-04,13-1111,Management Analysts,0.0885438374940641,4
+2025-09-15,claude_ai,2025-08-04,13-2011,Accountants,0.11695251603431371,15
+2025-09-15,claude_ai,2025-08-04,13-2031,Budget Analysts,0.0160706028238641,2
+2025-09-15,claude_ai,2025-08-04,13-2051,Financial Analysts,0.14017712914751113,8
+2025-09-15,claude_ai,2025-08-04,43-3031,"Bookkeeping, Accounting, and Auditing Clerks",0.0791088384168275,7
+2026-01-15,1p_api,2025-11-13,11-3031,"Financial Managers, Branch or Department",0.18702555261058648,15
+2026-01-15,1p_api,2025-11-13,11-3061,Purchasing Managers,0.1379274851393428,4
+2026-01-15,1p_api,2025-11-13,13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",0.03592290471166465,5
+2026-01-15,1p_api,2025-11-13,13-1111,Management Analysts,0.023056534829263273,2
+2026-01-15,1p_api,2025-11-13,13-2011,Accountants,0.1849669334294022,13
+2026-01-15,1p_api,2025-11-13,13-2051,Financial Analysts,0.13669231363063225,7
+2026-01-15,1p_api,2025-11-13,43-3031,"Bookkeeping, Accounting, and Auditing Clerks",0.12856076786495457,9
+2026-01-15,claude_ai,2025-11-13,11-3031,Treasurers and Controllers,0.1681210151268909,17
+2026-01-15,claude_ai,2025-11-13,11-3061,Purchasing Managers,0.03790473809226153,6
+2026-01-15,claude_ai,2025-11-13,13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",0.03490436304538067,6
+2026-01-15,claude_ai,2025-11-13,13-1111,Management Analysts,0.10731341417677209,4
+2026-01-15,claude_ai,2025-11-13,13-2011,Accountants,0.15811976497062133,14
+2026-01-15,claude_ai,2025-11-13,13-2031,Budget Analysts,0.02020252531566446,3
+2026-01-15,claude_ai,2025-11-13,13-2051,Financial Analysts,0.14821852731591448,8
+2026-01-15,claude_ai,2025-11-13,43-3031,"Bookkeeping, Accounting, and Auditing Clerks",0.13601700212526563,12
+2026-03-24,1p_api,2026-02-05,11-3031,"Financial Managers, Branch or Department",0.18530000000000002,15
+2026-03-24,1p_api,2026-02-05,11-3061,Purchasing Managers,0.10569999999999999,5
+2026-03-24,1p_api,2026-02-05,13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",0.052099999999999994,8
+2026-03-24,1p_api,2026-02-05,13-1111,Management Analysts,0.0347,3
+2026-03-24,1p_api,2026-02-05,13-2011,Accountants,0.1842,14
+2026-03-24,1p_api,2026-02-05,13-2051,Financial Analysts,0.19790000000000002,8
+2026-03-24,1p_api,2026-02-05,43-3031,"Bookkeeping, Accounting, and Auditing Clerks",0.1348,9
+2026-03-24,claude_ai,2026-02-05,11-3031,Treasurers and Controllers,0.18169999999999997,21
+2026-03-24,claude_ai,2026-02-05,11-3061,Purchasing Managers,0.055700000000000006,6
+2026-03-24,claude_ai,2026-02-05,13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",0.052099999999999994,7
+2026-03-24,claude_ai,2026-02-05,13-1111,Management Analysts,0.1268,5
+2026-03-24,claude_ai,2026-02-05,13-2011,Accountants,0.19190000000000002,16
+2026-03-24,claude_ai,2026-02-05,13-2031,Budget Analysts,0.0283,3
+2026-03-24,claude_ai,2026-02-05,13-2051,Financial Analysts,0.23429999999999998,8
+2026-03-24,claude_ai,2026-02-05,43-3031,"Bookkeeping, Accounting, and Auditing Clerks",0.1651,12
+2026-06-26,1p_api,2026-05-01,11-3031,Treasurers and Controllers,0.15,15
+2026-06-26,1p_api,2026-05-01,11-3061,Purchasing Managers,0.03,3
+2026-06-26,1p_api,2026-05-01,13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",0.16,5
+2026-06-26,1p_api,2026-05-01,13-1111,Management Analysts,0.12,4
+2026-06-26,1p_api,2026-05-01,13-2011,Accountants,0.04,7
+2026-06-26,1p_api,2026-05-01,13-2031,Budget Analysts,0,4
+2026-06-26,1p_api,2026-05-01,13-2051,Financial Analysts,0.42999999999999994,6
+2026-06-26,1p_api,2026-05-01,43-3031,"Bookkeeping, Accounting, and Auditing Clerks",0.37,14
+2026-06-26,claude_ai,2026-05-01,11-3031,"Financial Managers, Branch or Department",0.2,16
+2026-06-26,claude_ai,2026-05-01,11-3061,Purchasing Managers,0,3
+2026-06-26,claude_ai,2026-05-01,13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",0.060000000000000005,5
+2026-06-26,claude_ai,2026-05-01,13-1111,Management Analysts,0.14,4
+2026-06-26,claude_ai,2026-05-01,13-2011,Auditors,0.060000000000000005,7
+2026-06-26,claude_ai,2026-05-01,13-2031,Budget Analysts,0.04,4
+2026-06-26,claude_ai,2026-05-01,13-2051,Financial Analysts,0.26,8
+2026-06-26,claude_ai,2026-05-01,43-3031,"Bookkeeping, Accounting, and Auditing Clerks",0.32000000000000006,13

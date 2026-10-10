@@ -1,0 +1,188 @@
+soc6,metier,task_id,tache,type_tache,penetration
+11-3031,"Financial Managers, Branch or Department",8876,Establish and maintain relationships with individual or business customers or provide assistance with problems these customers may encounter.,Core,1
+11-3031,"Financial Managers, Branch or Department",8893,Review reports of securities transactions or price lists to analyze market conditions.,Supplemental,0.9844
+11-3031,"Financial Managers, Branch or Department",8877,"Examine, evaluate, or process loan applications.",Supplemental,0.9784
+11-3031,"Financial Managers, Branch or Department",8892,Analyze and classify risks and investments to determine their potential impacts on companies.,Supplemental,0.9625
+11-3031,"Financial Managers, Branch or Department",20462,Recruit staff members.,Core,0.9241
+11-3031,"Financial Managers, Branch or Department",8894,Develop or analyze information to assess the current or future financial status of firms.,Supplemental,0.9225
+11-3031,Treasurers and Controllers,8856,"Prepare or direct preparation of financial statements, business activity reports, financial position forecasts, annual budgets, or reports required by regulatory agencies.",Core,0.9197
+11-3031,Treasurers and Controllers,8867,"Analyze the financial details of past, present, and expected operations to identify development opportunities and areas where improvement is needed.",Core,0.7956
+11-3031,"Financial Managers, Branch or Department",8888,"Plan, direct, and coordinate risk and insurance programs of establishments to control risks and losses.",Supplemental,0.7878
+11-3031,Treasurers and Controllers,8859,"Maintain current knowledge of organizational policies and procedures, federal and state policies and directives, and current accounting standards.",Core,0.6943
+11-3031,"Financial Managers, Branch or Department",8889,Submit delinquent accounts to attorneys or outside agencies for collection.,Supplemental,0
+11-3031,Treasurers and Controllers,8865,"Coordinate and direct the financial planning, budgeting, procurement, or investment activities of all or part of an organization.",Core,0
+11-3031,"Financial Managers, Branch or Department",8884,"Establish procedures for custody or control of assets, records, loan collateral, or securities to ensure safekeeping.",Supplemental,0
+11-3031,Treasurers and Controllers,8861,"Receive, record, and authorize requests for disbursements in accordance with company policies and procedures.",Core,0
+11-3031,Treasurers and Controllers,8871,Lead staff training and development in budgeting and financial management areas.,Core,0
+11-3031,Treasurers and Controllers,8874,Perform tax planning work.,Supplemental,0
+11-3031,Treasurers and Controllers,8855,Prepare and file annual tax returns or prepare financial information so that outside accountants can complete tax returns.,Supplemental,0
+11-3031,"Financial Managers, Branch or Department",8882,"Approve, reject, or coordinate the approval or rejection of lines of credit or commercial, real estate, or personal loans.",Supplemental,0
+11-3031,"Financial Managers, Branch or Department",8878,"Plan, direct, or coordinate the activities of workers in branches, offices, or departments of establishments, such as branch banks, brokerage firms, risk and insurance departments, or credit departments.",Core,0
+11-3031,"Financial Managers, Branch or Department",8890,Communicate with stockholders or other investors to provide information or to raise capital.,Supplemental,0
+11-3031,"Financial Managers, Branch or Department",8879,Oversee the flow of cash or financial instruments.,Supplemental,0
+11-3031,Treasurers and Controllers,8870,Evaluate needs for procurement of funds and investment of surpluses and make appropriate recommendations.,Core,0
+11-3031,Treasurers and Controllers,8873,"Compute, withhold, and account for all payroll deductions.",Supplemental,0
+11-3031,"Financial Managers, Branch or Department",20463,Oversee training programs.,Core,0
+11-3031,Treasurers and Controllers,8868,"Advise management on short-term and long-term financial objectives, policies, and actions.",Core,0
+11-3031,Treasurers and Controllers,8872,Receive cash and checks and make deposits.,Supplemental,0
+11-3031,Treasurers and Controllers,8860,Conduct or coordinate audits of company accounts and financial transactions to ensure compliance with state and federal requirements and statutes.,Core,0
+11-3031,Treasurers and Controllers,8869,Provide direction and assistance to other organizational units regarding accounting and budgeting policies and procedures and efficient control and utilization of financial resources.,Core,0
+11-3031,Treasurers and Controllers,8875,"Determine depreciation rates to apply to capitalized items and advise management on actions regarding the purchase, lease, or disposal of such items.",Supplemental,0
+11-3031,"Financial Managers, Branch or Department",8886,Prepare operational or risk reports for management analysis.,Core,0
+11-3031,"Financial Managers, Branch or Department",8883,"Prepare financial or regulatory reports required by laws, regulations, or boards of directors.",Supplemental,0
+11-3031,"Financial Managers, Branch or Department",8891,Evaluate data pertaining to costs to plan budgets.,Core,0
+11-3031,"Financial Managers, Branch or Department",8887,"Evaluate financial reporting systems, accounting or collection procedures, or investment activities and make recommendations for changes to procedures, operating systems, budgets, or other financial control functions.",Supplemental,0
+11-3031,Treasurers and Controllers,8863,"Monitor and evaluate the performance of accounting and other financial staff, recommending and implementing personnel actions, such as promotions and dismissals.",Core,0
+11-3031,Treasurers and Controllers,20168,"Monitor financial activities and details, such as cash flow and reserve levels, to ensure that all legal and regulatory requirements are met.",Core,0
+11-3031,Treasurers and Controllers,8857,"Supervise employees performing financial reporting, accounting, billing, collections, payroll, and budgeting duties.",Core,0
+11-3031,"Financial Managers, Branch or Department",8885,Review collection reports to determine the status of collections and the amounts of outstanding balances.,Supplemental,0
+11-3031,Treasurers and Controllers,8858,"Delegate authority for the receipt, disbursement, banking, protection, and custody of funds, securities, and financial instruments.",Core,0
+11-3031,"Financial Managers, Branch or Department",8895,"Direct insurance negotiations, select insurance brokers or carriers, and place insurance.",Supplemental,0
+11-3031,"Financial Managers, Branch or Department",8881,Network within communities to find and attract new business.,Supplemental,0
+11-3031,Treasurers and Controllers,20169,"Handle all aspects of employee insurance, benefits, and casualty programs, including monitoring changes in health insurance regulations and creating budgets for benefits and worker's compensation.",Supplemental,0
+11-3031,Treasurers and Controllers,8866,"Develop internal control policies, guidelines, and procedures for activities such as budget administration, cash and credit management, and accounting.",Core,
+11-3031,Treasurers and Controllers,8864,"Develop and maintain relationships with banking, insurance, and nonorganizational accounting personnel to facilitate financial activities.",Core,
+11-3061,Purchasing Managers,1035,Administer online purchasing systems.,Core,0.983
+11-3061,Purchasing Managers,1031,"Review, evaluate, and approve specifications for issuing and awarding bids.",Core,0.9653
+11-3061,Purchasing Managers,1034,Prepare reports regarding market conditions and merchandise costs.,Core,0.9099
+11-3061,Purchasing Managers,1021,"Locate vendors of materials, equipment or supplies, and interview them to determine product availability and terms of sales.",Core,0.9049
+11-3061,Purchasing Managers,1027,"Develop and implement purchasing and contract management instructions, policies, and procedures.",Core,0
+11-3061,Purchasing Managers,1036,Arrange for disposal of surplus materials.,Supplemental,0
+11-3061,Purchasing Managers,1025,Review purchase order claims and contracts for conformance to company policy.,Core,0
+11-3061,Purchasing Managers,1024,"Interview and hire staff, and oversee staff training.",Core,0
+11-3061,Purchasing Managers,1030,Represent companies in negotiating contracts and formulating policies with suppliers.,Core,0
+11-3061,Purchasing Managers,1026,Analyze market and delivery systems to assess present and future material availability.,Core,0
+11-3061,Purchasing Managers,1033,Prepare bid awards requiring board approval.,Supplemental,0
+11-3061,Purchasing Managers,1023,Control purchasing department budgets.,Core,0
+11-3061,Purchasing Managers,1032,"Direct and coordinate activities of personnel engaged in buying, selling, and distributing materials, equipment, machinery, and supplies.",Core,0
+11-3061,Purchasing Managers,1022,Prepare and process requisitions and purchase orders for supplies and equipment.,Core,0
+11-3061,Purchasing Managers,1020,Maintain records of goods ordered and received.,Core,0
+11-3061,Purchasing Managers,1028,"Participate in the development of specifications for equipment, products or substitute materials.",Core,
+11-3061,Purchasing Managers,1029,"Resolve vendor or contractor grievances, and claims against suppliers.",Core,
+13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1157,"Write and review product specifications, maintaining a working technical knowledge of the goods or services to be purchased.",Core,1
+13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1152,"Review catalogs, industry periodicals, directories, trade journals, and Internet sites and consult with other department personnel to locate necessary goods and services.",Core,1
+13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1146,Monitor and follow applicable laws and regulations.,Core,1
+13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1158,"Monitor changes affecting supply and demand, tracking market conditions, price trends, or futures markets.",Core,0.9645
+13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1150,Evaluate and monitor contract performance to ensure compliance with contractual obligations and to determine need for changes.,Core,0
+13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1142,Purchase the highest quality merchandise at the lowest possible price and in correct amounts.,Core,0
+13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1145,"Analyze price proposals, financial reports, and other data and information to determine reasonable prices.",Core,0
+13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1154,"Interview vendors and visit suppliers' plants and distribution centers to examine and learn about products, services, and prices.",Core,0
+13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1149,"Confer with staff, users, and vendors to discuss defective or unacceptable goods or services and determine corrective action.",Core,0
+13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1159,Formulate policies and procedures for bid proposals and procurement of goods and services.,Core,0
+13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1156,"Hire, train, or supervise purchasing clerks, buyers, and expediters.",Core,0
+13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1155,Arrange the payment of duty and freight charges.,Core,0
+13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1160,"Attend meetings, trade shows, conferences, conventions, and seminars to network with people in other purchasing departments.",Supplemental,0
+13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1153,Study sales records and inventory levels of current stock to develop strategic purchasing programs that facilitate employee access to supplies.,Core,0
+13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1143,"Prepare purchase orders, solicit bid proposals, and review requisitions for goods and services.",Core,0
+13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1147,"Negotiate, renegotiate, and administer contracts with suppliers, vendors, and other representatives.",Core,0
+13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1148,Monitor shipments to ensure that goods come in on time and resolve problems related to undelivered goods.,Core,
+13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1144,"Research and evaluate suppliers based on price, quality, selection, service, support, availability, reliability, production and distribution capabilities, and the supplier's reputation and history.",Core,
+13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",1151,"Maintain and review computerized or manual records of items purchased, costs, deliveries, product performance, and inventories.",Core,
+13-1111,Management Analysts,7276,Gather and organize information on problems or procedures.,Core,1
+13-1111,Management Analysts,7282,"Document findings of study and prepare recommendations for implementation of new systems, procedures, or organizational changes.",Core,0.7393
+13-1111,Management Analysts,7285,"Plan study of work problems and procedures, such as organizational change, communications, information flow, integrated production methods, inventory control, or cost analysis.",Core,0
+13-1111,Management Analysts,7281,"Interview personnel and conduct on-site observation to ascertain unit functions, work performed, and methods, equipment, and personnel used.",Core,0
+13-1111,Management Analysts,7284,"Design, evaluate, recommend, and approve changes of forms and reports.",Core,0
+13-1111,Management Analysts,7279,"Develop and implement records management program for filing, protection, and retrieval of records, and assure compliance with program.",Core,0
+13-1111,Management Analysts,7286,Recommend purchase of storage equipment and design area layout to locate equipment in space available.,Supplemental,0
+13-1111,Management Analysts,7277,Analyze data gathered and develop solutions or alternative methods of proceeding.,Core,0
+13-1111,Management Analysts,7283,"Prepare manuals and train workers in use of new forms, reports, procedures or equipment, according to organizational policy.",Core,0
+13-1111,Management Analysts,7278,Confer with personnel concerned to ensure successful functioning of newly implemented systems or procedures.,Core,0
+13-1111,Management Analysts,7280,"Review forms and reports and confer with management and users about format, distribution, and purpose, and to identify problems and improvements.",Core,
+13-2011,Auditors,1242,Examine records and interview workers to ensure recording of transactions and compliance with laws and regulations.,Core,0.954
+13-2011,Accountants,116,Establish tables of accounts and assign entries to proper accounts.,Core,0.9373
+13-2011,Accountants,118,"Develop, implement, modify, and document recordkeeping and accounting systems, making use of current computer technology.",Core,0.9107
+13-2011,Auditors,1230,"Collect and analyze data to detect deficient controls, duplicated effort, extravagance, fraud, or non-compliance with laws, regulations, and management policies.",Core,0.9099
+13-2011,Accountants,112,"Prepare, examine, or analyze accounting records, financial statements, or other financial reports to assess accuracy, completeness, and conformance to reporting and procedural standards.",Core,0.8929
+13-2011,Accountants,114,"Analyze business operations, trends, costs, revenues, financial commitments, and obligations to project future revenues and expenses or to provide advice.",Supplemental,0.8571
+13-2011,Auditors,1232,Prepare detailed reports on audit findings.,Core,0.7793
+13-2011,Auditors,1247,"Evaluate taxpayer finances to determine tax liability, using knowledge of interest and discount rates, annuities, valuation of stocks and bonds, and amortization valuation of depletable assets.",Supplemental,0
+13-2011,Auditors,1238,Confer with company officials about financial and regulatory matters.,Core,0
+13-2011,Auditors,1241,"Examine whether the organization's objectives are reflected in its management activities, and whether employees understand the objectives.",Core,0
+13-2011,Accountants,113,"Compute taxes owed and prepare tax returns, ensuring compliance with payment, reporting, or other tax requirements.",Supplemental,0
+13-2011,Accountants,124,"Advise clients in areas such as compensation, employee health care benefits, the design of accounting or data processing systems, or long-range tax or estate plans.",Supplemental,0
+13-2011,Auditors,1246,"Review taxpayer accounts, and conduct audits on-site, by correspondence, or by summoning taxpayer to office.",Supplemental,0
+13-2011,Auditors,1236,"Supervise auditing of establishments, and determine scope of investigation required.",Core,0
+13-2011,Auditors,1234,"Inspect account books and accounting systems for efficiency, effectiveness, and use of accepted accounting procedures to record transactions.",Core,0
+13-2011,Accountants,115,Report to management regarding the finances of establishment.,Core,0
+13-2011,Auditors,1231,"Report to management about asset utilization and audit results, and recommend changes in operations and financial activities.",Core,0
+13-2011,Auditors,1239,"Inspect cash on hand, notes receivable and payable, negotiable securities, and canceled checks to confirm records are accurate.",Core,0
+13-2011,Auditors,1240,Examine inventory to verify journal and ledger entries.,Core,0
+13-2011,Auditors,1235,"Examine and evaluate financial and information systems, recommending controls to ensure system reliability and data integrity.",Core,0
+13-2011,Auditors,1245,Conduct pre-implementation audits to determine if systems and programs under development will work as planned.,Supplemental,0
+13-2011,Accountants,126,Represent clients before taxing authorities and provide support during litigation involving financial issues.,Supplemental,0
+13-2011,Auditors,1249,"Audit payroll and personnel records to determine unemployment insurance premiums, workers' compensation coverage, liabilities, and compliance with tax laws.",Supplemental,0
+13-2011,Auditors,1237,"Prepare, analyze, and verify annual reports, financial statements, and other records, using accepted accounting and statistical procedures to assess financial condition and facilitate financial planning.",Core,
+13-2011,Accountants,119,Prepare forms and manuals for accounting and bookkeeping personnel and direct their work activities.,Supplemental,
+13-2011,Auditors,1248,"Examine records, tax returns, and related documents pertaining to settlement of decedent's estate.",Supplemental,
+13-2011,Accountants,129,Serve as bankruptcy trustees or business valuators.,Supplemental,
+13-2011,Accountants,122,"Advise management about issues such as resource utilization, tax strategies, and the assumptions underlying budget forecasts.",Supplemental,
+13-2011,Accountants,123,Provide internal and external auditing services for businesses or individuals.,Supplemental,
+13-2011,Accountants,117,"Develop, maintain, and analyze budgets, preparing periodic reports that compare budgeted costs to actual costs.",Supplemental,
+13-2011,Auditors,1233,"Review data about material assets, net worth, liabilities, capital stock, surplus, income, and expenditures.",Core,
+13-2011,Auditors,1244,"Produce up-to-the-minute information, using internal computer systems, to allow management to base decisions on actual, not historical, data.",Supplemental,
+13-2011,Accountants,128,Maintain or examine the records of government agencies.,Supplemental,
+13-2011,Accountants,120,"Survey operations to ascertain accounting needs and to recommend, develop, or maintain solutions to business and financial problems.",Supplemental,
+13-2011,Auditors,1243,"Direct activities of personnel engaged in filing, recording, compiling and transmitting financial records.",Supplemental,
+13-2011,Accountants,127,"Appraise, evaluate, and inventory real property and equipment, recording information such as the description, value, and location of property.",Supplemental,
+13-2031,Budget Analysts,3398,"Provide advice and technical assistance with cost analysis, fiscal allocation, and budget preparation.",Core,0.5938
+13-2031,Budget Analysts,3396,Consult with managers to ensure that budget adjustments are made in accordance with program changes.,Core,0
+13-2031,Budget Analysts,3400,Seek new ways to improve efficiency and increase profits.,Core,0
+13-2031,Budget Analysts,3402,"Examine budget estimates for completeness, accuracy, and conformance with procedures and regulations.",Core,0
+13-2031,Budget Analysts,3403,"Perform cost-benefit analyses to compare operating programs, review financial requests, or explore alternative financing methods.",Core,0
+13-2031,Budget Analysts,3404,Interpret budget directives and establish policies for carrying out directives.,Core,0
+13-2031,Budget Analysts,3405,Compile and analyze accounting records and other data to determine the financial resources required to implement a program.,Core,0
+13-2031,Budget Analysts,3406,"Testify before examining and fund-granting authorities, clarifying and promoting the proposed budgets.",Supplemental,0
+13-2031,Budget Analysts,3397,"Match appropriations for specific programs with appropriations for broader programs, including items for emergency funds.",Supplemental,0
+13-2031,Budget Analysts,3395,Direct the preparation of regular and special budget reports.,Core,0
+13-2031,Budget Analysts,3394,Analyze monthly department budgeting and accounting reports to maintain expenditure controls.,Core,0
+13-2031,Budget Analysts,3401,Review operating budgets to analyze trends affecting budget needs.,Core,0
+13-2031,Budget Analysts,3399,Summarize budgets and submit recommendations for the approval or disapproval of funds requests.,Core,0
+13-2051,Financial Analysts,7310,Evaluate and compare the relative quality of various securities in a given industry.,Supplemental,1
+13-2051,Financial Analysts,7307,"Recommend investments and investment timing to companies, investment firm staff, or the public.",Supplemental,1
+13-2051,Financial Analysts,7306,"Monitor fundamental economic, industrial, and corporate developments by analyzing information from financial publications and services, investment banking firms, government agencies, trade publications, company sources, or personal interviews.",Core,0.9723
+13-2051,Financial Analysts,7305,"Interpret data on price, yield, stability, future investment-risk trends, economic influences, and other factors affecting investment programs.",Core,0.9565
+13-2051,Financial Analysts,7303,"Inform investment decisions by analyzing financial information to forecast business, industry, or economic conditions.",Core,0.9561
+13-2051,Financial Analysts,7311,"Present oral or written reports on general economic trends, individual corporations, and entire industries.",Supplemental,0.9069
+13-2051,Financial Analysts,7302,"Draw charts and graphs, using computer spreadsheets, to illustrate technical reports.",Core,0.8626
+13-2051,Financial Analysts,19564,Conduct financial analyses related to investments in green construction or green retrofitting projects.,,0
+13-2051,Financial Analysts,7304,"Monitor developments in the fields of industrial technology, business, finance, and economic theory.",Core,0
+13-2051,Financial Analysts,7308,Determine the prices at which securities should be syndicated and offered to the public.,Supplemental,0
+13-2051,Financial Analysts,7309,"Prepare plans of action for investment, using financial analyses.",Supplemental,0
+13-2051,Financial Analysts,7312,"Contact brokers and purchase investments for companies, according to company policy.",Supplemental,
+13-2051,Financial Analysts,19565,"Determine the financial viability of alternative energy generation or fuel production systems, based on power source or feedstock quality, financing costs, potential revenue, and total project costs.",,
+13-2051,Financial Analysts,19566,Evaluate financial viability and potential environmental benefits of cleantech innovations to secure capital investments from sources such as venture capital firms and government green fund grants.,,
+13-2051,Financial Analysts,19569,"Research and recommend environmentally-related financial products, such as energy futures, water rights, carbon credits, government environmental funds, and cleantech industry funds and company stocks.",,
+13-2051,Financial Analysts,7313,Collaborate with investment bankers to attract new corporate clients to securities firms.,Supplemental,
+13-2051,Financial Analysts,19568,"Identify potential financial investments that are environmentally sound, considering issues such as carbon emissions and biodiversity.",,
+13-2051,Financial Analysts,19567,"Forecast or analyze financial costs associated with climate change or other environmental factors, such as clean water supply and demand.",,
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2487,"Operate computers programmed with accounting software to record, store, and analyze information.",Core,1
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2490,"Classify, record, and summarize numerical and financial data to compile and keep financial records, using journals and ledgers or computers.",Core,0.9664
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2492,"Compile statistical, financial, accounting, or auditing reports and tables pertaining to such matters as cash receipts, expenditures, accounts payable and receivable, and profits and losses.",Core,0.9318
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2497,"Perform financial calculations, such as amounts due, interest charges, balances, discounts, equity, and principal.",Supplemental,0.8694
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2507,"Compile budget data and documents, based on estimated revenues and expenses and previous budgets.",Supplemental,0.7729
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2495,"Operate 10-key calculators, typewriters, and copy machines to perform calculations and produce documents.",Core,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2499,"Prepare bank deposits by compiling data from cashiers, verifying and balancing receipts, and sending cash, checks, or other forms of payment to banks.",Supplemental,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2512,Perform personal bookkeeping services.,Supplemental,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2489,"Debit, credit, and total accounts on computer spreadsheets and databases, using specialized accounting software.",Core,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2509,"Match order forms with invoices, and record the necessary information.",Core,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2496,Reconcile or note and report discrepancies found in records.,Core,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2513,Compute deductions for income and social security taxes.,Supplemental,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2488,"Comply with federal, state, and company policies, procedures, and regulations.",Core,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2511,Maintain inventory records.,Supplemental,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2502,Compare computer printouts to manually maintained journals to determine if they match.,Supplemental,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2508,"Calculate costs of materials, overhead, and other expenses, based on estimates, quotations and price lists.",Supplemental,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2504,Prepare trial balances of books.,Supplemental,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2501,"Calculate and prepare checks for utilities, taxes, and other payments.",Supplemental,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2503,Reconcile records of bank transactions.,Supplemental,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2506,Transfer details from separate journals to general ledgers or data processing sheets.,Supplemental,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2505,Monitor status of loans and accounts to ensure that payments are up to date.,Supplemental,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2500,"Receive, record, and bank cash, checks, and vouchers.",Core,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2514,Prepare purchase orders and expense reports.,Supplemental,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",18561,Prepare and process payroll information.,Supplemental,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2494,Access computerized financial information to answer general questions as well as those related to specific accounts.,Core,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2491,"Calculate, prepare, and issue bills, invoices, account statements, and other financial statements according to established procedures.",Supplemental,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2498,"Perform general office duties, such as filing, answering telephones, and handling routine correspondence.",Core,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2510,"Complete and submit tax forms and returns, workers' compensation forms, pension contribution forms, and other government documents.",Supplemental,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2493,Code documents according to company procedures.,Core,0
+43-3031,"Bookkeeping, Accounting, and Auditing Clerks",2486,"Check figures, postings, and documents for correct entry, mathematical accuracy, and proper codes.",Core,0
