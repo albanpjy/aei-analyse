@@ -154,23 +154,29 @@ ggplot(u, aes(release, part_usage_pct, group = soc6)) +
 
 ## De la nomenclature américaine à la fonction publique française
 
+Le tableau combine deux niveaux de preuve, à ne pas confondre :
+
+- **SOC → ISCO-08 : table de passage officielle.** Codes issus de la correspondance
+  SOC 2010 → ISCO-08 établie par le *Bureau of Labor Statistics*, dans la version diffusée
+  par l'Institute for Structural Research (IBS) et reprise par le package R
+  `iscoCrosswalks` [@iscocrosswalks2022], lu directement par le pipeline. La
+  correspondance est « un vers plusieurs » : tous les codes associés sont donnés. Les huit
+  codes SOC retenus sont identiques en SOC 2010 et SOC 2018.
+
 ::: {.callout-warning}
-## Hypothèse de travail, pas une correspondance officielle
-Le tableau ci-dessous propose un rapprochement **argumenté** entre les codes SOC (États-Unis),
-la classification internationale ISCO-08 (OIT) et des emplois de la fonction publique
-française (contrôle de gestion, finances, achats). Les codes ISCO-08 suivent la logique de
-la table de passage SOC → ISCO-08 du *Bureau of Labor Statistics*, **à vérifier sur cette
-table** avant toute réutilisation ; le rapprochement avec les emplois publics français est
-un jugement d'expert, fondé sur la proximité des activités, et non une nomenclature
-officielle (RIME, répertoires ministériels).
+## ISCO-08 → fonction publique : hypothèse de travail
+Le rapprochement avec des emplois de la fonction publique française (contrôle de gestion,
+finances, achats) est un **jugement argumenté**, fondé sur la proximité des activités, et non
+une nomenclature officielle (RIME, répertoires ministériels).
 :::
 
 ```{r}
 #| label: tbl-correspondance
-#| tbl-cap: "Correspondance proposée SOC → ISCO-08 → emplois de la fonction publique (hypothèse)"
+#| tbl-cap: "Correspondance SOC → ISCO-08 (table officielle BLS) → emplois de la fonction publique (hypothèse)"
 cibles |>
-  transmute(SOC = soc6, `Intitulé SOC` = intitule_soc, `ISCO-08` = isco08,
-            `Intitulé ISCO-08` = intitule_isco, `Fonction publique (rapprochement)` = fonction_publique,
+  transmute(SOC = soc6, `Intitulé SOC` = intitule_soc, `ISCO-08 (officiel)` = isco08,
+            `Intitulé ISCO-08 (OIT)` = intitule_isco,
+            `Fonction publique (rapprochement, hypothèse)` = fonction_publique,
             `Activités communes` = argument) |>
   gt::gt() |>
   gt::tab_options(table.font.size = gt::px(13))
@@ -190,7 +196,11 @@ t3_militaire |> rename(Source = source, Effectif = n) |> gt::gt()
 O\*NET ne décrit pas les tâches des métiers spécifiquement militaires
 (`r t3_militaire$n[2]` tâche dans le référentiel publié avec l'index) : aucune conversation ne
 peut donc leur être rattachée par la méthode d'Anthropic, et
-`r t3_militaire$n[3]` métier(s) 55-xxxx figure(nt) dans `job_exposure`. Pour un ministère des
+`r t3_militaire$n[3]` métier(s) 55-xxxx figure(nt) dans `job_exposure`. La table de passage
+officielle rattache pourtant ces métiers à des groupes ISCO-08 bien identifiés
+(`r paste(sort(unique(substr(iscoCrosswalks::soc10_isco08$isco08[startsWith(iscoCrosswalks::soc10_isco08$soc10, "55")], 1, 4))), collapse = ", ")` :
+officiers, sous-officiers et autres rangs des forces armées) : c'est bien l'absence de
+description des **tâches** dans O\*NET qui les rend invisibles. Pour un ministère des
 Armées, l'index renseigne surtout sur les **fonctions de soutien** (finances, achats,
 ressources humaines, informatique), décrites par des métiers civils, et non sur les métiers
 opérationnels.

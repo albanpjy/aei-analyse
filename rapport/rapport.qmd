@@ -339,7 +339,8 @@ certitude des ruptures de méthode. Enfin, les métiers du pilotage budgétaire 
 sont bien visibles dans l'index, mais par une minorité de leurs tâches
 (`r pct_fr(100 * mean(t3_taches$penetration[!is.na(t3_taches$penetration)] > 0), 0)` des tâches
 retrouvées ont une pénétration non nulle) ; la transposition au cas français repose sur une correspondance de nomenclatures qui reste une
-hypothèse de travail (@tbl-correspondance, en annexe).
+hypothèse de travail pour son dernier maillon, le passage SOC → ISCO-08 reposant sur la
+table officielle (@tbl-correspondance, en annexe).
 
 # Limites
 
@@ -379,14 +380,14 @@ harmonise_resume |>
 # Correspondance SOC, ISCO-08 et fonction publique
 
 \begin{rappel}
-Hypothèse de travail argumentée, et non correspondance officielle : codes ISCO-08 à vérifier
-sur la table de passage SOC $\rightarrow$ ISCO-08 du Bureau of Labor Statistics ;
-rapprochements avec la fonction publique française fondés sur la proximité des activités.
+Codes ISCO-08 : correspondance SOC 2010 $\rightarrow$ ISCO-08 du Bureau of Labor Statistics
+(version de l'IBS), via le package R iscoCrosswalks [@iscocrosswalks2022]. Rapprochement avec la
+fonction publique française : hypothèse de travail argumentée, et non nomenclature officielle.
 \end{rappel}
 
 ```{r}
 #| label: tbl-correspondance
-#| tbl-cap: "Correspondance SOC → ISCO-08 → fonction publique proposée (hypothèse)"
+#| tbl-cap: "Correspondance SOC → ISCO-08 (officielle) → fonction publique (hypothèse)"
 metiers_cibles() |>
   transmute(SOC = soc6, `Intitulé SOC` = intitule_soc, `ISCO-08` = isco08,
             `Fonction publique (rapprochement)` = fonction_publique) |>

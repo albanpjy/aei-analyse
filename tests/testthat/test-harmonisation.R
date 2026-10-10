@@ -88,3 +88,10 @@ test_that("correspondance_taches_soc répartit un énoncé partagé à parts ég
 test_that("cle_tache normalise casse et espaces", {
   expect_equal(cle_tache("  Prepare   Budgets. "), "prepare budgets.")
 })
+
+test_that("la table officielle SOC -> ISCO-08 donne les codes attendus", {
+  cw <- correspondance_soc_isco(c("13-2031", "11-3061", "13-2051"))
+  expect_equal(cw$isco08[cw$soc6 == "13-2031"], "2411")
+  expect_equal(cw$isco08[cw$soc6 == "11-3061"], "1219")
+  expect_equal(cw$isco08[cw$soc6 == "13-2051"], "2412, 2413")   # un vers plusieurs
+})

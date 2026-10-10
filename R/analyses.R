@@ -162,41 +162,66 @@ s2_soc <- function(base) {
 
 #' Métiers ciblés et correspondance SOC -> ISCO-08 -> fonction publique
 #'
-#' ⚠ HYPOTHÈSE DE TRAVAIL du projet, pas une correspondance officielle : les
-#' codes ISCO-08 proposés suivent la logique de la table de passage
-#' SOC 2010 -> ISCO-08 du Bureau of Labor Statistics, à VÉRIFIER sur cette
-#' table avant tout usage ; les emplois de la fonction publique française sont
-#' des rapprochements fonctionnels argumentés.
+#' Deux niveaux de preuve, à ne pas confondre :
+#' - SOC -> ISCO-08 : table de passage SOC 2010 -> ISCO-08 établie par le Bureau of
+#'   Labor Statistics, dans la version diffusée par l'Institute for Structural
+#'   Research (IBS) et reprise par le package R iscoCrosswalks (objet
+#'   `soc10_isco08`). Correspondance « un vers plusieurs » : tous les
+#'   codes ISCO-08 associés sont conservés. Les huit codes retenus sont
+#'   identiques en SOC 2010 et SOC 2018 (nomenclature de l'AEI) ; seul l'intitulé
+#'   de 13-2051 a changé (« Financial Analysts » -> « Financial and Investment
+#'   Analysts »).
+#' - ISCO-08 -> fonction publique française : HYPOTHÈSE DE TRAVAIL du projet,
+#'   rapprochement argumenté par la proximité des activités, sans valeur de
+#'   nomenclature officielle.
 #' @export
 metiers_cibles <- function() {
-  tibble::tribble(
-    ~soc6, ~intitule_soc, ~isco08, ~intitule_isco, ~fonction_publique, ~argument,
-    "13-2031", "Budget Analysts", "2411", "Comptables (hypothèse ; 2422 possible)",
+  hypothese <- tibble::tribble(
+    ~soc6, ~intitule_soc, ~fonction_publique, ~argument,
+    "13-2031", "Budget Analysts",
     "Analyste budgétaire, contrôleur budgétaire (BOP/UO, DAF, CBCM)",
     "Préparation, exécution et suivi du budget ; justification des crédits",
-    "13-2011", "Accountants and Auditors", "2411", "Comptables",
+    "13-2011", "Accountants and Auditors",
     "Comptable public, auditeur et contrôleur interne comptable",
     "Tenue et contrôle des comptes, audit, certification",
-    "11-3031", "Financial Managers", "1211", "Directeurs des services financiers",
+    "11-3031", "Financial Managers",
     "Directeur ou chef de bureau des affaires financières",
     "Pilotage de la fonction financière, arbitrages, dialogue de gestion",
-    "13-2051", "Financial and Investment Analysts", "2413", "Analystes financiers",
+    "13-2051", "Financial and Investment Analysts",
     "Analyste financier, chargé d'études financières et de soutenabilité",
     "Analyse de soutenabilité, modélisation financière, études de coûts",
-    "13-1111", "Management Analysts", "2421", "Analystes de gestion et d'organisation",
+    "13-1111", "Management Analysts",
     "Contrôleur de gestion, conseiller en organisation",
     "Indicateurs de performance, analyse des coûts, organisation",
-    "43-3031", "Bookkeeping, Accounting, and Auditing Clerks", "4311",
-    "Employés des services comptables",
+    "43-3031", "Bookkeeping, Accounting, and Auditing Clerks",
     "Gestionnaire budgétaire et comptable (catégories B et C)",
     "Saisie et contrôle des engagements, liquidations et pièces comptables",
-    "13-1023", "Purchasing Agents, Except Wholesale, Retail, and Farm Products", "3323",
-    "Acheteurs", "Acheteur public",
+    "13-1023", "Purchasing Agents, Except Wholesale, Retail, and Farm Products",
+    "Acheteur public",
     "Passation et suivi des marchés, analyse des offres",
-    "11-3061", "Purchasing Managers", "1324",
-    "Directeurs des services d'approvisionnement", "Responsable de la fonction achats",
+    "11-3061", "Purchasing Managers",
+    "Responsable de la fonction achats",
     "Stratégie d'achat, pilotage des marchés"
   )
+  dplyr::left_join(hypothese, correspondance_soc_isco(hypothese$soc6), by = "soc6")
+}
+
+#' Codes ISCO-08 officiels d'une liste de codes SOC (table BLS via iscoCrosswalks)
+#'
+#' @param soc6 Codes SOC à 6 chiffres au format « 13-2031 ».
+#' @return Tibble `soc6`, `isco08` (codes séparés par des virgules),
+#'   `intitule_isco` (intitulés anglais de l'OIT).
+#' @export
+correspondance_soc_isco <- function(soc6) {
+  table <- tibble::as_tibble(as.data.frame(iscoCrosswalks::soc10_isco08)) |>
+    dplyr::mutate(soc6 = paste0(substr(.data$soc10, 1, 2), "-", substr(.data$soc10, 3, 6)),
+                  isco_label = as.character(.data$isco_label))
+  table |>
+    dplyr::filter(.data$soc6 %in% .env$soc6) |>
+    dplyr::arrange(.data$soc6, .data$isco08) |>
+    dplyr::summarise(isco08 = paste(.data$isco08, collapse = ", "),
+                     intitule_isco = paste(.data$isco_label, collapse = " ; "),
+                     .by = "soc6")
 }
 
 #' Exposition des métiers ciblés et position dans la distribution
