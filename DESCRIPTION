@@ -29,6 +29,7 @@ Imports:
     forcats,
     fs,
     ggplot2,
+    ggrepel,
     glue,
     gt,
     htmlwidgets,
@@ -39,6 +40,7 @@ Imports:
     plotly,
     purrr,
     quarto,
+    ragg,
     reactable,
     readr,
     rlang,
@@ -49,7 +51,8 @@ Imports:
     targets,
     tibble,
     tidyr,
-    visNetwork
+    visNetwork,
+    yaml
 Suggests:
     lintr,
     roxygen2,

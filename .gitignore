@@ -21,6 +21,7 @@ _targets/
 # --- Données : volumineuses et téléchargeables, donc hors git ------------------
 data/raw/
 data/*.md
+data/resultats_FIXTURES/
 data/cache/
 data/*.duckdb
 data/*.duckdb.wal
@@ -64,3 +65,5 @@ Thumbs.db
 
 # --- Secrets ---------------------------------------------------------------
 .env
+
+**/*.quarto_ipynb

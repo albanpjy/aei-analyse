@@ -31,6 +31,36 @@ cibles_analyses <- function() {
     targets::tar_target(t3_militaire, s3_militaire(base_duckdb)),
     # Sujet 4 — Typologie des pays
     targets::tar_target(t4_matrice, s4_matrice(base_duckdb, release = derniere_version())),
-    targets::tar_target(t4_typologie, s4_typologie(t4_matrice, banque_mondiale))
+    targets::tar_target(t4_typologie, s4_typologie(t4_matrice, banque_mondiale)),
+    # Export CSV des tables (sans les objets statistiques volumineux)
+    targets::tar_target(
+      resultats_csv,
+      exporter_resultats(list(
+        s1_usage_pays = t1_usage_pays, s1_top_taches_france = t1_top_taches,
+        s1_soc_pays = t1_soc_pays, s1_concentration = t1_concentration,
+        s1_comparaison_france = t1_comparaison, s2_global = t2_global,
+        s2_modes = t2_modes, s2_pays = t2_pays, s2_soc = t2_soc,
+        s3_exposition_cibles = t3_exposition$cibles, s3_taches = t3_taches,
+        s3_usage = t3_usage, s3_militaire = t3_militaire,
+        s4_typologie_pays = t4_typologie$croise,
+        s4_valeurs_propres = tibble::as_tibble(t4_typologie$acp$eig, rownames = "axe")
+      )),
+      format = "file"
+    )
   )
+}
+
+#' Exporter les tables d'analyse en CSV (versionnées dans docs/resultats/)
+#'
+#' Rend les résultats lisibles sans R (et consultables depuis le dépôt). En
+#' mode fixtures, l'export va dans data/ (ignoré par git).
+#' @export
+exporter_resultats <- function(tables, mode = mode_execution()) {
+  dossier <- if (mode == "reel") "docs/resultats" else "data/resultats_FIXTURES"
+  dir.create(dossier, recursive = TRUE, showWarnings = FALSE)
+  purrr::imap_chr(tables, \(t, nom) {
+    f <- file.path(dossier, paste0(nom, ".csv"))
+    readr::write_csv(t, f, na = "")
+    f
+  }) |> unname()
 }

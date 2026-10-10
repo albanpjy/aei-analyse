@@ -1,0 +1,137 @@
+# =============================================================================
+# Construction et publication du projet
+#
+#   lint   : style du code R (lintr), en parallèle
+#   build  : environnement renv -> pipeline {targets} sur les VRAIES données
+#            (Hugging Face) -> tests -> rendus Quarto (site, dashboard, PDF)
+#   deploy : publication sur GitHub Pages (branche main uniquement)
+#
+# Déclencheurs : push (main, developpement), manuel, et mensuel (pour intégrer
+# une nouvelle version de l'index : il faut alors l'ajouter à
+# aei_versions_epinglees() — le pipeline ne prend jamais « latest »).
+# =============================================================================
+name: Construction et publication
+
+on:
+  push:
+    branches: [main, developpement]
+    paths-ignore:
+      - "docs/exploration/**"
+  workflow_dispatch:
+  schedule:
+    - cron: "17 5 3 * *"   # le 3 de chaque mois à 05:17 UTC
+
+permissions:
+  contents: write    # versionner docs/resultats, dictionnaire, _freeze
+  pages: write
+  id-token: write
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  AEI_MODE: reel
+  LANG: C.UTF-8
+  # Instantané daté de Posit Package Manager (binaires Linux) : doit
+  # correspondre au lockfile (voir .github/workflows/renv-lock.yml).
+  RENV_CONFIG_REPOS_OVERRIDE: https://packagemanager.posit.co/cran/__linux__/noble/2026-10-01
+  MAKEFLAGS: -j4
+
+jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    env:
+      RENV_ACTIVATE_PROJECT: "FALSE"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.5"
+          use-public-rspm: true
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          dependencies: '"hard"'
+          packages: any::lintr
+      - name: lintr
+        run: |
+          Rscript -e '
+            l <- c(lintr::lint_dir("R"), lintr::lint("_targets.R"))
+            print(l)
+            if (length(l) > 0) quit(status = 1)
+          '
+
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Bibliothèques système
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libcurl4-openssl-dev libssl-dev libxml2-dev \
+            libglpk-dev libgmp-dev libuv1-dev libfontconfig1-dev libfreetype6-dev \
+            libharfbuzz-dev libfribidi-dev libpng-dev libjpeg-dev libtiff5-dev cmake
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.5"
+          use-public-rspm: false
+
+      # Restaure EXACTEMENT les versions de renv.lock (avec cache entre runs).
+      - uses: r-lib/actions/setup-renv@v2
+
+      # Cache des fichiers bruts téléchargés (plusieurs centaines de Mo) : la
+      # clé dépend de la liste des versions épinglées (R/config.R).
+      - name: Cache des données aieconindex
+        uses: actions/cache@v4
+        with:
+          path: data/raw
+          key: aei-raw-${{ hashFiles('R/config.R') }}
+          restore-keys: aei-raw-
+
+      # Quarto + TinyTeX AVANT le pipeline : les rendus (site, dashboard, PDF)
+      # sont des cibles {targets} (R/cibles_rendus.R).
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          tinytex: true
+
+      - name: Pipeline {targets} (données réelles + rendus)
+        run: Rscript -e 'targets::tar_make(reporter = "timestamp")'
+
+      - name: Tests (sur fixtures)
+        run: Rscript tests/testthat.R
+
+      - name: Versionner les sorties de référence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f docs/resultats docs/dictionnaire_donnees.md _freeze 2>/dev/null || true
+          git commit -m "résultats : mise à jour par la CI (données réelles) [skip ci]" || echo "Rien de nouveau"
+          git pull --rebase origin ${GITHUB_REF_NAME}
+          git push origin HEAD:${GITHUB_REF_NAME}
+
+      - name: Préparer l'artefact Pages
+        if: hashFiles('_site/index.html') != ''
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Rapport PDF en artefact
+        if: hashFiles('_site/rapport/*.pdf') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: rapport-pdf
+          path: _site/rapport/*.pdf
+
+  deploy:
+    needs: [build]
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deploiement.outputs.page_url }}
+    steps:
+      - id: deploiement
+        uses: actions/deploy-pages@v4
