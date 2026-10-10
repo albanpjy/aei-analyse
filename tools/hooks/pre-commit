@@ -7,7 +7,7 @@
 # Après un rendu local : git checkout -- _freeze docs/resultats
 # -----------------------------------------------------------------------------
 if [ -z "$GITHUB_ACTIONS" ] && git diff --cached --name-only | \
-   grep -qE '^(_freeze/|docs/resultats/|docs/dictionnaire_donnees\.md$)'; then
+   grep -qE '^(_freeze/|docs/resultats/|docs/dictionnaire_donnees\.md$|docs/rapport_aei\.pdf$)'; then
   echo "Refus : _freeze/, docs/resultats/ et le dictionnaire généré ne sont commités que par la CI."
   echo "Annuler : git restore --staged _freeze docs/resultats docs/dictionnaire_donnees.md"
   exit 1
