@@ -270,28 +270,47 @@ clr <- function(x) {
 
 #' Construire la matrice pays × familles de tâches
 #'
-#' Pays retenus : ceux où au moins `couverture_min` des familles sont publiées
-#' (les cellules non publiées sont sous le seuil de confidentialité : on les
-#' traite comme des zéros « arrondis », remplacés avant la CLR).
+#' Les cellules non publiées (seuils de confidentialité) rendent la matrice
+#' creuse pour les petits pays. Sélection en deux temps, documentée dans le
+#' texte :
+#' 1. familles de tâches publiées pour au moins `couverture_gwa` des pays ;
+#' 2. pays disposant d'au moins `couverture_pays` de ces familles.
+#' Les cellules encore manquantes sont traitées comme des zéros « arrondis »,
+#' remplacés avant la CLR (remplacement multiplicatif).
+#'
+#' @return Liste : `parts` (matrice), `libelles`, `pays`, `n_zeros`,
+#'   `couverture` (diagnostic par pays) et `seuils`.
 #' @export
-s4_matrice <- function(base, release, couverture_min = 0.9) {
+s4_matrice <- function(base, release, couverture_gwa = 0.6, couverture_pays = 0.9) {
   g <- requete(base, "s4_gwa_pays", version = release)
-  n_gwa <- dplyr::n_distinct(g$gwa_code)
-  retenus <- g |>
-    dplyr::summarise(couverture = dplyr::n() / n_gwa, .by = "geo_id") |>
-    dplyr::filter(.data$couverture >= couverture_min)
+  n_pays_total <- dplyr::n_distinct(g$geo_id)
+  cov_gwa <- g |>
+    dplyr::summarise(couverture = dplyr::n_distinct(.data$geo_id) / n_pays_total,
+                     .by = "gwa_code")
+  gwa_retenues <- cov_gwa$gwa_code[cov_gwa$couverture >= couverture_gwa]
+  cov_pays <- g |>
+    dplyr::filter(.data$gwa_code %in% gwa_retenues) |>
+    dplyr::summarise(n_gwa = dplyr::n_distinct(.data$gwa_code), .by = "geo_id") |>
+    dplyr::mutate(couverture = .data$n_gwa / length(gwa_retenues),
+                  retenu = .data$couverture >= couverture_pays)
   large <- g |>
-    dplyr::filter(.data$geo_id %in% retenus$geo_id) |>
+    dplyr::filter(.data$geo_id %in% cov_pays$geo_id[cov_pays$retenu],
+                  .data$gwa_code %in% gwa_retenues) |>
     tidyr::pivot_wider(id_cols = "geo_id", names_from = "gwa_code",
                        values_from = "part_pct", values_fill = 0)
   m <- as.matrix(large[, -1])
   rownames(m) <- large$geo_id
   list(
     parts = m,
-    libelles = dplyr::distinct(g, .data$gwa_code, .data$gwa),
+    libelles = dplyr::distinct(g, .data$gwa_code, .data$gwa) |>
+      dplyr::filter(.data$gwa_code %in% gwa_retenues),
     pays = dplyr::distinct(g, .data$geo_id, .data$usage_pct, .data$aui) |>
       dplyr::filter(.data$geo_id %in% rownames(m)),
-    n_zeros = sum(m == 0)
+    n_zeros = sum(m == 0),
+    couverture = cov_pays,
+    seuils = list(gwa = couverture_gwa, pays = couverture_pays,
+                  n_gwa_total = dplyr::n_distinct(g$gwa_code), n_gwa = length(gwa_retenues),
+                  n_pays_total = n_pays_total)
   )
 }
 

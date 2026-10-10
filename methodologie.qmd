@@ -1,0 +1,129 @@
+---
+title: "Méthodologie"
+subtitle: "Données, définitions, formules, choix et limites"
+description: "Comment les chiffres du site sont produits, et ce qu'ils ne disent pas."
+---
+
+{{< include analyses/_setup.qmd >}}
+
+```{r}
+#| label: meta
+versions <- aei_versions_epinglees()
+```
+
+## 1. D'où viennent les données ?
+
+Anthropic échantillonne des conversations avec Claude, les anonymise et les agrège avec
+**Clio** [@tamkin2024clio], puis un modèle rattache chaque conversation à une **tâche
+O\*NET** (base américaine qui décrit environ 19 500 tâches pour près d'un millier de
+métiers) et à un **mode de collaboration** [@handa2025economic]. Seuls des agrégats
+dépassant des seuils de confidentialité sont publiés.
+
+Le projet utilise `r nrow(versions)` versions **épinglées** (jamais « la dernière ») :
+
+```{r}
+#| label: tbl-versions
+#| tbl-cap: "Versions de l'index utilisées"
+versions |>
+  transmute(Version = release, `Schéma` = schema_attendu,
+            `Données géographiques` = if_else(geo_disponible, "oui", "non")) |>
+  gt::gt()
+```
+
+Les trois schémas successifs, les fichiers retenus et les règles d'harmonisation sont
+détaillés dans le [dictionnaire de données](https://github.com/albanpjy/aei-analyse/blob/main/docs/dictionnaire_donnees.md)
+et sur la page [Données](donnees.qmd).
+
+## 2. Indicateurs
+
+### Part d'usage
+
+Pour une géographie $g$ et un élément $i$ (tâche, mode, métier), la part publiée
+$s_{g,i}$ est le pourcentage des conversations de $g$ rattachées à $i$. Les parts
+d'éléments **classés** sont renormalisées à 100 % lorsqu'on compare des ensembles :
+$\tilde s_{g,i} = 100\, s_{g,i} / \sum_{j \in C} s_{g,j}$.
+
+### Indice d'usage par habitant
+
+$$
+\text{IUH}_g = \frac{u_g / \sum_h u_h}{P_g / \sum_h P_h}
+$$
+
+où $u_g$ est la part de $g$ dans l'usage mondial et $P_g$ sa population de 15 à 64 ans
+(Banque mondiale, 2024, extraction publiée par Anthropic). Un indice de 2 signifie un usage
+deux fois supérieur à ce que prédirait la population. Il est **publié** pour 2025-09-15 et
+2026-06-26 et **recalculé** par le projet pour 2026-01-15 et 2026-03-24 (vue
+`usage_pays`).
+
+### Rattachement des tâches aux métiers
+
+Une part de tâche est attribuée à son grand groupe SOC (deux premiers chiffres du code
+O\*NET-SOC). Lorsqu'un même énoncé figure dans $k$ grands groupes, il compte pour $1/k$
+dans chacun (convention du projet, transparente et sans double compte) :
+
+$$
+S_{g,G} = \frac{\sum_i s_{g,i}\, w_{i,G}}{\sum_{G'} \sum_i s_{g,i}\, w_{i,G'}},
+\qquad w_{i,G} = \frac{\mathbb{1}[i \in G]}{\#\{G' : i \in G'\}}
+$$
+
+### Concentration
+
+Indice de Herfindahl-Hirschman [@hirschman1964], ratio de concentration des $N$ premiers
+éléments, entropie de Shannon [@shannon1948] et entropie normalisée :
+
+$$
+\text{HHI} = \sum_i \tilde s_i^2 \;\in [10\,000/n,\ 10\,000], \qquad
+\text{CR}_N = \sum_{i=1}^{N} \tilde s_{(i)}, \qquad
+H = -\sum_i p_i \log_2 p_i, \qquad H_{\text{norm}} = \frac{H}{\log_2 n}
+$$
+
+### Automatisation et augmentation
+
+$$
+A = \frac{p_{\text{dir}} + p_{\text{fb}}}{p_{\text{dir}} + p_{\text{fb}} + p_{\text{it}} + p_{\text{learn}} + p_{\text{val}}}
+$$
+
+sur les seules conversations **classables**. Intervalle de confiance de Wilson
+[@wilson1927] lorsque les effectifs sont publiés (voir [sujet 2](analyses/02_automatisation.qmd)).
+
+### Typologie des pays
+
+Remplacement multiplicatif des zéros [@martinfernandez2003], transformation log-ratio
+centrée [@aitchison1986], ACP non normée [@le2008factominer], classification HCPC (Ward
+[@ward1963] puis *k-means*), mélanges gaussiens choisis par BIC [@scrucca2016mclust;
+@schwarz1978], comparaison des partitions par l'indice de Rand ajusté
+[@hubert1985comparing] :
+
+$$
+\text{ARI} = \frac{\sum_{ij}\binom{n_{ij}}{2} - \left[\sum_i \binom{a_i}{2}\sum_j \binom{b_j}{2}\right]\big/\binom{n}{2}}
+{\tfrac12\left[\sum_i \binom{a_i}{2} + \sum_j \binom{b_j}{2}\right] - \left[\sum_i \binom{a_i}{2}\sum_j \binom{b_j}{2}\right]\big/\binom{n}{2}}
+$$
+
+## 3. Sources externes
+
+| Donnée | Source | Licence | Usage |
+|---|---|---|---|
+| Population 15–64 ans (2024) | Banque mondiale, `SP.POP.1564.TO`, extraction publiée par Anthropic (version 2025-09-15) | CC-BY 4.0 | indice par habitant recalculé |
+| PIB par habitant en PPA | Banque mondiale, WDI, `NY.GDP.PCAP.PP.KD` (API publique) | CC-BY 4.0 | sujet 4 |
+| Codes pays ISO 3166 | GeoNames, via Anthropic | CC-BY 4.0 | harmonisation des codes |
+| Tâches O\*NET, nomenclature SOC | O\*NET / BLS, via Anthropic | domaine public (États-Unis) | rattachement tâches → métiers |
+
+## 4. Limites
+
+::: {.callout-warning}
+## Ce que ces données ne disent pas
+- **Pas d'emploi** : une part d'usage n'est ni un nombre d'emplois, ni un risque de
+  substitution, ni un gain de productivité [@acemoglu2020robots; @autor2003skill].
+- **Un seul produit** : Claude, dont les utilisateurs ne représentent pas la population
+  active (surreprésentation probable des métiers du numérique et de l'enseignement).
+- **Classification automatique** : tâches et modes sont attribués par un modèle ;
+  l'erreur de classification n'est pas publiée et domine l'aléa d'échantillonnage.
+- **Taxonomie américaine** : O\*NET et la SOC décrivent le marché du travail des
+  États-Unis ; leur transposition à la France est une approximation (voir la
+  correspondance proposée au [sujet 3](analyses/03_metiers_finances.qmd)).
+- **Ruptures de séries** : modèles, produits, fenêtres d'observation, seuils et formats
+  changent d'une version à l'autre ; les évolutions mêlent changements d'usage et de
+  méthode.
+- **Seuils de confidentialité** : les petits pays et les tâches rares sont sous-représentés
+  ou absents ; une cellule absente signifie « non publiée », pas « nulle ».
+:::

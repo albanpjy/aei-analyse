@@ -1,0 +1,41 @@
+% =============================================================================
+% preambule.tex — Compléments LaTeX du rapport (inclus dans l'en-tête)
+% =============================================================================
+\usepackage{booktabs}          % filets de tableaux typographiques
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{caption}
+\captionsetup{font=small, labelfont=bf, labelsep=period}
+\definecolor{accent}{HTML}{1C5CAB}
+\definecolor{orangeaei}{HTML}{EB6834}
+% Titres KOMA-Script dans la couleur d'accent, police sans empattement
+\addtokomafont{disposition}{\color{accent}}
+\addtokomafont{title}{\color{accent}}
+% En-têtes et pieds de page
+\usepackage[automark]{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\clearpairofpagestyles
+\ihead{\small Usage de Claude (AEI)}
+\ohead{\small\rightmark}
+\cfoot{\small\pagemark}
+% Encadré « rappel »
+\usepackage[most]{tcolorbox}
+\newtcolorbox{rappel}{colback=orangeaei!6, colframe=orangeaei, boxrule=0pt, leftrule=3pt,
+  arc=0pt, left=6pt, right=6pt, top=4pt, bottom=4pt, fontupper=\small}
+% Libellés français : polyglossia/babel réinitialisent les libellés au début
+% du document (\captionsfrench) ; on les complète à cet endroit.
+\makeatletter
+\AtBeginDocument{%
+  \@ifundefined{captionsfrench}{}{%
+    \addto\captionsfrench{%
+      \renewcommand{\tablename}{Tableau}%
+      \renewcommand{\listtablename}{Liste des tableaux}%
+      \renewcommand{\listfigurename}{Liste des figures}}}%
+  \renewcommand{\tablename}{Tableau}%
+  \renewcommand{\listtablename}{Liste des tableaux}%
+  \renewcommand{\listfigurename}{Liste des figures}%
+}
+\makeatother

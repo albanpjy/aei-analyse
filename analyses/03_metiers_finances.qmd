@@ -54,12 +54,12 @@ ggplot(fond, aes(observed_exposure, y)) +
                             size = 2.7, min.segment.length = 0, box.padding = 0.6,
                             colour = palette_interface()[["texte"]], seed = 2,
                             ylim = c(-1.6, 1.6)) +
-  geom_vline(xintercept = unique(toutes$mediane_ensemble), linetype = "dashed",
+  geom_vline(xintercept = median(toutes$observed_exposure[toutes$observed_exposure > 0]), linetype = "dashed",
              colour = palette_interface()[["discret"]]) +
   scale_y_continuous(limits = c(-1.7, 1.7), breaks = NULL) +
   labs(x = "Exposition observée (0 à 1)", y = NULL,
        caption = source_aei(paste0("Table job_exposure (", nrow(toutes),
-                                   " métiers). Pointillé : médiane de l'ensemble des métiers.")))
+                                   " métiers). Pointillé : médiane des métiers à exposition non nulle.")))
 ```
 
 ```{r}
@@ -82,9 +82,12 @@ med_cibles <- median(expo$observed_exposure, na.rm = TRUE)
 plus_expose <- expo |> slice_max(observed_exposure, n = 1)
 ```
 
-La médiane des métiers ciblés (`r nombre_fr(med_cibles, 3)`) est
-`r if (med_cibles > unique(toutes$mediane_ensemble)) "**supérieure**" else "**inférieure ou égale**"`
-à la médiane de l'ensemble des métiers (`r nombre_fr(unique(toutes$mediane_ensemble), 3)`).
+La distribution de l'exposition est très asymétrique :
+`r pct_fr(100 * mean(toutes$observed_exposure == 0), 0)` des `r nrow(toutes)` métiers ont une
+exposition **nulle**. La médiane des métiers ciblés (`r nombre_fr(med_cibles, 3)`) est
+`r if (med_cibles > median(toutes$observed_exposure[toutes$observed_exposure > 0])) "**supérieure**" else "**inférieure ou égale**"`
+à la médiane des seuls métiers exposés
+(`r nombre_fr(median(toutes$observed_exposure[toutes$observed_exposure > 0]), 3)`).
 Le plus exposé est « `r plus_expose$intitule_soc` » (`r nombre_fr(plus_expose$observed_exposure, 3)`,
 `r nombre_fr(100 * plus_expose$centile, 0)`^e^ centile).
 

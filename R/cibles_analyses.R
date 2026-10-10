@@ -48,7 +48,10 @@ cibles_analyses <- function() {
         s3_exposition_cibles = t3_exposition$cibles, s3_taches = t3_taches,
         s3_usage = t3_usage, s3_militaire = t3_militaire,
         s4_typologie_pays = t4_typologie$croise,
-        s4_valeurs_propres = tibble::as_tibble(t4_typologie$acp$eig, rownames = "axe")
+        s4_valeurs_propres = tibble::as_tibble(t4_typologie$acp$eig, rownames = "axe"),
+        s4_couverture = t4_matrice$couverture,
+        s4_couverture_gwa = requete(base_duckdb, "s4_gwa_pays", version = derniere_version()) |>
+          dplyr::count(.data$gwa_code, .data$gwa, name = "n_pays")
       )),
       format = "file"
     )

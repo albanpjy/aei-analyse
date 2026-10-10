@@ -23,9 +23,13 @@ classe_fr <- ty$croise$classe_hcpc[ty$croise$geo_id == "FRA"]
 Chaque ligne décrit un pays par la répartition de son usage de Claude.ai entre les
 `r n_fam` **activités de travail généralisées** (GWA, *Generalized Work Activities*) d'O\*NET,
 le niveau le plus agrégé de la hiérarchie des tâches publiée dans la version
-`r derniere_version()` (moyenne des deux mois publiés). `r n_pays` pays ont au moins 90 % des
-familles publiées ; `r ty$n_zeros` cellules sont nulles ou non publiées (sous le seuil de
-confidentialité).
+`r derniere_version()` (moyenne des deux mois publiés). Pour les petits pays, de nombreuses
+cellules ne sont pas publiées (seuils de confidentialité) ; la matrice est donc construite en
+deux temps : on retient les `r t4_matrice$seuils$n_gwa` familles (sur
+`r t4_matrice$seuils$n_gwa_total`) publiées pour au moins
+`r pct_fr(100 * t4_matrice$seuils$gwa, 0)` des `r t4_matrice$seuils$n_pays_total` pays, puis
+les **`r n_pays` pays** disposant d'au moins `r pct_fr(100 * t4_matrice$seuils$pays, 0)` de ces
+familles. `r ty$n_zeros` cellules restent nulles ou non publiées.
 
 ```{r}
 #| label: tbl-gwa
