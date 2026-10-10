@@ -1,0 +1,15 @@
+path,size_bytes
+release_2025_02_10/plots/automation_vs_augmentation.png,38030
+release_2025_02_10/plots/occupational_category_distribution.png,141804
+release_2025_02_10/plots/occupational_category_distribution_bls.png,230300
+release_2025_02_10/plots/occupations_distribution.png,104710
+release_2025_02_10/plots/task_distribution.png,221631
+release_2025_02_10/plots/wage_distribution.png,214070
+release_2025_02_10/README.md,2981
+release_2025_02_10/SOC_Structure.csv,77176
+release_2025_02_10/automation_vs_augmentation.csv,197
+release_2025_02_10/bls_employment_may_2023.csv,1132
+release_2025_02_10/onet_task_mappings.csv,461306
+release_2025_02_10/onet_task_statements.csv,3592256
+release_2025_02_10/plots.ipynb,25886
+release_2025_02_10/wage_data.csv,128047

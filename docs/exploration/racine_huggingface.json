@@ -1,0 +1,346 @@
+[
+ {
+  "path": "labor_market_impacts/job_exposure.csv",
+  "size": 37176
+ },
+ {
+  "path": "labor_market_impacts/task_penetration.csv",
+  "size": 1889822
+ },
+ {
+  "path": "release_2025_02_10/plots/automation_vs_augmentation.png",
+  "size": 38030
+ },
+ {
+  "path": "release_2025_02_10/plots/occupational_category_distribution.png",
+  "size": 141804
+ },
+ {
+  "path": "release_2025_02_10/plots/occupational_category_distribution_bls.png",
+  "size": 230300
+ },
+ {
+  "path": "release_2025_02_10/plots/occupations_distribution.png",
+  "size": 104710
+ },
+ {
+  "path": "release_2025_02_10/plots/task_distribution.png",
+  "size": 221631
+ },
+ {
+  "path": "release_2025_02_10/plots/wage_distribution.png",
+  "size": 214070
+ },
+ {
+  "path": "release_2025_02_10/README.md",
+  "size": 2981
+ },
+ {
+  "path": "release_2025_02_10/SOC_Structure.csv",
+  "size": 77176
+ },
+ {
+  "path": "release_2025_02_10/automation_vs_augmentation.csv",
+  "size": 197
+ },
+ {
+  "path": "release_2025_02_10/bls_employment_may_2023.csv",
+  "size": 1132
+ },
+ {
+  "path": "release_2025_02_10/onet_task_mappings.csv",
+  "size": 461306
+ },
+ {
+  "path": "release_2025_02_10/onet_task_statements.csv",
+  "size": 3592256
+ },
+ {
+  "path": "release_2025_02_10/plots.ipynb",
+  "size": 25886
+ },
+ {
+  "path": "release_2025_02_10/wage_data.csv",
+  "size": 128047
+ },
+ {
+  "path": "release_2025_03_27/cluster_level_data/README.md",
+  "size": 2917
+ },
+ {
+  "path": "release_2025_03_27/cluster_level_data/cluster_level_dataset.tsv",
+  "size": 947989
+ },
+ {
+  "path": "release_2025_03_27/cluster_level_data/cluster_level_example_analysis.ipynb",
+  "size": 280733
+ },
+ {
+  "path": "release_2025_03_27/README.md",
+  "size": 3205
+ },
+ {
+  "path": "release_2025_03_27/SOC_Structure.csv",
+  "size": 77176
+ },
+ {
+  "path": "release_2025_03_27/automation_augmentation_by_occupation.png",
+  "size": 672136
+ },
+ {
+  "path": "release_2025_03_27/automation_augmentation_comparison.png",
+  "size": 149993
+ },
+ {
+  "path": "release_2025_03_27/automation_vs_augmentation_by_task.csv",
+  "size": 561368
+ },
+ {
+  "path": "release_2025_03_27/automation_vs_augmentation_v1.csv",
+  "size": 197
+ },
+ {
+  "path": "release_2025_03_27/automation_vs_augmentation_v2.csv",
+  "size": 198
+ },
+ {
+  "path": "release_2025_03_27/normalized_automation_by_category.png",
+  "size": 854296
+ },
+ {
+  "path": "release_2025_03_27/onet_task_statements.csv",
+  "size": 3592256
+ },
+ {
+  "path": "release_2025_03_27/task_pct_v1.csv",
+  "size": 461306
+ },
+ {
+  "path": "release_2025_03_27/task_pct_v2.csv",
+  "size": 435372
+ },
+ {
+  "path": "release_2025_03_27/task_thinking_fractions.csv",
+  "size": 372332
+ },
+ {
+  "path": "release_2025_03_27/v2_report_replication.ipynb",
+  "size": 1897331
+ },
+ {
+  "path": "release_2025_09_15/code/aei_analysis_functions_1p_api.py",
+  "size": 76365
+ },
+ {
+  "path": "release_2025_09_15/code/aei_analysis_functions_claude_ai.py",
+  "size": 92526
+ },
+ {
+  "path": "release_2025_09_15/code/aei_report_v3_analysis_1p_api.ipynb",
+  "size": 8079
+ },
+ {
+  "path": "release_2025_09_15/code/aei_report_v3_analysis_claude_ai.ipynb",
+  "size": 22150
+ },
+ {
+  "path": "release_2025_09_15/code/aei_report_v3_change_over_time_claude_ai.py",
+  "size": 18565
+ },
+ {
+  "path": "release_2025_09_15/code/aei_report_v3_preprocessing_claude_ai.ipynb",
+  "size": 85914
+ },
+ {
+  "path": "release_2025_09_15/code/preprocess_gdp.py",
+  "size": 11748
+ },
+ {
+  "path": "release_2025_09_15/code/preprocess_iso_codes.py",
+  "size": 3226
+ },
+ {
+  "path": "release_2025_09_15/code/preprocess_onet.py",
+  "size": 5279
+ },
+ {
+  "path": "release_2025_09_15/code/preprocess_population.py",
+  "size": 13542
+ },
+ {
+  "path": "release_2025_09_15/data/input/BTOS_National.xlsx",
+  "size": 63052
+ },
+ {
+  "path": "release_2025_09_15/data/input/Population by single age _20250903072924.csv",
+  "size": 2176
+ },
+ {
+  "path": "release_2025_09_15/data/input/automation_vs_augmentation_v1.csv",
+  "size": 197
+ },
+ {
+  "path": "release_2025_09_15/data/input/automation_vs_augmentation_v2.csv",
+  "size": 198
+ },
+ {
+  "path": "release_2025_09_15/data/input/bea_us_state_gdp_2024.csv",
+  "size": 1663
+ },
+ {
+  "path": "release_2025_09_15/data/input/census_state_codes.txt",
+  "size": 1485
+ },
+ {
+  "path": "release_2025_09_15/data/input/geonames_countryInfo.txt",
+  "size": 31667
+ },
+ {
+  "path": "release_2025_09_15/data/input/imf_gdp_raw_2024.json",
+  "size": 265358
+ },
+ {
+  "path": "release_2025_09_15/data/input/onet_task_statements_raw.xlsx",
+  "size": 1204658
+ },
+ {
+  "path": "release_2025_09_15/data/input/sc-est2024-agesex-civ.csv",
+  "size": 818707
+ },
+ {
+  "path": "release_2025_09_15/data/input/soc_structure_raw.csv",
+  "size": 77176
+ },
+ {
+  "path": "release_2025_09_15/data/input/task_pct_v1.csv",
+  "size": 461306
+ },
+ {
+  "path": "release_2025_09_15/data/input/task_pct_v2.csv",
+  "size": 435372
+ },
+ {
+  "path": "release_2025_09_15/data/input/working_age_pop_2024_country_raw.csv",
+  "size": 22974
+ },
+ {
+  "path": "release_2025_09_15/data/intermediate/aei_raw_1p_api_2025-08-04_to_2025-08-11.csv",
+  "size": 7027019
+ },
+ {
+  "path": "release_2025_09_15/data/intermediate/aei_raw_claude_ai_2025-08-04_to_2025-08-11.csv",
+  "size": 18894517
+ },
+ {
+  "path": "release_2025_09_15/data/intermediate/gdp_2024_country.csv",
+  "size": 4115
+ },
+ {
+  "path": "release_2025_09_15/data/intermediate/gdp_2024_us_state.csv",
+  "size": 2179
+ },
+ {
+  "path": "release_2025_09_15/data/intermediate/iso_country_codes.csv",
+  "size": 4564
+ },
+ {
+  "path": "release_2025_09_15/data/intermediate/onet_task_statements.csv",
+  "size": 3650862
+ },
+ {
+  "path": "release_2025_09_15/data/intermediate/soc_structure.csv",
+  "size": 78834
+ },
+ {
+  "path": "release_2025_09_15/data/intermediate/working_age_pop_2024_country.csv",
+  "size": 6321
+ },
+ {
+  "path": "release_2025_09_15/data/intermediate/working_age_pop_2024_us_state.csv",
+  "size": 1079
+ },
+ {
+  "path": "release_2025_09_15/data/output/aei_enriched_claude_ai_2025-08-04_to_2025-08-11.csv",
+  "size": 26840881
+ },
+ {
+  "path": "release_2025_09_15/data/output/request_hierarchy_tree_1p_api.json",
+  "size": 302699
+ },
+ {
+  "path": "release_2025_09_15/data/output/request_hierarchy_tree_claude_ai.json",
+  "size": 438531
+ },
+ {
+  "path": "release_2025_09_15/README.md",
+  "size": 2640
+ },
+ {
+  "path": "release_2025_09_15/data_documentation.md",
+  "size": 20133
+ },
+ {
+  "path": "release_2026_01_15/data/intermediate/aei_raw_1p_api_2025-11-13_to_2025-11-20.csv",
+  "size": 41518256
+ },
+ {
+  "path": "release_2026_01_15/data/intermediate/aei_raw_claude_ai_2025-11-13_to_2025-11-20.csv",
+  "size": 94086309
+ },
+ {
+  "path": "release_2026_01_15/aei_v4_appendix.pdf",
+  "size": 6036245
+ },
+ {
+  "path": "release_2026_01_15/data_documentation.md",
+  "size": 18721
+ },
+ {
+  "path": "release_2026_03_24/data/aei_raw_1p_api_2026-02-05_to_2026-02-12.csv",
+  "size": 43957174
+ },
+ {
+  "path": "release_2026_03_24/data/aei_raw_claude_ai_2026-02-05_to_2026-02-12.csv",
+  "size": 103287181
+ },
+ {
+  "path": "release_2026_03_24/data_documentation.md",
+  "size": 17739
+ },
+ {
+  "path": "release_2026_06_26/data/aei_1p_api_2026-06-26.csv",
+  "size": 77282477
+ },
+ {
+  "path": "release_2026_06_26/data/aei_claude_ai_2026-06-26.csv",
+  "size": 219174671
+ },
+ {
+  "path": "release_2026_06_26/data_documentation.md",
+  "size": 7397
+ },
+ {
+  "path": "robot_exposure/README.md",
+  "size": 7769
+ },
+ {
+  "path": "robot_exposure/robot_exposure_occupations.csv",
+  "size": 47761
+ },
+ {
+  "path": "robot_exposure/robot_exposure_tasks.csv",
+  "size": 99520982
+ },
+ {
+  "path": ".gitattributes",
+  "size": 3375
+ },
+ {
+  "path": ".gitignore",
+  "size": 10
+ },
+ {
+  "path": "README.md",
+  "size": 5262
+ }
+]
