@@ -66,6 +66,9 @@ cibles_analyses <- function() {
 exporter_resultats <- function(tables, mode = mode_execution()) {
   dossier <- if (mode == "reel") "docs/resultats" else "data/resultats_FIXTURES"
   dir.create(dossier, recursive = TRUE, showWarnings = FALSE)
+  # Supprimer les CSV d'analyses retirées du pipeline (fichiers orphelins)
+  orphelins <- setdiff(list.files(dossier, pattern = "\\.csv$"), paste0(names(tables), ".csv"))
+  unlink(file.path(dossier, orphelins))
   purrr::imap_chr(tables, \(t, nom) {
     f <- file.path(dossier, paste0(nom, ".csv"))
     readr::write_csv(t, f, na = "")
