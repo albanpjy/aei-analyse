@@ -1,0 +1,66 @@
+# --- R ---------------------------------------------------------------------
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+*.Rproj
+.Renviron
+*.rds.tmp
+
+# --- renv : on versionne renv.lock, activate.R et settings.json -------------
+renv/library/
+renv/local/
+renv/cellar/
+renv/lock/
+renv/python/
+renv/sandbox/
+renv/staging/
+
+# --- {targets} : le magasin est régénérable par tar_make() ---------------------
+_targets/
+
+# --- Données : volumineuses et téléchargeables, donc hors git ------------------
+data/raw/
+data/cache/
+data/*.duckdb
+data/*.duckdb.wal
+*.duckdb.tmp/
+# Les Parquet sont régénérés par le pipeline (publiés via GitHub Pages, pas git)
+data/parquet/
+
+# --- Quarto ----------------------------------------------------------------
+/.quarto/
+**/.quarto/
+_site/
+_book/
+*_files/
+*_cache/
+# _freeze/ est VERSIONNÉ (freeze: auto) : ne pas l'ajouter ici
+
+# --- LaTeX : fichiers intermédiaires ------------------------------------------
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+*.tex.tmp
+
+# --- Système et éditeurs -------------------------------------------------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
+
+# --- Secrets ---------------------------------------------------------------
+.env
