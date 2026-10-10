@@ -82,6 +82,7 @@ aei-analyse/
 ├── references.bib        # Bibliographie (références vérifiables uniquement)
 ├── docs/                 # Diagnostic, exploration des données réelles, dictionnaire,
 │                         #   résultats CSV (CI), synthèse des techniques
+├── references_externes/ # Tables de référence embarquées (SOC 2010 -> ISCO-08)
 ├── tools/                # Scripts d'installation de l'environnement de développement local
 └── .github/workflows/    # CI/CD : pipeline, rendus, lintr, GitHub Pages
 ```

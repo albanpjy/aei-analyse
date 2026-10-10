@@ -56,6 +56,10 @@ env:
 - ⚠ *vécu* : `renv::snapshot()` refuse d'écrire si des dépendances de compilation
   (`LinkingTo`) manquent, ce qui est normal avec des binaires : `force = TRUE`.
 - Hors renv (conteneur sans CRAN), désactiver l'activation : `RENV_ACTIVATE_PROJECT=FALSE`.
+- ⚠ *vécu* : un package **retiré de CRAN** (iscoCrosswalks) est absent des instantanés du
+  dépôt : `renv.lock` devient impossible à produire. Pour une petite table de référence,
+  l'**embarquer** (`references_externes/`, avec sa provenance et un script d'extraction)
+  est plus robuste que d'en dépendre.
 
 ## 3. targets / tarchetypes — pipeline
 

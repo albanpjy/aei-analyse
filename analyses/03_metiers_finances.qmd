@@ -159,7 +159,8 @@ Le tableau combine deux niveaux de preuve, à ne pas confondre :
 - **SOC → ISCO-08 : table de passage officielle.** Codes issus de la correspondance
   SOC 2010 → ISCO-08 établie par le *Bureau of Labor Statistics*, dans la version diffusée
   par l'Institute for Structural Research (IBS) et reprise par le package R
-  `iscoCrosswalks` [@iscocrosswalks2022], lu directement par le pipeline. La
+  `iscoCrosswalks` [@iscocrosswalks2022] (table embarquée dans `references_externes/`, le package
+ayant été retiré de CRAN). La
   correspondance est « un vers plusieurs » : tous les codes associés sont donnés. Les huit
   codes SOC retenus sont identiques en SOC 2010 et SOC 2018.
 
@@ -198,7 +199,7 @@ O\*NET ne décrit pas les tâches des métiers spécifiquement militaires
 peut donc leur être rattachée par la méthode d'Anthropic, et
 `r t3_militaire$n[3]` métier(s) 55-xxxx figure(nt) dans `job_exposure`. La table de passage
 officielle rattache pourtant ces métiers à des groupes ISCO-08 bien identifiés
-(`r paste(sort(unique(substr(iscoCrosswalks::soc10_isco08$isco08[startsWith(iscoCrosswalks::soc10_isco08$soc10, "55")], 1, 4))), collapse = ", ")` :
+(`r cw <- table_soc_isco(); paste(sort(unique(cw$isco08[startsWith(cw$soc10, "55")])), collapse = ", ")` :
 officiers, sous-officiers et autres rangs des forces armées) : c'est bien l'absence de
 description des **tâches** dans O\*NET qui les rend invisibles. Pour un ministère des
 Armées, l'index renseigne surtout sur les **fonctions de soutien** (finances, achats,

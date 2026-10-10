@@ -165,9 +165,10 @@ s2_soc <- function(base) {
 #' Deux niveaux de preuve, à ne pas confondre :
 #' - SOC -> ISCO-08 : table de passage SOC 2010 -> ISCO-08 établie par le Bureau of
 #'   Labor Statistics, dans la version diffusée par l'Institute for Structural
-#'   Research (IBS) et reprise par le package R iscoCrosswalks (objet
-#'   `soc10_isco08`). Correspondance « un vers plusieurs » : tous les
-#'   codes ISCO-08 associés sont conservés. Les huit codes retenus sont
+#'   Research (IBS) et reprise par le package R iscoCrosswalks ; la table est
+#'   embarquée dans references_externes/ (package retiré de CRAN).
+#'   Correspondance « un vers plusieurs » : tous les codes ISCO-08 associés
+#'   sont conservés. Les huit codes retenus sont
 #'   identiques en SOC 2010 et SOC 2018 (nomenclature de l'AEI) ; seul l'intitulé
 #'   de 13-2051 a changé (« Financial Analysts » -> « Financial and Investment
 #'   Analysts »).
@@ -206,16 +207,25 @@ metiers_cibles <- function() {
   dplyr::left_join(hypothese, correspondance_soc_isco(hypothese$soc6), by = "soc6")
 }
 
+#' Table de passage SOC 2010 -> ISCO-08 embarquée (references_externes/)
+#'
+#' Extraite du package iscoCrosswalks (retiré de CRAN) par
+#' tools/extraire_crosswalk.R ; codes lus comme du texte (« 0110 »).
+#' @export
+table_soc_isco <- function(chemin = "references_externes/soc2010_isco08.csv") {
+  readr::read_csv(chemin, col_types = readr::cols(.default = "c")) |>
+    dplyr::mutate(soc6 = paste0(substr(.data$soc10, 1, 2), "-", substr(.data$soc10, 3, 6)))
+}
+
 #' Codes ISCO-08 officiels d'une liste de codes SOC (table BLS via iscoCrosswalks)
 #'
 #' @param soc6 Codes SOC à 6 chiffres au format « 13-2031 ».
 #' @return Tibble `soc6`, `isco08` (codes séparés par des virgules),
 #'   `intitule_isco` (intitulés anglais de l'OIT).
 #' @export
-correspondance_soc_isco <- function(soc6) {
-  table <- tibble::as_tibble(as.data.frame(iscoCrosswalks::soc10_isco08)) |>
-    dplyr::mutate(soc6 = paste0(substr(.data$soc10, 1, 2), "-", substr(.data$soc10, 3, 6)),
-                  isco_label = as.character(.data$isco_label))
+correspondance_soc_isco <- function(soc6,
+                                    chemin = "references_externes/soc2010_isco08.csv") {
+  table <- table_soc_isco(chemin)
   table |>
     dplyr::filter(.data$soc6 %in% .env$soc6) |>
     dplyr::arrange(.data$soc6, .data$isco08) |>
