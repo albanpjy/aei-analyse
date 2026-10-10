@@ -86,6 +86,8 @@ pct_fr <- function(x, decimales = 1) paste0(nombre_fr(x, decimales), " %")
 nom_pays <- function(iso3, noms = NULL) {
   fr <- pays_comparaison()
   out <- unname(fr[iso3])
-  if (!is.null(noms)) out[is.na(out)] <- noms$country_name[match(iso3[is.na(out)], noms$iso_alpha_3)]
+  if (!is.null(noms)) {
+    out[is.na(out)] <- noms$country_name[match(iso3[is.na(out)], noms$iso_alpha_3)]
+  }
   ifelse(is.na(out), iso3, out)
 }

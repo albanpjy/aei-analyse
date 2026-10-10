@@ -12,7 +12,10 @@ cibles_analyses <- function() {
   list(
     # Sujet 1 — La France face à Claude
     targets::tar_target(t1_usage_pays, s1_usage_pays(base_duckdb)),
-    targets::tar_target(t1_top_taches, s1_top_taches(base_duckdb, release = derniere_version(), n = 15)),
+    targets::tar_target(
+      t1_top_taches,
+      s1_top_taches(base_duckdb, release = derniere_version(), n = 15)
+    ),
     targets::tar_target(t1_soc_pays, s1_soc_pays(base_duckdb)),
     targets::tar_target(t1_concentration, s1_concentration(base_duckdb)),
     targets::tar_target(

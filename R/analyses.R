@@ -335,9 +335,12 @@ s4_typologie <- function(mat, pib) {
     tibble::as_tibble() |>
     dplyr::mutate(classe_hcpc = factor(part_hcpc[match(.data$geo_id, rownames(z))]),
                   classe_mclust = factor(part_mc[match(.data$geo_id, rownames(z))]))
-  test_pib <- if (sum(!is.na(croise$pib_hab_ppa)) > 5 && nlevels(croise$classe_hcpc) > 1) {
-    stats::kruskal.test(pib_hab_ppa ~ classe_hcpc, data = croise)
-  } else NULL
+  # Test de Kruskal-Wallis : le PIB par habitant diffère-t-il entre classes ?
+  # (non paramétrique : peu de pays par classe, distribution asymétrique)
+  test_pib <- NULL
+  if (sum(!is.na(croise$pib_hab_ppa)) > 5 && nlevels(croise$classe_hcpc) > 1) {
+    test_pib <- stats::kruskal.test(pib_hab_ppa ~ classe_hcpc, data = croise)
+  }
 
   list(
     acp = acp, k = k, hcpc = hcpc, mclust = mc,

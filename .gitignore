@@ -36,7 +36,10 @@ _site/
 _book/
 *_files/
 *_cache/
-# _freeze/ est VERSIONNÉ (freeze: auto) : ne pas l'ajouter ici
+# _freeze/ (sorties gelées) est versionné UNIQUEMENT par la CI, à partir des
+# données réelles (git add -f) : on l'ignore localement pour ne jamais commiter
+# un rendu fait sur les données fictives.
+_freeze/
 
 # --- LaTeX : fichiers intermédiaires ------------------------------------------
 *.aux
