@@ -35,8 +35,9 @@ ecrire_parquet <- function(donnees, dossier) {
   )
   releases <- unique(as.character(dplyr::pull(dplyr::distinct(
     dplyr::select(dplyr::as_tibble(donnees), "release")), "release")))
-  sort(unlist(lapply(releases, \(r) list.files(
-    file.path(dossier, paste0("release=", r)), full.names = TRUE))))
+  sort(unlist(lapply(releases, \(r) {
+    list.files(file.path(dossier, paste0("release=", r)), full.names = TRUE)
+  })))
 }
 
 #' Lire une requête SQL nommée du dossier sql/
@@ -109,4 +110,16 @@ construire_duckdb <- function(parquet, fichiers_sql, chemin = chemins()$duckdb) 
     DBI::dbExecute(con, paste(readLines(f, encoding = "UTF-8"), collapse = "\n"))
   }
   chemin
+}
+
+#' Résumer la table harmonisée (contrôle et dictionnaire)
+#'
+#' @param base Chemin de la base DuckDB (dépendance {targets}).
+#' @return Tibble : effectifs par version, schéma, source, niveau
+#'   géographique, facette et variable.
+#' @export
+resumer_table_harmonisee <- function(base) {
+  con <- connexion_duckdb(base)
+  on.exit(DBI::dbDisconnect(con, shutdown = TRUE), add = TRUE)
+  DBI::dbGetQuery(con, sql_nommee("resume_harmonise")) |> tibble::as_tibble()
 }

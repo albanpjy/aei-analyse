@@ -1,0 +1,54 @@
+"Major Group","Minor Group","Broad Occupation","Detailed Occupation","Detailed O*NET-SOC","SOC or O*NET-SOC 2019 Title","soc_major_group"
+"11-0000",,,,,"Management Occupations",11
+"13-0000",,,,,"Business and Financial Operations Occupations",13
+"15-0000",,,,,"Computer and Mathematical Occupations",15
+"17-0000",,,,,"Architecture and Engineering Occupations",17
+"19-0000",,,,,"Life, Physical, and Social Science Occupations",19
+"21-0000",,,,,"Community and Social Service Occupations",21
+"23-0000",,,,,"Legal Occupations",23
+"25-0000",,,,,"Educational Instruction and Library Occupations",25
+"27-0000",,,,,"Arts, Design, Entertainment, Sports, and Media Occupations",27
+"29-0000",,,,,"Healthcare Practitioners and Technical Occupations",29
+"31-0000",,,,,"Healthcare Support Occupations",31
+"33-0000",,,,,"Protective Service Occupations",33
+"35-0000",,,,,"Food Preparation and Serving Related Occupations",35
+"37-0000",,,,,"Building and Grounds Cleaning and Maintenance Occupations",37
+"39-0000",,,,,"Personal Care and Service Occupations",39
+"41-0000",,,,,"Sales and Related Occupations",41
+"43-0000",,,,,"Office and Administrative Support Occupations",43
+"45-0000",,,,,"Farming, Fishing, and Forestry Occupations",45
+"47-0000",,,,,"Construction and Extraction Occupations",47
+"49-0000",,,,,"Installation, Maintenance, and Repair Occupations",49
+"51-0000",,,,,"Production Occupations",51
+"53-0000",,,,,"Transportation and Material Moving Occupations",53
+"55-0000",,,,,"Military Specific Occupations",55
+,,,"11-9999",,"Generic occupation 11",
+,,,"13-9999",,"Generic occupation 13",
+,,,"15-9999",,"Generic occupation 15",
+,,,"17-9999",,"Generic occupation 17",
+,,,"19-9999",,"Generic occupation 19",
+,,,"21-9999",,"Generic occupation 21",
+,,,"23-9999",,"Generic occupation 23",
+,,,"25-9999",,"Generic occupation 25",
+,,,"27-9999",,"Generic occupation 27",
+,,,"29-9999",,"Generic occupation 29",
+,,,"31-9999",,"Generic occupation 31",
+,,,"33-9999",,"Generic occupation 33",
+,,,"35-9999",,"Generic occupation 35",
+,,,"37-9999",,"Generic occupation 37",
+,,,"39-9999",,"Generic occupation 39",
+,,,"41-9999",,"Generic occupation 41",
+,,,"43-9999",,"Generic occupation 43",
+,,,"45-9999",,"Generic occupation 45",
+,,,"47-9999",,"Generic occupation 47",
+,,,"49-9999",,"Generic occupation 49",
+,,,"51-9999",,"Generic occupation 51",
+,,,"53-9999",,"Generic occupation 53",
+,,,"13-2031",,"Budget Analysts",
+,,,"13-2011",,"Accountants and Auditors",
+,,,"11-3031",,"Financial Managers",
+,,,"13-2051",,"Financial and Investment Analysts",
+,,,"13-1111",,"Management Analysts",
+,,,"43-3031",,"Bookkeeping, Accounting, and Auditing Clerks",
+,,,"13-1023",,"Purchasing Agents",
+,,,"11-3061",,"Purchasing Managers",

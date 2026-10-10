@@ -54,7 +54,7 @@ options(aieconindex.cache_dir = normalizePath(chemins()$brut, mustWork = FALSE))
 
 # Table des versions, connue AVANT l'exécution du pipeline : tar_map() en a
 # besoin pour créer une branche statique par version (noms lisibles du type
-# `parquet_2025_09_15`).
+# `parquet_usage_2025_09_15`).
 versions <- aei_versions_epinglees()
 
 # -----------------------------------------------------------------------------
@@ -90,13 +90,19 @@ cibles_par_version <- tar_map(
 
   # Harmonisation du schéma (wide / long / monthly) vers une table longue
   # commune, puis écriture Parquet partitionnée `release=AAAA-MM-JJ`.
+  # Dépend des référentiels (passage des codes pays ISO-2 -> ISO-3).
+  # ⚠ Piège de tar_map() : tout symbole portant le nom d'une cible de la
+  # branche est suffixé (une cible nommée `parquet` transformerait
+  # `chemins()$parquet` en `chemins()$parquet_2025_09_15`). D'où le nom
+  # `parquet_usage`, qui n'entre en collision avec rien.
   tar_target(
-    parquet,
+    parquet_usage,
     convertir_en_parquet(
       fichiers_bruts,
       release = release,
       schema_attendu = schema_attendu,
-      dossier = file.path(chemins()$parquet, "usage")
+      dossier = file.path(chemins()$parquet, "usage"),
+      referentiels = referentiels
     ),
     format = "file"
   )
@@ -106,6 +112,26 @@ cibles_par_version <- tar_map(
 # 2. Tables complémentaires (non datées)
 # -----------------------------------------------------------------------------
 cibles_complementaires <- list(
+  # Référentiels publiés par Anthropic avec la version 2025-09-15 : tâches
+  # O*NET, structure SOC, codes ISO, population 15-64 ans.
+  tar_target(
+    referentiels,
+    preparer_referentiels(fichiers_bruts_2025_09_15,
+                          dossier = file.path(chemins()$parquet, "referentiels")),
+    format = "file"
+  ),
+
+  # Source externe : PIB par habitant en parité de pouvoir d'achat (Banque
+  # mondiale, indicateur NY.GDP.PCAP.PP.KD, licence CC-BY 4.0).
+  tar_target(
+    banque_mondiale,
+    importer_banque_mondiale(
+      dossier = file.path(chemins()$parquet, "referentiels"),
+      mode = mode_execution()
+    ),
+    format = "file"
+  ),
+
   # Tables « labor market impacts » : exposition des métiers (SOC) et
   # pénétration des tâches (O*NET). Le dossier n'est PAS daté côté Anthropic :
   # on enregistre la date de téléchargement dans le Parquet.
@@ -131,18 +157,18 @@ cibles_stockage <- list(
   tar_target(
     base_duckdb,
     construire_duckdb(
-      parquet = c(!!!rlang::syms(paste0("parquet_", gsub("-", "_", versions$release))),
-                  marche_travail),
+      parquet = c(!!!rlang::syms(paste0("parquet_usage_", gsub("-", "_", versions$release))),
+                  marche_travail, referentiels, banque_mondiale),
       fichiers_sql = fichiers_sql,
       chemin = chemins()$duckdb
     ),
     format = "file"
   ),
 
-  # Table harmonisée multi-versions (release, date, pays, facette, variable,
-  # valeur) : petite projection de la vue DuckDB, rapatriée en R pour les
-  # analyses et les tests.
-  tar_target(harmonise, lire_table_harmonisee(base_duckdb)),
+  # Synthèse de la table harmonisée multi-versions : nombre de lignes par
+  # (version, schéma, source, niveau géographique, facette, variable). Les
+  # données elles-mêmes restent dans les Parquet (plusieurs millions de lignes).
+  tar_target(harmonise_resume, resumer_table_harmonisee(base_duckdb)),
 
   # Dictionnaire de données généré à partir de l'inventaire et des valeurs
   # RÉELLEMENT observées (facettes, variables). Aucun nom n'est supposé.
@@ -153,7 +179,8 @@ cibles_stockage <- list(
         !!!rlang::syms(paste0("inventaire_", gsub("-", "_", versions$release)))
       ),
       base = base_duckdb,
-      chemin = "docs/dictionnaire_donnees.md"
+      chemin = "docs/dictionnaire_donnees.md",
+      mode = mode_execution()
     ),
     format = "file"
   )

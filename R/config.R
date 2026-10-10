@@ -116,3 +116,101 @@ palette_interface <- function() {
   c(accent = "#0072B2", texte = "#1F2933", grille = "#D9DEE3",
     neutre = "#9AA5B1", fond = "#FFFFFF")
 }
+
+# -----------------------------------------------------------------------------
+# Fichiers retenus par version (établi après inspection : docs/exploration/)
+# -----------------------------------------------------------------------------
+
+#' Expressions régulières des fichiers utiles, par version
+#'
+#' Chemins RELATIFS au dossier de la version sur Hugging Face. Choix motivés
+#' dans docs/dictionnaire_donnees.md :
+#' - 2025-02-10 : parts des tâches et modes de collaboration (rapport 1) ;
+#' - 2025-03-27 : fichiers « v2 » (Claude 3.7 Sonnet) ; les « v1 » sont des
+#'   copies de 2025-02-10 et sont écartés pour éviter les doublons ;
+#' - 2025-09-15 : fichier ENRICHED pour Claude.ai (codes pays ISO-3, parts SOC,
+#'   indice d'usage par habitant), RAW pour l'API (seul publié), et
+#'   référentiels (tâches O*NET, structure SOC, codes ISO, population) ;
+#' - 2026-01-15 et 2026-03-24 : seuls des fichiers RAW sont publiés (codes
+#'   pays ISO-2) ;
+#' - 2026-06-26 : schéma mensuel, un fichier par source.
+#' @export
+fichiers_par_version <- function() {
+  c(
+    "2025-02-10" = "^(onet_task_mappings|automation_vs_augmentation)\\.csv$",
+    "2025-03-27" = paste0("^(task_pct_v2|automation_vs_augmentation_v2",
+                          "|automation_vs_augmentation_by_task)\\.csv$"),
+    "2025-09-15" = paste0(
+      "^(data/output/aei_enriched_claude_ai_.*\\.csv|data/intermediate/aei_raw_1p_api_.*\\.csv",
+      "|data/intermediate/(onet_task_statements|soc_structure|iso_country_codes",
+      "|working_age_pop_2024_country)\\.csv|data_documentation\\.md)$"),
+    "2026-01-15" = paste0("^(data/intermediate/aei_raw_(claude_ai|1p_api)_.*\\.csv",
+                          "|data_documentation\\.md)$"),
+    "2026-03-24" = "^(data/aei_raw_(claude_ai|1p_api)_.*\\.csv|data_documentation\\.md)$",
+    "2026-06-26" = "^(data/aei_(claude_ai|1p_api)_.*\\.csv|data_documentation\\.md)$"
+  )
+}
+
+#' Fichiers « référentiels » (pas des données d'usage)
+#'
+#' Repérés par leur nom : ils sont écrits à part (data/parquet/referentiels).
+#' @export
+motif_referentiels <- function() {
+  "(onet_task_statements|soc_structure|iso_country_codes|working_age_pop_2024_country)\\.csv$"
+}
+
+#' Grands groupes de la nomenclature SOC 2018 (codes à 2 chiffres)
+#'
+#' Libellés anglais tels qu'ils figurent dans les données (facette
+#' `soc_occupation`), et traduction française PROPOSÉE par le projet (ce n'est
+#' pas une nomenclature officielle française). Le groupe 55 (métiers militaires)
+#' existe dans la SOC mais n'a pas de tâches dans O*NET (voir sujet 3).
+#' @export
+groupes_soc <- function() {
+  tibble::tribble(
+    ~soc_majeur, ~libelle_en, ~libelle_fr,
+    "11", "Management", "Direction et encadrement",
+    "13", "Business and Financial Operations", "Gestion, finance et affaires",
+    "15", "Computer and Mathematical", "Informatique et mathématiques",
+    "17", "Architecture and Engineering", "Architecture et ingénierie",
+    "19", "Life, Physical, and Social Science", "Sciences (vie, physique, sociales)",
+    "21", "Community and Social Service", "Action sociale",
+    "23", "Legal", "Droit",
+    "25", "Educational Instruction and Library", "Enseignement et documentation",
+    "27", "Arts, Design, Entertainment, Sports, and Media", "Arts, design, médias et sport",
+    "29", "Healthcare Practitioners and Technical", "Professions de santé",
+    "31", "Healthcare Support", "Aide aux soins",
+    "33", "Protective Service", "Sécurité et protection",
+    "35", "Food Preparation and Serving Related", "Restauration",
+    "37", "Building and Grounds Cleaning and Maintenance", "Entretien des locaux et espaces",
+    "39", "Personal Care and Service", "Services à la personne",
+    "41", "Sales and Related", "Vente",
+    "43", "Office and Administrative Support", "Soutien administratif",
+    "45", "Farming, Fishing, and Forestry", "Agriculture, pêche et forêt",
+    "47", "Construction and Extraction", "Construction et extraction",
+    "49", "Installation, Maintenance, and Repair", "Installation, maintenance, réparation",
+    "51", "Production", "Production industrielle",
+    "53", "Transportation and Material Moving", "Transport et manutention",
+    "55", "Military Specific", "Métiers militaires"
+  )
+}
+
+#' Modes de collaboration humain–IA et leur regroupement
+#'
+#' Définition d'Anthropic (data_documentation.md de 2025-09-15) :
+#' automatisation = directive + feedback loop ; augmentation = task iteration
+#' + learning + validation. `none` et `not_classified` sont hors champ (la part
+#' d'automatisation est calculée sur les conversations classables).
+#' @export
+modes_collaboration <- function() {
+  tibble::tribble(
+    ~mode, ~libelle_fr, ~famille,
+    "directive", "Directive", "automatisation",
+    "feedback loop", "Boucle de rétroaction", "automatisation",
+    "task iteration", "Itération sur la tâche", "augmentation",
+    "learning", "Apprentissage", "augmentation",
+    "validation", "Validation", "augmentation",
+    "none", "Aucun", "hors champ",
+    "not_classified", "Non classé", "hors champ"
+  )
+}

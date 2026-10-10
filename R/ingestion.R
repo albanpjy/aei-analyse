@@ -34,15 +34,15 @@ inventorier_fichiers <- function(release, mode = mode_execution()) {
 #' Choisir les fichiers utiles d'une version
 #'
 #' Règles écrites APRÈS inspection des données réelles
-#' (docs/exploration/exploration.md) :
-#' - la documentation officielle (`*.md`) est toujours récupérée ;
-#' - le reste dépend de l'époque de schéma (voir `fichiers_utiles_regex()`).
+#' (docs/exploration/exploration.md), centralisées dans
+#' `fichiers_par_version()` (R/config.R).
 #'
 #' @param inventaire Sortie de `inventorier_fichiers()`.
 #' @return L'inventaire filtré.
 #' @export
-selectionner_fichiers <- function(inventaire, schema_attendu) {
-  motif <- fichiers_utiles_regex(schema_attendu)
+selectionner_fichiers <- function(inventaire, release) {
+  motif <- fichiers_par_version()[[release]]
+  if (is.null(motif)) cli::cli_abort("Version non épinglée : {.val {release}}.")
   dplyr::filter(inventaire, grepl(motif, .data$chemin))
 }
 
@@ -50,9 +50,8 @@ selectionner_fichiers <- function(inventaire, schema_attendu) {
 #'
 #' @return Chemins locaux des fichiers (cible `format = "file"`).
 #' @export
-telecharger_fichiers <- function(inventaire, release, schema_attendu,
-                                 mode = mode_execution()) {
-  retenus <- selectionner_fichiers(inventaire, schema_attendu)
+telecharger_fichiers <- function(inventaire, release, mode = mode_execution()) {
+  retenus <- selectionner_fichiers(inventaire, release)
   if (nrow(retenus) == 0) {
     cli::cli_abort("Aucun fichier utile trouvé pour la version {.val {release}}.")
   }
@@ -63,8 +62,9 @@ telecharger_fichiers <- function(inventaire, release, schema_attendu,
     # parse avec read.csv() : inutile et lent sur des fichiers de > 200 Mo.
     # Fonction interne du package : on l'isole ici pour pouvoir l'adapter si
     # {aieconindex} évolue.
-    purrr::map_chr(retenus$chemin, \(p) aieconindex:::.aei_fetch_file(
-      release_id, p, quiet = TRUE))
+    purrr::map_chr(retenus$chemin, \(p) {
+      aieconindex:::.aei_fetch_file(release_id, p, quiet = TRUE)
+    })
   } else {
     dest <- file.path(chemins()$brut, release_id, retenus$chemin)
     purrr::walk(unique(dirname(dest)), dir.create, recursive = TRUE,
@@ -99,4 +99,36 @@ importer_marche_travail <- function(dossier, mode = mode_execution()) {
     arrow::write_parquet(tab, dest, compression = "zstd")
     dest
   })
+}
+
+#' Importer le PIB par habitant (Banque mondiale)
+#'
+#' Indicateur NY.GDP.PCAP.PP.KD : PIB par habitant en parité de pouvoir
+#' d'achat, dollars internationaux constants de 2021. Source : Banque
+#' mondiale, World Development Indicators (licence CC-BY 4.0), via l'API
+#' publique https://api.worldbank.org/v2/. On retient, pour chaque pays, la
+#' dernière année disponible entre 2022 et 2025.
+#'
+#' @return Chemin du Parquet `pib_habitant.parquet`.
+#' @export
+importer_banque_mondiale <- function(dossier, mode = mode_execution()) {
+  dir.create(dossier, recursive = TRUE, showWarnings = FALSE)
+  brut <- if (mode == "reel") {
+    url <- paste0("https://api.worldbank.org/v2/country/all/indicator/",
+                  "NY.GDP.PCAP.PP.KD?format=json&per_page=20000&date=2022:2025")
+    rep <- jsonlite::fromJSON(url)
+    # La réponse est une liste : [[1]] métadonnées, [[2]] observations.
+    tibble::tibble(iso3 = rep[[2]]$countryiso3code, annee = as.integer(rep[[2]]$date),
+                   pib_hab_ppa = rep[[2]]$value)
+  } else {
+    f <- lire_csv_aei(file.path(chemins()$fixtures, "banque_mondiale", "NY.GDP.PCAP.PP.KD.csv"))
+    tibble::tibble(iso3 = f$countryiso3code, annee = as.integer(f$date), pib_hab_ppa = f$value)
+  }
+  pib <- brut |>
+    dplyr::filter(!is.na(.data$pib_hab_ppa), nchar(.data$iso3) == 3) |>
+    dplyr::slice_max(.data$annee, n = 1, by = "iso3") |>
+    dplyr::mutate(date_import = Sys.Date())
+  dest <- file.path(dossier, "pib_habitant.parquet")
+  arrow::write_parquet(pib, dest, compression = "zstd")
+  dest
 }
