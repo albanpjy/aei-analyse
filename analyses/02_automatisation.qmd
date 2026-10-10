@@ -192,8 +192,8 @@ fr_auto <- pp_der |> filter(geo_id == "FRA")
 
 En version `r max(pp$release)`, la part d'automatisation de la France
 (`r pct_fr(fr_auto$automatisation_pct)`) est
-`r if (fr_auto$automatisation_pct > median(pp_der$automatisation_pct)) "supérieure" else "inférieure ou égale"`
-à la médiane des huit pays (`r pct_fr(median(pp_der$automatisation_pct))`). L'écart entre le
+`r ecart <- fr_auto$automatisation_pct - median(pp_der$automatisation_pct); if (abs(ecart) < 1) "proche de la médiane" else if (ecart > 0) "supérieure à la médiane" else "inférieure à la médiane"`
+des huit pays (`r pct_fr(median(pp_der$automatisation_pct))`). L'écart entre le
 pays le plus « délégateur » (`r nom_pays(pp_der$geo_id[which.max(pp_der$automatisation_pct)])`)
 et le moins délégateur (`r nom_pays(pp_der$geo_id[which.min(pp_der$automatisation_pct)])`) est de
 `r nombre_fr(diff(range(pp_der$automatisation_pct)))` points.

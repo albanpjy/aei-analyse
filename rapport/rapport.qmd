@@ -204,10 +204,11 @@ $$ {#eq-bic}
 ## La France face à Claude
 
 En version `r der_rel`, l'indice d'usage par habitant de la France vaut
-`r nombre_fr(fr$aui, 2)` (@eq-iuh), ce qui la place au `r fr$rang_aui`^e^ rang sur
-`r fr$n_pays_aui` pays (@fig-aui). Pour les versions où l'indice n'est pas publié,
-il est recalculé ; sur la version 2025-09-15, la corrélation entre indice publié et recalculé
-est de `r nombre_fr(ctrl_aui, 3)`.
+`r nombre_fr(fr$aui, 2)` (@eq-iuh), ce qui la place au `r ordinal_fr(fr$rang_aui)` rang sur
+`r fr$n_pays_aui` pays (@fig-aui). L'indice n'étant pas publié dans toutes les versions, il est
+recalculé pour toutes (méthode homogène) ; il reproduit l'indice publié
+en 2026-06-26, alors qu'en 2025-09-15 l'indice publié ne diffère du recalcul que par un facteur
+d'échelle constant (corrélation de `r nombre_fr(ctrl_aui, 3)`).
 
 ```{r}
 #| label: fig-aui

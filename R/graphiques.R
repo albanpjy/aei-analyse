@@ -106,3 +106,7 @@ langue_reactable <- function() {
     selectRowLabel = "Sélectionner la ligne"
   )
 }
+
+#' Nombre ordinal à la française en Markdown (1^er^, 2^e^…)
+#' @export
+ordinal_fr <- function(n) ifelse(n == 1, "1^er^", paste0(n, "^e^"))

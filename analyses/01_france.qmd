@@ -38,9 +38,9 @@ indice d'usage par habitant de la France (version `r derniere`) : 1 = usage prop
 la population en âge de travailler.
 :::
 ::: {.g-col-12 .g-col-md-4}
-[`r fr$rang_aui`^e^ / `r fr$n_pays_aui`]{.chiffre-cle}
+[`r ordinal_fr(fr$rang_aui)` / `r fr$n_pays_aui`]{.chiffre-cle}
 
-rang mondial de la France sur cet indice ; `r rang_europe`^e^ des
+rang mondial de la France sur cet indice ; `r ordinal_fr(rang_europe)` des
 `r sum(voisins$geo_id != "USA")` pays européens comparés.
 :::
 ::: {.g-col-12 .g-col-md-4}
@@ -54,7 +54,7 @@ L'**indice d'usage par habitant** (*Anthropic AI Usage Index*) rapporte la part 
 dans l'usage mondial à sa part dans la population mondiale des 15–64 ans
 [@handa2025economic]. En version `r derniere`, la France est
 `r if (fr$aui >= 1) "**au-dessus**" else "**en dessous**"` de l'usage « proportionnel »
-(`r nombre_fr(fr$aui, 2)`)`r if (nrow(fr_prec) == 1) paste0(", contre ", nombre_fr(fr_prec$aui, 2), " en version ", fr_prec$release, " (", fr_prec$origine_aui, ")") else ""`.
+(`r nombre_fr(fr$aui, 2)`)`r if (nrow(fr_prec) == 1) paste0(", contre ", nombre_fr(fr_prec$aui, 2), " en version ", fr_prec$release) else ""`.
 
 ## Comparaison avec sept pays de référence
 
@@ -98,21 +98,34 @@ p <- ggplot(evol, aes(release, aui, group = geo_id, colour = geo_id)) +
   scale_y_log10(labels = \(x) nombre_fr(x, 2)) +
   scale_x_discrete(expand = expansion(add = c(0.2, 1.1))) +
   labs(x = "Version de l'index", y = "Indice d'usage par habitant (échelle log)",
-       caption = source_aei("Versions 2026-01-15 et 2026-03-24 : indice recalculé par le projet (non publié).")) +
+       caption = source_aei("Indice recalculé par le projet pour toutes les versions (méthode homogène).")) +
   theme(legend.position = "none")
 p
+```
+
+```{r}
+#| label: controle-aui
+ctrl <- t1_usage_pays |>
+  filter(!is.na(aui_publie), !is.na(aui_calcule), aui_calcule > 0) |>
+  summarise(r = cor(aui_publie, aui_calcule), rapport = median(aui_publie / aui_calcule),
+            .by = release)
+c25 <- filter(ctrl, release == "2025-09-15"); c26 <- filter(ctrl, release == max(release))
 ```
 
 ::: {.callout-note collapse="true"}
 ## Indice publié ou recalculé ?
 
-Les fichiers publiés en 2026-01-15 et 2026-03-24 ne contiennent pas l'indice par
-habitant (fichiers « bruts » seulement). Le projet le **recalcule** avec la même
+Les fichiers de 2026-01-15 et 2026-03-24 ne contiennent pas l'indice par habitant (fichiers
+« bruts » seulement). Le projet le **recalcule pour toutes les versions**, avec la même
 définition et la population 2024 publiée par Anthropic (vue `usage_pays`,
-`sql/vue_04_usage_pays.sql`). Sur la version 2025-09-15, où l'indice publié et l'indice
-recalculé coexistent, leur corrélation vaut
-`r nombre_fr(with(filter(t1_usage_pays, release == "2025-09-15"), cor(aui_publie, aui_calcule, use = "complete.obs")), 3)` :
-`r if (isTRUE(with(filter(t1_usage_pays, release == "2025-09-15"), cor(aui_publie, aui_calcule, use = "complete.obs")) > 0.99)) "le recalcul reproduit fidèlement la méthode d'Anthropic." else "l'écart, non négligeable, invite à interpréter les indices recalculés avec prudence (périmètre de pays et année de population différents)."`
+`sql/vue_04_usage_pays.sql`) : la méthode est ainsi homogène d'une version à l'autre.
+Contrôles : en version `r c26$release`, l'indice recalculé reproduit l'indice publié
+(rapport médian publié / recalculé de `r nombre_fr(c26$rapport, 3)`, corrélation
+`r nombre_fr(c26$r, 3)`) ; en version 2025-09-15, la corrélation est de
+`r nombre_fr(c25$r, 3)` mais l'indice publié vaut `r nombre_fr(c25$rapport, 3)` fois
+l'indice recalculé, pour tous les pays : Anthropic y a utilisé un autre dénominateur
+(périmètre de pays ou de population). Le classement des pays n'en est pas affecté, mais les
+niveaux publiés de cette version ne sont pas directement comparables aux autres.
 :::
 
 ## Ce que les Français demandent à Claude

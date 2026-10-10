@@ -1,0 +1,12 @@
+---
+title: "Techniques utilisées"
+subtitle: "R, DuckDB, Quarto et leurs pièges"
+description: "Synthèse des techniques de la pile R / DuckDB / Quarto employées dans le projet, avec extraits et pièges rencontrés."
+---
+
+::: {.callout-tip}
+Cette page reprend [`docs/SYNTHESE_TECHNIQUES.md`](https://github.com/albanpjy/aei-analyse/blob/main/docs/SYNTHESE_TECHNIQUES.md).
+Les chemins de fichiers renvoient au [dépôt](https://github.com/albanpjy/aei-analyse).
+:::
+
+{{< include docs/SYNTHESE_TECHNIQUES.md >}}

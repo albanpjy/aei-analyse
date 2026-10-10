@@ -50,7 +50,7 @@ list(icon = "person-workspace", color = "primary", value = nombre_fr(fr$aui, 2))
 ```{r}
 #| content: valuebox
 #| title: "Rang mondial de la France (indice par habitant)"
-list(icon = "trophy", color = "secondary", value = paste0(fr$rang_aui, "e / ", fr$n_pays_aui))
+list(icon = "trophy", color = "secondary", value = paste0(fr$rang_aui, if (fr$rang_aui == 1) "er" else "e", " / ", fr$n_pays_aui))
 ```
 
 ```{r}

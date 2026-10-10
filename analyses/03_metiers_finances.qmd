@@ -89,7 +89,7 @@ exposition **nulle**. La médiane des métiers ciblés (`r nombre_fr(med_cibles,
 à la médiane des seuls métiers exposés
 (`r nombre_fr(median(toutes$observed_exposure[toutes$observed_exposure > 0]), 3)`).
 Le plus exposé est « `r plus_expose$intitule_soc` » (`r nombre_fr(plus_expose$observed_exposure, 3)`,
-`r nombre_fr(100 * plus_expose$centile, 0)`^e^ centile).
+`r ordinal_fr(round(100 * plus_expose$centile))` centile).
 
 ## Quelles tâches ?
 

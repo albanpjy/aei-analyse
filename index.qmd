@@ -33,7 +33,7 @@ publiées entre le `r format(as.Date(min(versions$release)), "%d/%m/%Y")` et le
 en âge de travailler), version `r fr$release`.
 :::
 ::: {.g-col-12 .g-col-md-4}
-[`r fr$rang_aui`^e^]{.chiffre-cle}
+[`r ordinal_fr(fr$rang_aui)`]{.chiffre-cle}
 
 **Rang de la France** sur `r fr$n_pays_aui` pays pour cet indice.
 :::

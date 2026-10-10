@@ -6,8 +6,8 @@
 
 COPY (
     SELECT release, CAST(date_start AS VARCHAR) AS periode, geo_id,
-           usage_pct, coalesce(aui_publie, aui_calcule) AS aui,
-           CASE WHEN aui_publie IS NOT NULL THEN 'publié' ELSE 'recalculé' END AS origine_aui
+           usage_pct, coalesce(aui_calcule, aui_publie) AS aui, aui_publie,
+           CASE WHEN aui_calcule IS NOT NULL THEN 'recalculé' ELSE 'publié' END AS origine_aui
     FROM usage_pays WHERE usage_pct IS NOT NULL
 ) TO '{{sortie}}/usage_pays.parquet' (FORMAT parquet, COMPRESSION zstd);
 

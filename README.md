@@ -1,8 +1,9 @@
 # aei-analyse — L'usage de Claude vu par l'Anthropic Economic Index
 
-> **Statut : projet en construction.** L'arborescence et les commandes ci-dessous
-> décrivent l'architecture cible. Elles seront complétées au fil des phases de
-> développement (voir [Feuille de route](#feuille-de-route)).
+> **Site publié** (après activation de GitHub Pages, voir plus bas) :
+> <https://albanpjy.github.io/aei-analyse/> — analyses, tableau de bord interactif et
+> rapport PDF. Les résultats de référence (données réelles) sont aussi versionnés dans
+> [`docs/resultats/`](docs/resultats/).
 
 Projet d'analyse de données **reproductible**, rédigé en français, qui explore
 l'[Anthropic Economic Index](https://www.anthropic.com/economic-index) (AEI) avec la
@@ -74,8 +75,13 @@ aei-analyse/
 ├── analyses/             # Un .qmd par sujet
 ├── rapport/              # Rapport académique PDF
 ├── dashboard/            # Dashboard Quarto
-├── tests/                # testthat + fixtures (jeu de données fictif)
-├── docs/                 # Diagnostic, dictionnaire de données, synthèse des techniques
+├── tests/                # testthat (46 tests) + fixtures (jeu de données FICTIF)
+├── theme/                # SCSS des thèmes clair et sombre
+├── donnees_publiees/     # Parquet lus par le tableau de bord (générés, ignorés par git)
+├── _quarto.yml           # Projet Quarto (site + dashboard + PDF)
+├── references.bib        # Bibliographie (références vérifiables uniquement)
+├── docs/                 # Diagnostic, exploration des données réelles, dictionnaire,
+│                         #   résultats CSV (CI), synthèse des techniques
 ├── tools/                # Scripts d'installation de l'environnement de développement local
 └── .github/workflows/    # CI/CD : pipeline, rendus, lintr, GitHub Pages
 ```
@@ -134,20 +140,35 @@ GitHub Pages. Il se déclenche à chaque push sur `main`, manuellement
 (`workflow_dispatch`) et une fois par mois pour intégrer les nouvelles versions de
 l'index. Un job séparé exécute `lintr`.
 
-**Action manuelle requise** : dans *Settings → Pages* du dépôt, choisir la source
-**« GitHub Actions »**.
+**Actions manuelles requises** :
+
+1. *Settings → Pages* : choisir la source **« GitHub Actions »** ;
+2. fusionner la branche `developpement` dans `main` (le déploiement Pages n'a lieu que
+   depuis `main`) ;
+3. facultatif : choisir une licence pour le code (fichier `LICENSE`).
+
+Autres workflows : `renv-lock.yml` (régénère `renv.lock` en CI quand `DESCRIPTION`
+change, depuis un instantané daté de Posit Package Manager) et `explorer.yml`
+(inspection des données réelles, résultats dans `docs/exploration/`).
 
 ## Feuille de route
 
 - [x] Phase 0 — Diagnostic de l'environnement (`docs/diagnostic_env.md`)
 - [x] Phase 1 — Architecture (renv, {targets}, arborescence)
-- [ ] Phase 2 — Ingestion, Parquet, DuckDB, harmonisation, tests
-- [ ] Phase 3 — Les quatre analyses
-- [ ] Phase 4 — Site web Quarto
-- [ ] Phase 5 — Dashboard
-- [ ] Phase 6 — Rapport académique PDF
-- [ ] Phase 7 — CI/CD GitHub Actions et GitHub Pages
-- [ ] Phase 8 — Synthèse des techniques
+- [x] Phase 2 — Ingestion, Parquet, DuckDB, harmonisation, tests
+- [x] Phase 3 — Les quatre analyses
+- [x] Phase 4 — Site web Quarto
+- [x] Phase 5 — Dashboard
+- [x] Phase 6 — Rapport académique PDF
+- [x] Phase 7 — CI/CD GitHub Actions et GitHub Pages
+- [x] Phase 8 — Synthèse des techniques
+
+## Documentation
+
+- [`docs/diagnostic_env.md`](docs/diagnostic_env.md) : diagnostic de l'environnement de développement ;
+- [`docs/exploration/`](docs/exploration/) : inspection des vraies données (CI) et documentation officielle de chaque version ;
+- [`docs/dictionnaire_donnees.md`](docs/dictionnaire_donnees.md) : dictionnaire de données (partie rédigée + partie générée) ;
+- [`docs/SYNTHESE_TECHNIQUES.md`](docs/SYNTHESE_TECHNIQUES.md) : chaque technique, où elle est utilisée, extraits et pièges.
 
 ## Licences et citation
 

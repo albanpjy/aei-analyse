@@ -10,7 +10,7 @@ WITH g AS (
     GROUP BY ALL
 ),
 u AS (
-    SELECT geo_id, avg(usage_pct) AS usage_pct, avg(aui_publie) AS aui
+    SELECT geo_id, avg(usage_pct) AS usage_pct, avg(coalesce(aui_calcule, aui_publie)) AS aui
     FROM usage_pays WHERE release = '{{version}}' GROUP BY ALL
 )
 SELECT g.*, u.usage_pct, u.aui
