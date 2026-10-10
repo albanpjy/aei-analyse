@@ -326,7 +326,7 @@ ggplot(ind, aes(Dim.1, Dim.2, colour = classe_hcpc)) +
        y = sprintf("Axe 2 (%s %%)", nombre_fr(ty$acp$eig[2, 2])), caption = source_aei())
 ```
 
-`r if (!is.null(ty$test_pib)) paste0("Le croisement avec le PIB par habitant (Banque mondiale) donne un test de Kruskal-Wallis de p-valeur ", nombre_fr(ty$test_pib$p.value, 3), ".") else ""`
+`r if (!is.null(ty$test_pib)) paste0("Le croisement avec le PIB par habitant (Banque mondiale) donne un test de Kruskal-Wallis de p-valeur ", pvaleur_fr(ty$test_pib$p.value), ".") else ""`
 
 # Discussion
 
@@ -336,8 +336,9 @@ permettent de suivre, sous réserve des changements de périmètre. Ensuite, l'�
 automatisation et augmentation varie fortement selon la source (conversationnelle ou API),
 le métier et la version : il n'y a pas de tendance univoque que l'on puisse séparer avec
 certitude des ruptures de méthode. Enfin, les métiers du pilotage budgétaire et financier
-sont observables dans l'index par leurs tâches d'analyse, de calcul et de rédaction, mais
-la transposition au cas français repose sur une correspondance de nomenclatures qui reste une
+sont bien visibles dans l'index, mais par une minorité de leurs tâches
+(`r pct_fr(100 * mean(t3_taches$penetration[!is.na(t3_taches$penetration)] > 0), 0)` des tâches
+retrouvées ont une pénétration non nulle) ; la transposition au cas français repose sur une correspondance de nomenclatures qui reste une
 hypothèse de travail (@tbl-correspondance, en annexe).
 
 # Limites

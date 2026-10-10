@@ -110,3 +110,7 @@ langue_reactable <- function() {
 #' Nombre ordinal à la française en Markdown (1^er^, 2^e^…)
 #' @export
 ordinal_fr <- function(n) ifelse(n == 1, "1^er^", paste0(n, "^e^"))
+
+#' p-valeur à la française (« < 0,001 » sous le seuil d'affichage)
+#' @export
+pvaleur_fr <- function(p) ifelse(p < 0.001, "< 0,001", nombre_fr(p, 3))

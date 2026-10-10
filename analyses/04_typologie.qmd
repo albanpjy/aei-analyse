@@ -248,7 +248,7 @@ ggplot(d, aes(classe_hcpc, pib_hab_ppa)) +
        caption = paste("Sources : Anthropic Economic Index ; Banque mondiale, WDI (CC-BY 4.0)."))
 ```
 
-`r if (!is.null(ty$test_pib)) paste0("Le test de Kruskal-Wallis donne une p-valeur de ", nombre_fr(ty$test_pib$p.value, 3), " : ", if (ty$test_pib$p.value < 0.05) "les classes diffèrent significativement par leur niveau de vie — la typologie de l'usage recoupe en partie le niveau de développement." else "on ne peut pas conclure que les classes diffèrent par leur niveau de vie — la typologie de l'usage n'est pas un simple reflet du niveau de développement.") else "Trop peu de pays disposent d'un PIB pour tester l'écart entre classes."`
+`r if (!is.null(ty$test_pib)) paste0("Le test de Kruskal-Wallis donne une p-valeur de ", pvaleur_fr(ty$test_pib$p.value), " : ", if (ty$test_pib$p.value < 0.05) "les classes diffèrent significativement par leur niveau de vie — la typologie de l'usage recoupe en partie le niveau de développement." else "on ne peut pas conclure que les classes diffèrent par leur niveau de vie — la typologie de l'usage n'est pas un simple reflet du niveau de développement.") else "Trop peu de pays disposent d'un PIB pour tester l'écart entre classes."`
 
 ::: {.callout-note}
 ## Limites propres à ce sujet
