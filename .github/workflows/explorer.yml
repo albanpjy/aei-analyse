@@ -11,6 +11,11 @@ on:
       - tools/explorer_schema.R
       - .github/workflows/explorer.yml
 
+env:
+  # Workflow léger : on installe quelques packages sans passer par renv.
+  RENV_ACTIVATE_PROJECT: "FALSE"
+  LANG: C.UTF-8
+
 permissions:
   contents: write
 
