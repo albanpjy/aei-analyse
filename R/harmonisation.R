@@ -112,11 +112,10 @@ source_depuis_nom <- function(chemin) {
 #' @return Un tibble à deux colonnes : `geo_level`, `geo_id`.
 #' @export
 normaliser_geo <- function(niveau, code, iso) {
-  geo_level <- dplyr::case_match(
-    niveau,
-    "country" ~ "country",
-    c("state_us", "country-state", "subregion") ~ "subregion",
-    "global" ~ "global",
+  geo_level <- dplyr::case_when(
+    niveau == "country" ~ "country",
+    niveau %in% c("state_us", "country-state", "subregion") ~ "subregion",
+    niveau == "global" ~ "global",
     .default = NA_character_
   )
   iso3 <- iso$iso_alpha_3[match(code, iso$iso_alpha_2)]

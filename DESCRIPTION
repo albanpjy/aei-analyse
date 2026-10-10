@@ -37,6 +37,7 @@ Imports:
     jsonlite,
     kableExtra,
     knitr,
+    lintr,
     mclust,
     plotly,
     purrr,
@@ -51,12 +52,9 @@ Imports:
     tarchetypes,
     targets,
     tibble,
+    testthat,
     tidyr,
     visNetwork,
+    withr,
     yaml
-Suggests:
-    lintr,
-    roxygen2,
-    testthat (>= 3.0.0),
-    withr
 Config/testthat/edition: 3
