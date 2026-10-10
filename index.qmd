@@ -66,7 +66,7 @@ Comment les utilisateurs collaborent avec Claude, par version, source, métier e
 :::
 ::: {.g-col-12 .g-col-md-6}
 ### [Les métiers du chiffre](analyses/03_metiers_finances.qmd)
-Finance, budget, comptabilité : exposition, tâches concernées, part d'automatisation,
+Finance, budget, comptabilité, finances publiques : exposition, tâches concernées, part d'automatisation,
 correspondance avec la fonction publique française.
 :::
 ::: {.g-col-12 .g-col-md-6}

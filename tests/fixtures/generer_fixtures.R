@@ -64,11 +64,13 @@ metiers <- rbind(
   data.frame(soc6 = paste0(majeurs$code, "-9999"), titre = paste("Generic occupation", majeurs$code)),
   data.frame(
     soc6 = c("13-2031", "13-2011", "11-3031", "13-2051", "13-1111", "43-3031", "43-3051",
-             "13-2061", "13-2081"),
+             "13-2061", "13-2081", "43-3011", "13-1041", "13-1023"),
     titre = c("Budget Analysts", "Accountants and Auditors", "Financial Managers",
               "Financial and Investment Analysts", "Management Analysts",
               "Bookkeeping, Accounting, and Auditing Clerks", "Payroll and Timekeeping Clerks",
-              "Financial Examiners", "Tax Examiners and Collectors, and Revenue Agents")
+              "Financial Examiners", "Tax Examiners and Collectors, and Revenue Agents",
+              "Bill and Account Collectors", "Compliance Officers",
+              "Purchasing Agents, Except Wholesale, Retail, and Farm Products")
   )
 )
 taches <- do.call(rbind, lapply(seq_len(nrow(metiers)), \(i) data.frame(

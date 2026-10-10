@@ -125,7 +125,7 @@ mesure une demande adressée à un produit, non des emplois.
 
 L'article poursuit quatre objectifs : (i) situer la France dans l'usage mondial de Claude ;
 (ii) décrire l'évolution de la part d'automatisation ; (iii) mesurer l'exposition des
-métiers du chiffre (finance, budget, comptabilité) ; (iv) construire une typologie des pays. La
+métiers du chiffre (finance, budget, comptabilité, finances publiques) ; (iv) construire une typologie des pays. La
 section 2 présente les données et les méthodes, la section 3 les résultats, la section 4 les
 discute ; les limites et la conclusion suivent.
 
@@ -280,7 +280,7 @@ ex <- t3_exposition$cibles
 med_all <- with(t3_exposition$toutes, median(observed_exposure[observed_exposure > 0]))
 ```
 
-Le @tbl-expo situe les `r nrow(ex)` métiers du chiffre retenus (budget et pilotage, comptabilité et paie, analyse, contrôle et fiscalité) dans la distribution de l'exposition
+Le @tbl-expo situe les `r nrow(ex)` métiers du chiffre retenus (budget, pilotage et analyse ; comptabilité et paie ; finances publiques et contrôle) dans la distribution de l'exposition
 observée publiée par Anthropic, très asymétrique :
 `r pct_fr(100 * mean(t3_exposition$toutes$observed_exposure == 0), 0)` des
 `r nrow(t3_exposition$toutes)` métiers ont une exposition nulle. La médiane des métiers ciblés

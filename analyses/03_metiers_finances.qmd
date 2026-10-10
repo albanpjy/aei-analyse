@@ -1,6 +1,6 @@
 ---
 title: "Les métiers du chiffre face à Claude"
-subtitle: "Sujet 3 — finance, budget et comptabilité : exposition, tâches, automatisation et correspondances avec la fonction publique"
+subtitle: "Sujet 3 — finance, budget, comptabilité et finances publiques : exposition, tâches, automatisation et correspondances avec la fonction publique"
 description: "Où se situent les métiers de la finance, du budget et de la comptabilité dans les mesures d'usage publiées par Anthropic."
 ---
 
@@ -44,7 +44,7 @@ l'index`r if (length(t3_exposition$codes_absents)) paste0(" ; absents de job_exp
 ```{r}
 #| label: fig-exposition
 #| fig-cap: "Exposition observée des métiers ciblés, replacée dans la distribution de tous les métiers"
-#| fig-alt: "Nuage de points horizontal : chaque point gris est un métier de la nomenclature SOC positionné selon son exposition observée ; les métiers du chiffre sont colorés selon leur famille (budget et pilotage, comptabilité et paie, analyse, contrôle et fiscalité) et étiquetés."
+#| fig-alt: "Nuage de points horizontal : chaque point gris est un métier de la nomenclature SOC positionné selon son exposition observée ; les métiers du chiffre sont colorés selon leur famille (budget, pilotage et analyse ; comptabilité et paie ; finances publiques et contrôle) et étiquetés."
 set.seed(1)
 fond <- toutes |> mutate(y = runif(n(), -0.4, 0.4))
 cib <- expo |> filter(!is.na(observed_exposure)) |>
@@ -142,6 +142,7 @@ une fraction des tâches. La plus pénétrée est « `r top_tache$tache` »
 
 ```{r}
 #| label: fig-usage-metiers
+#| fig-height: 9
 #| fig-cap: "Part de l'usage mondial de Claude.ai portant sur les tâches de chaque métier ciblé"
 #| fig-alt: "Petits multiples : un panneau par métier ciblé, coloré selon sa famille, montrant par version de l'index la part des conversations mondiales portant sur ses tâches."
 u <- t3_usage |> filter(source == "claude_ai") |>
@@ -178,6 +179,7 @@ n_au_dessus <- sum(au_der$automatisation_pct > au_der$auto_global)
 
 ```{r}
 #| label: fig-automatisation-metiers
+#| fig-height: 9
 #| fig-cap: "Part d'automatisation des tâches de chaque métier du chiffre (Claude.ai, mondial), par version"
 #| fig-alt: "Petits multiples : un panneau par métier, coloré selon sa famille ; en abscisse les versions de l'index, en ordonnée la part d'automatisation en pourcentage ; une ligne grise pointillée donne la part d'automatisation de l'ensemble de Claude.ai."
 ggplot(au, aes(release, automatisation_pct, group = soc6, colour = famille)) +
@@ -216,7 +218,8 @@ ayant été retiré de CRAN). La
 ::: {.callout-warning}
 ## ISCO-08 → fonction publique : hypothèse de travail
 Le rapprochement avec des emplois de la fonction publique française (contrôle de gestion,
-budget, comptabilité publique, paie, contrôle financier, fiscalité) est un **jugement argumenté**, fondé sur la proximité des activités, et non
+budget, comptabilité publique, paie, contrôle financier, fiscalité, recouvrement, douane,
+commande publique) est un **jugement argumenté**, fondé sur la proximité des activités, et non
 une nomenclature officielle (RIME, répertoires ministériels).
 :::
 

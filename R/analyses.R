@@ -163,7 +163,9 @@ s2_soc <- function(base) {
 #' Métiers du chiffre ciblés et correspondance SOC -> ISCO-08 -> fonction publique
 #'
 #' Périmètre : métiers de la finance, du budget et de la comptabilité,
-#' regroupés en trois familles.
+#' regroupés en trois familles, dont une consacrée aux métiers propres aux
+#' finances publiques (fiscalité, contrôle financier, recouvrement, douane,
+#' commande publique).
 #'
 #' Deux niveaux de preuve, à ne pas confondre :
 #' - SOC -> ISCO-08 : table de passage SOC 2010 -> ISCO-08 établie par le Bureau of
@@ -171,7 +173,7 @@ s2_soc <- function(base) {
 #'   Research (IBS) et reprise par le package R iscoCrosswalks ; la table est
 #'   embarquée dans references_externes/ (package retiré de CRAN).
 #'   Correspondance « un vers plusieurs » : tous les codes ISCO-08 associés
-#'   sont conservés. Les huit codes retenus sont
+#'   sont conservés. Les codes retenus sont
 #'   identiques en SOC 2010 et SOC 2018 (nomenclature de l'AEI) ; seul l'intitulé
 #'   de 13-2051 a changé (« Financial Analysts » -> « Financial and Investment
 #'   Analysts »).
@@ -182,16 +184,19 @@ s2_soc <- function(base) {
 metiers_cibles <- function() {
   hypothese <- tibble::tribble(
     ~soc6, ~famille, ~intitule_soc, ~fonction_publique, ~argument,
-    # --- Budget et pilotage ---------------------------------------------------
-    "13-2031", "Budget et pilotage", "Budget Analysts",
+    # --- Budget, pilotage et analyse ------------------------------------------
+    "13-2031", "Budget, pilotage et analyse", "Budget Analysts",
     "Analyste budgétaire, contrôleur budgétaire (BOP/UO, DAF, CBCM)",
     "Préparation, exécution et suivi du budget ; justification des crédits",
-    "13-1111", "Budget et pilotage", "Management Analysts",
+    "13-1111", "Budget, pilotage et analyse", "Management Analysts",
     "Contrôleur de gestion, conseiller en organisation",
     "Indicateurs de performance, analyse des coûts, organisation",
-    "11-3031", "Budget et pilotage", "Financial Managers",
+    "11-3031", "Budget, pilotage et analyse", "Financial Managers",
     "Directeur ou chef de bureau des affaires financières",
     "Pilotage de la fonction financière, arbitrages, dialogue de gestion",
+    "13-2051", "Budget, pilotage et analyse", "Financial and Investment Analysts",
+    "Analyste financier, chargé d'études financières et de soutenabilité",
+    "Analyse de soutenabilité, modélisation financière, études de coûts",
     # --- Comptabilité et paie ----------------------------------------------------
     "13-2011", "Comptabilité et paie", "Accountants and Auditors",
     "Comptable public, auditeur et contrôleur interne comptable",
@@ -202,16 +207,23 @@ metiers_cibles <- function() {
     "43-3051", "Comptabilité et paie", "Payroll and Timekeeping Clerks",
     "Gestionnaire de la paie et de la solde",
     "Calcul et contrôle des rémunérations, suivi des temps et des éléments variables",
-    # --- Analyse, contrôle et fiscalité ------------------------------------------
-    "13-2051", "Analyse, contrôle et fiscalité", "Financial and Investment Analysts",
-    "Analyste financier, chargé d'études financières et de soutenabilité",
-    "Analyse de soutenabilité, modélisation financière, études de coûts",
-    "13-2061", "Analyse, contrôle et fiscalité", "Financial Examiners",
+    # --- Finances publiques et contrôle -------------------------------------------
+    "13-2061", "Finances publiques et contrôle", "Financial Examiners",
     "Contrôleur ou inspecteur financier (contrôle interne financier, inspection)",
     "Contrôle de la régularité et de la qualité des opérations financières",
-    "13-2081", "Analyse, contrôle et fiscalité", "Tax Examiners and Collectors, and Revenue Agents",
+    "13-2081", "Finances publiques et contrôle", "Tax Examiners and Collectors, and Revenue Agents",
     "Vérificateur et contrôleur des finances publiques (fiscalité)",
-    "Contrôle des déclarations, vérification, recouvrement"
+    "Contrôle des déclarations, vérification, recouvrement de l'impôt",
+    "43-3011", "Finances publiques et contrôle", "Bill and Account Collectors",
+    "Agent du recouvrement des créances publiques (produits divers, amendes)",
+    "Relance des débiteurs, suivi des restes à recouvrer, échéanciers",
+    "13-1041", "Finances publiques et contrôle", "Compliance Officers",
+    "Contrôleur des douanes, inspecteur de conformité réglementaire",
+    "Contrôle du respect des réglementations, instruction d'autorisations",
+    "13-1023", "Finances publiques et contrôle",
+    "Purchasing Agents, Except Wholesale, Retail, and Farm Products",
+    "Acheteur public, rédacteur de marchés (commande publique)",
+    "Analyse des besoins, mise en concurrence, suivi de l'exécution des marchés"
   )
   dplyr::left_join(hypothese, correspondance_soc_isco(hypothese$soc6), by = "soc6")
 }

@@ -108,8 +108,8 @@ palette_pays <- function() {
 #' @export
 palette_familles <- function() {
   p <- unname(palette_pays())
-  c(`Budget et pilotage` = p[1], `Comptabilité et paie` = p[2],
-    `Analyse, contrôle et fiscalité` = p[3])
+  c(`Budget, pilotage et analyse` = p[1], `Comptabilité et paie` = p[2],
+    `Finances publiques et contrôle` = p[3])
 }
 
 #' Les mêmes teintes, pas ajustés pour le fond sombre
