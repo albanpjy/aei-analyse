@@ -67,9 +67,9 @@ release,source,date_start,soc6,metier,part_usage_pct,n_taches_observees
 2026-06-26,1p_api,2026-05-01,13-1111,Management Analysts,0.12,4
 2026-06-26,1p_api,2026-05-01,13-2011,Accountants,0.04,7
 2026-06-26,1p_api,2026-05-01,13-2031,Budget Analysts,0,4
-2026-06-26,1p_api,2026-05-01,13-2051,Financial Analysts,0.42999999999999994,6
+2026-06-26,1p_api,2026-05-01,13-2051,Financial Analysts,0.43000000000000005,6
 2026-06-26,1p_api,2026-05-01,43-3031,"Bookkeeping, Accounting, and Auditing Clerks",0.37,14
-2026-06-26,claude_ai,2026-05-01,11-3031,"Financial Managers, Branch or Department",0.2,16
+2026-06-26,claude_ai,2026-05-01,11-3031,"Financial Managers, Branch or Department",0.19999999999999998,16
 2026-06-26,claude_ai,2026-05-01,11-3061,Purchasing Managers,0,3
 2026-06-26,claude_ai,2026-05-01,13-1023,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",0.060000000000000005,5
 2026-06-26,claude_ai,2026-05-01,13-1111,Management Analysts,0.14,4
