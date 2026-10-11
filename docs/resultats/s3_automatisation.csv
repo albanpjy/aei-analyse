@@ -1,21 +1,21 @@
 release,soc6,automatisation_pct,n_taches,part_usage_pct,famille,intitule_soc
-2025-03-27,11-3031,33.47732181425486,10,0.20500474509981148,"Budget, pilotage et analyse",Financial Managers
+2025-03-27,11-3031,33.47732181425486,10,0.20500474509981143,"Budget, pilotage et analyse",Financial Managers
 2025-03-27,13-1023,43.77880184331797,3,0.026293193760296457,Finances publiques et contrôle,"Purchasing Agents, Except Wholesale, Retail, and Farm Products"
-2025-03-27,13-1041,40.55045871559633,12,0.12982264419146375,Finances publiques et contrôle,Compliance Officers
+2025-03-27,13-1041,40.55045871559633,12,0.12982264419146378,Finances publiques et contrôle,Compliance Officers
 2025-03-27,13-1111,41.24513618677043,2,0.029990674132838145,"Budget, pilotage et analyse",Management Analysts
-2025-03-27,13-2011,41.84397163120566,6,0.28799263790574714,Comptabilité et paie,Accountants and Auditors
-2025-03-27,13-2031,35.97122302158273,4,0.021774051082745504,"Budget, pilotage et analyse",Budget Analysts
+2025-03-27,13-2011,41.84397163120567,6,0.28799263790574714,Comptabilité et paie,Accountants and Auditors
+2025-03-27,13-2031,35.97122302158274,4,0.021774051082745504,"Budget, pilotage et analyse",Budget Analysts
 2025-03-27,13-2051,29.118058796080263,8,0.23211960116511712,"Budget, pilotage et analyse",Financial and Investment Analysts
 2025-03-27,13-2061,29.052631578947373,3,0.0530999264612237,Finances publiques et contrôle,Financial Examiners
 2025-03-27,13-2081,8.097165991902836,2,0.0281419339465673,Finances publiques et contrôle,"Tax Examiners and Collectors, and Revenue Agents"
 2025-03-27,43-3011,41.75824175824175,3,0.014687213702040599,Finances publiques et contrôle,Bill and Account Collectors
-2025-03-27,43-3031,54.241338112305854,8,0.10178341803302261,Comptabilité et paie,"Bookkeeping, Accounting, and Auditing Clerks"
+2025-03-27,43-3031,54.241338112305854,8,0.1017834180330226,Comptabilité et paie,"Bookkeeping, Accounting, and Auditing Clerks"
 2025-03-27,43-3051,29.29292929292929,1,0.011297856693877383,Comptabilité et paie,Payroll and Timekeeping Clerks
-2025-09-15,11-3031,47.368421052631554,6,0.0895806505794745,"Budget, pilotage et analyse",Financial Managers
+2025-09-15,11-3031,47.368421052631554,6,0.08958065057947448,"Budget, pilotage et analyse",Financial Managers
 2025-09-15,13-1023,57.94871794871798,3,0.024572470124230802,Finances publiques et contrôle,"Purchasing Agents, Except Wholesale, Retail, and Farm Products"
-2025-09-15,13-1041,49.19708029197082,10,0.0822192776730592,Finances publiques et contrôle,Compliance Officers
+2025-09-15,13-1041,49.197080291970806,10,0.0822192776730592,Finances publiques et contrôle,Compliance Officers
 2025-09-15,13-1111,39.07035175879393,3,0.086573892631784,"Budget, pilotage et analyse",Management Analysts
-2025-09-15,13-2011,57.34966592427617,11,0.10886537396811141,Comptabilité et paie,Accountants and Auditors
+2025-09-15,13-2011,57.349665924276145,11,0.10886537396811141,Comptabilité et paie,Accountants and Auditors
 2025-09-15,13-2031,20.8,2,0.0160706028238641,"Budget, pilotage et analyse",Budget Analysts
 2025-09-15,13-2051,50.85574572127138,7,0.13810350297669,"Budget, pilotage et analyse",Financial and Investment Analysts
 2025-09-15,13-2061,29.460580912863065,2,0.054017961749891596,Finances publiques et contrôle,Financial Examiners
@@ -23,27 +23,27 @@ release,soc6,automatisation_pct,n_taches,part_usage_pct,famille,intitule_soc
 2025-09-15,43-3011,23.52941176470596,2,0.0095386803857773,Finances publiques et contrôle,Bill and Account Collectors
 2025-09-15,43-3031,61.641791044776106,6,0.0765168057033011,Comptabilité et paie,"Bookkeeping, Accounting, and Auditing Clerks"
 2025-09-15,43-3051,65.9090909090909,1,0.0049767028099708,Comptabilité et paie,Payroll and Timekeeping Clerks
-2026-01-15,11-3031,50.69337442218797,8,0.14431803975496937,"Budget, pilotage et analyse",Financial Managers
+2026-01-15,11-3031,50.69337442218798,8,0.14431803975496937,"Budget, pilotage et analyse",Financial Managers
 2026-01-15,13-1023,64.9402390438247,5,0.03200400050006251,Finances publiques et contrôle,"Purchasing Agents, Except Wholesale, Retail, and Farm Products"
-2026-01-15,13-1041,40.28384279475983,11,0.10441305163145394,Finances publiques et contrôle,Compliance Officers
+2026-01-15,13-1041,40.28384279475982,11,0.10441305163145392,Finances publiques et contrôle,Compliance Officers
 2026-01-15,13-1111,32.99075025693731,2,0.10111263907988499,"Budget, pilotage et analyse",Management Analysts
-2026-01-15,13-2011,49.62462462462461,12,0.1526190773846731,Comptabilité et paie,Accountants and Auditors
+2026-01-15,13-2011,49.62462462462462,12,0.15261907738467312,Comptabilité et paie,Accountants and Auditors
 2026-01-15,13-2031,11.029411764705884,1,0.015801975246905863,"Budget, pilotage et analyse",Budget Analysts
 2026-01-15,13-2051,49.06785980611484,7,0.1460182522815352,"Budget, pilotage et analyse",Financial and Investment Analysts
 2026-01-15,13-2061,26.72605790645879,1,0.04560570071258908,Finances publiques et contrôle,Financial Examiners
 2026-01-15,13-2081,10.45751633986928,3,0.02120265033129141,Finances publiques et contrôle,"Tax Examiners and Collectors, and Revenue Agents"
 2026-01-15,43-3011,30.000000000000007,3,0.018302287785973245,Finances publiques et contrôle,Bill and Account Collectors
-2026-01-15,43-3031,55.77264653641208,6,0.12361545193149143,Comptabilité et paie,"Bookkeeping, Accounting, and Auditing Clerks"
+2026-01-15,43-3031,55.772646536412076,6,0.12361545193149143,Comptabilité et paie,"Bookkeeping, Accounting, and Auditing Clerks"
 2026-01-15,43-3051,43.53741496598639,2,0.01570196274534317,Comptabilité et paie,Payroll and Timekeeping Clerks
-2026-03-24,11-3031,38.718861209964416,10,0.1536,"Budget, pilotage et analyse",Financial Managers
+2026-03-24,11-3031,38.71886120996441,10,0.15360000000000001,"Budget, pilotage et analyse",Financial Managers
 2026-03-24,13-1023,52.50000000000001,4,0.044599999999999994,Finances publiques et contrôle,"Purchasing Agents, Except Wholesale, Retail, and Farm Products"
-2026-03-24,13-1041,39.918946301925025,12,0.11420000000000001,Finances publiques et contrôle,Compliance Officers
+2026-03-24,13-1041,39.91894630192502,12,0.1142,Finances publiques et contrôle,Compliance Officers
 2026-03-24,13-1111,36.76222596964587,3,0.1221,"Budget, pilotage et analyse",Management Analysts
-2026-03-24,13-2011,47.99753542821935,11,0.1807,Comptabilité et paie,Accountants and Auditors
+2026-03-24,13-2011,47.997535428219344,11,0.1807,Comptabilité et paie,Accountants and Auditors
 2026-03-24,13-2031,15.546218487394958,2,0.026099999999999998,"Budget, pilotage et analyse",Budget Analysts
 2026-03-24,13-2051,50.271002710027105,7,0.2315,"Budget, pilotage et analyse",Financial and Investment Analysts
 2026-03-24,13-2061,28.8659793814433,2,0.059800000000000006,Finances publiques et contrôle,Financial Examiners
 2026-03-24,13-2081,20.408163265306122,3,0.029099999999999997,Finances publiques et contrôle,"Tax Examiners and Collectors, and Revenue Agents"
 2026-03-24,43-3011,23.711340206185564,3,0.0239,Finances publiques et contrôle,Bill and Account Collectors
-2026-03-24,43-3031,53.54166666666667,7,0.1532,Comptabilité et paie,"Bookkeeping, Accounting, and Auditing Clerks"
+2026-03-24,43-3031,53.54166666666668,7,0.1532,Comptabilité et paie,"Bookkeeping, Accounting, and Auditing Clerks"
 2026-03-24,43-3051,42.04545454545455,2,0.019700000000000002,Comptabilité et paie,Payroll and Timekeeping Clerks

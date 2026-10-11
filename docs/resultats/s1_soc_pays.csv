@@ -1,26 +1,26 @@
 release,date_start,geo_id,soc_majeur,part_derivee,part_publiee,libelle_en,libelle_fr
-2025-02-10,,GLOBAL,11,4.479951925468765,,Management,Direction et encadrement
-2025-02-10,,GLOBAL,13,5.927948427234902,,Business and Financial Operations,"Gestion, finance et affaires"
-2025-02-10,,GLOBAL,15,37.17678649514148,,Computer and Mathematical,Informatique et mathématiques
-2025-02-10,,GLOBAL,17,4.562039973082453,,Architecture and Engineering,Architecture et ingénierie
-2025-02-10,,GLOBAL,19,6.378385313702026,,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
-2025-02-10,,GLOBAL,21,2.0757016760624967,,Community and Social Service,Action sociale
-2025-02-10,,GLOBAL,23,0.8973388809317453,,Legal,Droit
-2025-02-10,,GLOBAL,25,9.32720531438282,,Educational Instruction and Library,Enseignement et documentation
-2025-02-10,,GLOBAL,27,10.277371192463084,,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
-2025-02-10,,GLOBAL,29,2.5826968345696737,,Healthcare Practitioners and Technical,Professions de santé
-2025-02-10,,GLOBAL,31,0.27244852804478575,,Healthcare Support,Aide aux soins
-2025-02-10,,GLOBAL,33,0.3792808196759944,,Protective Service,Sécurité et protection
-2025-02-10,,GLOBAL,35,0.5348160677861362,,Food Preparation and Serving Related,Restauration
-2025-02-10,,GLOBAL,37,0.09871513221805309,,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
-2025-02-10,,GLOBAL,39,0.45835766299125175,,Personal Care and Service,Services à la personne
-2025-02-10,,GLOBAL,41,2.2696625094591103,,Sales and Related,Vente
-2025-02-10,,GLOBAL,43,7.866836690607919,,Office and Administrative Support,Soutien administratif
-2025-02-10,,GLOBAL,45,0.07423273205256778,,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
-2025-02-10,,GLOBAL,47,0.422092289484089,,Construction and Extraction,Construction et extraction
-2025-02-10,,GLOBAL,49,0.7224271877708446,,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
-2025-02-10,,GLOBAL,51,2.93186561126138,,Production,Production industrielle
-2025-02-10,,GLOBAL,53,0.2838387356084072,,Transportation and Material Moving,Transport et manutention
+2025-02-10,,GLOBAL,11,4.479951925468767,,Management,Direction et encadrement
+2025-02-10,,GLOBAL,13,5.927948427234904,,Business and Financial Operations,"Gestion, finance et affaires"
+2025-02-10,,GLOBAL,15,37.176786495141485,,Computer and Mathematical,Informatique et mathématiques
+2025-02-10,,GLOBAL,17,4.562039973082454,,Architecture and Engineering,Architecture et ingénierie
+2025-02-10,,GLOBAL,19,6.378385313702028,,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2025-02-10,,GLOBAL,21,2.0757016760624976,,Community and Social Service,Action sociale
+2025-02-10,,GLOBAL,23,0.8973388809317455,,Legal,Droit
+2025-02-10,,GLOBAL,25,9.327205314382821,,Educational Instruction and Library,Enseignement et documentation
+2025-02-10,,GLOBAL,27,10.277371192463088,,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2025-02-10,,GLOBAL,29,2.5826968345696746,,Healthcare Practitioners and Technical,Professions de santé
+2025-02-10,,GLOBAL,31,0.2724485280447858,,Healthcare Support,Aide aux soins
+2025-02-10,,GLOBAL,33,0.37928081967599453,,Protective Service,Sécurité et protection
+2025-02-10,,GLOBAL,35,0.5348160677861364,,Food Preparation and Serving Related,Restauration
+2025-02-10,,GLOBAL,37,0.09871513221805311,,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
+2025-02-10,,GLOBAL,39,0.45835766299125186,,Personal Care and Service,Services à la personne
+2025-02-10,,GLOBAL,41,2.2696625094591107,,Sales and Related,Vente
+2025-02-10,,GLOBAL,43,7.866836690607921,,Office and Administrative Support,Soutien administratif
+2025-02-10,,GLOBAL,45,0.074232732052567807,,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2025-02-10,,GLOBAL,47,0.42209228948408917,,Construction and Extraction,Construction et extraction
+2025-02-10,,GLOBAL,49,0.7224271877708448,,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2025-02-10,,GLOBAL,51,2.931865611261381,,Production,Production industrielle
+2025-02-10,,GLOBAL,53,0.28383873560840733,,Transportation and Material Moving,Transport et manutention
 2025-03-27,,GLOBAL,11,3.1701713603314476,,Management,Direction et encadrement
 2025-03-27,,GLOBAL,13,4.481438142653526,,Business and Financial Operations,"Gestion, finance et affaires"
 2025-03-27,,GLOBAL,15,40.222045845973334,,Computer and Mathematical,Informatique et mathématiques
@@ -51,44 +51,44 @@ release,date_start,geo_id,soc_majeur,part_derivee,part_publiee,libelle_en,libell
 2025-09-15,2025-08-04,BEL,27,8.53110968569596,3.6348729160972955,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
 2025-09-15,2025-08-04,BEL,41,1.1545862732520846,0.491937687892867,Sales and Related,Vente
 2025-09-15,2025-08-04,BEL,43,14.30404105195638,6.09456135556163,Office and Administrative Support,Soutien administratif
-2025-09-15,2025-08-04,DEU,11,1.233671988388969,0.8770885422867799,Management,Direction et encadrement
-2025-09-15,2025-08-04,DEU,13,1.7304901194596398,1.230305195062904,Business and Financial Operations,"Gestion, finance et affaires"
-2025-09-15,2025-08-04,DEU,15,45.98079714190018,32.797555264515616,Computer and Mathematical,Informatique et mathématiques
-2025-09-15,2025-08-04,DEU,17,1.4290499051021541,1.1231495812993608,Architecture and Engineering,Architecture et ingénierie
-2025-09-15,2025-08-04,DEU,19,7.167578430277991,5.095844743421836,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
-2025-09-15,2025-08-04,DEU,21,1.5574411075136758,1.1072746755566136,Community and Social Service,Action sociale
-2025-09-15,2025-08-04,DEU,23,0.5303114882215026,0.3770290113902448,Legal,Droit
-2025-09-15,2025-08-04,DEU,25,14.99944177738082,10.663967932690399,Educational Instruction and Library,Enseignement et documentation
-2025-09-15,2025-08-04,DEU,27,8.166796918611142,5.806246775409771,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
-2025-09-15,2025-08-04,DEU,29,1.0606229764430046,0.7540580227804894,Healthcare Practitioners and Technical,Professions de santé
-2025-09-15,2025-08-04,DEU,33,0.3181868929329015,0.22621740683414684,Protective Service,Sécurité et protection
-2025-09-15,2025-08-04,DEU,35,0.30702244054929106,0.21827995396277336,Food Preparation and Serving Related,Restauration
-2025-09-15,2025-08-04,DEU,39,0.3963380596181756,0.2817795769337619,Personal Care and Service,Services à la personne
-2025-09-15,2025-08-04,DEU,41,2.3333705481746114,1.658927650117077,Sales and Related,Vente
-2025-09-15,2025-08-04,DEU,43,9.925198169029809,7.05639560265111,Office and Administrative Support,Soutien administratif
-2025-09-15,2025-08-04,DEU,45,0.5638048453723344,0.40084137000436565,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
-2025-09-15,2025-08-04,DEU,49,0.49681813107067097,0.3532166527761242,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
-2025-09-15,2025-08-04,DEU,51,1.8030590599531087,1.2818986387268325,Production,Production industrielle
-2025-09-15,2025-08-04,ESP,11,0.7710464201416207,0.4621333584834481,Management,Direction et encadrement
+2025-09-15,2025-08-04,DEU,11,1.2336719883889693,0.8770885422867799,Management,Direction et encadrement
+2025-09-15,2025-08-04,DEU,13,1.7304901194596403,1.230305195062904,Business and Financial Operations,"Gestion, finance et affaires"
+2025-09-15,2025-08-04,DEU,15,45.98079714190019,32.797555264515616,Computer and Mathematical,Informatique et mathématiques
+2025-09-15,2025-08-04,DEU,17,1.4290499051021546,1.1231495812993608,Architecture and Engineering,Architecture et ingénierie
+2025-09-15,2025-08-04,DEU,19,7.167578430277993,5.095844743421836,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2025-09-15,2025-08-04,DEU,21,1.5574411075136763,1.1072746755566136,Community and Social Service,Action sociale
+2025-09-15,2025-08-04,DEU,23,0.5303114882215028,0.3770290113902448,Legal,Droit
+2025-09-15,2025-08-04,DEU,25,14.999441777380824,10.663967932690399,Educational Instruction and Library,Enseignement et documentation
+2025-09-15,2025-08-04,DEU,27,8.166796918611144,5.806246775409771,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2025-09-15,2025-08-04,DEU,29,1.0606229764430049,0.7540580227804894,Healthcare Practitioners and Technical,Professions de santé
+2025-09-15,2025-08-04,DEU,33,0.31818689293290153,0.22621740683414684,Protective Service,Sécurité et protection
+2025-09-15,2025-08-04,DEU,35,0.3070224405492911,0.21827995396277336,Food Preparation and Serving Related,Restauration
+2025-09-15,2025-08-04,DEU,39,0.39633805961817564,0.2817795769337619,Personal Care and Service,Services à la personne
+2025-09-15,2025-08-04,DEU,41,2.333370548174612,1.658927650117077,Sales and Related,Vente
+2025-09-15,2025-08-04,DEU,43,9.925198169029812,7.05639560265111,Office and Administrative Support,Soutien administratif
+2025-09-15,2025-08-04,DEU,45,0.5638048453723346,0.40084137000436565,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2025-09-15,2025-08-04,DEU,49,0.496818131070671,0.3532166527761242,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2025-09-15,2025-08-04,DEU,51,1.8030590599531091,1.2818986387268325,Production,Production industrielle
+2025-09-15,2025-08-04,ESP,11,0.7710464201416206,0.4621333584834481,Management,Direction et encadrement
 2025-09-15,2025-08-04,ESP,13,0.5979543666404404,0.35838913515042903,Business and Financial Operations,"Gestion, finance et affaires"
 2025-09-15,2025-08-04,ESP,15,55.09834775767112,33.122701122323875,Computer and Mathematical,Informatique et mathématiques
 2025-09-15,2025-08-04,ESP,17,1.0621557828481507,0.7356408563614071,Architecture and Engineering,Architecture et ingénierie
-2025-09-15,2025-08-04,ESP,19,5.003933910306844,2.999151183627275,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
-2025-09-15,2025-08-04,ESP,21,0.9441384736428008,0.565877581816467,Community and Social Service,Action sociale
-2025-09-15,2025-08-04,ESP,23,0.34618410700236035,0.20748844666603794,Legal,Droit
-2025-09-15,2025-08-04,ESP,25,11.770259638080253,7.05460718664529,Educational Instruction and Library,Enseignement et documentation
-2025-09-15,2025-08-04,ESP,27,9.142407553107793,5.479581250589456,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2025-09-15,2025-08-04,ESP,19,5.003933910306843,2.999151183627275,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2025-09-15,2025-08-04,ESP,21,0.9441384736428007,0.565877581816467,Community and Social Service,Action sociale
+2025-09-15,2025-08-04,ESP,23,0.3461841070023603,0.20748844666603794,Legal,Droit
+2025-09-15,2025-08-04,ESP,25,11.770259638080251,7.05460718664529,Educational Instruction and Library,Enseignement et documentation
+2025-09-15,2025-08-04,ESP,27,9.142407553107791,5.479581250589456,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
 2025-09-15,2025-08-04,ESP,29,0.28324154209284025,0.1697632745449401,Healthcare Practitioners and Technical,Professions de santé
-2025-09-15,2025-08-04,ESP,33,0.23603461841070014,0.14146939545411671,Protective Service,Sécurité et protection
-2025-09-15,2025-08-04,ESP,39,0.33044846577498027,0.19805715363576346,Personal Care and Service,Services à la personne
-2025-09-15,2025-08-04,ESP,41,2.218725413060582,1.3298123172686973,Sales and Related,Vente
-2025-09-15,2025-08-04,ESP,43,9.44138473642801,5.65877581816467,Office and Administrative Support,Soutien administratif
-2025-09-15,2025-08-04,ESP,45,0.45633359559402037,0.273507497877959,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
-2025-09-15,2025-08-04,ESP,49,0.5822187254130605,0.3489578421201546,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
-2025-09-15,2025-08-04,ESP,51,1.7151848937844216,1.0280109402999151,Production,Production industrielle
+2025-09-15,2025-08-04,ESP,33,0.23603461841070011,0.14146939545411671,Protective Service,Sécurité et protection
+2025-09-15,2025-08-04,ESP,39,0.3304484657749802,0.19805715363576346,Personal Care and Service,Services à la personne
+2025-09-15,2025-08-04,ESP,41,2.2187254130605814,1.3298123172686973,Sales and Related,Vente
+2025-09-15,2025-08-04,ESP,43,9.441384736428008,5.65877581816467,Office and Administrative Support,Soutien administratif
+2025-09-15,2025-08-04,ESP,45,0.4563335955940203,0.273507497877959,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2025-09-15,2025-08-04,ESP,49,0.5822187254130604,0.3489578421201546,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2025-09-15,2025-08-04,ESP,51,1.7151848937844214,1.0280109402999151,Production,Production industrielle
 2025-09-15,2025-08-04,FRA,11,1.564093845630738,1.0779902512185973,Management,Direction et encadrement
 2025-09-15,2025-08-04,FRA,13,2.0537232233934035,1.415448068991376,Business and Financial Operations,"Gestion, finance et affaires"
-2025-09-15,2025-08-04,FRA,15,46.671200272016314,32.21784776902887,Computer and Mathematical,Informatique et mathématiques
+2025-09-15,2025-08-04,FRA,15,46.67120027201632,32.21784776902887,Computer and Mathematical,Informatique et mathématiques
 2025-09-15,2025-08-04,FRA,17,0.9384563073784424,0.6983502062242218,Architecture and Engineering,Architecture et ingénierie
 2025-09-15,2025-08-04,FRA,19,6.371982318939137,4.391638545181852,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
 2025-09-15,2025-08-04,FRA,21,1.3532811968718126,0.9326959130108735,Community and Social Service,Action sociale
@@ -105,80 +105,80 @@ release,date_start,geo_id,soc_majeur,part_derivee,part_publiee,libelle_en,libell
 2025-09-15,2025-08-04,FRA,45,0.6188371302278136,0.42650918635170604,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
 2025-09-15,2025-08-04,FRA,49,0.43522611356681407,0.29996250468691416,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
 2025-09-15,2025-08-04,FRA,51,1.3668820129207753,0.9420697412823398,Production,Production industrielle
-2025-09-15,2025-08-04,GBR,11,2.861355572962263,2.0334654048921044,Management,Direction et encadrement
-2025-09-15,2025-08-04,GBR,13,2.9350780998018706,2.0858574282065545,Business and Financial Operations,"Gestion, finance et affaires"
-2025-09-15,2025-08-04,GBR,15,37.494816384831616,26.752676904941218,Computer and Mathematical,Informatique et mathématiques
-2025-09-15,2025-08-04,GBR,17,1.573515182232871,1.2246635449752772,Architecture and Engineering,Architecture et ingénierie
-2025-09-15,2025-08-04,GBR,19,8.694650509146204,6.178984249647989,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
-2025-09-15,2025-08-04,GBR,21,3.1424227065382664,2.2332099937784466,Community and Social Service,Action sociale
-2025-09-15,2025-08-04,GBR,23,0.42851218725521817,0.3045286355152427,Legal,Droit
-2025-09-15,2025-08-04,GBR,25,13.528083675067965,9.613936278201644,Educational Instruction and Library,Enseignement et documentation
-2025-09-15,2025-08-04,GBR,27,11.307192554024793,8.035626575853826,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
-2025-09-15,2025-08-04,GBR,29,1.2717135879832282,0.9037624021742685,Healthcare Practitioners and Technical,Professions de santé
-2025-09-15,2025-08-04,GBR,33,0.3133207390683314,0.2226660990864139,Protective Service,Sécurité et protection
-2025-09-15,2025-08-04,GBR,35,0.35939731834308625,0.2554111136579455,Food Preparation and Serving Related,Restauration
-2025-09-15,2025-08-04,GBR,37,0.1105837902594111,0.0785880349716755,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
-2025-09-15,2025-08-04,GBR,39,0.5713495830069575,0.4060381806869901,Personal Care and Service,Services à la personne
-2025-09-15,2025-08-04,GBR,41,3.022623600423905,2.148072955892465,Sales and Related,Vente
-2025-09-15,2025-08-04,GBR,43,9.699119937335857,6.892825567307377,Office and Administrative Support,Soutien administratif
-2025-09-15,2025-08-04,GBR,45,0.6773257153388935,0.4813517142015128,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
-2025-09-15,2025-08-04,GBR,49,0.45615813482007106,0.32417564425816164,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
-2025-09-15,2025-08-04,GBR,51,1.5527807215592317,1.1035069910606108,Production,Production industrielle
-2025-09-15,2025-08-04,GLOBAL,11,2.862464691058749,2.628368304489963,Management,Direction et encadrement
-2025-09-15,2025-08-04,GLOBAL,13,3.265068439815953,2.991383178690988,Business and Financial Operations,"Gestion, finance et affaires"
-2025-09-15,2025-08-04,GLOBAL,15,39.02886445993547,35.87705675687415,Computer and Mathematical,Informatique et mathématiques
-2025-09-15,2025-08-04,GLOBAL,17,2.5694413880039235,2.4700727270471345,Architecture and Engineering,Architecture et ingénierie
-2025-09-15,2025-08-04,GLOBAL,19,7.808368515314741,7.155249602451665,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
-2025-09-15,2025-08-04,GLOBAL,21,2.160235727739427,1.9800905314223436,Community and Social Service,Action sociale
-2025-09-15,2025-08-04,GLOBAL,23,0.7268873849320676,0.6659580759694694,Legal,Droit
-2025-09-15,2025-08-04,GLOBAL,25,13.448432299936698,12.338059798713376,Educational Instruction and Library,Enseignement et documentation
-2025-09-15,2025-08-04,GLOBAL,27,8.960035300477266,8.224959624805365,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
-2025-09-15,2025-08-04,GLOBAL,29,2.76467740351898,2.53293602625369,Healthcare Practitioners and Technical,Professions de santé
-2025-09-15,2025-08-04,GLOBAL,31,0.27276615578028285,0.2499022930629099,Healthcare Support,Aide aux soins
-2025-09-15,2025-08-04,GLOBAL,33,0.25628959030906967,0.234806829766598,Protective Service,Sécurité et protection
-2025-09-15,2025-08-04,GLOBAL,35,0.3888920863958859,0.35629429122663997,Food Preparation and Serving Related,Restauration
+2025-09-15,2025-08-04,GBR,11,2.8613555729622617,2.0334654048921044,Management,Direction et encadrement
+2025-09-15,2025-08-04,GBR,13,2.9350780998018693,2.0858574282065545,Business and Financial Operations,"Gestion, finance et affaires"
+2025-09-15,2025-08-04,GBR,15,37.4948163848316,26.752676904941218,Computer and Mathematical,Informatique et mathématiques
+2025-09-15,2025-08-04,GBR,17,1.5735151822328703,1.2246635449752772,Architecture and Engineering,Architecture et ingénierie
+2025-09-15,2025-08-04,GBR,19,8.6946505091462,6.178984249647989,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2025-09-15,2025-08-04,GBR,21,3.142422706538265,2.2332099937784466,Community and Social Service,Action sociale
+2025-09-15,2025-08-04,GBR,23,0.428512187255218,0.3045286355152427,Legal,Droit
+2025-09-15,2025-08-04,GBR,25,13.52808367506796,9.613936278201644,Educational Instruction and Library,Enseignement et documentation
+2025-09-15,2025-08-04,GBR,27,11.30719255402479,8.035626575853826,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2025-09-15,2025-08-04,GBR,29,1.2717135879832278,0.9037624021742685,Healthcare Practitioners and Technical,Professions de santé
+2025-09-15,2025-08-04,GBR,33,0.3133207390683313,0.2226660990864139,Protective Service,Sécurité et protection
+2025-09-15,2025-08-04,GBR,35,0.3593973183430861,0.2554111136579455,Food Preparation and Serving Related,Restauration
+2025-09-15,2025-08-04,GBR,37,0.11058379025941106,0.0785880349716755,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
+2025-09-15,2025-08-04,GBR,39,0.5713495830069573,0.4060381806869901,Personal Care and Service,Services à la personne
+2025-09-15,2025-08-04,GBR,41,3.022623600423904,2.148072955892465,Sales and Related,Vente
+2025-09-15,2025-08-04,GBR,43,9.699119937335853,6.892825567307377,Office and Administrative Support,Soutien administratif
+2025-09-15,2025-08-04,GBR,45,0.6773257153388933,0.4813517142015128,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2025-09-15,2025-08-04,GBR,49,0.4561581348200709,0.32417564425816164,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2025-09-15,2025-08-04,GBR,51,1.552780721559231,1.1035069910606108,Production,Production industrielle
+2025-09-15,2025-08-04,GLOBAL,11,2.8624646910587486,2.628368304489963,Management,Direction et encadrement
+2025-09-15,2025-08-04,GLOBAL,13,3.2650684398159524,2.991383178690988,Business and Financial Operations,"Gestion, finance et affaires"
+2025-09-15,2025-08-04,GLOBAL,15,39.02886445993546,35.87705675687415,Computer and Mathematical,Informatique et mathématiques
+2025-09-15,2025-08-04,GLOBAL,17,2.569441388003923,2.4700727270471345,Architecture and Engineering,Architecture et ingénierie
+2025-09-15,2025-08-04,GLOBAL,19,7.80836851531474,7.155249602451665,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2025-09-15,2025-08-04,GLOBAL,21,2.1602357277394266,1.9800905314223436,Community and Social Service,Action sociale
+2025-09-15,2025-08-04,GLOBAL,23,0.7268873849320675,0.6659580759694694,Legal,Droit
+2025-09-15,2025-08-04,GLOBAL,25,13.448432299936696,12.338059798713376,Educational Instruction and Library,Enseignement et documentation
+2025-09-15,2025-08-04,GLOBAL,27,8.960035300477264,8.224959624805365,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2025-09-15,2025-08-04,GLOBAL,29,2.7646774035189794,2.53293602625369,Healthcare Practitioners and Technical,Professions de santé
+2025-09-15,2025-08-04,GLOBAL,31,0.2727661557802828,0.2499022930629099,Healthcare Support,Aide aux soins
+2025-09-15,2025-08-04,GLOBAL,33,0.2562895903090696,0.234806829766598,Protective Service,Sécurité et protection
+2025-09-15,2025-08-04,GLOBAL,35,0.38889208639588585,0.35629429122663997,Food Preparation and Serving Related,Restauration
 2025-09-15,2025-08-04,GLOBAL,37,0.15065900619225425,0.1380304349354512,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
-2025-09-15,2025-08-04,GLOBAL,39,0.6717586025163989,0.6162257619590175,Personal Care and Service,Services à la personne
-2025-09-15,2025-08-04,GLOBAL,41,2.6308335223624217,2.4103112353672205,Sales and Related,Vente
+2025-09-15,2025-08-04,GLOBAL,39,0.6717586025163987,0.6162257619590175,Personal Care and Service,Services à la personne
+2025-09-15,2025-08-04,GLOBAL,41,2.6308335223624213,2.4103112353672205,Sales and Related,Vente
 2025-09-15,2025-08-04,GLOBAL,43,8.892605520552259,8.147207649470936,Office and Administrative Support,Soutien administratif
-2025-09-15,2025-08-04,GLOBAL,45,0.3812180696010756,0.34926352749959183,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
-2025-09-15,2025-08-04,GLOBAL,47,0.22559352312982378,0.20668377485840114,Construction and Extraction,Construction et extraction
-2025-09-15,2025-08-04,GLOBAL,49,0.5741970213529503,0.5260665565180335,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
-2025-09-15,2025-08-04,GLOBAL,51,1.760509735280276,1.6129399138524652,Production,Production industrielle
-2025-09-15,2025-08-04,GLOBAL,53,0.2002015557940502,0.18342021840860567,Transportation and Material Moving,Transport et manutention
-2025-09-15,2025-08-04,ITA,11,0.8357477156229104,0.5204357782249669,Management,Direction et encadrement
+2025-09-15,2025-08-04,GLOBAL,45,0.38121806960107557,0.34926352749959183,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2025-09-15,2025-08-04,GLOBAL,47,0.22559352312982373,0.20668377485840114,Construction and Extraction,Construction et extraction
+2025-09-15,2025-08-04,GLOBAL,49,0.5741970213529501,0.5260665565180335,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2025-09-15,2025-08-04,GLOBAL,51,1.7605097352802757,1.6129399138524652,Production,Production industrielle
+2025-09-15,2025-08-04,GLOBAL,53,0.20020155579405016,0.18342021840860567,Transportation and Material Moving,Transport et manutention
+2025-09-15,2025-08-04,ITA,11,0.8357477156229103,0.5204357782249669,Management,Direction et encadrement
 2025-09-15,2025-08-04,ITA,13,1.326053042121685,0.8257581014502808,Business and Financial Operations,"Gestion, finance et affaires"
-2025-09-15,2025-08-04,ITA,15,45.19723646088701,28.242314898341547,Computer and Mathematical,Informatique et mathématiques
+2025-09-15,2025-08-04,ITA,15,45.197236460887005,28.242314898341547,Computer and Mathematical,Informatique et mathématiques
 2025-09-15,2025-08-04,ITA,17,1.1477601961221306,0.8118798140309482,Architecture and Engineering,Architecture et ingénierie
 2025-09-15,2025-08-04,ITA,19,5.850234009360375,3.6430504475747685,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
 2025-09-15,2025-08-04,ITA,21,1.0474704702473814,0.6522795087086253,Community and Social Service,Action sociale
-2025-09-15,2025-08-04,ITA,23,0.7466012926231338,0.4649226285476373,Legal,Droit
-2025-09-15,2025-08-04,ITA,25,15.322041453086698,9.541322600791062,Educational Instruction and Library,Enseignement et documentation
-2025-09-15,2025-08-04,ITA,27,11.16558948072209,6.95302199708556,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
-2025-09-15,2025-08-04,ITA,29,1.4820592823712948,0.9229061133856078,Healthcare Practitioners and Technical,Professions de santé
-2025-09-15,2025-08-04,ITA,33,0.1894361488745264,0.11796544306432581,Protective Service,Sécurité et protection
-2025-09-15,2025-08-04,ITA,35,0.17829284599955422,0.11102629935465957,Food Preparation and Serving Related,Restauration
+2025-09-15,2025-08-04,ITA,23,0.7466012926231337,0.4649226285476373,Legal,Droit
+2025-09-15,2025-08-04,ITA,25,15.322041453086696,9.541322600791062,Educational Instruction and Library,Enseignement et documentation
+2025-09-15,2025-08-04,ITA,27,11.165589480722089,6.95302199708556,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2025-09-15,2025-08-04,ITA,29,1.4820592823712946,0.9229061133856078,Healthcare Practitioners and Technical,Professions de santé
+2025-09-15,2025-08-04,ITA,33,0.18943614887452637,0.11796544306432581,Protective Service,Sécurité et protection
+2025-09-15,2025-08-04,ITA,35,0.1782928459995542,0.11102629935465957,Food Preparation and Serving Related,Restauration
 2025-09-15,2025-08-04,ITA,39,0.724314686873189,0.4510443411283046,Personal Care and Service,Services à la personne
-2025-09-15,2025-08-04,ITA,41,2.451526632493872,1.52661161612657,Sales and Related,Vente
-2025-09-15,2025-08-04,ITA,43,9.40494762647649,5.856637290958295,Office and Administrative Support,Soutien administratif
-2025-09-15,2025-08-04,ITA,45,0.78003120124805,0.4857400596766359,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2025-09-15,2025-08-04,ITA,41,2.4515266324938714,1.52661161612657,Sales and Related,Vente
+2025-09-15,2025-08-04,ITA,43,9.404947626476488,5.856637290958295,Office and Administrative Support,Soutien administratif
+2025-09-15,2025-08-04,ITA,45,0.7800312012480499,0.4857400596766359,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
 2025-09-15,2025-08-04,ITA,49,0.5237352351236907,0.32613975435431264,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
-2025-09-15,2025-08-04,ITA,51,1.626922219745933,1.013114981611269,Production,Production industrielle
-2025-09-15,2025-08-04,NLD,11,0.929322572756175,0.48880885001286334,Management,Direction et encadrement
-2025-09-15,2025-08-04,NLD,13,0.4646612863780875,0.24440442500643164,Business and Financial Operations,"Gestion, finance et affaires"
-2025-09-15,2025-08-04,NLD,15,50.379065786255794,26.64008232570105,Computer and Mathematical,Informatique et mathématiques
-2025-09-15,2025-08-04,NLD,17,1.3450721447786742,0.8489837921276047,Architecture and Engineering,Architecture et ingénierie
-2025-09-15,2025-08-04,NLD,19,6.040596722915138,3.1772575250836113,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
-2025-09-15,2025-08-04,NLD,21,1.809733431156762,0.9518909184461024,Community and Social Service,Action sociale
-2025-09-15,2025-08-04,NLD,25,11.689899730985573,6.148700797530228,Educational Instruction and Library,Enseignement et documentation
+2025-09-15,2025-08-04,ITA,51,1.6269222197459328,1.013114981611269,Production,Production industrielle
+2025-09-15,2025-08-04,NLD,11,0.9293225727561751,0.48880885001286334,Management,Direction et encadrement
+2025-09-15,2025-08-04,NLD,13,0.46466128637808757,0.24440442500643164,Business and Financial Operations,"Gestion, finance et affaires"
+2025-09-15,2025-08-04,NLD,15,50.3790657862558,26.64008232570105,Computer and Mathematical,Informatique et mathématiques
+2025-09-15,2025-08-04,NLD,17,1.3450721447786744,0.8489837921276047,Architecture and Engineering,Architecture et ingénierie
+2025-09-15,2025-08-04,NLD,19,6.040596722915139,3.1772575250836113,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2025-09-15,2025-08-04,NLD,21,1.8097334311567623,0.9518909184461024,Community and Social Service,Action sociale
+2025-09-15,2025-08-04,NLD,25,11.689899730985575,6.148700797530228,Educational Instruction and Library,Enseignement et documentation
 2025-09-15,2025-08-04,NLD,27,8.877476155539254,4.669410856701826,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
-2025-09-15,2025-08-04,NLD,29,0.7092198581560284,0.3730383329045536,Healthcare Practitioners and Technical,Professions de santé
+2025-09-15,2025-08-04,NLD,29,0.7092198581560285,0.3730383329045536,Healthcare Practitioners and Technical,Professions de santé
 2025-09-15,2025-08-04,NLD,39,0.36683785766691124,0.1929508618471829,Personal Care and Service,Services à la personne
-2025-09-15,2025-08-04,NLD,41,2.6167767180239663,1.3763828145099046,Sales and Related,Vente
-2025-09-15,2025-08-04,NLD,43,11.371973587674248,5.98147671726267,Office and Administrative Support,Soutien administratif
-2025-09-15,2025-08-04,NLD,45,1.4184397163120568,0.7460766658091073,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
-2025-09-15,2025-08-04,NLD,49,0.4891171435558817,0.2572678157962439,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
-2025-09-15,2025-08-04,NLD,51,1.4918072878454391,0.784666838178544,Production,Production industrielle
+2025-09-15,2025-08-04,NLD,41,2.6167767180239667,1.3763828145099046,Sales and Related,Vente
+2025-09-15,2025-08-04,NLD,43,11.37197358767425,5.98147671726267,Office and Administrative Support,Soutien administratif
+2025-09-15,2025-08-04,NLD,45,1.418439716312057,0.7460766658091073,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2025-09-15,2025-08-04,NLD,49,0.48911714355588176,0.2572678157962439,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2025-09-15,2025-08-04,NLD,51,1.4918072878454394,0.784666838178544,Production,Production industrielle
 2025-09-15,2025-08-04,USA,11,3.17725849472341,2.6294232897251746,Management,Direction et encadrement
 2025-09-15,2025-08-04,USA,13,4.151687347790786,3.4298908279162412,Business and Financial Operations,"Gestion, finance et affaires"
 2025-09-15,2025-08-04,USA,15,31.458019250840792,26.10597212974185,Computer and Mathematical,Informatique et mathématiques
@@ -186,7 +186,7 @@ release,date_start,geo_id,soc_majeur,part_derivee,part_publiee,libelle_en,libell
 2025-09-15,2025-08-04,USA,19,9.584251420619273,7.917970041149106,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
 2025-09-15,2025-08-04,USA,21,3.106807375623333,2.566669700555201,Community and Social Service,Action sociale
 2025-09-15,2025-08-04,USA,23,0.5682477096138232,0.46945433119524005,Legal,Droit
-2025-09-15,2025-08-04,USA,25,12.87313000115969,10.65038586271814,Educational Instruction and Library,Enseignement et documentation
+2025-09-15,2025-08-04,USA,25,12.873130001159687,10.65038586271814,Educational Instruction and Library,Enseignement et documentation
 2025-09-15,2025-08-04,USA,27,10.952104835903981,9.06334280225913,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
 2025-09-15,2025-08-04,USA,29,3.341644439290268,2.7606788884471083,Healthcare Practitioners and Technical,Professions de santé
 2025-09-15,2025-08-04,USA,31,0.3450075379798209,0.2850258439399669,Healthcare Support,Aide aux soins
@@ -247,26 +247,26 @@ release,date_start,geo_id,soc_majeur,part_derivee,part_publiee,libelle_en,libell
 2026-01-15,2025-11-13,ESP,45,0.4436557231588288,,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
 2026-01-15,2025-11-13,ESP,49,0.6211180124223602,,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
 2026-01-15,2025-11-13,ESP,51,0.4103815439219166,,Production,Production industrielle
-2026-01-15,2025-11-13,FRA,11,2.515488889924071,,Management,Direction et encadrement
-2026-01-15,2025-11-13,FRA,13,1.8446918526109852,,Business and Financial Operations,"Gestion, finance et affaires"
-2026-01-15,2025-11-13,FRA,15,39.99161503703359,,Computer and Mathematical,Informatique et mathématiques
-2026-01-15,2025-11-13,FRA,17,0.7360134159407467,,Architecture and Engineering,Architecture et ingénierie
-2026-01-15,2025-11-13,FRA,19,3.8757162155867166,,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
-2026-01-15,2025-11-13,FRA,21,3.4564680672660377,,Community and Social Service,Action sociale
-2026-01-15,2025-11-13,FRA,23,0.23291563795593245,,Legal,Droit
-2026-01-15,2025-11-13,FRA,25,19.651092374342028,,Educational Instruction and Library,Enseignement et documentation
-2026-01-15,2025-11-13,FRA,27,11.093771835841062,,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
-2026-01-15,2025-11-13,FRA,29,1.164578189779662,,Healthcare Practitioners and Technical,Professions de santé
-2026-01-15,2025-11-13,FRA,31,0.06987469138677974,,Healthcare Support,Aide aux soins
-2026-01-15,2025-11-13,FRA,33,0.28881539106535625,,Protective Service,Sécurité et protection
-2026-01-15,2025-11-13,FRA,35,0.3493734569338987,,Food Preparation and Serving Related,Restauration
-2026-01-15,2025-11-13,FRA,37,0.2003074486421019,,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
-2026-01-15,2025-11-13,FRA,39,0.6009223459263057,,Personal Care and Service,Services à la personne
-2026-01-15,2025-11-13,FRA,41,3.316718684492478,,Sales and Related,Vente
-2026-01-15,2025-11-13,FRA,43,8.878744118880148,,Office and Administrative Support,Soutien administratif
-2026-01-15,2025-11-13,FRA,45,0.5543392183351192,,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
-2026-01-15,2025-11-13,FRA,49,0.5357059672986446,,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
-2026-01-15,2025-11-13,FRA,51,0.6428471607583736,,Production,Production industrielle
+2026-01-15,2025-11-13,FRA,11,2.51548888992407,,Management,Direction et encadrement
+2026-01-15,2025-11-13,FRA,13,1.8446918526109848,,Business and Financial Operations,"Gestion, finance et affaires"
+2026-01-15,2025-11-13,FRA,15,39.99161503703358,,Computer and Mathematical,Informatique et mathématiques
+2026-01-15,2025-11-13,FRA,17,0.7360134159407464,,Architecture and Engineering,Architecture et ingénierie
+2026-01-15,2025-11-13,FRA,19,3.8757162155867158,,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2026-01-15,2025-11-13,FRA,21,3.456468067266037,,Community and Social Service,Action sociale
+2026-01-15,2025-11-13,FRA,23,0.23291563795593243,,Legal,Droit
+2026-01-15,2025-11-13,FRA,25,19.651092374342024,,Educational Instruction and Library,Enseignement et documentation
+2026-01-15,2025-11-13,FRA,27,11.093771835841059,,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2026-01-15,2025-11-13,FRA,29,1.1645781897796619,,Healthcare Practitioners and Technical,Professions de santé
+2026-01-15,2025-11-13,FRA,31,0.06987469138677972,,Healthcare Support,Aide aux soins
+2026-01-15,2025-11-13,FRA,33,0.2888153910653562,,Protective Service,Sécurité et protection
+2026-01-15,2025-11-13,FRA,35,0.34937345693389865,,Food Preparation and Serving Related,Restauration
+2026-01-15,2025-11-13,FRA,37,0.20030744864210187,,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
+2026-01-15,2025-11-13,FRA,39,0.6009223459263056,,Personal Care and Service,Services à la personne
+2026-01-15,2025-11-13,FRA,41,3.316718684492477,,Sales and Related,Vente
+2026-01-15,2025-11-13,FRA,43,8.878744118880146,,Office and Administrative Support,Soutien administratif
+2026-01-15,2025-11-13,FRA,45,0.5543392183351191,,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2026-01-15,2025-11-13,FRA,49,0.5357059672986445,,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2026-01-15,2025-11-13,FRA,51,0.6428471607583733,,Production,Production industrielle
 2026-01-15,2025-11-13,GBR,11,3.4138729963591654,,Management,Direction et encadrement
 2026-01-15,2025-11-13,GBR,13,3.2389238261856352,,Business and Financial Operations,"Gestion, finance et affaires"
 2026-01-15,2025-11-13,GBR,15,33.29235424842781,,Computer and Mathematical,Informatique et mathématiques
@@ -287,61 +287,61 @@ release,date_start,geo_id,soc_majeur,part_derivee,part_publiee,libelle_en,libell
 2026-01-15,2025-11-13,GBR,45,0.8511040711144734,,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
 2026-01-15,2025-11-13,GBR,49,0.3546266962976973,,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
 2026-01-15,2025-11-13,GBR,51,0.45392217126105244,,Production,Production industrielle
-2026-01-15,2025-11-13,GLOBAL,11,3.46749345206074,,Management,Direction et encadrement
-2026-01-15,2025-11-13,GLOBAL,13,3.397335050217802,,Business and Financial Operations,"Gestion, finance et affaires"
-2026-01-15,2025-11-13,GLOBAL,15,36.01992241935259,,Computer and Mathematical,Informatique et mathématiques
-2026-01-15,2025-11-13,GLOBAL,17,2.0734695361738202,,Architecture and Engineering,Architecture et ingénierie
-2026-01-15,2025-11-13,GLOBAL,19,5.836409002092987,,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
-2026-01-15,2025-11-13,GLOBAL,21,3.002907937417848,,Community and Social Service,Action sociale
-2026-01-15,2025-11-13,GLOBAL,23,0.5907850789335494,,Legal,Droit
-2026-01-15,2025-11-13,GLOBAL,25,16.235948266734535,,Educational Instruction and Library,Enseignement et documentation
-2026-01-15,2025-11-13,GLOBAL,27,10.582742530429602,,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
-2026-01-15,2025-11-13,GLOBAL,29,2.7552145553016105,,Healthcare Practitioners and Technical,Professions de santé
-2026-01-15,2025-11-13,GLOBAL,31,0.31731704004269384,,Healthcare Support,Aide aux soins
-2026-01-15,2025-11-13,GLOBAL,33,0.35902706552858893,,Protective Service,Sécurité et protection
-2026-01-15,2025-11-13,GLOBAL,35,0.49121576168388703,,Food Preparation and Serving Related,Restauration
-2026-01-15,2025-11-13,GLOBAL,37,0.16438027992774534,,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
-2026-01-15,2025-11-13,GLOBAL,39,0.9349997379754804,,Personal Care and Service,Services à la personne
-2026-01-15,2025-11-13,GLOBAL,41,3.2073940110820316,,Sales and Related,Vente
-2026-01-15,2025-11-13,GLOBAL,43,8.346069150944302,,Office and Administrative Support,Soutien administratif
-2026-01-15,2025-11-13,GLOBAL,45,0.3752832805897582,,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
-2026-01-15,2025-11-13,GLOBAL,47,0.21368366902773925,,Construction and Extraction,Construction et extraction
-2026-01-15,2025-11-13,GLOBAL,49,0.588004410567823,,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
-2026-01-15,2025-11-13,GLOBAL,51,0.8453231831808063,,Production,Production industrielle
-2026-01-15,2025-11-13,GLOBAL,53,0.19507458073403217,,Transportation and Material Moving,Transport et manutention
-2026-01-15,2025-11-13,ITA,11,1.9476025704399411,,Management,Direction et encadrement
+2026-01-15,2025-11-13,GLOBAL,11,3.467493452060742,,Management,Direction et encadrement
+2026-01-15,2025-11-13,GLOBAL,13,3.397335050217803,,Business and Financial Operations,"Gestion, finance et affaires"
+2026-01-15,2025-11-13,GLOBAL,15,36.0199224193526,,Computer and Mathematical,Informatique et mathématiques
+2026-01-15,2025-11-13,GLOBAL,17,2.073469536173821,,Architecture and Engineering,Architecture et ingénierie
+2026-01-15,2025-11-13,GLOBAL,19,5.836409002092989,,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2026-01-15,2025-11-13,GLOBAL,21,3.002907937417849,,Community and Social Service,Action sociale
+2026-01-15,2025-11-13,GLOBAL,23,0.5907850789335496,,Legal,Droit
+2026-01-15,2025-11-13,GLOBAL,25,16.23594826673454,,Educational Instruction and Library,Enseignement et documentation
+2026-01-15,2025-11-13,GLOBAL,27,10.582742530429606,,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2026-01-15,2025-11-13,GLOBAL,29,2.7552145553016114,,Healthcare Practitioners and Technical,Professions de santé
+2026-01-15,2025-11-13,GLOBAL,31,0.317317040042694,,Healthcare Support,Aide aux soins
+2026-01-15,2025-11-13,GLOBAL,33,0.35902706552858904,,Protective Service,Sécurité et protection
+2026-01-15,2025-11-13,GLOBAL,35,0.4912157616838872,,Food Preparation and Serving Related,Restauration
+2026-01-15,2025-11-13,GLOBAL,37,0.1643802799277454,,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
+2026-01-15,2025-11-13,GLOBAL,39,0.9349997379754807,,Personal Care and Service,Services à la personne
+2026-01-15,2025-11-13,GLOBAL,41,3.2073940110820325,,Sales and Related,Vente
+2026-01-15,2025-11-13,GLOBAL,43,8.346069150944306,,Office and Administrative Support,Soutien administratif
+2026-01-15,2025-11-13,GLOBAL,45,0.3752832805897583,,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2026-01-15,2025-11-13,GLOBAL,47,0.2136836690277393,,Construction and Extraction,Construction et extraction
+2026-01-15,2025-11-13,GLOBAL,49,0.5880044105678232,,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2026-01-15,2025-11-13,GLOBAL,51,0.8453231831808066,,Production,Production industrielle
+2026-01-15,2025-11-13,GLOBAL,53,0.19507458073403225,,Transportation and Material Moving,Transport et manutention
+2026-01-15,2025-11-13,ITA,11,1.9476025704399413,,Management,Direction et encadrement
 2026-01-15,2025-11-13,ITA,13,1.1072664359861593,,Business and Financial Operations,"Gestion, finance et affaires"
-2026-01-15,2025-11-13,ITA,15,39.515570934256054,,Computer and Mathematical,Informatique et mathématiques
-2026-01-15,2025-11-13,ITA,17,0.43499752842313405,,Architecture and Engineering,Architecture et ingénierie
-2026-01-15,2025-11-13,ITA,19,3.638161146811666,,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
-2026-01-15,2025-11-13,ITA,21,2.0266930301532375,,Community and Social Service,Action sociale
-2026-01-15,2025-11-13,ITA,23,0.22738507167572913,,Legal,Droit
-2026-01-15,2025-11-13,ITA,25,22.55066732575383,,Educational Instruction and Library,Enseignement et documentation
-2026-01-15,2025-11-13,ITA,27,13.079584775086506,,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
-2026-01-15,2025-11-13,ITA,29,1.0479485912011863,,Healthcare Practitioners and Technical,Professions de santé
-2026-01-15,2025-11-13,ITA,33,0.23727137913989124,,Protective Service,Sécurité et protection
-2026-01-15,2025-11-13,ITA,35,0.39545229856648545,,Food Preparation and Serving Related,Restauration
-2026-01-15,2025-11-13,ITA,39,0.6623826000988631,,Personal Care and Service,Services à la personne
-2026-01-15,2025-11-13,ITA,41,2.758279782501236,,Sales and Related,Vente
-2026-01-15,2025-11-13,ITA,43,8.83835887296095,,Office and Administrative Support,Soutien administratif
-2026-01-15,2025-11-13,ITA,45,0.6228373702422145,,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2026-01-15,2025-11-13,ITA,15,39.51557093425606,,Computer and Mathematical,Informatique et mathématiques
+2026-01-15,2025-11-13,ITA,17,0.4349975284231341,,Architecture and Engineering,Architecture et ingénierie
+2026-01-15,2025-11-13,ITA,19,3.6381611468116666,,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2026-01-15,2025-11-13,ITA,21,2.026693030153238,,Community and Social Service,Action sociale
+2026-01-15,2025-11-13,ITA,23,0.22738507167572916,,Legal,Droit
+2026-01-15,2025-11-13,ITA,25,22.550667325753835,,Educational Instruction and Library,Enseignement et documentation
+2026-01-15,2025-11-13,ITA,27,13.079584775086508,,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2026-01-15,2025-11-13,ITA,29,1.0479485912011866,,Healthcare Practitioners and Technical,Professions de santé
+2026-01-15,2025-11-13,ITA,33,0.23727137913989127,,Protective Service,Sécurité et protection
+2026-01-15,2025-11-13,ITA,35,0.3954522985664855,,Food Preparation and Serving Related,Restauration
+2026-01-15,2025-11-13,ITA,39,0.6623826000988632,,Personal Care and Service,Services à la personne
+2026-01-15,2025-11-13,ITA,41,2.7582797825012366,,Sales and Related,Vente
+2026-01-15,2025-11-13,ITA,43,8.838358872960951,,Office and Administrative Support,Soutien administratif
+2026-01-15,2025-11-13,ITA,45,0.6228373702422146,,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
 2026-01-15,2025-11-13,ITA,49,0.6524962926347011,,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
-2026-01-15,2025-11-13,ITA,51,0.25704399406821554,,Production,Production industrielle
-2026-01-15,2025-11-13,NLD,11,2.417272940624266,,Management,Direction et encadrement
-2026-01-15,2025-11-13,NLD,15,45.904717202534606,,Computer and Mathematical,Informatique et mathématiques
-2026-01-15,2025-11-13,NLD,17,0.9387467730579675,,Architecture and Engineering,Architecture et ingénierie
-2026-01-15,2025-11-13,NLD,19,2.863177657826801,,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
-2026-01-15,2025-11-13,NLD,21,3.708049753578971,,Community and Social Service,Action sociale
-2026-01-15,2025-11-13,NLD,25,13.048580145505749,,Educational Instruction and Library,Enseignement et documentation
-2026-01-15,2025-11-13,NLD,27,13.00164280685285,,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
-2026-01-15,2025-11-13,NLD,29,0.44590471720253455,,Healthcare Practitioners and Technical,Professions de santé
-2026-01-15,2025-11-13,NLD,37,0.37549870922318695,,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
-2026-01-15,2025-11-13,NLD,39,0.9152781037315182,,Personal Care and Service,Services à la personne
-2026-01-15,2025-11-13,NLD,41,2.910114996479699,,Sales and Related,Vente
-2026-01-15,2025-11-13,NLD,43,11.640459985918797,,Office and Administrative Support,Soutien administratif
-2026-01-15,2025-11-13,NLD,45,1.1030274583431119,,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
-2026-01-15,2025-11-13,NLD,49,0.37549870922318695,,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
-2026-01-15,2025-11-13,NLD,51,0.3520300398967378,,Production,Production industrielle
+2026-01-15,2025-11-13,ITA,51,0.2570439940682156,,Production,Production industrielle
+2026-01-15,2025-11-13,NLD,11,2.4172729406242666,,Management,Direction et encadrement
+2026-01-15,2025-11-13,NLD,15,45.90471720253462,,Computer and Mathematical,Informatique et mathématiques
+2026-01-15,2025-11-13,NLD,17,0.9387467730579678,,Architecture and Engineering,Architecture et ingénierie
+2026-01-15,2025-11-13,NLD,19,2.863177657826802,,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2026-01-15,2025-11-13,NLD,21,3.708049753578972,,Community and Social Service,Action sociale
+2026-01-15,2025-11-13,NLD,25,13.048580145505753,,Educational Instruction and Library,Enseignement et documentation
+2026-01-15,2025-11-13,NLD,27,13.001642806852853,,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2026-01-15,2025-11-13,NLD,29,0.44590471720253466,,Healthcare Practitioners and Technical,Professions de santé
+2026-01-15,2025-11-13,NLD,37,0.37549870922318707,,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
+2026-01-15,2025-11-13,NLD,39,0.9152781037315184,,Personal Care and Service,Services à la personne
+2026-01-15,2025-11-13,NLD,41,2.9101149964796997,,Sales and Related,Vente
+2026-01-15,2025-11-13,NLD,43,11.6404599859188,,Office and Administrative Support,Soutien administratif
+2026-01-15,2025-11-13,NLD,45,1.103027458343112,,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2026-01-15,2025-11-13,NLD,49,0.37549870922318707,,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2026-01-15,2025-11-13,NLD,51,0.3520300398967379,,Production,Production industrielle
 2026-01-15,2025-11-13,USA,11,3.6240590506140666,,Management,Direction et encadrement
 2026-01-15,2025-11-13,USA,13,3.9591702406636413,,Business and Financial Operations,"Gestion, finance et affaires"
 2026-01-15,2025-11-13,USA,15,30.88769204248051,,Computer and Mathematical,Informatique et mathématiques
@@ -365,17 +365,17 @@ release,date_start,geo_id,soc_majeur,part_derivee,part_publiee,libelle_en,libell
 2026-01-15,2025-11-13,USA,51,0.657162707844684,,Production,Production industrielle
 2026-01-15,2025-11-13,USA,53,0.1624623228455459,,Transportation and Material Moving,Transport et manutention
 2026-03-24,2026-02-05,BEL,11,2.6610644257703084,,Management,Direction et encadrement
-2026-03-24,2026-02-05,BEL,13,0.7469654528478059,,Business and Financial Operations,"Gestion, finance et affaires"
-2026-03-24,2026-02-05,BEL,15,44.397759103641455,,Computer and Mathematical,Informatique et mathématiques
-2026-03-24,2026-02-05,BEL,17,0.7469654528478059,,Architecture and Engineering,Architecture et ingénierie
+2026-03-24,2026-02-05,BEL,13,0.746965452847806,,Business and Financial Operations,"Gestion, finance et affaires"
+2026-03-24,2026-02-05,BEL,15,44.39775910364146,,Computer and Mathematical,Informatique et mathématiques
+2026-03-24,2026-02-05,BEL,17,0.746965452847806,,Architecture and Engineering,Architecture et ingénierie
 2026-03-24,2026-02-05,BEL,19,2.474323062558357,,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
-2026-03-24,2026-02-05,BEL,21,3.7348272642390294,,Community and Social Service,Action sociale
-2026-03-24,2026-02-05,BEL,25,13.772175536881422,,Educational Instruction and Library,Enseignement et documentation
-2026-03-24,2026-02-05,BEL,27,12.88515406162465,,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
-2026-03-24,2026-02-05,BEL,29,0.8403361344537816,,Healthcare Practitioners and Technical,Professions de santé
-2026-03-24,2026-02-05,BEL,39,0.7469654528478059,,Personal Care and Service,Services à la personne
-2026-03-24,2026-02-05,BEL,41,3.828197945845005,,Sales and Related,Vente
-2026-03-24,2026-02-05,BEL,43,12.091503267973856,,Office and Administrative Support,Soutien administratif
+2026-03-24,2026-02-05,BEL,21,3.7348272642390303,,Community and Social Service,Action sociale
+2026-03-24,2026-02-05,BEL,25,13.772175536881424,,Educational Instruction and Library,Enseignement et documentation
+2026-03-24,2026-02-05,BEL,27,12.885154061624652,,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2026-03-24,2026-02-05,BEL,29,0.8403361344537817,,Healthcare Practitioners and Technical,Professions de santé
+2026-03-24,2026-02-05,BEL,39,0.746965452847806,,Personal Care and Service,Services à la personne
+2026-03-24,2026-02-05,BEL,41,3.8281979458450053,,Sales and Related,Vente
+2026-03-24,2026-02-05,BEL,43,12.091503267973858,,Office and Administrative Support,Soutien administratif
 2026-03-24,2026-02-05,BEL,45,1.073762838468721,,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
 2026-03-24,2026-02-05,DEU,11,2.7814949340470285,,Management,Direction et encadrement
 2026-03-24,2026-02-05,DEU,13,2.924870961575226,,Business and Financial Operations,"Gestion, finance et affaires"
@@ -397,85 +397,85 @@ release,date_start,geo_id,soc_majeur,part_derivee,part_publiee,libelle_en,libell
 2026-03-24,2026-02-05,DEU,45,0.7073217358057735,,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
 2026-03-24,2026-02-05,DEU,49,0.6356337220416749,,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
 2026-03-24,2026-02-05,DEU,51,0.35366086790288676,,Production,Production industrielle
-2026-03-24,2026-02-05,ESP,11,2.8389220325036004,,Management,Direction et encadrement
-2026-03-24,2026-02-05,ESP,13,1.9440444353013784,,Business and Financial Operations,"Gestion, finance et affaires"
+2026-03-24,2026-02-05,ESP,11,2.8389220325036,,Management,Direction et encadrement
+2026-03-24,2026-02-05,ESP,13,1.9440444353013782,,Business and Financial Operations,"Gestion, finance et affaires"
 2026-03-24,2026-02-05,ESP,15,44.36844270726187,,Computer and Mathematical,Informatique et mathématiques
 2026-03-24,2026-02-05,ESP,17,0.5502982925324007,,Architecture and Engineering,Architecture et ingénierie
-2026-03-24,2026-02-05,ESP,19,3.4560789960913394,,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
-2026-03-24,2026-02-05,ESP,21,2.2526229170952483,,Community and Social Service,Action sociale
-2026-03-24,2026-02-05,ESP,23,0.2777206336144826,,Legal,Droit
-2026-03-24,2026-02-05,ESP,25,15.511211684838514,,Educational Instruction and Library,Enseignement et documentation
+2026-03-24,2026-02-05,ESP,19,3.456078996091339,,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2026-03-24,2026-02-05,ESP,21,2.252622917095248,,Community and Social Service,Action sociale
+2026-03-24,2026-02-05,ESP,23,0.27772063361448257,,Legal,Droit
+2026-03-24,2026-02-05,ESP,25,15.511211684838512,,Educational Instruction and Library,Enseignement et documentation
 2026-03-24,2026-02-05,ESP,27,11.828841802098333,,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
-2026-03-24,2026-02-05,ESP,29,1.0388808887060275,,Healthcare Practitioners and Technical,Professions de santé
+2026-03-24,2026-02-05,ESP,29,1.0388808887060272,,Healthcare Practitioners and Technical,Professions de santé
 2026-03-24,2026-02-05,ESP,33,0.28800658300761156,,Protective Service,Sécurité et protection
 2026-03-24,2026-02-05,ESP,35,0.28800658300761156,,Food Preparation and Serving Related,Restauration
 2026-03-24,2026-02-05,ESP,39,0.5760131660152231,,Personal Care and Service,Services à la personne
-2026-03-24,2026-02-05,ESP,41,3.3737914009463066,,Sales and Related,Vente
-2026-03-24,2026-02-05,ESP,43,9.668792429541247,,Office and Administrative Support,Soutien administratif
+2026-03-24,2026-02-05,ESP,41,3.373791400946306,,Sales and Related,Vente
+2026-03-24,2026-02-05,ESP,43,9.668792429541245,,Office and Administrative Support,Soutien administratif
 2026-03-24,2026-02-05,ESP,45,0.648014811767126,,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
-2026-03-24,2026-02-05,ESP,49,0.5965850648014811,,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
-2026-03-24,2026-02-05,ESP,51,0.4937255708701912,,Production,Production industrielle
-2026-03-24,2026-02-05,FRA,11,3.2594922881985404,,Management,Direction et encadrement
-2026-03-24,2026-02-05,FRA,13,3.0322890723991787,,Business and Financial Operations,"Gestion, finance et affaires"
-2026-03-24,2026-02-05,FRA,15,35.319176825272,,Computer and Mathematical,Informatique et mathématiques
-2026-03-24,2026-02-05,FRA,17,0.8804124612225281,,Architecture and Engineering,Architecture et ingénierie
-2026-03-24,2026-02-05,FRA,19,4.31686110018788,,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
-2026-03-24,2026-02-05,FRA,21,3.5391270153362173,,Community and Social Service,Action sociale
-2026-03-24,2026-02-05,FRA,23,0.46314501682177656,,Legal,Droit
-2026-03-24,2026-02-05,FRA,25,18.3466596757985,,Educational Instruction and Library,Enseignement et documentation
-2026-03-24,2026-02-05,FRA,27,11.58299471315594,,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
-2026-03-24,2026-02-05,FRA,29,1.7826713855026872,,Healthcare Practitioners and Technical,Professions de santé
-2026-03-24,2026-02-05,FRA,33,0.22720321579936206,,Protective Service,Sécurité et protection
-2026-03-24,2026-02-05,FRA,35,0.39760562764888363,,Food Preparation and Serving Related,Restauration
-2026-03-24,2026-02-05,FRA,37,0.17040241184952157,,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
-2026-03-24,2026-02-05,FRA,39,1.1971861755581772,,Personal Care and Service,Services à la personne
-2026-03-24,2026-02-05,FRA,41,4.089657884388517,,Sales and Related,Vente
-2026-03-24,2026-02-05,FRA,43,9.870232009437672,,Office and Administrative Support,Soutien administratif
-2026-03-24,2026-02-05,FRA,45,0.655393891728929,,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
-2026-03-24,2026-02-05,FRA,49,0.4849914798794075,,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
-2026-03-24,2026-02-05,FRA,51,0.3844977498143051,,Production,Production industrielle
-2026-03-24,2026-02-05,GBR,11,4.423298960863162,,Management,Direction et encadrement
-2026-03-24,2026-02-05,GBR,13,4.72986423537843,,Business and Financial Operations,"Gestion, finance et affaires"
-2026-03-24,2026-02-05,GBR,15,31.032766652068318,,Computer and Mathematical,Informatique et mathématiques
-2026-03-24,2026-02-05,GBR,17,1.2720468208782898,,Architecture and Engineering,Architecture et ingénierie
-2026-03-24,2026-02-05,GBR,19,6.417963928813156,,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
-2026-03-24,2026-02-05,GBR,21,5.092168650714656,,Community and Social Service,Action sociale
-2026-03-24,2026-02-05,GBR,23,0.30258390731377166,,Legal,Droit
-2026-03-24,2026-02-05,GBR,25,13.745670263168371,,Educational Instruction and Library,Enseignement et documentation
-2026-03-24,2026-02-05,GBR,27,12.192937054584547,,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
-2026-03-24,2026-02-05,GBR,29,2.1260500855993953,,Healthcare Practitioners and Technical,Professions de santé
-2026-03-24,2026-02-05,GBR,31,0.2189751960823347,,Healthcare Support,Aide aux soins
-2026-03-24,2026-02-05,GBR,33,0.4578572281721544,,Protective Service,Sécurité et protection
-2026-03-24,2026-02-05,GBR,35,0.37026714973922054,,Food Preparation and Serving Related,Restauration
-2026-03-24,2026-02-05,GBR,37,0.1711987896643708,,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
-2026-03-24,2026-02-05,GBR,39,1.0908946132101767,,Personal Care and Service,Services à la personne
-2026-03-24,2026-02-05,GBR,41,4.7139387665724435,,Sales and Related,Vente
-2026-03-24,2026-02-05,GBR,43,9.877772026914045,,Office and Administrative Support,Soutien administratif
-2026-03-24,2026-02-05,GBR,45,0.9077517219413148,,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
-2026-03-24,2026-02-05,GBR,49,0.40211808735119653,,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
-2026-03-24,2026-02-05,GBR,51,0.4538758609706574,,Production,Production industrielle
-2026-03-24,2026-02-05,GLOBAL,11,4.275347042208678,,Management,Direction et encadrement
-2026-03-24,2026-02-05,GLOBAL,13,4.775339513011527,,Business and Financial Operations,"Gestion, finance et affaires"
-2026-03-24,2026-02-05,GLOBAL,15,32.22851328473057,,Computer and Mathematical,Informatique et mathématiques
-2026-03-24,2026-02-05,GLOBAL,17,2.068270457366458,,Architecture and Engineering,Architecture et ingénierie
-2026-03-24,2026-02-05,GLOBAL,19,6.3151141103608195,,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
-2026-03-24,2026-02-05,GLOBAL,21,3.2243786798951075,,Community and Social Service,Action sociale
-2026-03-24,2026-02-05,GLOBAL,23,0.596957774111178,,Legal,Droit
-2026-03-24,2026-02-05,GLOBAL,25,13.480489698982698,,Educational Instruction and Library,Enseignement et documentation
-2026-03-24,2026-02-05,GLOBAL,27,10.432132892480908,,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
-2026-03-24,2026-02-05,GLOBAL,29,3.0340513319149762,,Healthcare Practitioners and Technical,Professions de santé
-2026-03-24,2026-02-05,GLOBAL,31,0.32246475797933544,,Healthcare Support,Aide aux soins
-2026-03-24,2026-02-05,GLOBAL,33,0.44658895101074075,,Protective Service,Sécurité et protection
-2026-03-24,2026-02-05,GLOBAL,35,0.7431317587989426,,Food Preparation and Serving Related,Restauration
-2026-03-24,2026-02-05,GLOBAL,37,0.20780584136626953,,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
-2026-03-24,2026-02-05,GLOBAL,39,1.1670255583975284,,Personal Care and Service,Services à la personne
-2026-03-24,2026-02-05,GLOBAL,41,4.938830651146479,,Sales and Related,Vente
-2026-03-24,2026-02-05,GLOBAL,43,9.436826809104735,,Office and Administrative Support,Soutien administratif
-2026-03-24,2026-02-05,GLOBAL,45,0.47111262173098384,,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
-2026-03-24,2026-02-05,GLOBAL,47,0.24426866756873608,,Construction and Extraction,Construction et extraction
-2026-03-24,2026-02-05,GLOBAL,49,0.659450110464078,,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
-2026-03-24,2026-02-05,GLOBAL,51,0.6855871805738106,,Production,Production industrielle
-2026-03-24,2026-02-05,GLOBAL,53,0.24631230679542301,,Transportation and Material Moving,Transport et manutention
+2026-03-24,2026-02-05,ESP,49,0.596585064801481,,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2026-03-24,2026-02-05,ESP,51,0.49372557087019114,,Production,Production industrielle
+2026-03-24,2026-02-05,FRA,11,3.25949228819854,,Management,Direction et encadrement
+2026-03-24,2026-02-05,FRA,13,3.0322890723991778,,Business and Financial Operations,"Gestion, finance et affaires"
+2026-03-24,2026-02-05,FRA,15,35.319176825271995,,Computer and Mathematical,Informatique et mathématiques
+2026-03-24,2026-02-05,FRA,17,0.8804124612225279,,Architecture and Engineering,Architecture et ingénierie
+2026-03-24,2026-02-05,FRA,19,4.316861100187879,,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2026-03-24,2026-02-05,FRA,21,3.539127015336217,,Community and Social Service,Action sociale
+2026-03-24,2026-02-05,FRA,23,0.46314501682177645,,Legal,Droit
+2026-03-24,2026-02-05,FRA,25,18.346659675798495,,Educational Instruction and Library,Enseignement et documentation
+2026-03-24,2026-02-05,FRA,27,11.582994713155939,,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2026-03-24,2026-02-05,FRA,29,1.782671385502687,,Healthcare Practitioners and Technical,Professions de santé
+2026-03-24,2026-02-05,FRA,33,0.227203215799362,,Protective Service,Sécurité et protection
+2026-03-24,2026-02-05,FRA,35,0.3976056276488835,,Food Preparation and Serving Related,Restauration
+2026-03-24,2026-02-05,FRA,37,0.17040241184952154,,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
+2026-03-24,2026-02-05,FRA,39,1.197186175558177,,Personal Care and Service,Services à la personne
+2026-03-24,2026-02-05,FRA,41,4.089657884388516,,Sales and Related,Vente
+2026-03-24,2026-02-05,FRA,43,9.87023200943767,,Office and Administrative Support,Soutien administratif
+2026-03-24,2026-02-05,FRA,45,0.6553938917289289,,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2026-03-24,2026-02-05,FRA,49,0.48499147987940744,,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2026-03-24,2026-02-05,FRA,51,0.384497749814305,,Production,Production industrielle
+2026-03-24,2026-02-05,GBR,11,4.423298960863163,,Management,Direction et encadrement
+2026-03-24,2026-02-05,GBR,13,4.729864235378431,,Business and Financial Operations,"Gestion, finance et affaires"
+2026-03-24,2026-02-05,GBR,15,31.032766652068325,,Computer and Mathematical,Informatique et mathématiques
+2026-03-24,2026-02-05,GBR,17,1.27204682087829,,Architecture and Engineering,Architecture et ingénierie
+2026-03-24,2026-02-05,GBR,19,6.4179639288131565,,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2026-03-24,2026-02-05,GBR,21,5.092168650714657,,Community and Social Service,Action sociale
+2026-03-24,2026-02-05,GBR,23,0.3025839073137717,,Legal,Droit
+2026-03-24,2026-02-05,GBR,25,13.745670263168373,,Educational Instruction and Library,Enseignement et documentation
+2026-03-24,2026-02-05,GBR,27,12.192937054584549,,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2026-03-24,2026-02-05,GBR,29,2.126050085599396,,Healthcare Practitioners and Technical,Professions de santé
+2026-03-24,2026-02-05,GBR,31,0.21897519608233476,,Healthcare Support,Aide aux soins
+2026-03-24,2026-02-05,GBR,33,0.4578572281721545,,Protective Service,Sécurité et protection
+2026-03-24,2026-02-05,GBR,35,0.37026714973922065,,Food Preparation and Serving Related,Restauration
+2026-03-24,2026-02-05,GBR,37,0.17119878966437083,,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
+2026-03-24,2026-02-05,GBR,39,1.0908946132101769,,Personal Care and Service,Services à la personne
+2026-03-24,2026-02-05,GBR,41,4.713938766572444,,Sales and Related,Vente
+2026-03-24,2026-02-05,GBR,43,9.877772026914046,,Office and Administrative Support,Soutien administratif
+2026-03-24,2026-02-05,GBR,45,0.907751721941315,,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2026-03-24,2026-02-05,GBR,49,0.40211808735119664,,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2026-03-24,2026-02-05,GBR,51,0.4538758609706575,,Production,Production industrielle
+2026-03-24,2026-02-05,GLOBAL,11,4.27534704220868,,Management,Direction et encadrement
+2026-03-24,2026-02-05,GLOBAL,13,4.775339513011529,,Business and Financial Operations,"Gestion, finance et affaires"
+2026-03-24,2026-02-05,GLOBAL,15,32.228513284730575,,Computer and Mathematical,Informatique et mathématiques
+2026-03-24,2026-02-05,GLOBAL,17,2.0682704573664594,,Architecture and Engineering,Architecture et ingénierie
+2026-03-24,2026-02-05,GLOBAL,19,6.315114110360822,,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2026-03-24,2026-02-05,GLOBAL,21,3.224378679895108,,Community and Social Service,Action sociale
+2026-03-24,2026-02-05,GLOBAL,23,0.5969577741111786,,Legal,Droit
+2026-03-24,2026-02-05,GLOBAL,25,13.480489698982696,,Educational Instruction and Library,Enseignement et documentation
+2026-03-24,2026-02-05,GLOBAL,27,10.432132892480919,,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2026-03-24,2026-02-05,GLOBAL,29,3.034051331914977,,Healthcare Practitioners and Technical,Professions de santé
+2026-03-24,2026-02-05,GLOBAL,31,0.32246475797933566,,Healthcare Support,Aide aux soins
+2026-03-24,2026-02-05,GLOBAL,33,0.4465889510107411,,Protective Service,Sécurité et protection
+2026-03-24,2026-02-05,GLOBAL,35,0.7431317587989429,,Food Preparation and Serving Related,Restauration
+2026-03-24,2026-02-05,GLOBAL,37,0.20780584136626964,,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
+2026-03-24,2026-02-05,GLOBAL,39,1.167025558397529,,Personal Care and Service,Services à la personne
+2026-03-24,2026-02-05,GLOBAL,41,4.938830651146483,,Sales and Related,Vente
+2026-03-24,2026-02-05,GLOBAL,43,9.436826809104739,,Office and Administrative Support,Soutien administratif
+2026-03-24,2026-02-05,GLOBAL,45,0.47111262173098406,,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2026-03-24,2026-02-05,GLOBAL,47,0.24426866756873628,,Construction and Extraction,Construction et extraction
+2026-03-24,2026-02-05,GLOBAL,49,0.6594501104640785,,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2026-03-24,2026-02-05,GLOBAL,51,0.685587180573811,,Production,Production industrielle
+2026-03-24,2026-02-05,GLOBAL,53,0.24631230679542315,,Transportation and Material Moving,Transport et manutention
 2026-03-24,2026-02-05,ITA,11,2.5549165645328555,,Management,Direction et encadrement
 2026-03-24,2026-02-05,ITA,13,3.082869802960309,,Business and Financial Operations,"Gestion, finance et affaires"
 2026-03-24,2026-02-05,ITA,15,36.09880267747714,,Computer and Mathematical,Informatique et mathématiques
@@ -494,25 +494,25 @@ release,date_start,geo_id,soc_majeur,part_derivee,part_publiee,libelle_en,libell
 2026-03-24,2026-02-05,ITA,45,0.7919298576411804,,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
 2026-03-24,2026-02-05,ITA,49,0.6128028660318656,,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
 2026-03-24,2026-02-05,ITA,51,0.1696992552088243,,Production,Production industrielle
-2026-03-24,2026-02-05,NLD,11,2.8592110025334776,,Management,Direction et encadrement
-2026-03-24,2026-02-05,NLD,13,1.9724936663047408,,Business and Financial Operations,"Gestion, finance et affaires"
-2026-03-24,2026-02-05,NLD,15,43.15056098443721,,Computer and Mathematical,Informatique et mathématiques
-2026-03-24,2026-02-05,NLD,17,0.87766920014477,,Architecture and Engineering,Architecture et ingénierie
-2026-03-24,2026-02-05,NLD,19,3.4020991675714796,,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
-2026-03-24,2026-02-05,NLD,21,3.8906985161056813,,Community and Social Service,Action sociale
-2026-03-24,2026-02-05,NLD,25,11.219688744118708,,Educational Instruction and Library,Enseignement et documentation
-2026-03-24,2026-02-05,NLD,27,11.454940282301841,,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
-2026-03-24,2026-02-05,NLD,29,0.8686210640608034,,Healthcare Practitioners and Technical,Professions de santé
-2026-03-24,2026-02-05,NLD,33,0.5066956207021353,,Protective Service,Sécurité et protection
-2026-03-24,2026-02-05,NLD,35,0.38002171552660147,,Food Preparation and Serving Related,Restauration
+2026-03-24,2026-02-05,NLD,11,2.859211002533477,,Management,Direction et encadrement
+2026-03-24,2026-02-05,NLD,13,1.9724936663047405,,Business and Financial Operations,"Gestion, finance et affaires"
+2026-03-24,2026-02-05,NLD,15,43.150560984437206,,Computer and Mathematical,Informatique et mathématiques
+2026-03-24,2026-02-05,NLD,17,0.8776692001447699,,Architecture and Engineering,Architecture et ingénierie
+2026-03-24,2026-02-05,NLD,19,3.402099167571479,,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2026-03-24,2026-02-05,NLD,21,3.890698516105681,,Community and Social Service,Action sociale
+2026-03-24,2026-02-05,NLD,25,11.219688744118706,,Educational Instruction and Library,Enseignement et documentation
+2026-03-24,2026-02-05,NLD,27,11.45494028230184,,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2026-03-24,2026-02-05,NLD,29,0.8686210640608033,,Healthcare Practitioners and Technical,Professions de santé
+2026-03-24,2026-02-05,NLD,33,0.5066956207021351,,Protective Service,Sécurité et protection
+2026-03-24,2026-02-05,NLD,35,0.3800217155266014,,Food Preparation and Serving Related,Restauration
 2026-03-24,2026-02-05,NLD,39,1.1581614187477376,,Personal Care and Service,Services à la personne
-2026-03-24,2026-02-05,NLD,41,4.107853782120883,,Sales and Related,Vente
-2026-03-24,2026-02-05,NLD,43,12.432138979370249,,Office and Administrative Support,Soutien administratif
-2026-03-24,2026-02-05,NLD,45,0.9952949692363372,,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
-2026-03-24,2026-02-05,NLD,49,0.7238508867173361,,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2026-03-24,2026-02-05,NLD,41,4.107853782120882,,Sales and Related,Vente
+2026-03-24,2026-02-05,NLD,43,12.432138979370247,,Office and Administrative Support,Soutien administratif
+2026-03-24,2026-02-05,NLD,45,0.9952949692363371,,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2026-03-24,2026-02-05,NLD,49,0.723850886717336,,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
 2026-03-24,2026-02-05,USA,11,4.583777021927692,,Management,Direction et encadrement
 2026-03-24,2026-02-05,USA,13,5.770364014184252,,Business and Financial Operations,"Gestion, finance et affaires"
-2026-03-24,2026-02-05,USA,15,26.470892305147483,,Computer and Mathematical,Informatique et mathématiques
+2026-03-24,2026-02-05,USA,15,26.470892305147476,,Computer and Mathematical,Informatique et mathématiques
 2026-03-24,2026-02-05,USA,17,1.7588160492933722,,Architecture and Engineering,Architecture et ingénierie
 2026-03-24,2026-02-05,USA,19,7.562521322898467,,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
 2026-03-24,2026-02-05,USA,21,4.493574699928666,,Community and Social Service,Action sociale
@@ -532,34 +532,34 @@ release,date_start,geo_id,soc_majeur,part_derivee,part_publiee,libelle_en,libell
 2026-03-24,2026-02-05,USA,49,0.5923888883145346,,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
 2026-03-24,2026-02-05,USA,51,0.5024450256908618,,Production,Production industrielle
 2026-03-24,2026-02-05,USA,53,0.23933338157908338,,Transportation and Material Moving,Transport et manutention
-2026-06-26,2026-05-01,BEL,11,3.876394221978424,5.09,Management,Direction et encadrement
-2026-06-26,2026-05-01,BEL,13,1.517644907661364,5.14,Business and Financial Operations,"Gestion, finance et affaires"
-2026-06-26,2026-05-01,BEL,15,24.940574145181934,21.19,Computer and Mathematical,Informatique et mathématiques
-2026-06-26,2026-05-01,BEL,17,2.3221795575059425,3.44,Architecture and Engineering,Architecture et ingénierie
-2026-06-26,2026-05-01,BEL,19,2.175900530261474,4.4,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
-2026-06-26,2026-05-01,BEL,21,2.8890107880782594,2.41,Community and Social Service,Action sociale
-2026-06-26,2026-05-01,BEL,23,0.9873834339001646,0.89,Legal,Droit
-2026-06-26,2026-05-01,BEL,25,21.4664472481258,15.84,Educational Instruction and Library,Enseignement et documentation
+2026-06-26,2026-05-01,BEL,11,3.8763942219784258,5.09,Management,Direction et encadrement
+2026-06-26,2026-05-01,BEL,13,1.5176449076613643,5.14,Business and Financial Operations,"Gestion, finance et affaires"
+2026-06-26,2026-05-01,BEL,15,24.940574145181944,21.19,Computer and Mathematical,Informatique et mathématiques
+2026-06-26,2026-05-01,BEL,17,2.322179557505943,3.44,Architecture and Engineering,Architecture et ingénierie
+2026-06-26,2026-05-01,BEL,19,2.1759005302614742,4.4,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2026-06-26,2026-05-01,BEL,21,2.88901078807826,2.41,Community and Social Service,Action sociale
+2026-06-26,2026-05-01,BEL,23,0.9873834339001647,0.89,Legal,Droit
+2026-06-26,2026-05-01,BEL,25,21.466447248125803,15.84,Educational Instruction and Library,Enseignement et documentation
 2026-06-26,2026-05-01,BEL,27,11.13549094898519,14.58,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
-2026-06-26,2026-05-01,BEL,29,2.0296215030170046,3.76,Healthcare Practitioners and Technical,Professions de santé
-2026-06-26,2026-05-01,BEL,31,0.3839824465167307,0.72,Healthcare Support,Aide aux soins
-2026-06-26,2026-05-01,BEL,33,0.10970927043335162,0.3,Protective Service,Sécurité et protection
+2026-06-26,2026-05-01,BEL,29,2.0296215030170055,3.76,Healthcare Practitioners and Technical,Professions de santé
+2026-06-26,2026-05-01,BEL,31,0.38398244651673075,0.72,Healthcare Support,Aide aux soins
+2026-06-26,2026-05-01,BEL,33,0.10970927043335164,0.3,Protective Service,Sécurité et protection
 2026-06-26,2026-05-01,BEL,35,0.18284878405558605,0.51,Food Preparation and Serving Related,Restauration
 2026-06-26,2026-05-01,BEL,37,0.14627902724446884,,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
 2026-06-26,2026-05-01,BEL,39,1.1336624611446338,1.07,Personal Care and Service,Services à la personne
-2026-06-26,2026-05-01,BEL,41,13.841652953007863,9.76,Sales and Related,Vente
+2026-06-26,2026-05-01,BEL,41,13.841652953007864,9.76,Sales and Related,Vente
 2026-06-26,2026-05-01,BEL,43,9.965258731029438,7.55,Office and Administrative Support,Soutien administratif
-2026-06-26,2026-05-01,BEL,49,0.4205522033278479,0.58,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2026-06-26,2026-05-01,BEL,49,0.42055220332784793,0.58,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
 2026-06-26,2026-05-01,BEL,51,0.2559882976778205,1.06,Production,Production industrielle
-2026-06-26,2026-05-01,BEL,53,0.21941854086670323,0.33,Transportation and Material Moving,Transport et manutention
+2026-06-26,2026-05-01,BEL,53,0.2194185408667033,0.33,Transportation and Material Moving,Transport et manutention
 2026-06-26,2026-05-01,DEU,11,5.319465081723626,5.32,Management,Direction et encadrement
-2026-06-26,2026-05-01,DEU,13,3.462109955423478,5.65,Business and Financial Operations,"Gestion, finance et affaires"
+2026-06-26,2026-05-01,DEU,13,3.462109955423477,5.65,Business and Financial Operations,"Gestion, finance et affaires"
 2026-06-26,2026-05-01,DEU,15,24.606240713224363,22.92,Computer and Mathematical,Informatique et mathématiques
 2026-06-26,2026-05-01,DEU,17,2.8528974739970288,3.68,Architecture and Engineering,Architecture et ingénierie
-2026-06-26,2026-05-01,DEU,19,3.23922734026746,4.56,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2026-06-26,2026-05-01,DEU,19,3.2392273402674596,4.56,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
 2026-06-26,2026-05-01,DEU,21,3.0757800891530467,2.77,Community and Social Service,Action sociale
-2026-06-26,2026-05-01,DEU,23,0.9212481426448738,1.01,Legal,Droit
-2026-06-26,2026-05-01,DEU,25,15.988112927191676,12.87,Educational Instruction and Library,Enseignement et documentation
+2026-06-26,2026-05-01,DEU,23,0.921248142644874,1.01,Legal,Droit
+2026-06-26,2026-05-01,DEU,25,15.988112927191683,12.87,Educational Instruction and Library,Enseignement et documentation
 2026-06-26,2026-05-01,DEU,27,9.806835066864785,12.5,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
 2026-06-26,2026-05-01,DEU,29,2.4517087667161963,3.81,Healthcare Practitioners and Technical,Professions de santé
 2026-06-26,2026-05-01,DEU,31,0.2674591381872214,0.68,Healthcare Support,Aide aux soins
@@ -567,27 +567,27 @@ release,date_start,geo_id,soc_majeur,part_derivee,part_publiee,libelle_en,libell
 2026-06-26,2026-05-01,DEU,37,0.13372956909361072,0.13,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
 2026-06-26,2026-05-01,DEU,39,1.4264487369985144,1.19,Personal Care and Service,Services à la personne
 2026-06-26,2026-05-01,DEU,41,14.754829123328381,10.77,Sales and Related,Vente
-2026-06-26,2026-05-01,DEU,43,9.063893016344723,7.46,Office and Administrative Support,Soutien administratif
+2026-06-26,2026-05-01,DEU,43,9.063893016344725,7.46,Office and Administrative Support,Soutien administratif
 2026-06-26,2026-05-01,DEU,45,0.04457652303120357,0.05,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
 2026-06-26,2026-05-01,DEU,47,0.02971768202080238,0.1,Construction and Extraction,Construction et extraction
 2026-06-26,2026-05-01,DEU,49,0.7578008915304607,0.77,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
-2026-06-26,2026-05-01,DEU,51,1.2630014858841012,1.16,Production,Production industrielle
+2026-06-26,2026-05-01,DEU,51,1.263001485884101,1.16,Production,Production industrielle
 2026-06-26,2026-05-01,DEU,53,0.2823179791976226,0.39,Transportation and Material Moving,Transport et manutention
 2026-06-26,2026-05-01,ESP,11,5.381236272356449,5.91,Management,Direction et encadrement
 2026-06-26,2026-05-01,ESP,13,3.577031691245686,6.19,Business and Financial Operations,"Gestion, finance et affaires"
 2026-06-26,2026-05-01,ESP,15,25.85503608409162,23.92,Computer and Mathematical,Informatique et mathématiques
-2026-06-26,2026-05-01,ESP,17,2.6827737684342643,3.67,Architecture and Engineering,Architecture et ingénierie
-2026-06-26,2026-05-01,ESP,19,2.7298399748980233,3.99,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
-2026-06-26,2026-05-01,ESP,21,2.2905553812362727,2.07,Community and Social Service,Action sociale
+2026-06-26,2026-05-01,ESP,17,2.6827737684342647,3.67,Architecture and Engineering,Architecture et ingénierie
+2026-06-26,2026-05-01,ESP,19,2.729839974898023,3.99,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2026-06-26,2026-05-01,ESP,21,2.2905553812362722,2.07,Community and Social Service,Action sociale
 2026-06-26,2026-05-01,ESP,23,1.098211484154377,1.22,Legal,Droit
 2026-06-26,2026-05-01,ESP,25,17.304675243175396,13.83,Educational Instruction and Library,Enseignement et documentation
-2026-06-26,2026-05-01,ESP,27,10.291810480075304,12.75,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
-2026-06-26,2026-05-01,ESP,29,2.165045497332915,3.36,Healthcare Practitioners and Technical,Professions de santé
+2026-06-26,2026-05-01,ESP,27,10.291810480075306,12.75,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2026-06-26,2026-05-01,ESP,29,2.1650454973329154,3.36,Healthcare Practitioners and Technical,Professions de santé
 2026-06-26,2026-05-01,ESP,31,0.14119861939127706,0.62,Healthcare Support,Aide aux soins
 2026-06-26,2026-05-01,ESP,35,0.23533103231879512,0.56,Food Preparation and Serving Related,Restauration
 2026-06-26,2026-05-01,ESP,37,0.10982114841543772,0.1,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
-2026-06-26,2026-05-01,ESP,39,1.4119861939127705,1.17,Personal Care and Service,Services à la personne
-2026-06-26,2026-05-01,ESP,41,12.833385629118295,9.14,Sales and Related,Vente
+2026-06-26,2026-05-01,ESP,39,1.4119861939127707,1.17,Personal Care and Service,Services à la personne
+2026-06-26,2026-05-01,ESP,41,12.833385629118293,9.14,Sales and Related,Vente
 2026-06-26,2026-05-01,ESP,43,9.978035770316914,8.01,Office and Administrative Support,Soutien administratif
 2026-06-26,2026-05-01,ESP,47,0.031377470975839344,0.08,Construction and Extraction,Construction et extraction
 2026-06-26,2026-05-01,ESP,49,0.6118606840288673,0.61,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
@@ -595,9 +595,9 @@ release,date_start,geo_id,soc_majeur,part_derivee,part_publiee,libelle_en,libell
 2026-06-26,2026-05-01,ESP,53,0.20395356134295575,0.33,Transportation and Material Moving,Transport et manutention
 2026-06-26,2026-05-01,FRA,11,5.30565167243368,5.46,Management,Direction et encadrement
 2026-06-26,2026-05-01,FRA,13,6.040945790080739,5.98,Business and Financial Operations,"Gestion, finance et affaires"
-2026-06-26,2026-05-01,FRA,15,20.905420991926178,20.5,Computer and Mathematical,Informatique et mathématiques
-2026-06-26,2026-05-01,FRA,17,2.205882352941177,2.97,Architecture and Engineering,Architecture et ingénierie
-2026-06-26,2026-05-01,FRA,19,2.5086505190311423,3.82,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2026-06-26,2026-05-01,FRA,15,20.905420991926174,20.5,Computer and Mathematical,Informatique et mathématiques
+2026-06-26,2026-05-01,FRA,17,2.205882352941176,2.97,Architecture and Engineering,Architecture et ingénierie
+2026-06-26,2026-05-01,FRA,19,2.5086505190311428,3.82,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
 2026-06-26,2026-05-01,FRA,21,2.739331026528258,2.7,Community and Social Service,Action sociale
 2026-06-26,2026-05-01,FRA,23,1.0380622837370241,1.08,Legal,Droit
 2026-06-26,2026-05-01,FRA,25,17.228950403690888,14.59,Educational Instruction and Library,Enseignement et documentation
@@ -606,58 +606,58 @@ release,date_start,geo_id,soc_majeur,part_derivee,part_publiee,libelle_en,libell
 2026-06-26,2026-05-01,FRA,31,0.18742791234140715,0.77,Healthcare Support,Aide aux soins
 2026-06-26,2026-05-01,FRA,35,0.34602076124567477,0.63,Food Preparation and Serving Related,Restauration
 2026-06-26,2026-05-01,FRA,37,0.12975778546712805,0.13,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
-2026-06-26,2026-05-01,FRA,39,1.4273356401384085,1.23,Personal Care and Service,Services à la personne
+2026-06-26,2026-05-01,FRA,39,1.4273356401384087,1.23,Personal Care and Service,Services à la personne
 2026-06-26,2026-05-01,FRA,41,14.677047289504037,11,Sales and Related,Vente
-2026-06-26,2026-05-01,FRA,43,10.149942329873127,7.69,Office and Administrative Support,Soutien administratif
+2026-06-26,2026-05-01,FRA,43,10.149942329873124,7.69,Office and Administrative Support,Soutien administratif
 2026-06-26,2026-05-01,FRA,45,0.043252595155709346,0.04,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
 2026-06-26,2026-05-01,FRA,47,0.05767012687427912,0.12,Construction and Extraction,Construction et extraction
 2026-06-26,2026-05-01,FRA,49,0.5190311418685121,0.56,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
-2026-06-26,2026-05-01,FRA,51,1.0813148788927336,1.04,Production,Production industrielle
+2026-06-26,2026-05-01,FRA,51,1.0813148788927338,1.04,Production,Production industrielle
 2026-06-26,2026-05-01,FRA,53,0.25951557093425603,0.34,Transportation and Material Moving,Transport et manutention
-2026-06-26,2026-05-01,GBR,11,5.992399883075122,5.94,Management,Direction et encadrement
-2026-06-26,2026-05-01,GBR,13,5.963168664133293,5.8,Business and Financial Operations,"Gestion, finance et affaires"
+2026-06-26,2026-05-01,GBR,11,5.992399883075125,5.94,Management,Direction et encadrement
+2026-06-26,2026-05-01,GBR,13,5.963168664133295,5.8,Business and Financial Operations,"Gestion, finance et affaires"
 2026-06-26,2026-05-01,GBR,15,21.821104940075994,20.21,Computer and Mathematical,Informatique et mathématiques
-2026-06-26,2026-05-01,GBR,17,2.367728734288219,2.97,Architecture and Engineering,Architecture et ingénierie
+2026-06-26,2026-05-01,GBR,17,2.3677287342882196,2.97,Architecture and Engineering,Architecture et ingénierie
 2026-06-26,2026-05-01,GBR,19,3.873136509792458,4.44,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
-2026-06-26,2026-05-01,GBR,21,3.3762057877813505,3.2,Community and Social Service,Action sociale
-2026-06-26,2026-05-01,GBR,23,1.0961707103186198,1.1,Legal,Droit
+2026-06-26,2026-05-01,GBR,21,3.3762057877813514,3.2,Community and Social Service,Action sociale
+2026-06-26,2026-05-01,GBR,23,1.0961707103186202,1.1,Legal,Droit
 2026-06-26,2026-05-01,GBR,25,17.962584039754457,15.26,Educational Instruction and Library,Enseignement et documentation
 2026-06-26,2026-05-01,GBR,27,9.558608593978366,13.53,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
-2026-06-26,2026-05-01,GBR,29,2.2508038585208996,3.94,Healthcare Practitioners and Technical,Professions de santé
-2026-06-26,2026-05-01,GBR,31,0.2046185325928091,0.61,Healthcare Support,Aide aux soins
-2026-06-26,2026-05-01,GBR,33,0.08769365682548962,0.35,Protective Service,Sécurité et protection
+2026-06-26,2026-05-01,GBR,29,2.2508038585209005,3.94,Healthcare Practitioners and Technical,Professions de santé
+2026-06-26,2026-05-01,GBR,31,0.20461853259280915,0.61,Healthcare Support,Aide aux soins
+2026-06-26,2026-05-01,GBR,33,0.08769365682548963,0.35,Protective Service,Sécurité et protection
 2026-06-26,2026-05-01,GBR,35,0.3069277988892137,0.58,Food Preparation and Serving Related,Restauration
-2026-06-26,2026-05-01,GBR,37,0.14615609470914934,0.15,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
-2026-06-26,2026-05-01,GBR,39,1.4761765565624088,1.15,Personal Care and Service,Services à la personne
-2026-06-26,2026-05-01,GBR,41,13.300204618532591,9.94,Sales and Related,Vente
-2026-06-26,2026-05-01,GBR,43,8.184741303712363,7.27,Office and Administrative Support,Soutien administratif
-2026-06-26,2026-05-01,GBR,45,0.014615609470914934,0.04,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
-2026-06-26,2026-05-01,GBR,47,0.0438468284127448,0.1,Construction and Extraction,Construction et extraction
+2026-06-26,2026-05-01,GBR,37,0.14615609470914936,0.15,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
+2026-06-26,2026-05-01,GBR,39,1.4761765565624085,1.15,Personal Care and Service,Services à la personne
+2026-06-26,2026-05-01,GBR,41,13.300204618532593,9.94,Sales and Related,Vente
+2026-06-26,2026-05-01,GBR,43,8.184741303712364,7.27,Office and Administrative Support,Soutien administratif
+2026-06-26,2026-05-01,GBR,45,0.014615609470914937,0.04,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2026-06-26,2026-05-01,GBR,47,0.04384682841274481,0.1,Construction and Extraction,Construction et extraction
 2026-06-26,2026-05-01,GBR,49,0.6138555977784274,0.62,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
-2026-06-26,2026-05-01,GBR,51,0.9938614440222155,1.02,Production,Production industrielle
-2026-06-26,2026-05-01,GBR,53,0.36539023677287336,0.43,Transportation and Material Moving,Transport et manutention
-2026-06-26,2026-05-01,GLOBAL,11,6.002101392172313,5.9,Management,Direction et encadrement
-2026-06-26,2026-05-01,GLOBAL,13,5.883898082479643,5.77,Business and Financial Operations,"Gestion, finance et affaires"
-2026-06-26,2026-05-01,GLOBAL,15,23.87050170738114,23.8,Computer and Mathematical,Informatique et mathématiques
-2026-06-26,2026-05-01,GLOBAL,17,4.025479380089309,3.56,Architecture and Engineering,Architecture et ingénierie
-2026-06-26,2026-05-01,GLOBAL,19,3.992645127396901,4.51,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
-2026-06-26,2026-05-01,GLOBAL,21,2.731809824008405,2.57,Community and Social Service,Action sociale
-2026-06-26,2026-05-01,GLOBAL,23,0.8536905700026266,1.02,Legal,Droit
-2026-06-26,2026-05-01,GLOBAL,25,13.724717625426843,12.79,Educational Instruction and Library,Enseignement et documentation
+2026-06-26,2026-05-01,GBR,51,0.9938614440222157,1.02,Production,Production industrielle
+2026-06-26,2026-05-01,GBR,53,0.3653902367728734,0.43,Transportation and Material Moving,Transport et manutention
+2026-06-26,2026-05-01,GLOBAL,11,6.002101392172314,5.9,Management,Direction et encadrement
+2026-06-26,2026-05-01,GLOBAL,13,5.883898082479636,5.77,Business and Financial Operations,"Gestion, finance et affaires"
+2026-06-26,2026-05-01,GLOBAL,15,23.870501707381145,23.8,Computer and Mathematical,Informatique et mathématiques
+2026-06-26,2026-05-01,GLOBAL,17,4.02547938008931,3.56,Architecture and Engineering,Architecture et ingénierie
+2026-06-26,2026-05-01,GLOBAL,19,3.992645127396902,4.51,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2026-06-26,2026-05-01,GLOBAL,21,2.7318098240084057,2.57,Community and Social Service,Action sociale
+2026-06-26,2026-05-01,GLOBAL,23,0.8536905700026269,1.02,Legal,Droit
+2026-06-26,2026-05-01,GLOBAL,25,13.724717625426845,12.79,Educational Instruction and Library,Enseignement et documentation
 2026-06-26,2026-05-01,GLOBAL,27,11.597058050958758,13.55,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
-2026-06-26,2026-05-01,GLOBAL,29,1.8781192540057787,3.31,Healthcare Practitioners and Technical,Professions de santé
-2026-06-26,2026-05-01,GLOBAL,31,0.21013921723141576,0.62,Healthcare Support,Aide aux soins
+2026-06-26,2026-05-01,GLOBAL,29,1.8781192540057792,3.31,Healthcare Practitioners and Technical,Professions de santé
+2026-06-26,2026-05-01,GLOBAL,31,0.21013921723141582,0.62,Healthcare Support,Aide aux soins
 2026-06-26,2026-05-01,GLOBAL,33,0.1182033096926714,0.33,Protective Service,Sécurité et protection
-2026-06-26,2026-05-01,GLOBAL,35,0.2626740215392697,0.48,Food Preparation and Serving Related,Restauration
-2026-06-26,2026-05-01,GLOBAL,37,0.14447071184659832,0.13,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
-2026-06-26,2026-05-01,GLOBAL,39,1.4841082216968742,1.23,Personal Care and Service,Services à la personne
-2026-06-26,2026-05-01,GLOBAL,41,11.294982926188599,9.14,Sales and Related,Vente
-2026-06-26,2026-05-01,GLOBAL,43,9.889676910953506,7.89,Office and Administrative Support,Soutien administratif
-2026-06-26,2026-05-01,GLOBAL,45,0.05253480430785394,0.04,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
-2026-06-26,2026-05-01,GLOBAL,47,0.09193590753874441,0.1,Construction and Extraction,Construction et extraction
-2026-06-26,2026-05-01,GLOBAL,49,0.6172839506172838,0.62,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
-2026-06-26,2026-05-01,GLOBAL,51,1.0375623850801154,1.04,Production,Production industrielle
-2026-06-26,2026-05-01,GLOBAL,53,0.23640661938534274,0.34,Transportation and Material Moving,Transport et manutention
+2026-06-26,2026-05-01,GLOBAL,35,0.2626740215392698,0.48,Food Preparation and Serving Related,Restauration
+2026-06-26,2026-05-01,GLOBAL,37,0.14447071184659838,0.13,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
+2026-06-26,2026-05-01,GLOBAL,39,1.4841082216968744,1.23,Personal Care and Service,Services à la personne
+2026-06-26,2026-05-01,GLOBAL,41,11.294982926188595,9.14,Sales and Related,Vente
+2026-06-26,2026-05-01,GLOBAL,43,9.889676910953504,7.89,Office and Administrative Support,Soutien administratif
+2026-06-26,2026-05-01,GLOBAL,45,0.052534804307853955,0.04,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
+2026-06-26,2026-05-01,GLOBAL,47,0.09193590753874444,0.1,Construction and Extraction,Construction et extraction
+2026-06-26,2026-05-01,GLOBAL,49,0.617283950617284,0.62,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
+2026-06-26,2026-05-01,GLOBAL,51,1.0375623850801157,1.04,Production,Production industrielle
+2026-06-26,2026-05-01,GLOBAL,53,0.23640661938534283,0.34,Transportation and Material Moving,Transport et manutention
 2026-06-26,2026-05-01,ITA,11,4.361873990306947,5.22,Management,Direction et encadrement
 2026-06-26,2026-05-01,ITA,13,2.9563812600969306,5.56,Business and Financial Operations,"Gestion, finance et affaires"
 2026-06-26,2026-05-01,ITA,15,25.702746365105007,22.99,Computer and Mathematical,Informatique et mathématiques
@@ -665,7 +665,7 @@ release,date_start,geo_id,soc_majeur,part_derivee,part_publiee,libelle_en,libell
 2026-06-26,2026-05-01,ITA,19,3.9095315024232633,4.36,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
 2026-06-26,2026-05-01,ITA,21,2.714054927302101,2.35,Community and Social Service,Action sociale
 2026-06-26,2026-05-01,ITA,23,0.6623586429725363,1.28,Legal,Droit
-2026-06-26,2026-05-01,ITA,25,17.059773828756054,13.14,Educational Instruction and Library,Enseignement et documentation
+2026-06-26,2026-05-01,ITA,25,17.059773828756057,13.14,Educational Instruction and Library,Enseignement et documentation
 2026-06-26,2026-05-01,ITA,27,11.8578352180937,14.6,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
 2026-06-26,2026-05-01,ITA,29,2.2940226171243943,3.76,Healthcare Practitioners and Technical,Professions de santé
 2026-06-26,2026-05-01,ITA,31,0.3392568659127626,0.75,Healthcare Support,Aide aux soins
@@ -678,7 +678,7 @@ release,date_start,geo_id,soc_majeur,part_derivee,part_publiee,libelle_en,libell
 2026-06-26,2026-05-01,ITA,49,0.4361873990306947,0.53,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
 2026-06-26,2026-05-01,ITA,51,1.163166397415186,1.06,Production,Production industrielle
 2026-06-26,2026-05-01,ITA,53,0.16155088852988692,0.31,Transportation and Material Moving,Transport et manutention
-2026-06-26,2026-05-01,NLD,11,4.1250198318261155,5.62,Management,Direction et encadrement
+2026-06-26,2026-05-01,NLD,11,4.125019831826115,5.62,Management,Direction et encadrement
 2026-06-26,2026-05-01,NLD,13,2.6495319689036965,5.71,Business and Financial Operations,"Gestion, finance et affaires"
 2026-06-26,2026-05-01,NLD,15,25.353006504838962,22.93,Computer and Mathematical,Informatique et mathématiques
 2026-06-26,2026-05-01,NLD,17,2.125971759479613,3.48,Architecture and Engineering,Architecture et ingénierie
@@ -686,37 +686,37 @@ release,date_start,geo_id,soc_majeur,part_derivee,part_publiee,libelle_en,libell
 2026-06-26,2026-05-01,NLD,21,3.0303030303030303,2.71,Community and Social Service,Action sociale
 2026-06-26,2026-05-01,NLD,23,0.8567348881485007,0.79,Legal,Droit
 2026-06-26,2026-05-01,NLD,25,15.516420752022844,11.74,Educational Instruction and Library,Enseignement et documentation
-2026-06-26,2026-05-01,NLD,27,12.565445026178008,13.74,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
+2026-06-26,2026-05-01,NLD,27,12.565445026178011,13.74,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
 2026-06-26,2026-05-01,NLD,29,2.0466444550214185,3.72,Healthcare Practitioners and Technical,Professions de santé
 2026-06-26,2026-05-01,NLD,31,0.15865460891638902,0.67,Healthcare Support,Aide aux soins
 2026-06-26,2026-05-01,NLD,33,0.09519276534983341,0.33,Protective Service,Sécurité et protection
 2026-06-26,2026-05-01,NLD,35,0.20625099159130572,0.69,Food Preparation and Serving Related,Restauration
 2026-06-26,2026-05-01,NLD,37,0.15865460891638902,0.17,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
-2026-06-26,2026-05-01,NLD,39,1.1264477233063621,1.13,Personal Care and Service,Services à la personne
-2026-06-26,2026-05-01,NLD,41,15.881326352530541,11.09,Sales and Related,Vente
+2026-06-26,2026-05-01,NLD,39,1.1264477233063623,1.13,Personal Care and Service,Services à la personne
+2026-06-26,2026-05-01,NLD,41,15.881326352530543,11.09,Sales and Related,Vente
 2026-06-26,2026-05-01,NLD,43,9.487545613200064,7.55,Office and Administrative Support,Soutien administratif
 2026-06-26,2026-05-01,NLD,49,0.5870220529906394,0.71,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
-2026-06-26,2026-05-01,NLD,51,1.1740441059812787,1.11,Production,Production industrielle
+2026-06-26,2026-05-01,NLD,51,1.174044105981279,1.11,Production,Production industrielle
 2026-06-26,2026-05-01,NLD,53,0.17452006980802792,0.37,Transportation and Material Moving,Transport et manutention
-2026-06-26,2026-05-01,USA,11,5.534376232417511,5.85,Management,Direction et encadrement
-2026-06-26,2026-05-01,USA,13,6.507164453792558,6.27,Business and Financial Operations,"Gestion, finance et affaires"
+2026-06-26,2026-05-01,USA,11,5.534376232417512,5.85,Management,Direction et encadrement
+2026-06-26,2026-05-01,USA,13,6.5071644537925595,6.27,Business and Financial Operations,"Gestion, finance et affaires"
 2026-06-26,2026-05-01,USA,15,21.82200604706191,21.13,Computer and Mathematical,Informatique et mathématiques
-2026-06-26,2026-05-01,USA,17,2.4188247666622855,2.91,Architecture and Engineering,Architecture et ingénierie
-2026-06-26,2026-05-01,USA,19,4.022610753253583,4.23,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
+2026-06-26,2026-05-01,USA,17,2.418824766662285,2.91,Architecture and Engineering,Architecture et ingénierie
+2026-06-26,2026-05-01,USA,19,4.022610753253582,4.23,"Life, Physical, and Social Science","Sciences (vie, physique, sociales)"
 2026-06-26,2026-05-01,USA,21,3.220717759957934,3.2,Community and Social Service,Action sociale
-2026-06-26,2026-05-01,USA,23,0.9464966478243726,1.04,Legal,Droit
+2026-06-26,2026-05-01,USA,23,0.9464966478243724,1.04,Legal,Droit
 2026-06-26,2026-05-01,USA,25,13.842513474431446,11.92,Educational Instruction and Library,Enseignement et documentation
 2026-06-26,2026-05-01,USA,27,10.595504140922834,12.91,"Arts, Design, Entertainment, Sports, and Media","Arts, design, médias et sport"
-2026-06-26,2026-05-01,USA,29,2.7343236492704097,4.33,Healthcare Practitioners and Technical,Professions de santé
+2026-06-26,2026-05-01,USA,29,2.7343236492704093,4.33,Healthcare Practitioners and Technical,Professions de santé
 2026-06-26,2026-05-01,USA,31,0.2366241619560931,0.68,Healthcare Support,Aide aux soins
 2026-06-26,2026-05-01,USA,33,0.13145786775338505,0.41,Protective Service,Sécurité et protection
 2026-06-26,2026-05-01,USA,35,0.34179045615880116,0.64,Food Preparation and Serving Related,Restauration
 2026-06-26,2026-05-01,USA,37,0.17089522807940058,0.17,Building and Grounds Cleaning and Maintenance,Entretien des locaux et espaces
-2026-06-26,2026-05-01,USA,39,1.5380570527146054,1.27,Personal Care and Service,Services à la personne
-2026-06-26,2026-05-01,USA,41,14.328907585118971,11.6,Sales and Related,Vente
-2026-06-26,2026-05-01,USA,43,9.228342316287632,7.64,Office and Administrative Support,Soutien administratif
+2026-06-26,2026-05-01,USA,39,1.5380570527146051,1.27,Personal Care and Service,Services à la personne
+2026-06-26,2026-05-01,USA,41,14.328907585118968,11.6,Sales and Related,Vente
+2026-06-26,2026-05-01,USA,43,9.22834231628763,7.64,Office and Administrative Support,Soutien administratif
 2026-06-26,2026-05-01,USA,45,0.03943736032601552,0.05,"Farming, Fishing, and Forestry","Agriculture, pêche et forêt"
-2026-06-26,2026-05-01,USA,47,0.10516629420270804,0.14,Construction and Extraction,Construction et extraction
+2026-06-26,2026-05-01,USA,47,0.10516629420270802,0.14,Construction and Extraction,Construction et extraction
 2026-06-26,2026-05-01,USA,49,0.9070592874983568,0.81,"Installation, Maintenance, and Repair","Installation, maintenance, réparation"
 2026-06-26,2026-05-01,USA,51,1.0385171552517418,1.08,Production,Production industrielle
 2026-06-26,2026-05-01,USA,53,0.2892073090574471,0.39,Transportation and Material Moving,Transport et manutention
