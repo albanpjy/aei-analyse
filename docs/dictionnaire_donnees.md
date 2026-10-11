@@ -80,7 +80,7 @@ puis mois civils (2026-06-26) ; périmètre produit élargi (Free/Pro → Free/P
 Cowork) ; seuils de publication et arrondis différents ; classifieurs mis à jour entre
 rapports.
 
-*Partie générée automatiquement par `ecrire_dictionnaire()` le 2026-10-10 (mode reel).*
+*Partie générée automatiquement par `ecrire_dictionnaire()` le 2026-10-11 (mode reel).*
 
 ## Colonnes de la table harmonisée (`data/parquet/usage`)
 
