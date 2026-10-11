@@ -24,7 +24,7 @@ tar_source("R")
 theme_set(theme_aei())
 options(reactable.language = langue_reactable())
 tar_load(c(t1_usage_pays, t2_global, t2_pays, t3_exposition, t4_typologie))
-# Dépendance explicite : les Parquet lus par DuckDB-WASM doivent être à jour.
+# Dépendance explicite : les tables embarquées viennent des Parquet publiés.
 fichiers_publies <- tar_read(donnees_publiees)
 pays8 <- names(pays_comparaison())
 iso <- requete(tar_read(base_duckdb), "iso_pays")
@@ -35,6 +35,21 @@ auto_glob <- t2_global |> filter(source == "claude_ai") |> slice_max(release, n 
 # Palette transmise au JavaScript : un pays garde sa couleur partout.
 ojs_define(palette = as.list(palette_pays()), noms_pays = as.list(pays_comparaison()),
            mode_donnees = mode_execution())
+# Copie allégée des fichiers publiés, embarquée dans la page. DuckDB-WASM la
+# charge par son lecteur JSON intégré : depuis la version 1.30, lire du Parquet
+# exige de télécharger une extension (extensions.duckdb.org), point de panne de
+# plus sur mobile. Si DuckDB-WASM ne démarre pas, l'onglet « Pays » calcule les
+# mêmes agrégats en JavaScript pur à partir de ces mêmes tables.
+lire_publie <- function(nom) arrow::read_parquet(fichiers_publies[basename(fichiers_publies) == nom])
+ojs_define(
+  repli_usage = lire_publie("usage_pays.parquet") |> select(release, geo_id, aui, origine_aui),
+  repli_auto = lire_publie("automatisation.parquet") |>
+    filter(source == "claude_ai", geo_level == "country") |>
+    select(release, source, geo_level, geo_id, automatisation_pct),
+  repli_taches = lire_publie("taches.parquet") |>
+    slice_max(part_pct, n = 15, with_ties = FALSE, by = c(release, geo_id)),
+  repli_pays = lire_publie("pays.parquet") |> select(iso_alpha_3, country_name)
+)
 ```
 
 # Vue d'ensemble
@@ -108,50 +123,149 @@ reactable::reactable(
 
 ```{ojs}
 //| echo: false
+//| output: false
+// Tables embarquées (ojs_define transmet des colonnes : transpose() -> lignes)
+r_usage = transpose(repli_usage)
+r_auto = transpose(repli_auto)
+r_taches = transpose(repli_taches)
+r_pays = transpose(repli_pays)
+r_noms = new Map(r_pays.map(d => [d.iso_alpha_3, d.country_name]))
+// Moteur de calcul. On charge nous-mêmes une version récente de DuckDB-WASM
+// (celle embarquée par Quarto, 1.24, date de 2023) et on y insère les tables
+// embarquées par son lecteur JSON intégré (aucune extension à télécharger).
+// En cas d'échec ou de délai dépassé (navigateur mobile, CDN bloqué) : repli
+// en JavaScript pur sur les mêmes tables.
+moteur = {
+  const tables = {usage: r_usage, automatisation: r_auto, taches: r_taches, pays: r_pays};
+  const demarrer = async () => {
+    const duckdb = await import("https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.32.0/+esm");
+    const bundle = await duckdb.selectBundle(duckdb.getJsDelivrBundles());
+    const url_worker = URL.createObjectURL(
+      new Blob([`importScripts("${bundle.mainWorker}");`], {type: "text/javascript"}));
+    const base = new duckdb.AsyncDuckDB(new duckdb.VoidLogger(), new Worker(url_worker));
+    await base.instantiate(bundle.mainModule, bundle.pthreadWorker);
+    URL.revokeObjectURL(url_worker);
+    const conn = await base.connect();
+    for (const [nom, lignes] of Object.entries(tables)) {
+      // transpose() rend les valeurs manquantes en undefined : on les garde en null
+      await base.registerFileText(`${nom}.json`, JSON.stringify(lignes, (k, v) => v === undefined ? null : v));
+      await conn.insertJSONFromPath(`${nom}.json`, {name: nom});
+      // Le lecteur JSON devine un type date pour « release » (2026-06-26) :
+      // on le remet en texte, comme dans les fichiers publiés.
+      if ("release" in (lignes[0] ?? {})) {
+        await conn.query(`ALTER TABLE ${nom} ALTER release TYPE VARCHAR
+          USING CAST(CAST(release AS DATE) AS VARCHAR)`);
+      }
+    }
+    // Arrow -> objets JS ; les entiers 64 bits (BigInt) deviennent des Number
+    const en_objets = (t) => t.toArray().map(r => {
+      const o = r.toJSON();
+      for (const k in o) if (typeof o[k] === "bigint") o[k] = Number(o[k]);
+      return o;
+    });
+    return {
+      query: async (sql, params = []) => {
+        if (!params.length) return en_objets(await conn.query(sql));
+        const st = await conn.prepare(sql);
+        try { return en_objets(await st.query(...params)); } finally { await st.close(); }
+      }
+    };
+  };
+  const delai = (ms) => new Promise((_, rejeter) =>
+    setTimeout(() => rejeter(new Error(`démarrage de plus de ${ms / 1000} s`)), ms));
+  try {
+    return {db: await Promise.race([demarrer(), delai(30000)]), nom: "DuckDB-WASM 1.32.0"};
+  } catch (e) {
+    return {db: null, nom: "JavaScript (repli)", erreur: String(e?.message ?? e)};
+  }
+}
 // Liste SQL des pays choisis. Les codes viennent de la liste proposée (valeurs
 // sûres) ; on évite de lier un tableau JS comme paramètre, mal pris en charge
 // par certaines versions de DuckDB-WASM.
 liste_sql = (codes) => codes.map(c => `'${String(c).replace(/'/g, "''")}'`).join(", ") || "''"
-// DuckDB-WASM : une base DuckDB complète, exécutée DANS le navigateur, qui lit
-// les fichiers Parquet publiés avec le site. Aucun serveur.
-db = DuckDBClient.of({
-  usage: FileAttachment("../donnees_publiees/usage_pays.parquet"),
-  automatisation: FileAttachment("../donnees_publiees/automatisation.parquet"),
-  soc: FileAttachment("../donnees_publiees/soc_pays.parquet"),
-  taches: FileAttachment("../donnees_publiees/taches.parquet"),
-  pays: FileAttachment("../donnees_publiees/pays.parquet")
-})
-versions = (await db.query("SELECT DISTINCT release FROM usage ORDER BY release")).map(d => d.release)
-liste_pays = (await db.query(`SELECT DISTINCT u.geo_id, coalesce(p.country_name, u.geo_id) AS nom
-  FROM usage u LEFT JOIN pays p ON p.iso_alpha_3 = u.geo_id ORDER BY nom`))
+nombre_fr = (v, n) => v == null || Number.isNaN(v) ? "n.d." : v.toLocaleString("fr-FR", {maximumFractionDigits: n})
+moyenne = (valeurs) => { const v = valeurs.filter(x => x != null); return v.length ? d3.mean(v) : null; }
+versions = moteur.db
+  ? (await moteur.db.query("SELECT DISTINCT release FROM usage ORDER BY release")).map(d => d.release)
+  : [...new Set(r_usage.map(d => d.release))].sort()
+liste_pays = moteur.db
+  ? await moteur.db.query(`SELECT DISTINCT u.geo_id, coalesce(p.country_name, u.geo_id) AS nom
+      FROM usage u LEFT JOIN pays p ON p.iso_alpha_3 = u.geo_id ORDER BY nom`)
+  : [...new Set(r_usage.map(d => d.geo_id))].map(g => ({geo_id: g, nom: r_noms.get(g) ?? g}))
+      .sort((a, b) => a.nom.localeCompare(b.nom, "fr"))
+// Indice d'usage par habitant, version choisie
+aui = (moteur.db
+  ? await moteur.db.query(`SELECT u.geo_id, coalesce(p.country_name, u.geo_id) AS nom,
+      avg(u.aui) AS aui, any_value(u.origine_aui) AS origine
+      FROM usage u LEFT JOIN pays p ON p.iso_alpha_3 = u.geo_id
+      WHERE u.release = ? AND u.geo_id IN (${liste_sql(choix_pays)})
+      GROUP BY ALL ORDER BY aui DESC`, [version])
+  : d3.rollups(r_usage.filter(d => d.release === version && choix_pays.includes(d.geo_id)),
+      v => ({geo_id: v[0].geo_id, nom: r_noms.get(v[0].geo_id) ?? v[0].geo_id,
+             aui: moyenne(v.map(d => d.aui)), origine: v[0].origine_aui}),
+      d => d.geo_id).map(([, o]) => o)
+).filter(d => d.aui != null)
+// Part d'automatisation (Claude.ai), toutes versions
+auto = (moteur.db
+  ? await moteur.db.query(`SELECT a.release, a.geo_id, coalesce(p.country_name, a.geo_id) AS nom,
+      avg(a.automatisation_pct) AS auto
+      FROM automatisation a LEFT JOIN pays p ON p.iso_alpha_3 = a.geo_id
+      WHERE a.source = 'claude_ai' AND a.geo_level = 'country'
+        AND a.geo_id IN (${liste_sql(choix_pays)})
+      GROUP BY ALL ORDER BY a.release`)
+  : d3.rollups(r_auto.filter(d => choix_pays.includes(d.geo_id)),
+      v => ({release: v[0].release, geo_id: v[0].geo_id, nom: r_noms.get(v[0].geo_id) ?? v[0].geo_id,
+             auto: moyenne(v.map(d => d.automatisation_pct))}),
+      d => d.release, d => d.geo_id).flatMap(([, g]) => g.map(([, o]) => o))
+      .sort((a, b) => a.release.localeCompare(b.release))
+).filter(d => d.auto != null)
+// Tâches les plus fréquentes du premier pays choisi
+pays_taches = choix_pays[0] ?? "FRA"
+taches = moteur.db
+  ? await moteur.db.query(`SELECT tache, part_pct FROM taches
+      WHERE release = ? AND geo_id = ? ORDER BY part_pct DESC LIMIT 15`, [version, pays_taches])
+  : r_taches.filter(d => d.release === version && d.geo_id === pays_taches)
+      .sort((a, b) => b.part_pct - a.part_pct).slice(0, 15)
+// Les graphiques d'un onglet masqué sont dessinés avec une largeur nulle :
+// à l'affichage d'un onglet, on signale un redimensionnement pour que Quarto
+// recalcule la taille des cartes et redessine les graphiques.
+redessiner = {
+  const signaler = () => window.dispatchEvent(new Event("resize"));
+  for (const a of document.querySelectorAll('[data-bs-toggle="tab"]')) {
+    a.addEventListener("shown.bs.tab", signaler);
+  }
+  return signaler;
+}
+```
+
+```{ojs}
+//| echo: false
 viewof version = Inputs.select(versions, {label: "Version de l'index", value: versions[versions.length - 1]})
 viewof choix_pays = Inputs.select(new Map(liste_pays.map(d => [d.nom, d.geo_id])), {
-  label: "Pays (Ctrl/Cmd pour plusieurs)", multiple: true, size: 10,
+  label: "Pays (sélection multiple)", multiple: true, size: 10,
   value: ["FRA", "DEU", "GBR", "ESP", "ITA", "BEL", "NLD", "USA"]
+    .filter(g => liste_pays.some(d => d.geo_id === g))
 })
+html`<p class="small">Moteur de calcul : <strong>${moteur.nom}</strong>${moteur.erreur ? ` (DuckDB-WASM indisponible : ${moteur.erreur})` : ""}</p>`
 ```
 
 ::: {.callout-note appearance="minimal"}
-Filtres calculés dans votre navigateur par **DuckDB-WASM** sur les fichiers Parquet du
-site. Données d'**usage** de Claude, pas d'emploi.
+Filtres calculés dans votre navigateur par **DuckDB-WASM** (SQL) sur les tables du site,
+avec repli en JavaScript si DuckDB-WASM ne peut pas démarrer. Données d'**usage** de
+Claude, pas d'emploi.
 :::
 
 ## Row
 
 ```{ojs}
 //| title: "Indice d'usage par habitant (version choisie)"
-aui = db.query(`SELECT u.geo_id, coalesce(p.country_name, u.geo_id) AS nom, avg(u.aui) AS aui,
-  any_value(u.origine_aui) AS origine
-  FROM usage u LEFT JOIN pays p ON p.iso_alpha_3 = u.geo_id
-  WHERE u.release = ? AND u.geo_id IN (${liste_sql(choix_pays)})
-  GROUP BY ALL ORDER BY aui DESC`, [version])
 Plot.plot({
   marginLeft: 130, height: Math.max(220, 26 * aui.length), x: {label: "Indice (1 = proportionnel à la population 15–64 ans)", grid: true},
   y: {label: null},
   marks: [
     Plot.barX(aui, {y: "nom", x: "aui", sort: {y: "-x"}, rx: 2,
       fill: d => palette[d.geo_id] ?? "#c3c2b7", tip: true,
-      title: d => `${d.nom}\nIndice : ${d.aui.toLocaleString("fr-FR", {maximumFractionDigits: 2})} (${d.origine})`}),
+      title: d => `${d.nom}\nIndice : ${nombre_fr(d.aui, 2)} (${d.origine})`}),
     Plot.ruleX([1], {stroke: "#898781", strokeDasharray: "4,3"})
   ]
 })
@@ -159,20 +273,14 @@ Plot.plot({
 
 ```{ojs}
 //| title: "Part d'automatisation (Claude.ai), toutes versions"
-auto = db.query(`SELECT a.release, a.geo_id, coalesce(p.country_name, a.geo_id) AS nom,
-  avg(a.automatisation_pct) AS auto
-  FROM automatisation a LEFT JOIN pays p ON p.iso_alpha_3 = a.geo_id
-  WHERE a.source = 'claude_ai' AND a.geo_level = 'country'
-    AND a.geo_id IN (${liste_sql(choix_pays)})
-  GROUP BY ALL ORDER BY a.release`)
 Plot.plot({
-  height: 320, x: {type: "point", label: "Version"}, y: {label: "Automatisation (%)", grid: true},
+  height: 320, x: {type: "point", label: "Version", tickRotate: -30}, marginBottom: 55, y: {label: "Automatisation (%)", grid: true},
   color: {legend: true, domain: [...new Set(auto.map(d => d.nom))],
           range: [...new Set(auto.map(d => d.geo_id))].map(g => palette[g] ?? "#898781")},
   marks: [
     Plot.line(auto, {x: "release", y: "auto", stroke: "nom", strokeWidth: 2}),
     Plot.dot(auto, {x: "release", y: "auto", fill: "nom", r: 4, tip: true,
-      title: d => `${d.nom} — ${d.release}\n${d.auto.toLocaleString("fr-FR", {maximumFractionDigits: 1})} %`})
+      title: d => `${d.nom} — ${d.release}\n${nombre_fr(d.auto, 1)} %`})
   ]
 })
 ```
@@ -181,13 +289,11 @@ Plot.plot({
 
 ```{ojs}
 //| title: "Tâches les plus fréquentes (premier pays sélectionné, version choisie)"
-taches = db.query(`SELECT tache, part_pct FROM taches
-  WHERE release = ? AND geo_id = ? ORDER BY part_pct DESC LIMIT 15`, [version, choix_pays[0] ?? "FRA"])
 Inputs.table(taches, {
   columns: ["tache", "part_pct"],
   header: {tache: "Tâche O*NET", part_pct: "Part (%)"},
-  format: {part_pct: d => d.toLocaleString("fr-FR", {maximumFractionDigits: 2})},
-  width: {tache: 520}, rows: 15
+  format: {part_pct: d => nombre_fr(d, 2)},
+  rows: 15
 })
 ```
 
